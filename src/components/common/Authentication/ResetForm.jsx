@@ -40,7 +40,7 @@ const ResetForm = () => {
   };
 
   return (
-    <div>
+    <div className="h-[60vh] flex flex-col items-center justify-center w-full">
     
       <h1 className="text-xl text-center my-5 ">Reset Your Password</h1>
       <div className="flex justify-center items-center">

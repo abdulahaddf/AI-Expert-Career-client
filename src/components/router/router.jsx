@@ -41,6 +41,7 @@ import Kit from '../pages/Kit/Kit/Kit';
 import AiKitDetails from '../pages/Kit/Kit/AiKitDetails';
 import AiToolsDetails from '../pages/Kit/Kit/AiToolsDetails';
 import FreeCourses from '../pages/Courses/FreeCourses';
+import ResetForm from '../common/Authentication/ResetForm';
 
 export const router = createBrowserRouter([
 
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: '/signup',
         element: <Signup />,
+      },
+      {
+        path: '/forget',
+        element: <ResetForm />,
       },
       {
         path: '/cart',
