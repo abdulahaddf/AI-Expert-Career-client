@@ -3,7 +3,7 @@
 import Search from "../../../../assets/Kit/search.svg";
 import Arrow from "../../../../assets/Kit/arror.svg";
 import { useContext } from "react";
-import { MyContext } from "../../../../Contaxt/Context";
+import { MyContext } from "../../../../Context/Context";
 
 const HomeSearch = () => {
   const { language } = useContext(MyContext);

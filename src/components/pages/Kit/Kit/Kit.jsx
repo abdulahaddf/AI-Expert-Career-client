@@ -11,7 +11,7 @@ import right from "../../../../assets/Kit/right.svg";
 import kitBanner from "../../../../assets/Kit/kit-banner.png";
 import { Link } from "react-router-dom";
 import cover from "../../../../../public/img/event/cart.jpg";
-import { MyContext } from "../../../../Contaxt/Context";
+import { MyContext } from "../../../../Context/Context";
 // import cover from '../../../../../public/img/event/cart.jpg';
 
 const Kit = () => {
@@ -113,10 +113,11 @@ const Kit = () => {
       {/* toggle button  */}
       <div className="my-16  grid bg-[#0000001A] rounded-xl grid-cols-2 lg:w-[60%] mx-auto text-[22px] font-bold">
         <button
-          className={`py-[10px] ${activeButton === "Ai Kit"
+          className={`py-[10px] ${
+            activeButton === "Ai Kit"
               ? "text-[#ED1B24] rounded-xl bg-white border-none"
               : ""
-            }`}
+          }`}
           onClick={() => {
             setActiveButton("Ai Kit");
             setActiveSection("Ai Kit");
@@ -125,10 +126,11 @@ const Kit = () => {
           {language === "bn" ? "এআই কিট" : "Ai Kit"}
         </button>
         <button
-          className={` ${activeButton === "Ai Tools"
+          className={` ${
+            activeButton === "Ai Tools"
               ? "text-[#ED1B24] rounded-xl bg-white border-none"
               : ""
-            }`}
+          }`}
           onClick={() => {
             setActiveButton("Ai Tools");
             setActiveSection("Ai Tools");

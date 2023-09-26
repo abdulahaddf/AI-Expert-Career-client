@@ -12,13 +12,13 @@ import { BiDislike, BiLike } from "react-icons/bi";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useContext } from 'react';
-import { MyContext } from '../../../../Contaxt/Context';
+import { useContext } from "react";
+import { MyContext } from "../../../../Context/Context";
 
 const IndividualBlog = () => {
-  const [like, setLike] = useState(false)
-  const [disLike, setDisLike] = useState(false)
-  const {language} = useContext(MyContext)
+  const [like, setLike] = useState(false);
+  const [disLike, setDisLike] = useState(false);
+  const { language } = useContext(MyContext);
   const allComments = [
     {
       author: "Robert Albert",
@@ -40,17 +40,17 @@ const IndividualBlog = () => {
           time: "1 year",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-        }
-      ]
-    }, {
+        },
+      ],
+    },
+    {
       author: "Robert Albert22222222",
       authorImage: avatar,
       time: "1 year",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-    }
-
-  ]
+    },
+  ];
   // scrollTo
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,20 +76,35 @@ const IndividualBlog = () => {
           <div className="pt-[9px]">
             <img src={demo} alt="" className="rounded pb-12" />
             <p className="font-semibold text-xm">
-              {language == 'bn' ?
-              'আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে'
-                :
-              'AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work.'}
+              {language == "bn"
+                ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে"
+                : "AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work."}
             </p>
           </div>
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
-              {
-                like ? <AiFillLike onClick={() => setLike(!like)} className="text-2xl text-center text-white" /> : <BiLike onClick={() => setLike(!like)} className="text-2xl text-center text-white" />
-              }
-              {
-                disLike ? <AiFillDislike onClick={() => setDisLike(!disLike)} className="text-2xl text-center text-white" /> : <BiDislike onClick={() => setDisLike(!disLike)} className="text-2xl text-center text-white" />
-              }
+              {like ? (
+                <AiFillLike
+                  onClick={() => setLike(!like)}
+                  className="text-2xl text-center text-white"
+                />
+              ) : (
+                <BiLike
+                  onClick={() => setLike(!like)}
+                  className="text-2xl text-center text-white"
+                />
+              )}
+              {disLike ? (
+                <AiFillDislike
+                  onClick={() => setDisLike(!disLike)}
+                  className="text-2xl text-center text-white"
+                />
+              ) : (
+                <BiDislike
+                  onClick={() => setDisLike(!disLike)}
+                  className="text-2xl text-center text-white"
+                />
+              )}
 
               <img src={comment} alt="" />
             </div>
@@ -109,22 +124,23 @@ const IndividualBlog = () => {
               <img src={avatar} alt="" className="" />
               <input
                 type="text"
-                placeholder={language == 'bn' ? 'কমেন্ট করুন' : 'Add a comment'}
+                placeholder={language == "bn" ? "কমেন্ট করুন" : "Add a comment"}
                 className="border-none w-full bg-[#eefaf993] text-lg font-bold p-2"
               />
             </div>
             <div className="flex flex-row-reverse gap-7 pt-2">
               <button className="bg-[#FF0944] w-[130px] text-white rounded font-bold">
-                {language == 'bn' ? 'ঙ্কমেন্ট' : 'Comment'}
+                {language == "bn" ? "ঙ্কমেন্ট" : "Comment"}
               </button>
-              <button className="font-bold">{language == 'bn' ? 'বাতিল করুন' : 'Cancel'}</button>
+              <button className="font-bold">
+                {language == "bn" ? "বাতিল করুন" : "Cancel"}
+              </button>
             </div>
           </div>
           <div>
-            {
-              allComments.map((cmt, index) => <Comment cmt={cmt} key={index}></Comment>)
-            }
-
+            {allComments.map((cmt, index) => (
+              <Comment cmt={cmt} key={index}></Comment>
+            ))}
           </div>
         </div>
       </div>
@@ -132,7 +148,9 @@ const IndividualBlog = () => {
       <div>
         <div className=" mt-20">
           <h2 className="md:text-[35px] text-xl font-bold">
-            {language == 'bn' ? 'একই সম্পর্কিত আরো কিছু টপিক্স' : 'You may interest also those topics'}
+            {language == "bn"
+              ? "একই সম্পর্কিত আরো কিছু টপিক্স"
+              : "You may interest also those topics"}
           </h2>
 
           <div className="md:pb-[150px] pt-[35px]">

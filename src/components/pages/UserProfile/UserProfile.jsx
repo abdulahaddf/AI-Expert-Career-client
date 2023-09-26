@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { useEffect } from "react";
-import { MyContext } from "../../../Contaxt/Context";
+import { MyContext } from "../../../Context/Context";
 const UserProfile = () => {
   const [edit, setEdit] = useState(false);
-  const { language } = useContext(MyContext)
+  const { language } = useContext(MyContext);
   const updateHandler = () => {
     setEdit(!edit);
   };
@@ -42,8 +42,7 @@ const UserProfile = () => {
           <div className="md:grid grid-cols-2 mt-2 gap-8">
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="name">
-              {language === 'bn' ? 'নাম' : "Name"}
-                
+                {language === "bn" ? "নাম" : "Name"}
               </label>
               {edit ? (
                 <>
@@ -61,7 +60,7 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="email">
-              {language === 'bn' ? 'ইমেইল ' : "Email"}
+                {language === "bn" ? "ইমেইল " : "Email"}
               </label>
               {edit ? (
                 <>
@@ -79,7 +78,7 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="phone">
-              {language === 'bn' ? 'মোবাইল' : "Phone"}
+                {language === "bn" ? "মোবাইল" : "Phone"}
               </label>
               {edit ? (
                 <>
@@ -97,7 +96,8 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="address">
-              {language === 'bn' ? 'ঠিকানা' : "Address"}</label>
+                {language === "bn" ? "ঠিকানা" : "Address"}
+              </label>
               {edit ? (
                 <>
                   <br />
@@ -109,14 +109,12 @@ const UserProfile = () => {
                   />
                 </>
               ) : (
-                <h1 className="text-lg font-bold ">
-
-                  Mirpur/Dhaka</h1>
+                <h1 className="text-lg font-bold ">Mirpur/Dhaka</h1>
               )}
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="city">
-              {language === 'bn' ? 'শহর' : "City"} 
+                {language === "bn" ? "শহর" : "City"}
               </label>
               {edit ? (
                 <>
@@ -133,8 +131,15 @@ const UserProfile = () => {
               )}
             </div>
             <div className="mt-8">
-            <label className="text-[#707070]" htmlFor="password">
-           {edit ? language === 'bn'   ? 'বর্তমান পাসওয়ার্ড' : 'Current Password'  : language === 'bn' ? 'পাসওয়ার্ড' :' Password'}</label>
+              <label className="text-[#707070]" htmlFor="password">
+                {edit
+                  ? language === "bn"
+                    ? "বর্তমান পাসওয়ার্ড"
+                    : "Current Password"
+                  : language === "bn"
+                  ? "পাসওয়ার্ড"
+                  : " Password"}
+              </label>
 
               {edit ? (
                 <>
@@ -154,8 +159,7 @@ const UserProfile = () => {
           {edit ? (
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="new_password">
-              {language === 'bn' ? 'নতুন পাসওয়ার্ড' : "New password"} 
-               
+                {language === "bn" ? "নতুন পাসওয়ার্ড" : "New password"}
               </label>
               {edit ? (
                 <>
@@ -190,76 +194,76 @@ const UserProfile = () => {
             ""
           )}
           <h1 className="text-xl font-semibold mt-12">
-          {language === 'bn' ? 'বিলিং ঠিকানা' : "Billing Address"} </h1>
+            {language === "bn" ? "বিলিং ঠিকানা" : "Billing Address"}{" "}
+          </h1>
           <form className="bg-[#ed1b260e] mt-8">
             <div className=" md:grid grid-cols-2 gap-8 py-9 px-12">
               <input
                 name="first_name"
                 type="text"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-               
-                placeholder={language === 'bn' ? 'প্রথম নাম*' : 'First name*'}
+                placeholder={language === "bn" ? "প্রথম নাম*" : "First name*"}
               />
 
               <input
                 type="text"
                 name="last_name"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-                placeholder={language === 'bn' ? 'শেষ নাম*' : 'Last name*'}
+                placeholder={language === "bn" ? "শেষ নাম*" : "Last name*"}
               />
 
               <input
                 type="text"
                 name="last_name"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-                placeholder={language === 'bn' ? 'ঠিকানা ১*' : 'Address line 1*'}
-              
+                placeholder={
+                  language === "bn" ? "ঠিকানা ১*" : "Address line 1*"
+                }
               />
 
               <input
                 type="text"
                 name="last_name"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-              
-                placeholder={language === 'bn'? 'ঠিকানা ২*' : 'Address line 2*'}
-               
+                placeholder={
+                  language === "bn" ? "ঠিকানা ২*" : "Address line 2*"
+                }
               />
 
               <input
                 type="text"
                 name="phone"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-               
-                placeholder={language === 'bn'? 'মোবাইল*' : 'Phone*'}
+                placeholder={language === "bn" ? "মোবাইল*" : "Phone*"}
               />
 
               <input
                 type="text"
                 name="city"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-                placeholder={language === 'bn'? 'শহর*' : 'City*'}
+                placeholder={language === "bn" ? "শহর*" : "City*"}
               />
 
               <input
                 type="text"
                 name="country"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-                placeholder={language === 'bn'? 'দেশ*' : 'Country*'}
+                placeholder={language === "bn" ? "দেশ*" : "Country*"}
               />
 
               <input
                 type="text"
                 name="zip_code"
                 className="outline-none py-2 placeholder:text-[black] placeholder:font-bold border-b border-[red] bg-[#ffffff02]"
-                placeholder={language === 'bn'? 'জিপ কোড*' : "zip code*"}
+                placeholder={language === "bn" ? "জিপ কোড*" : "zip code*"}
               />
             </div>
             <div className="flex items-center gap-4 float-right mt-4">
               <button className="bg-[#000000] text-white px-8 py-2 rounded my-btn">
-              {language === 'bn' ? 'বাতিল' : "Cancel"}
+                {language === "bn" ? "বাতিল" : "Cancel"}
               </button>
               <button className="bg-[#ED1B24] text-white px-8 py-2 rounded my-btn">
-              {language === 'bn' ? 'এগিয়ে যান' : "Continue"}
+                {language === "bn" ? "এগিয়ে যান" : "Continue"}
               </button>
             </div>
           </form>

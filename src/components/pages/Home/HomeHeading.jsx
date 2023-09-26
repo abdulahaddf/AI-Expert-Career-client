@@ -4,39 +4,44 @@ import line from "../../../assets/line.svg";
 import img1 from "../../../assets/profile.svg";
 import TimeLineComponent from "./TimeLineComponents";
 import HomeConsultant from "./HomeConsultant";
-import { MyContext } from "../../../Contaxt/Context";
-
+import { MyContext } from "../../../Context/Context";
 
 const HomeHeading = () => {
-
-
   const [activeNavLink, setActiveNavLink] = useState("/home");
-  const [active, setActive] = useState("roadmap")
+  const [active, setActive] = useState("roadmap");
 
-  const { language } = useContext(MyContext)
+  const { language } = useContext(MyContext);
 
   const activeValue = (path, link) => {
-    setActiveNavLink(path)
-    setActive(link)
-  }
+    setActiveNavLink(path);
+    setActive(link);
+  };
   const menuItem = (
     <>
       <li>
         <NavLink
           to="/home"
-          className={`${active === "roadmap" ? "border-b-[4px] border-[#EB3223] text-sm md:text-lg  bg-[#ffff0000] text-[#EB3223]" : " bg-transparent"} md:px-8 px-2 py-4 text-sm md:text-lg`}
+          className={`${
+            active === "roadmap"
+              ? "border-b-[4px] border-[#EB3223] text-sm md:text-lg  bg-[#ffff0000] text-[#EB3223]"
+              : " bg-transparent"
+          } md:px-8 px-2 py-4 text-sm md:text-lg`}
           onClick={() => activeValue("/home", "roadmap")}
         >
-          {language === 'bn' ? 'ক্যারিয়ার রোডম্যাপ' : "Career Roadmap"}
+          {language === "bn" ? "ক্যারিয়ার রোডম্যাপ" : "Career Roadmap"}
         </NavLink>
       </li>
       <li>
         <NavLink
           to="/"
-          className={`${active === "consultant" ? "border-b-[4px] text-sm md:text-lg border-[#EB3223] bg-[#ffff0000] text-[#EB3223]" : "bg-transparent"} text-sm md:text-lg  md:px-8 px-2 py-4`}
+          className={`${
+            active === "consultant"
+              ? "border-b-[4px] text-sm md:text-lg border-[#EB3223] bg-[#ffff0000] text-[#EB3223]"
+              : "bg-transparent"
+          } text-sm md:text-lg  md:px-8 px-2 py-4`}
           onClick={() => activeValue("/home", "consultant")}
         >
-          {language === 'bn' ? "ক্যারিয়ার কনসালট্যান্ট" : "Career Consultant"}
+          {language === "bn" ? "ক্যারিয়ার কনসালট্যান্ট" : "Career Consultant"}
         </NavLink>
       </li>
     </>
@@ -47,9 +52,15 @@ const HomeHeading = () => {
 
   return (
     <div className="mt-[80px] mb-[35px] relative">
-      <h3 className="text-center font-bold text-[30px]">{language === 'bn' ? 'সফলতার দেখা পেতে দরকার, সঠিক রোডম্যাপ!' : 'Success needs to be seen, the right roadmap!'}</h3>
+      <h3 className="text-center font-bold text-[30px]">
+        {language === "bn"
+          ? "সফলতার দেখা পেতে দরকার, সঠিক রোডম্যাপ!"
+          : "Success needs to be seen, the right roadmap!"}
+      </h3>
       <p className="sm:w-[60%] mx-auto text-center mt-4 mb-[25px]">
-        {language === 'bn' ? 'আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা' : 'No matter what background you are a student or learner, the right roadmap can get you there. Can give top success. Our AI roadmap and consultancy services are developed by these experts in various fields'}
+        {language === "bn"
+          ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা"
+          : "No matter what background you are a student or learner, the right roadmap can get you there. Can give top success. Our AI roadmap and consultancy services are developed by these experts in various fields"}
       </p>
       <center>
         <img src={line} alt="" />
@@ -59,15 +70,10 @@ const HomeHeading = () => {
         {menuItem}
       </ul>
 
-
-
       {/* Roadmap */}
       {showRoadmapComment && (
         <div>
-          {
-            active === "roadmap" ? <TimeLineComponent /> : <HomeConsultant />
-          }
-
+          {active === "roadmap" ? <TimeLineComponent /> : <HomeConsultant />}
         </div>
       )}
 

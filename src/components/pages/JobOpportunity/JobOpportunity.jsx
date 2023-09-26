@@ -3,7 +3,7 @@ import jobOppImg from "../../../assets/job-opportunity/job-opportunity.jpg";
 
 import { Link, useNavigate } from "react-router-dom";
 import { FaBookmark } from "react-icons/fa";
-import { MyContext } from "../../../Contaxt/Context";
+import { MyContext } from "../../../Context/Context";
 
 const JobOpportunity = () => {
   const [jobs, setJobs] = useState([]);

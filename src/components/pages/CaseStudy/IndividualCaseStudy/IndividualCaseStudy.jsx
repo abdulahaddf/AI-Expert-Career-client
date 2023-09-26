@@ -10,10 +10,9 @@ import avatar from "../../Blog/Assests/avatar.png";
 import demo from "../Assests/caseStudy.svg";
 import IndividualCaseStudyCard from "./IndividualCaseStudyCard";
 import { useContext, useEffect } from "react";
-import { MyContext } from "../../../../Contaxt/Context";
+import { MyContext } from "../../../../Context/Context";
 const IndividualCaseStudy = () => {
-
-  const {language} = useContext(MyContext)
+  const { language } = useContext(MyContext);
 
   const allComments = [
     {
@@ -36,17 +35,17 @@ const IndividualCaseStudy = () => {
           time: "1 year",
           description:
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-        }
-      ]
-    }, {
+        },
+      ],
+    },
+    {
       author: "Robert Albert22222222",
       authorImage: avatar,
       time: "1 year",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-    }
-
-  ]
+    },
+  ];
   // scrollTo
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,7 +63,9 @@ const IndividualCaseStudy = () => {
           <div className="pt-[9px]">
             <img src={demo} alt="" className="rounded pb-12 w-full" />
             <p className="font-bold text-lg lg:text-2xl">
-              {language == 'bn' ? 'আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে' : 'AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work.'}
+              {language == "bn"
+                ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে"
+                : "AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work."}
             </p>
           </div>
           <div className="mt-[40px] flex justify-between items-center">
@@ -89,21 +90,25 @@ const IndividualCaseStudy = () => {
               <img src={avatar} alt="" className="" />
               <input
                 type="text"
-                placeholder={language == 'bn' ? 'কমেন্ট করুন......' : 'Add a comment'}
+                placeholder={
+                  language == "bn" ? "কমেন্ট করুন......" : "Add a comment"
+                }
                 className="border-b-2 border-[#000000] w-full bg-[#eefaf993] text-lg font-bold p-2"
               />
             </div>
             <div className="flex flex-row-reverse gap-7 pt-2">
               <button className="bg-[#FF0944] w-[130px] text-white rounded font-bold">
-                {language == 'bn' ? 'কমেন্ট' : 'Comment'}
+                {language == "bn" ? "কমেন্ট" : "Comment"}
               </button>
-              <button className="font-bold">{language == 'bn' ? 'বাতিল' : 'Cancel'}</button>
+              <button className="font-bold">
+                {language == "bn" ? "বাতিল" : "Cancel"}
+              </button>
             </div>
           </div>
           <div>
-            {
-              allComments.map((cmt, index) => <Comment cmt={cmt} key={index}></Comment>)
-            }
+            {allComments.map((cmt, index) => (
+              <Comment cmt={cmt} key={index}></Comment>
+            ))}
           </div>
         </div>
       </div>
@@ -111,7 +116,9 @@ const IndividualCaseStudy = () => {
       <div>
         <div>
           <h2 className="text-[35px] font-bold">
-            {language == 'bn' ? 'একই সম্পর্কিত আরো কিছু টপিক্স' : 'You may interest also those topics'}
+            {language == "bn"
+              ? "একই সম্পর্কিত আরো কিছু টপিক্স"
+              : "You may interest also those topics"}
           </h2>
           <div className="pb-[50px] pt-[35px]">
             <IndividualCaseStudyCard></IndividualCaseStudyCard>

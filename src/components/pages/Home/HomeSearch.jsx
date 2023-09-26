@@ -1,10 +1,10 @@
 import Search from "../../../assets/search.svg";
 import Arrow from "../../../assets/arror.svg";
 import { useContext } from "react";
-import { MyContext } from "../../../Contaxt/Context";
+import { MyContext } from "../../../Context/Context";
 
 const HomeSearch = () => {
-  const { language } = useContext(MyContext)
+  const { language } = useContext(MyContext);
   return (
     <div>
       <div className="mb-[60px]">
@@ -13,7 +13,11 @@ const HomeSearch = () => {
             <img className="-mr-14 z-20" src={Search} alt="" />
             <input
               className="pl-20 bg-white rounded-full w-full h-[55px] relative"
-              placeholder={language === 'bn' ? 'পছন্দের কোর্সগুলো খুঁজুন' : 'Search your favorite courses'}
+              placeholder={
+                language === "bn"
+                  ? "পছন্দের কোর্সগুলো খুঁজুন"
+                  : "Search your favorite courses"
+              }
               type="search"
               name="jobSearch"
               id=""
@@ -31,16 +35,18 @@ const HomeSearch = () => {
           </div>
           <div className="flex justify-center flex-wrap items-center gap-1 sm:gap-8 mt-[30px]">
             <button className="px-[32px] py-[8px] bg-[#ED1B24] rounded-md text-white my-btn shadow-lg">
-              {language === 'bn' ? 'মেশিন লার্নিং' : 'Machine Learning'}
+              {language === "bn" ? "মেশিন লার্নিং" : "Machine Learning"}
             </button>
             <button className="px-[32px] py-[8px] bg-[#ED1B24] rounded-md text-white my-btn shadow-lg">
-              {language === 'bn' ? 'ডিপ লার্নিং ' : 'Deep Learning'}
+              {language === "bn" ? "ডিপ লার্নিং " : "Deep Learning"}
             </button>
             <button className="px-[32px] py-[8px] bg-[#ED1B24] rounded-md text-white my-btn shadow-lg">
-              {language === 'bn' ? 'প্রম্পট ইঞ্জিনিয়ারিং' : 'Prompt Engineering'}
+              {language === "bn"
+                ? "প্রম্পট ইঞ্জিনিয়ারিং"
+                : "Prompt Engineering"}
             </button>
             <button className="px-[32px] py-[8px] bg-[#ED1B24] rounded-md text-white my-btn shadow-lg">
-              {language === 'bn' ? 'এন এল পি' : 'Natural Language Processing'}
+              {language === "bn" ? "এন এল পি" : "Natural Language Processing"}
             </button>
           </div>
         </div>

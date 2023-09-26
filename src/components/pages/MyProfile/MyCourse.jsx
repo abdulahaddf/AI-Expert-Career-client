@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import courseImg from '../../../assets/Dashboard/mycourses.png';
-import CourseCart from './CourseCart';
-import { MyContext } from '../../../Contaxt/Context';
+import { useContext, useEffect } from "react";
+import courseImg from "../../../assets/Dashboard/mycourses.png";
+import CourseCart from "./CourseCart";
+import { MyContext } from "../../../Context/Context";
 const MyCourse = () => {
-  const { language } = useContext(MyContext)
+  const { language } = useContext(MyContext);
   const myCourses = [
     {
       progress: 0,
@@ -36,7 +36,10 @@ const MyCourse = () => {
   }, []);
   return (
     <div className="lg:h-screen mb-12">
-       <h3 className='text-xl font-bold'> {language === 'bn' ? 'আমার কোর্স সমূূহ' : "My courses"} </h3>
+      <h3 className="text-xl font-bold">
+        {" "}
+        {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}{" "}
+      </h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-[30px] gap-5 2xl:gap-x-0">
         {myCourses.map((item, i) => (
           <CourseCart key={i} item={item} />

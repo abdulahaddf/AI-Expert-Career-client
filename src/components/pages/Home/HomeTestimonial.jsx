@@ -11,11 +11,11 @@ import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 import { BsQuote } from "react-icons/bs";
-import { MyContext } from "../../../Contaxt/Context";
+import { MyContext } from "../../../Context/Context";
 import { useContext } from "react";
 
 const HomeTestimonial = () => {
-  const { language } = useContext(MyContext)
+  const { language } = useContext(MyContext);
   const testimonialData = [
     {
       id: "1",
@@ -68,7 +68,10 @@ const HomeTestimonial = () => {
   ];
   return (
     <div className="mt-[80px] mb-[35px] relative">
-      <h3 className="text-center font-bold text-[30px]"> {language === 'bn' ? 'শিক্ষার্থীরা যা বলছেন' : 'Our Testimonial'}</h3>
+      <h3 className="text-center font-bold text-[30px]">
+        {" "}
+        {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Our Testimonial"}
+      </h3>
       <center>
         <img src={line} alt="" />
       </center>
@@ -108,10 +111,7 @@ const HomeTestimonial = () => {
         >
           {testimonialData.map(
             ({ id, img, name, description, designation }) => (
-              <SwiperSlide
-                key={id}
-                className=" pb-16"
-              >
+              <SwiperSlide key={id} className=" pb-16">
                 <div className="p-10 bg-[#fff] rounded-[20px] text-center mt-[120px] relative">
                   <span className="absolute left-[16px] top-[-15px]">
                     <BsQuote className="text-black text-4xl" />
@@ -126,7 +126,6 @@ const HomeTestimonial = () => {
                   </h5>
                   <p className="text-sm">{description.slice(0, 90)}</p>
                 </div>
-
               </SwiperSlide>
             )
           )}

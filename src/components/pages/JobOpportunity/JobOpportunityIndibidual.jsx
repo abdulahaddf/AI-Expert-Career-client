@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import natureImg from "../../../assets/job-opportunity/natureImg.jpg";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
-import { MyContext } from "../../../Contaxt/Context";
+import { MyContext } from "../../../Context/Context";
 
 const JobOpportunityIndibidual = () => {
   const jobId = useParams();

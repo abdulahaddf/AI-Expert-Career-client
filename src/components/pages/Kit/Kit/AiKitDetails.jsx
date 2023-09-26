@@ -5,7 +5,7 @@ import product2 from "../../../../assets/Kit/product-1.png";
 import product3 from "../../../../assets/Kit/product-1.png";
 import product4 from "../../../../assets/Kit/product-1.png";
 import { SlBriefcase } from "react-icons/sl";
-import { MyContext } from "../../../../Contaxt/Context";
+import { MyContext } from "../../../../Context/Context";
 
 const AiKitDetails = () => {
   const { language } = useContext(MyContext);

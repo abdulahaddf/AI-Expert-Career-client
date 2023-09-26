@@ -5,7 +5,7 @@ import { MdArrowForward } from "react-icons/md";
 import { AiOutlineStar } from "react-icons/ai";
 import cover from "../../../../assets/Kit/aitoolCart.png";
 import ProgressBar from "./ProgressBar";
-import { MyContext } from "../../../../Contaxt/Context";
+import { MyContext } from "../../../../Context/Context";
 
 const AiToolsDetails = () => {
   const [visibleItems, setVisibleItems] = useState(3);
