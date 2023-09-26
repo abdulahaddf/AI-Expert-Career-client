@@ -1,0 +1,875 @@
+[
+    {
+        "id:": 0,
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "title": "Ai event for beginners 1",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-9-30 20:49:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/55.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11 11:59:59"
+        },
+        "eventConference": {
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 1,
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "title": "Ai event for beginners 252",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-9-22 20:49:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/55.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 3,
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "title": "Ai event for beginners 252",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-9-22 20:49:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/55.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 4,
+        "title": "Ai event for beginners 4",
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2024-12-11 23:59:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/85.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "holder": "shahin khan",
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 5,
+        "title": "Ai event for beginners 5",
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-12-11 23:59:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/55.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "holder": "shahin khan",
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many ",
+                    "name": "speaker 2 ",
+                    "profession": "Designer"
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many ",
+                    "name": "speaker 3 ",
+                    "profession": "Developer"
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many ",
+                    "name": "speaker 4",
+                    "profession": "Developer"
+                }
+            ],
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 6,
+        "title": "Ai event for beginners 6",
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-12-11 23:59:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/35.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "holder": "shahin khan",
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    },
+    {
+        "id:": 7,
+        "title": "Ai event for beginners 7",
+        "img": "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
+        "date": "january 17-19, 2023",
+        "location": "online",
+        "ticketRemainig": 50,
+        "ticketId": "ad32as",
+        "eventTime": "2023-12-11 23:59:59",
+        "holderInfo": {
+            "img": "https://randomuser.me/api/portraits/men/15.jpg",
+            "name": "Shahin khan",
+            "address": "Dhaka, mirpur",
+            "email": "example@example.com"
+        },
+        "eventFaq": [
+            {
+                "id": 0,
+                "title": "How to make a event ?1",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 1,
+                "title": "How to make a event ? 2",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            },
+            {
+                "id": 2,
+                "title": "How to make a event ? 3",
+                "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over cy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions have evolved over the years Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose infancy. Various versions ha",
+                "tags": [
+                    "All tag & Customized Feature",
+                    "All tag & Customized Feature"
+                ]
+            }
+        ],
+        "holder": "shahin khan",
+        "details": "Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+        "speaker:": 20,
+        "about": {
+            "detailsEN": " Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
+            "detailsBN": " আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা",
+            "lastDate": "2023-12-11:59:59"
+        },
+        "eventConference": {
+            "ProfessionalSpeaker": [
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 1 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 2 ",
+                    "profession": "Designer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 3 ",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                },
+                {
+                    "img": "https://i.ibb.co/Qjszc5w/Polygon-22.png",
+                    "name": "speaker 4",
+                    "profession": "Developer",
+                    "description": "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many "
+                }
+            ],
+            "Schedule": [
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                },
+                {
+                    "date": "30.5.2023",
+                    "address": "Hall A"
+                }
+            ],
+            "eventCart": [
+                {
+                    "id:": 0,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 1,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text, and a search for afsdasaadsads dasfd will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+                },
+                {
+                    "id:": 2,
+                    "title": "Speaker headline",
+                    "img": "user",
+                    "time": "08:00-9:30",
+                    "description": "Lorem Ipsum as their default model text"
+                }
+            ]
+        }
+    }
+]
