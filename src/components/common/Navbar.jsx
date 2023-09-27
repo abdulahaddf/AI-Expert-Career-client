@@ -15,11 +15,13 @@ import myWishlist from "../../assets/profile_icons/Heart.png";
 import purchases from "../../assets/profile_icons/File.png";
 import certificate from "../../assets/profile_icons/BadgeCheckOutline.png";
 import logout from "../../assets/profile_icons/Vector.png";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Navbar = () => {
+  const {user , } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { addToCart, user, setLanguage, language } = useContext(MyContext);
-  // const [openAbout, setOpenAbout] = useState(false);
+  const { addToCart, setLanguage, language } = useContext(MyContext);
+  
 
   const menuItem = (
     <>
@@ -232,7 +234,7 @@ const Navbar = () => {
             {
               <Link to="/" className="flex justify-center items-center gap-2">
                 <img
-                  className="select-none pointer-events-none no-select unselectable"
+                  className="select-none pointer-events-none no-select "
                   src={Logo}
                   alt=""
                 />

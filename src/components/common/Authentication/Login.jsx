@@ -1,15 +1,17 @@
 import { useContext } from "react";
 import loginBG from "../../../assets/LoginBg.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const Login = () => {
-  const { createUser, signInGoogle, signInFB, profileUpdate, setLoading } =
+  const { signIn, signInGoogle, signInFB, setLoading } =
     useContext(AuthContext);
   const { language } = useContext(MyContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -26,9 +28,106 @@ const Login = () => {
     watch,
   } = useForm();
 
-  const onSubmit = (data) => {
-    // Submit the form data to the backend
-    console.log(data);
+const navigate = useNavigate();
+const location = useLocation();
+const from = location?.state?.from?.pathname || "/"
+
+
+  const handleForm = (data) => {
+    const { email, password } = data;
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate("/");
+
+        toast.info("Successfully Signed In", {
+          icon: <AiFillCheckCircle className="text-xl text-primary" />,
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (
+          errorCode === "auth/user-not-found" ||
+          errorCode === "auth/wrong-password"
+        ) {
+          toast.error("Invalid email or password");
+        } else {
+          
+          toast(errorMessage.slice(10, 61));
+        }
+      });
+  };
+
+  // Handle google signin
+  const handleGoogleSignIn = () => {
+    signInGoogle()
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const saveUser = {
+          displayName: loggedInUser.displayName,
+          email: loggedInUser.email,
+          photoURL: loggedInUser.photoURL,
+          role: "user",
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            console.log(result.user);
+            toast.info("Successfully Signed In", {
+              icon: <AiFillCheckCircle className="text-xl text-primary" />,
+            });
+            navigate(from, { replace: true });
+          });
+      })
+
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message);
+      });
+  };
+  // Handle FB signin
+  const handlefbSignIn = () => {
+    signInFB()
+      .then((result) => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const saveUser = {
+          displayName: loggedInUser.displayName,
+          email: loggedInUser.email,
+          photoURL: loggedInUser.photoURL,
+          role: "user",
+        };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            console.log(result.user);
+            toast.info("Successfully Signed In", {
+              icon: <AiFillCheckCircle className="text-xl text-primary" />,
+            });
+            navigate(from, { replace: true });
+          });
+      })
+
+      .catch((err) => {
+        setLoading(false);
+        console.log(err.message);
+      });
   };
 
   return (
@@ -46,7 +145,7 @@ const Login = () => {
                   src={loginBG}
                   alt=""
                 />
-                <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
+                <form action="" className="" onSubmit={handleSubmit(handleForm)}>
                   <input
                     type="email"
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
@@ -135,8 +234,8 @@ const Login = () => {
                 </center>
                 {/* join with google button  */}
                 <div className="mt-10  w-[16rem] mx-auto text-center">
-                  <Link
-                    to=""
+                  <button
+                  onClick={handleGoogleSignIn}
                     className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
                   >
                     <img
@@ -145,12 +244,12 @@ const Login = () => {
                       alt="google_logo"
                     />
                     Continue with Google
-                  </Link>
+                  </button>
                 </div>
                 {/* join with facebook button  */}
                 <div className="mt-5 w-[16rem] mx-auto text-center">
-                  <Link
-                    to=""
+                  <button
+                    onClick={handlefbSignIn}
                     className="px-[20px] py-[10px] bg-[#1877F2] rounded-md text-white shadow-lg flex items-center"
                   >
                     <img
@@ -159,7 +258,7 @@ const Login = () => {
                       alt="facebook_logo"
                     />
                     Continue with Facebook
-                  </Link>
+                  </button>
                 </div>
                 {/* join with linkedin button  */}
                 <div className="mt-5 w-[16rem] mx-auto text-center">

@@ -13,12 +13,6 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
-
-
-
-
-
-
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -26,7 +20,6 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
- 
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -73,7 +66,7 @@ const AuthProvider = ({ children }) => {
 
       // if (currentUser) {
       //   axios
-      //     .post("https://book-verse-server-phi.vercel.app/jwt", {
+      //     .post("http://localhost:5000/jwt", {
       //       email: currentUser.email,
       //     })
       //     .then((data) => {
@@ -91,13 +84,6 @@ const AuthProvider = ({ children }) => {
     return () => unSubscribe();
   }, []);
 
-
-
-
-
-
-
-
   // console.log(auth, user);
   const authInfo = {
     user,
@@ -111,7 +97,6 @@ const AuthProvider = ({ children }) => {
     profileUpdate,
     signInFB,
     sendPasswordResetEmail,
-  
   };
 
   return (
