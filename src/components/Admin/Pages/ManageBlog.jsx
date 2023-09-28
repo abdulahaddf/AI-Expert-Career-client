@@ -66,10 +66,10 @@ const ManageBlog = () => {
                   />
                 </td>
 
-                <td>
+                <td className="text-center">
                   <button
                     onClick={() => handleDelete(blogs)}
-                    className="btn-custom m-2 w-24"
+                    className="btn btn-outline btn-sm hover:bg-primary m-2 w-24 "
                   >
                     Delete
                   </button>

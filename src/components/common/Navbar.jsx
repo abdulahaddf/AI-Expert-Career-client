@@ -19,7 +19,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
 
 const Navbar = () => {
-  const {user , logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
   const isAdmin = false;
@@ -32,11 +32,6 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
-
-
-
-
-
 
   const menuItem = (
     <>
@@ -290,8 +285,7 @@ const Navbar = () => {
                 </Link>
               )}
 
-
-<button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+              <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
                 <p
                   onClick={() => setLanguage("bn")}
                   className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
@@ -314,106 +308,96 @@ const Navbar = () => {
                 </p>
               </button>
 
-{
-  user ? <div>
-  <div
-                className=" dropdown dropdown-hover "
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              >
-                <label
-                  tabIndex={0}
-                  className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
-                >
-                  {' '}
-                  <div className="flex items-center hover:text-primary">
-                  <img
+              {user ? (
+                <div>
+                  <div
+                    className=" dropdown dropdown-hover "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <label
+                      tabIndex={0}
+                      className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                    >
+                      {" "}
+                      <div className="flex items-center hover:text-primary">
+                        <img
                           className="w-[60px] h-[60px] rounded-full"
-                          src={user?.photoURL  || "https://i.ibb.co/sg6hmZ7/user.png"} 
+                          src={
+                            user?.photoURL ||
+                            "https://i.ibb.co/sg6hmZ7/user.png"
+                          }
                           alt="user"
                         />
 
-                   
+                        <span className="text-xl ">
+                          <RiArrowDownSLine
+                            className={`${
+                              isHovered ? "transform rotate-180 " : ""
+                            } transition-transform duration-300 inline-block `}
+                          ></RiArrowDownSLine>
+                        </span>
+                      </div>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                  rounded-box  md:w-40 lg:w-36 "
+                    >
+                      <li className="ml-3 mt-3">
+                        <Link
+                          to="/dashboard/my-profile"
+                          className="justify-between hover:no-underline  hover:text-primary"
+                        >
+                          My Profile
+                          <span className=""></span>
+                        </Link>
+                      </li>
+                      <li>
+                        {user ? (
+                          isAdmin ? (
+                            <li>
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
+                              >
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          ) : (
+                            <li className="flex flex-col ml-3 pb-5 ">
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
+                              >
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </li>
 
-                    <span className="text-xl ">
-                      <RiArrowDownSLine
-                        className={`${
-                          isHovered ? 'transform rotate-180 ' : ''
-                        } transition-transform duration-300 inline-block `}
-                      ></RiArrowDownSLine>
-                    </span>
+                      <li></li>
+                    </ul>
                   </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
-                  rounded-box  md:w-40 lg:w-36 " 
-                >
-                  <li className="ml-3 mt-3">
-                    <Link
-                      to="/dashboard/my-profile"
-                      className='justify-between hover:no-underline  hover:text-primary'>
-                      My Profile
-                      <span className=""></span>
-                    </Link>
-                  </li>
-                  <li>
-                    {user ? (
-                      isAdmin ? (
-                        <li >
-                        <Link to="/dashboard/user-dashboard"
-                          className= 'hover:no-underline hover:text-primary '>
-                          Dashboard
-                        </Link>
-                        <a
-                      className='hover:text-primary  hover:no-underline'
-                      
-                      onClick={logOut}
-                    >
-                      Logout
-                    </a>
-                          </li>
-                        
-                      ) : (
-                        <li className="flex flex-col ml-3 pb-5 ">
-                       <Link to="/dashboard/user-dashboard"
-                          className= 'hover:no-underline hover:text-primary '>
-                          Dashboard
-                        </Link>
-                        <a
-                      className='hover:text-primary  hover:no-underline'
-                      
-                      onClick={logOut}
-                    >
-                      Logout
-                    </a>
-                    
-                          </li>
-                      )
-                    ) : (
-                      ''
-                    )}
-                  </li>
-                
-                  <li>
-                  
-                  </li>
-                </ul>
-              </div>
-
-  </div> : ""
-}
-
-
-
-
-
-
-
-
-
-
-
+                </div>
+              ) : (
+                ""
+              )}
 
               {/* {user && (
                 <span>
@@ -521,56 +505,7 @@ const Navbar = () => {
                 </span>
               )} */}
 
-
-
-
-
-
-
-
-
-
-
-              {/* {user ? (
-                <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
-                <p
-                  onClick={() => setLanguage("bn")}
-                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
-                    language == "bn"
-                      ? "bg-[#ED1B24] text-white"
-                      : "bg-[#ffffff] text-black"
-                  }`}
-                >
-                  বাংলা
-                </p>
-                <p
-                  onClick={() => setLanguage("en")}
-                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
-                    language == "en"
-                      ? "bg-[#ED1B24] text-white"
-                      : "bg-[#fbf9f9] text-black"
-                  }`}
-                >
-                  Eng
-                </p>
-              </button>
-                ""
- }}
-                  >
-                    বাংলা
-                  </p>
-                  <p
-                    onClick={() => setLanguage("en")}
-                    className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
-                      language == "en"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#fbf9f9] text-black"
-                    }`}
-                  >
-                    Eng
-                  </p>
-                </button>
-              )} */}
+           
             </div>
             {!scrollNav && (
               <div className="lg:hidden ">
@@ -644,23 +579,95 @@ const Navbar = () => {
                             </NavLink>
                           </li>
                           {user ? (
+                <div>
+                  <div
+                    className=" dropdown dropdown-hover "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <label
+                      tabIndex={0}
+                      className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                    >
+                      {" "}
+                      <div className="flex items-center hover:text-primary">
+                        <img
+                          className="w-[60px] h-[60px] rounded-full"
+                          src={
+                            user?.photoURL ||
+                            "https://i.ibb.co/sg6hmZ7/user.png"
+                          }
+                          alt="user"
+                        />
+
+                        <span className="text-xl ">
+                          <RiArrowDownSLine
+                            className={`${
+                              isHovered ? "transform rotate-180 " : ""
+                            } transition-transform duration-300 inline-block `}
+                          ></RiArrowDownSLine>
+                        </span>
+                      </div>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                  rounded-box  md:w-40 lg:w-36 "
+                    >
+                      <li className="ml-3 mt-3">
+                        <Link
+                          to="/dashboard/my-profile"
+                          className="justify-between hover:no-underline  hover:text-primary"
+                        >
+                          My Profile
+                          <span className=""></span>
+                        </Link>
+                      </li>
+                      <li>
+                        {user ? (
+                          isAdmin ? (
                             <li>
-                              <NavLink
-                                to="/login"
-                                className={({ isActive, isPending }) =>
-                                  isActive
-                                    ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 "
-                                    : isPending
-                                    ? "pending"
-                                    : "px-3"
-                                }
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
                               >
-                                Login
-                              </NavLink>
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
                             </li>
                           ) : (
-                            <div className="px-[14px]">User</div>
-                          )}
+                            <li className="flex flex-col ml-3 pb-5 ">
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
+                              >
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </li>
+
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
                           <li className="text-center">
                             <Link
                               className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
@@ -779,111 +786,95 @@ const Navbar = () => {
                   </span>
                 </Link>
               )}
-              {/* convert Bangla and English */}
-              {user && (
-                <span>
-                  <button
-                    to="/about-us"
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 "
-                        : isPending
-                        ? "pending"
-                        : "px-3"
-                    }
+                {user ? (
+                <div>
+                  <div
+                    className=" dropdown dropdown-hover "
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <div className="dropdown inline-block relative">
-                      <button className=" hover:text-[#ED1B24] lg:px-4 py-2 font-bold gap-3  inline-flex items-center">
+                    <label
+                      tabIndex={0}
+                      className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                    >
+                      {" "}
+                      <div className="flex items-center hover:text-primary">
                         <img
                           className="w-[60px] h-[60px] rounded-full"
-                          src="https://randomuser.me/api/portraits/men/44.jpg"
-                          alt=""
+                          src={
+                            user?.photoURL ||
+                            "https://i.ibb.co/sg6hmZ7/user.png"
+                          }
+                          alt="user"
                         />
-                        <svg
-                          className="fill-current h-4 w-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
+
+                        <span className="text-xl ">
+                          <RiArrowDownSLine
+                            className={`${
+                              isHovered ? "transform rotate-180 " : ""
+                            } transition-transform duration-300 inline-block `}
+                          ></RiArrowDownSLine>
+                        </span>
+                      </div>
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                  rounded-box  md:w-40 lg:w-36 "
+                    >
+                      <li className="ml-3 mt-3">
+                        <Link
+                          to="/dashboard/my-profile"
+                          className="justify-between hover:no-underline  hover:text-primary"
                         >
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
-                        </svg>
-                      </button>
-                      <ul className="dropdown-menu w-[200px] absolute z-40 hidden bg-[#F1D8E5] text-gray-700 pt-1">
-                        <li className="">
-                          <Link
-                            className="rounded-t  text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={dashboard} alt="" />
-                              <span>Dashboard</span>
-                            </div>
-                          </Link>
-                        </li>
-                        <li className="">
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/my-profile"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myProfile} alt="" />
-                              <span>My Profile</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/my-courses"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myCourses} alt="" />
-                              <span>My courses</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/wishlist"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myWishlist} alt="" />
-                              <span>My Wishlist</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/purchase-history"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={purchases} alt="" />
-                              <span>Purchase History</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/certification"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={certificate} alt="" />
-                              <span>Certification</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={logout} alt="" />
-                              <span>Logout</span>
-                            </div>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </button>
-                  <div className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg">
-                    <Link className="duration-100 hover:text-[red]" to="/">
-                      Contact Us
-                    </Link>
+                          My Profile
+                          <span className=""></span>
+                        </Link>
+                      </li>
+                      <li>
+                        {user ? (
+                          isAdmin ? (
+                            <li>
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
+                              >
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          ) : (
+                            <li className="flex flex-col ml-3 pb-5 ">
+                              <Link
+                                to="/dashboard/user-dashboard"
+                                className="hover:no-underline hover:text-primary "
+                              >
+                                Dashboard
+                              </Link>
+                              <a
+                                className="hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </a>
+                            </li>
+                          )
+                        ) : (
+                          ""
+                        )}
+                      </li>
+
+                      <li></li>
+                    </ul>
                   </div>
-                </span>
+                </div>
+              ) : (
+                ""
               )}
 
               {user ? (

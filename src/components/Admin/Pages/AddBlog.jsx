@@ -5,63 +5,101 @@ import Swal from "sweetalert2";
 
 const AddBlog = () => {
     const [blogName, setBlogName] = useState("");
-    const [imageURL, setImageURL] = useState("");
     const [description, setDescription] = useState("");
     const editor = useRef(null);
-      //   For categories and sub categories
     const [category, setCategory] = useState('');
     const [subcategory, setSubcategory] = useState('');
     const [newTag, setNewTag] = useState('');
     const [selectedTags, setSelectedTags] = useState([]);
+    const [image, setImage] = useState(null); // Store the selected image file
   
-    const handleSubmit = (e) => {
+
+
+    const handleSubmit = async (e) => {
+        console.log(e)
         e.preventDefault();
-        const data = {
-          blogName,
-          category,
-          subcategory,
-          selectedTags,
-          imageURL,
-          description,
-        };
-        fetch("http://localhost:5000/blogs", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            console.log(result);
-            if (result.acknowledged) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Blog added successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              // Reset the input fields to empty values
-              setBlogName("");
-              setImageURL("");
-              setDescription("");
-              setCategory("")
-              setSubcategory("")
-              setSelectedTags([])
-            } else {
-              Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Blog is not uploaded successfully",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
+    
+        const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Upload_token}`;
+    
+        try {
+          const coverForm = new FormData();
+          coverForm.append("image", image);
+    
+          // Upload Cover Image
+          const coverResponse = await fetch(imageUploadUrl, {
+            method: "POST",
+            body: coverForm,
           });
+    
+          if (!coverResponse.ok) {
+            throw new Error("Cover image upload failed");
+          }
+    
+          const coverImageResponse = await coverResponse.json();
+          const cover_image_url = coverImageResponse.data.display_url;
+    
+          // Prepare Blog Data
+          const blogData = {
+            blogName,
+            category,
+            subcategory,
+            selectedTags,
+            imageURL : cover_image_url,
+            description,
+            comments: [],
+            likes: 0,
+            dislikes: 0,
+          };
+    
+          // Send Blog Data to API
+          const apiResponse = await fetch("http://localhost:5000/blogs", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(blogData),
+          });
+    
+          if (!apiResponse.ok) {
+            throw new Error("Blog insertion failed");
+          }
+    
+          const responseData = await apiResponse.json();
+    
+          if (responseData.insertedId) {
+            Swal.fire({
+              title: "Success!",
+              text: "Blog added successfully",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+            // Reset the input fields to empty values
+            setBlogName("");
+            setDescription("");
+            setCategory("");
+            setSubcategory("");
+            setSelectedTags([]);
+            setImage(null);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Blog is not uploaded successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       };
+    
+    
+  
 
   
   
     // Define the options for category and subcategory
+    
     const categoryOptions = [
       'Machine learning',
       'Data science',
@@ -136,7 +174,7 @@ const AddBlog = () => {
 
 
     return (
-        <div className='h-[100vh]'>
+        <div className='h-[150vh]'>
         <h1 className="text-3xl text-center">Create a Blog</h1>
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-5">
           <div className='flex justify-between'>
@@ -161,14 +199,15 @@ const AddBlog = () => {
               htmlFor="imageURL"
               className="block mb-2 font-medium text-gray-700"
             >
-              Image URL
+            Cover Image
             </label>
             <input
-              type="text"
-              id="imageURL"
-              className="w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-orange"
-              value={imageURL}
-              onChange={(e) => setImageURL(e.target.value)}
+              type="file"
+              id="image"
+              className="w-80 input 
+              file-input file-input-bordered  text-black file-input-error"
+              onChange={(e) => setImage(e.target.files[0])}
+              
             />
           </div>
           </div>
