@@ -6,7 +6,7 @@ export default {
       colors: {
         
         primary : '#ED1B24',
-       
+        secondary : '#EDCAC9'
         
       }},
       

@@ -16,10 +16,14 @@ import { Outlet } from "react-router";
 import { NavLink } from "react-router-dom";
 import Footer from "../../common/footer/Footer";
 import { MyContext } from "../../../Context/Context";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
+  const {user, logOut } = useContext(AuthContext);
+
   const [isOpen, setIsOpen] = useState(false);
+  const isAdmin = true;
   const gradientColor =
     "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
   // const sideNavItem = ["Dashboard", "My Profile", "My courses", "My Wislist", "Purchase History", "Certification"];
@@ -41,7 +45,7 @@ const DashboardLayout = () => {
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className=" relative pt-[60px] lg:pt-[100px] px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
+          className=" relative pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
         >
           <div className="flex  space-x-0 lg:space-x-[18px]">
             <div
@@ -60,7 +64,83 @@ const DashboardLayout = () => {
                 <BsChevronLeft />
               </button>
               <div>
+               {
+                isAdmin ? 
+                // Admin Dashboard link starts from here
                 <ul className="w-full py-[30px] md:px-4 flex  flex-col">
+                <NavLink
+                  to={"/dashboard/user-dashboard"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                  }
+                >
+                  <BsGrid
+                    className={`${({ isActive }) =>
+                      isActive
+                        ? "text-white"
+                        : "text-red-600"}mb-[4px] mr-2 `}
+                  />
+                  {language === "bn" ? "ড্যাশবোর্ড" : "Admin"}
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboard/my-profile"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                  }
+                >
+                  <BsPerson
+                    className={`${({ isActive }) =>
+                      isActive
+                        ? "text-white"
+                        : "text-red-600"}mb-[4px] mr-2 `}
+                  />
+                  {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                </NavLink>
+
+                <NavLink
+                  to={"/dashboard/add-blog"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                  }
+                >
+                  <BsLaptop
+                    className={`${({ isActive }) =>
+                      isActive
+                        ? "text-white"
+                        : "text-red-600"}mb-[4px] mr-2 `}
+                  />
+                  {language === "bn" ? "ব্লগ যোগ করুন" : "Add Blog"}
+                </NavLink>
+                <NavLink
+                  to={"/dashboard/manage-blog"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                  }
+                >
+                  <BsLaptop
+                    className={`${({ isActive }) =>
+                      isActive
+                        ? "text-white"
+                        : "text-red-600"}mb-[4px] mr-2 `}
+                  />
+                  {language === "bn" ? "ব্লগ পরিচালনা করুন" : "Manage Blog"}
+                </NavLink>
+
+              
+
+                
+              </ul> :      
+              // User Routes starts from Here
+              <ul className="w-full py-[30px] md:px-4 flex  flex-col">
                   <NavLink
                     to={"/dashboard/user-dashboard"}
                     className={({ isActive }) =>
@@ -163,13 +243,21 @@ const DashboardLayout = () => {
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
                   </NavLink>
                 </ul>
+               }
+
+
+
+
+
+
+
                 <div className="absolute bottom-5 left-[36px] flex items-center cursor-pointer">
                   <img
                     src={logoutLogo}
                     alt=""
                     className="mr-2.5 h-4 w-4 mb-1.5"
                   />
-                  <button className="font-bold">
+                  <button className="font-bold" onClick={logOut}>
                     {language === "bn" ? "লগ আউট" : "Logout"}
                   </button>
                 </div>

@@ -42,6 +42,8 @@ import AiKitDetails from '../pages/Kit/Kit/AiKitDetails';
 import AiToolsDetails from '../pages/Kit/Kit/AiToolsDetails';
 import FreeCourses from '../pages/Courses/FreeCourses';
 import ResetForm from '../common/Authentication/ResetForm';
+import AddBlog from '../Admin/Pages/AddBlog';
+import ManageBlog from '../Admin/Pages/ManageBlog';
 
 export const router = createBrowserRouter([
 
@@ -250,6 +252,14 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/wishlist',
         element: <Wishlist />,
+      },
+      {
+        path: '/dashboard/add-blog',
+        element: <AddBlog />,
+      },
+      {
+        path: '/dashboard/manage-blog',
+        element: <ManageBlog />,
       },
     ],
   },
