@@ -16,12 +16,27 @@ import purchases from "../../assets/profile_icons/File.png";
 import certificate from "../../assets/profile_icons/BadgeCheckOutline.png";
 import logout from "../../assets/profile_icons/Vector.png";
 import { AuthContext } from "../../Context/AuthProvider";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const Navbar = () => {
-  const {user , } = useContext(AuthContext);
+  const {user , logOut} = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
-  
+  const isAdmin = false;
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+
+
+
+
 
   const menuItem = (
     <>
@@ -275,7 +290,110 @@ const Navbar = () => {
                 </Link>
               )}
 
-              {user && (
+
+
+
+{
+  user ? <div>
+  <div
+                className=" dropdown dropdown-hover "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <label
+                  tabIndex={0}
+                  className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                >
+                  {' '}
+                  <div className="flex items-center hover:text-primary">
+                  <img
+                          className="w-[60px] h-[60px] rounded-full"
+                          src={user?.photoURL  || "https://i.ibb.co/sg6hmZ7/user.png"} 
+                          alt="user"
+                        />
+
+                   
+
+                    <span className="text-xl ">
+                      <RiArrowDownSLine
+                        className={`${
+                          isHovered ? 'transform rotate-180 ' : ''
+                        } transition-transform duration-300 inline-block `}
+                      ></RiArrowDownSLine>
+                    </span>
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                  rounded-box  md:w-40 lg:w-36 " 
+                >
+                  <li className="ml-3 mt-3">
+                    <Link
+                      to="/dashboard/my-profile"
+                      className='justify-between hover:no-underline  hover:text-primary'>
+                      My Profile
+                      <span className=""></span>
+                    </Link>
+                  </li>
+                  <li>
+                    {user ? (
+                      isAdmin ? (
+                        <li >
+                        <Link to="/dashboard/user-dashboard"
+                          className= 'hover:no-underline hover:text-primary '>
+                          Dashboard
+                        </Link>
+                        <a
+                      className='hover:text-primary  hover:no-underline'
+                      
+                      onClick={logOut}
+                    >
+                      Logout
+                    </a>
+                          </li>
+                        
+                      ) : (
+                        <li className="flex flex-col ml-3 pb-5 ">
+                       <Link to="/dashboard/user-dashboard"
+                          className= 'hover:no-underline hover:text-primary '>
+                          Dashboard
+                        </Link>
+                        <a
+                      className='hover:text-primary  hover:no-underline'
+                      
+                      onClick={logOut}
+                    >
+                      Logout
+                    </a>
+                          </li>
+                      )
+                    ) : (
+                      ''
+                    )}
+                  </li>
+                
+                  <li>
+                  
+                  </li>
+                </ul>
+              </div>
+
+  </div> : ""
+}
+
+
+
+
+
+
+
+
+
+
+
+
+              {/* {user && (
                 <span>
                   <button
                     to="/about-us"
@@ -291,7 +409,7 @@ const Navbar = () => {
                       <button className=" hover:text-[#ED1B24] lg:px-4 py-2 font-bold gap-3  inline-flex items-center">
                         <img
                           className="w-[60px] h-[60px] rounded-full"
-                          src="https://randomuser.me/api/portraits/men/44.jpg"
+                          src={user?.photoURL  || "https://i.ibb.co/sg6hmZ7/user.png"} 
                           alt=""
                         />
                         <svg
@@ -302,7 +420,7 @@ const Navbar = () => {
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
                         </svg>
                       </button>
-                      <ul className="dropdown-menu w-[200px] absolute z-40 hidden bg-[#F1D8E5] text-gray-700 pt-1">
+                      <ul className="dropdown-menu  absolute z-40 bg-[#F1D8E5] text-gray-700 pt-1">
                         <li className="">
                           <Link
                             className="rounded-t  text-black py-2 px-4 block whitespace-no-wrap"
@@ -316,7 +434,7 @@ const Navbar = () => {
                         </li>
                         <li className="">
                           <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
+                            className="rounded-t  text-black py-2 px-4 block whitespace-no-wrap"
                             to="/dashboard/my-profile"
                           >
                             <div className="flex items-center gap-2">
@@ -379,19 +497,43 @@ const Navbar = () => {
                     </Link>
                   </div>
                 </span>
-              )}
+              )} */}
 
-              {user ? (
-                ""
-              ) : (
+
+
+
+
+
+
+
+
+
+
+              {/* {user ? (
                 <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
-                  <p
-                    onClick={() => setLanguage("bn")}
-                    className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
-                      language == "bn"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#ffffff] text-black"
-                    }`}
+                <p
+                  onClick={() => setLanguage("bn")}
+                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                    language == "bn"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#ffffff] text-black"
+                  }`}
+                >
+                  বাংলা
+                </p>
+                <p
+                  onClick={() => setLanguage("en")}
+                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                    language == "en"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#fbf9f9] text-black"
+                  }`}
+                >
+                  Eng
+                </p>
+              </button>
+                ""
+ }}
                   >
                     বাংলা
                   </p>
@@ -406,7 +548,7 @@ const Navbar = () => {
                     Eng
                   </p>
                 </button>
-              )}
+              )} */}
             </div>
             {!scrollNav && (
               <div className="lg:hidden ">

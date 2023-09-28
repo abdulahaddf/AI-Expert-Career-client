@@ -24,21 +24,15 @@ const Signup = () => {
     handleSubmit,
     reset,
     formState: { errors },
-    watch,
   } = useForm();
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    phone: "",
-    password: "",
-  });
+ 
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
   const handleForm = (data) => {
-    const { email, name, password, phone } = data;
+    const { email, name, password, } = data;
 
     createUser(email, password)
     .then(() => {
@@ -102,7 +96,7 @@ const Signup = () => {
           .then((res) => res.json())
           .then(() => {
             console.log(result.user);
-            toast.info("Successfully Signed In", {
+            toast("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });
             navigate(from, { replace: true });
