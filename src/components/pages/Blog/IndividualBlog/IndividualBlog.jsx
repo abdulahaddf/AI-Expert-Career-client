@@ -14,43 +14,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../../../../Context/Context";
+import { useLoaderData } from "react-router-dom";
 
 const IndividualBlog = () => {
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
   const { language } = useContext(MyContext);
-  const allComments = [
-    {
-      author: "Robert Albert",
-      authorImage: avatar,
-      time: "1 year",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-      replyComments: [
-        {
-          author: "Robert Albert",
-          authorImage: avatar,
-          time: "1 year",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-        },
-        {
-          author: "Robert Albert",
-          authorImage: avatar,
-          time: "1 year",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-        },
-      ],
-    },
-    {
-      author: "Robert Albert22222222",
-      authorImage: avatar,
-      time: "1 year",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, dolores.",
-    },
-  ];
+  const blog = useLoaderData();
   // scrollTo
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -65,20 +35,19 @@ const IndividualBlog = () => {
         <div className="col-span-3 lg:mt-0 mt-8 ">
           <div>
             <h2 className="font-bold text-3xl">
-              Artificial Intelligence Master
+              {blog.blogName}
             </h2>
             <p>
-              <span className="text-[#ED1B24] font-bold">Robert Fox</span> ||
-              <span> January 7, 2023</span>
+              <span className="text-[#ED1B24] font-bold">{blog.category}</span> ||
+              <span> {blog.subcategory}</span>
             </p>
-            <p>Chatbot Chat with AI, Artificial </p>
+            <p>{blog.selectedTags} ||  </p> 
+            {/* <p>{blog?.createAt?.toISOString()?.substring(0,10)}</p> */}
           </div>
           <div className="pt-[9px]">
-            <img src={demo} alt="" className="rounded pb-12" />
+            <img src={blog.imageURL} alt="" className="rounded pb-12" />
             <p className="font-semibold text-xm">
-              {language == "bn"
-                ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছেআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে"
-                : "AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work. AI is the word of the year, with ChatGPT making waves since it was initially introduced in November 2022. With every new iteration of the powerful tool, users managed to find innovative ways of using the all-powerful AI bot to speed up and simplify their work."}
+            <p className="my-20  " dangerouslySetInnerHTML={{__html:blog.description}}></p>
             </p>
           </div>
           <div className="mt-[40px] flex justify-between items-center">
@@ -137,11 +106,11 @@ const IndividualBlog = () => {
               </button>
             </div>
           </div>
-          <div>
+          {/* <div>
             {allComments.map((cmt, index) => (
               <Comment cmt={cmt} key={index}></Comment>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

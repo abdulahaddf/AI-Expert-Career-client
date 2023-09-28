@@ -130,6 +130,18 @@ export const router = createBrowserRouter([
         element: <Blog></Blog>,
       },
       {
+        path: '/single-blog/:id',
+        element: <IndividualBlog></IndividualBlog>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/singleblogs/${params.id}`
+          ),
+      },
+      {
+        path: '/individual-blog/:id',
+        element: <IndividualBlog></IndividualBlog>,
+      },
+      {
         path: '/profile',
         element: <UserProfile />,
       },
@@ -137,10 +149,7 @@ export const router = createBrowserRouter([
         path: '/case-study',
         element: <CaseStudy></CaseStudy>,
       },
-      {
-        path: '/individual-blog/:id',
-        element: <IndividualBlog></IndividualBlog>,
-      },
+      
       {
         path: '/individual-case-study/:id',
         element: <IndividualCaseStudy></IndividualCaseStudy>,

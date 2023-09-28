@@ -150,7 +150,14 @@ const Blog = () => {
   const [newData, setNewData] = useState(productsData);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const pagination = [1, 2, 3, 4, 5];
+  const [blogs, setBlogs] = useState([]);
 
+  useEffect(() => {
+    fetch(" http://localhost:5000/blogs")
+      .then((response) => response.json())
+      .then((data) => setBlogs(data));
+  }, []);
+  
   const handleCheckboxChange = (event) => {
     const checkboxValue = event.target.value;
     if (event.target.checked) {
@@ -259,8 +266,8 @@ const Blog = () => {
             <div className="">
               {/* <BlogCard></BlogCard> */}
               <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
-                {filteredProducts?.map((blog) => (
-                  <BlogCard key={blog.id} blog={blog} />
+                {blogs?.map((blog) => (
+                  <BlogCard key={blog._id} blog={blog} />
                 ))}
               </div>
             </div>
