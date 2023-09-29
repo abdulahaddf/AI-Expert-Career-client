@@ -42,8 +42,9 @@ import AiKitDetails from '../pages/Kit/Kit/AiKitDetails';
 import AiToolsDetails from '../pages/Kit/Kit/AiToolsDetails';
 import FreeCourses from '../pages/Courses/FreeCourses';
 import ResetForm from '../common/Authentication/ResetForm';
-import AddBlog from '../Admin/Pages/AddBlog';
-import ManageBlog from '../Admin/Pages/ManageBlog';
+import AddBlog from '../Admin/Pages/Blog/AddBlog';
+import ManageBlog from '../Admin/Pages/Blog/ManageBlog';
+import EditBlog from '../Admin/Pages/Blog/EditBlog';
 
 export const router = createBrowserRouter([
 
@@ -129,6 +130,7 @@ export const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>,
       },
+      
       {
         path: '/single-blog/:id',
         element: <IndividualBlog></IndividualBlog>,
@@ -269,6 +271,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/manage-blog',
         element: <ManageBlog />,
+      },
+      {
+        path: '/dashboard/edit-blog/:id',
+        element: <EditBlog/>,
       },
     ],
   },

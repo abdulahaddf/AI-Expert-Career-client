@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Swal from "sweetalert2";
 
@@ -67,6 +68,12 @@ const ManageBlog = () => {
                 </td>
 
                 <td className="text-center">
+                  <Link to={`/dashboard/edit-blog/${blogs._id}`}
+                   
+                    className="btn btn-outline btn-sm hover:bg-primary m-2 w-24 "
+                  >
+                    Edit
+                  </Link>
                   <button
                     onClick={() => handleDelete(blogs)}
                     className="btn btn-outline btn-sm hover:bg-primary m-2 w-24 "
