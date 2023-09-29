@@ -48,8 +48,8 @@ const AddBlog = () => {
         description,
         descriptionBN,
         comments: [],
-        likes: 0,
-        dislikes: 0,
+        likes: [],
+        dislikes: [],
       };
 
       // Send Blog Data to API

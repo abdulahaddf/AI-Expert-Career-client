@@ -19,38 +19,40 @@ import moment from "moment";
 import UseUser from "../../../../hooks/useUser";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../../../Context/AuthProvider";
 
 const IndividualBlog = () => {
+  const { language } = useContext(MyContext);
+  const { user } = useContext(AuthContext);
+  const [userinfo] = UseUser();
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
-  const { language } = useContext(MyContext);
-  // const blog = useLoaderData();
   const [blogs, setBlogs] = useState([]);
-  const [userinfo] = UseUser();
   const [cmnt, setComment] = useState("");
   // const [allComments, setAllComments] = useState([]);
   const { id } = useParams();
   console.log(id);
   const [blog, setBlog] = useState([]);
   console.log(blog);
-  const allComments = blog?.comments?.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const allComments = blog?.comments?.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
   const [showAllComments, setShowAllComments] = useState(false);
-  
+
   const displayedComments = showAllComments
     ? allComments
     : allComments?.slice(0, 5);
+    //fetching data for individual blog
   useEffect(() => {
     fetch(`http://localhost:5000/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
   }, [id, cmnt]);
 
-  
-
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
   };
-
+//fetching data for all blogs
   useEffect(() => {
     fetch(" http://localhost:5000/blogs")
       .then((response) => response.json())
@@ -101,7 +103,7 @@ const IndividualBlog = () => {
       });
   };
 
-  scrollTo
+  scrollTo;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -152,30 +154,21 @@ const IndividualBlog = () => {
           </div>
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
-              {like ? (
-                <AiFillLike
-                  onClick={() => setLike(!like)}
-                  className="text-2xl text-center text-white"
-                />
-              ) : (
+             <div className="flex items-center gap-4">
+              <span className="text-white">55 </span>
                 <BiLike
                   onClick={() => setLike(!like)}
                   className="text-2xl text-center text-white"
-                />
-              )}
-              {disLike ? (
-                <AiFillDislike
+                  /> 
+                  </div>
+           <div className="flex gap-4">
+           <BiDislike
                   onClick={() => setDisLike(!disLike)}
                   className="text-2xl text-center text-white"
-                />
-              ) : (
-                <BiDislike
-                  onClick={() => setDisLike(!disLike)}
-                  className="text-2xl text-center text-white"
-                />
-              )}
-
-              <img src={comment} alt="" />
+                /><span className="text-white">5 </span>
+           </div>
+               
+    
             </div>
             <div className="flex justify-center items-center gap-8">
               <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
@@ -188,7 +181,9 @@ const IndividualBlog = () => {
               <img src={share} alt="" className="cursor-pointer" />
             </div>
           </div>
-          <div className="pt-[32px] ">
+
+          {
+            user ?  <div className="pt-[32px] ">
             <div className="flex justify-center items-center gap-x-[10px] ">
               <img
                 src={userinfo?.photoURL}
@@ -211,29 +206,32 @@ const IndividualBlog = () => {
                 {language == "bn" ? "ঙ্কমেন্ট" : "Comment"}
               </button>
             </div>
-          </div>
+          </div> : <p className="my-10 text-center text-xl cursor-pointer text-primary">Login to Comment Here</p>
+          }
+         
           <div className="my-5">
-      {displayedComments
-        ?.map((cmt, index) => (
-          <Comment cmt={cmt} key={index}></Comment>
-        ))}
-      {!showAllComments && allComments?.length > 5 && (
-        <button
-          onClick={handleShowMore}
-          className="text-blue-500 btn btn-outline btn-sm  hover:bg-primary hover:border-0"
-        >
-          Show More
-        </button>  
-      )}
-      {
-        showAllComments ? <button
-        onClick={handleShowMore}
-        className="text-blue-500 btn btn-outline btn-sm  hover:bg-primary hover:border-0"
-      >
-        Show Less
-      </button> : ""
-      }
-    </div>
+            {displayedComments?.map((cmt, index) => (
+              <Comment cmt={cmt} key={index}></Comment>
+            ))}
+            {!showAllComments && allComments?.length > 5 && (
+              <button
+                onClick={handleShowMore}
+                className="text-blue-500 btn btn-outline btn-sm  hover:bg-primary hover:border-0"
+              >
+                Show More
+              </button>
+            )}
+            {showAllComments ? (
+              <button
+                onClick={handleShowMore}
+                className="text-blue-500 btn btn-outline btn-sm  hover:bg-primary hover:border-0"
+              >
+                Show Less
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
 

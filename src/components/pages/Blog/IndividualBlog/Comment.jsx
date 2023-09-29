@@ -17,10 +17,10 @@ const Comment = ({ cmt }) => {
     <div className="">
       <div className="pb-9">
         <div className="flex gap-4">
-          <div>
+          <div className="flex-shrink-0"> 
             <img src={cmt.userinfo.photoURL} className="w-12 h-12 m-2 rounded-full" alt="commenter image" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-3">
             <div className="md:flex items-center gap-x-7">
               <p className="md:font-bold text-semibold">{cmt.userinfo.displayName}</p>
               <p>{moment(cmt.date).format('MMMM Do YYYY')}</p>
