@@ -134,10 +134,10 @@ export const router = createBrowserRouter([
       {
         path: '/single-blog/:id',
         element: <IndividualBlog></IndividualBlog>,
-        loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/singleblogs/${params.id}`
-          ),
+        // loader: ({ params }) =>
+        //   fetch(
+        //     `http://localhost:5000/singleblogs/${params.id}`
+        //   ),
       },
       {
         path: '/individual-blog/:id',
