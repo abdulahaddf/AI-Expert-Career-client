@@ -8,7 +8,7 @@ const BlogCard = ({ blog }) => {
   console.log(blog);
   return (
     <div  className="bg-white w-[288px] h-[389px] rounded-[10px]">
-      <div className="flex flex-col gap-5 justify-center items-center">
+      <div className="flex flex-col gap-5 justify-center items-center p-2">
         <img
           className="w-[254px] h-[170px] pt-[15px]"
           src={blog.imageURL}
@@ -22,13 +22,13 @@ const BlogCard = ({ blog }) => {
             ? blog.description.slice(0, 70) + '...' + ' See More...'
             : blog.description}
         </p> */}
-        <div className="my-2" dangerouslySetInnerHTML={{ __html: blog.description.length > 150 ? blog.description.substring(0, 150) + ' ...' : blog.description }}></div>
+        <div className="" dangerouslySetInnerHTML={{ __html: blog.description.length > 150 ? blog.description.substring(0, 100) + ' ...' : blog.description }}></div>
 
         <div className="flex justify-between items-center gap-[40px]">
           <div>
            
               <Link  to={`/single-blog/${blog._id}`}>
-                <button className="w-[91px] h-[44px] bg-[#ED1B23] text-white text-[16px] font-[600] rounded-[10px]">
+                <button className="w-[71px] h-[24px] bg-[#ED1B23] text-white text-[16px] font-[600] rounded-[10px]">
                   Read
                 </button>
               </Link>

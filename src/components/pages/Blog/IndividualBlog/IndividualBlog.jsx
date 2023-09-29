@@ -15,12 +15,29 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../../../../Context/Context";
 import { useLoaderData } from "react-router-dom";
+import moment from "moment";
 
 const IndividualBlog = () => {
   const [like, setLike] = useState(false);
   const [disLike, setDisLike] = useState(false);
   const { language } = useContext(MyContext);
   const blog = useLoaderData();
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    fetch(" http://localhost:5000/blogs")
+      .then((response) => response.json())
+      .then((data) => setBlogs(data));
+  }, []);
+
+
+
+
+
+
+
+
+
   // scrollTo
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,7 +46,7 @@ const IndividualBlog = () => {
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
         <div className="lg:border-r-2 border-[#00000057] p-1">
-          <BlogItem />
+          <BlogItem blogs={blogs}/>
         </div>
 
         <div className="col-span-3 lg:mt-0 mt-8 ">
@@ -41,8 +58,8 @@ const IndividualBlog = () => {
               <span className="text-[#ED1B24] font-bold">{blog.category}</span> ||
               <span> {blog.subcategory}</span>
             </p>
-            <p>{blog.selectedTags} ||  </p> 
-            {/* <p>{blog?.createAt?.toISOString()?.substring(0,10)}</p> */}
+            <p>{moment(blog.createdAt).format('YYYY-MM-DD')}</p>
+            <p>{blog.selectedTags}  </p> 
           </div>
           <div className="pt-[9px]">
             <img src={blog.imageURL} alt="" className="rounded pb-12" />

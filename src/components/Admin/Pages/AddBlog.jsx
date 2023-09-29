@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const AddBlog = () => {
     const [blogName, setBlogName] = useState("");
     const [description, setDescription] = useState("");
+    const [descriptionBN, setDescriptionBN] = useState("");
     const editor = useRef(null);
     const [category, setCategory] = useState('');
     const [subcategory, setSubcategory] = useState('');
@@ -46,6 +47,7 @@ const AddBlog = () => {
             selectedTags,
             imageURL : cover_image_url,
             description,
+            descriptionBN,
             comments: [],
             likes: 0,
             dislikes: 0,
@@ -127,18 +129,7 @@ const AddBlog = () => {
       'Kaggle',
       'Matplotlib',
     ];
-    const tagOptions = [
-        'Research field',
-        'Tips & tricks',
-        'Common mistakes',
-        'Career',
-        'Job opportunities',
-        'Salary',
-        'Bangladesh',
-        'Higher studies',
-        'About us',
-        // ... (other options)
-      ];
+   
   
     const handleCategoryChange = (e) => {
       setCategory(e.target.value);
@@ -147,10 +138,7 @@ const AddBlog = () => {
     const handleSubcategoryChange = (e) => {
       setSubcategory(e.target.value);
     };
-    const handleTagChange = (e) => {
-        const selectedValues = Array.from(e.target.selectedOptions, (option) => option.value);
-        setSelectedTags(selectedValues);
-      };
+   
     
       const handleNewTagChange = (e) => {
         setNewTag(e.target.value);
@@ -293,19 +281,7 @@ const AddBlog = () => {
           Add
         </button>
       </div>
-      {/* Available Tag Options */}
-      <select
-        multiple
-        className="w-full mt-2 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-orange"
-        value={selectedTags}
-        onChange={handleTagChange}
-      >
-        {tagOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+     
     </div>
 
 
@@ -317,7 +293,7 @@ const AddBlog = () => {
               htmlFor="description"
               className="block mb-2 font-medium text-gray-700"
             >
-              Description
+              Description in English
             </label>
            
   
@@ -329,6 +305,28 @@ const AddBlog = () => {
               tabIndex={1} // tabIndex of textarea
               
               onChange={newDescription => setDescription(newDescription)}
+          />
+  
+  
+  
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="descriptionBN"
+              className="block mb-2 font-medium text-gray-700 overflow-y-auto"
+            >
+              Description in Bangla
+            </label>
+           
+  
+  
+  <JoditEditor
+        id="descriptionBN"
+              ref={editor}
+              value={descriptionBN}
+              tabIndex={1} // tabIndex of textarea
+              
+              onChange={newDescription => setDescriptionBN(newDescription)}
           />
   
   

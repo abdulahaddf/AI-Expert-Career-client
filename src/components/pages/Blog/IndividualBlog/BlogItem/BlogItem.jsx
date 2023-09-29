@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import BlogOption from "./BlogOption";
 import { useContext } from "react";
 import { MyContext } from "../../../../../Context/Context";
 
-const BlogItem = () => {
+const BlogItem = ({blogs}) => {
   const { language } = useContext(MyContext);
 
   const data = [
@@ -146,7 +147,7 @@ const BlogItem = () => {
         {language == "bn" ? "বিষয়সমূহ -" : "Our more blogs"}
       </h2>
       <ul className="mt-3">
-        {data.map((data, index) => (
+        {blogs.map((data, index) => (
           <BlogOption key={index} data={data} />
         ))}
       </ul>
