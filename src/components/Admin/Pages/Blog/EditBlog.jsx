@@ -400,8 +400,7 @@ console.log(blog);
         </div>
         <button
           type="submit"
-          className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg"
-        >
+          className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg">
           Update
         </button>
       </form>
