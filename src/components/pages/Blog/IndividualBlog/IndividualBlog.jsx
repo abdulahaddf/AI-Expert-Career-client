@@ -54,18 +54,21 @@ const IndividualBlog = () => {
             <h2 className="font-bold text-3xl">
               {blog.blogName}
             </h2>
+            <p>{moment(blog.createdAt).format('YYYY-MM-DD')}</p>
             <p>
               <span className="text-[#ED1B24] font-bold">{blog.category}</span> ||
               <span> {blog.subcategory}</span>
             </p>
-            <p>{moment(blog.createdAt).format('YYYY-MM-DD')}</p>
-            <p>{blog.selectedTags}  </p> 
+            <p className="text-blue-400">{blog.selectedTags}  </p> 
           </div>
-          <div className="pt-[9px]">
-            <img src={blog.imageURL} alt="" className="rounded pb-12" />
-            <p className="font-semibold text-xm">
-            <p className="my-20  " dangerouslySetInnerHTML={{__html:blog.description}}></p>
-            </p>
+          <div className="p-2 ">
+            <figure className="flex justify-center">
+
+            <img src={blog.imageURL} alt="" className="rounded pb-12 max-w-[700px]" />
+            </figure>
+            {language == "bn" ?    blog.descriptionBN ? <p className="my-20  " dangerouslySetInnerHTML={{__html:blog?.descriptionBN}}></p> :<p className="my-20  " dangerouslySetInnerHTML={{__html:blog.description}}></p> : <p className="my-20  " dangerouslySetInnerHTML={{__html:blog.description}}></p>}
+            
+          
           </div>
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">

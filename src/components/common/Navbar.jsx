@@ -786,6 +786,28 @@ const Navbar = () => {
                   </span>
                 </Link>
               )}
+              <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+                <p
+                  onClick={() => setLanguage("bn")}
+                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                    language == "bn"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#ffffff] text-black"
+                  }`}
+                >
+                  বাংলা
+                </p>
+                <p
+                  onClick={() => setLanguage("en")}
+                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                    language == "en"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#fbf9f9] text-black"
+                  }`}
+                >
+                  Eng
+                </p>
+              </button>
                 {user ? (
                 <div>
                   <div
