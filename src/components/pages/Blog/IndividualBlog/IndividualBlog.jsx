@@ -59,6 +59,7 @@ const IndividualBlog = () => {
       .then((data) => setBlogs(data));
   }, []);
 
+// handling the comment
   const handleComment = () => {
     // Create the comment object with comment and userinfo
     const commentData = { comment: cmnt, userinfo, date: new Date() };
@@ -102,6 +103,44 @@ const IndividualBlog = () => {
         });
       });
   };
+  const handleLike = () => {
+    // Create the comment object with comment and userinfo
+    const data = {status : "liked" , email: userinfo.email, date: new Date() };
+
+    // Send a PATCH request to update the comment in your MongoDB database
+    fetch(`http://localhost:5000/like/${blog._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        // console.log(responseData)
+        if (responseData) {
+          toast.success("The Blog is liked", {
+            toastId: blog._id.toString(),
+          });
+
+        } else {
+          // Handle the case where the comment wasn't added successfully
+         toast.error("Something went wrong")
+        }
+      })
+      .catch((error) => {
+        // Handle any network or other errors that may occur during the request
+        console.error("Error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong. Please try again later.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+  };
+
+
 
   scrollTo;
   useEffect(() => {
@@ -157,7 +196,7 @@ const IndividualBlog = () => {
              <div className="flex items-center gap-4">
               <span className="text-white">55 </span>
                 <BiLike
-                  onClick={() => setLike(!like)}
+                  onClick={() => handleLike()}
                   className="text-2xl text-center text-white"
                   /> 
                   </div>
