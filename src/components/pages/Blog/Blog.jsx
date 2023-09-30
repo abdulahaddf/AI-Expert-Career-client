@@ -93,7 +93,7 @@ console.log(newData)
 
 
 
-  // ---------- pagination calculated ---------------
+  //  pagination 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -102,7 +102,7 @@ console.log(newData)
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 10 , behavior: "smooth" });
   };
 
 
@@ -160,7 +160,7 @@ if(isLoading) return <Loader/>
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
               <option value="Most Reviews">Most Reviews</option>
-              <option value="Other">Other</option>
+         
             </select>
           </div>
         </div>
@@ -186,26 +186,20 @@ if(isLoading) return <Loader/>
           </div>
           <div className="col-span-4">
             <div className="">
-              {/* <BlogCard></BlogCard> */}
-              <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
-                {paginatedBlogs?.map((blog) => (
-                  <BlogCard key={blog._id} blog={blog} />
-                ))}
-              </div>
+             {
+              paginatedBlogs.length > 0 && paginatedBlogs ?  <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
+              {paginatedBlogs?.map((blog) => (
+                <BlogCard key={blog._id} blog={blog} />
+              ))}
+            </div> : <p className="text-2xl text-center w-4/5">No Blogs Found</p>
+             }
             </div>
           </div>
         </div>
 
         <div className="flex gap-4 justify-center pt-[40px]">
          
-          {/* {pagination?.map((pageNumber, i) => (
-            <button
-              key={i}
-              className="w-[50px] h-[50px] bg-[#D9D9D9] rounded-[10px] font-bold"
-            >
-              {pageNumber}
-            </button>
-          ))} */}
+     {/* pagination */}
 <div className="flex justify-center mt-8">
           <button
             className={`px-4 py-2 rounded-md mx-2 ${

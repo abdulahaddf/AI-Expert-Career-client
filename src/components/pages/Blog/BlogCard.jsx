@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import viwes from './Assests/views.png';
 import comment from './Assests/comment.png';
+import { AiFillLike } from "react-icons/ai";
+
 
 const BlogCard = ({ blog }) => {
   // console.log(blog);
@@ -36,8 +38,9 @@ const BlogCard = ({ blog }) => {
           </div>
           <div className="flex items-center justify-between gap-[30px]">
             <div className="flex gap-1 items-center cursor-pointer">
-              <img className="w-[22px] h-[15px]" src={viwes} alt="" />
-              <p className="font-bold text-[14px]">10</p>
+              {/* <img className="w-[22px] h-[15px]" src={viwes} alt="" /> */}
+              <AiFillLike className='text-primary'/> 
+              <p className="font-bold text-[14px]">{blog.likes.length}</p>
             </div>
 
             <div className="flex gap-1 items-center cursor-pointer">

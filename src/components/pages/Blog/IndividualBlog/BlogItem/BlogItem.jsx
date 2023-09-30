@@ -1,145 +1,13 @@
 /* eslint-disable react/prop-types */
-import BlogOption from "./BlogOption";
 import { useContext } from "react";
 import { MyContext } from "../../../../../Context/Context";
+import { Link } from "react-router-dom";
 
-const BlogItem = ({blogs}) => {
+const BlogItem = ({blogs , blog}) => {
+  console.log(blogs, blog);
   const { language } = useContext(MyContext);
-
-  const data = [
-    {
-      title: "Chatbot Chat with AI, Artificial ",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-    {
-      title: "Chatbot Chat with AI, Artificial  2",
-      options: [
-        { name: "Wade Cooper" },
-        { name: "Arlene Mccoy" },
-        { name: "Devon Webb" },
-        { name: "Tom Cook" },
-        { name: "Tanya Fox" },
-        { name: "Hellen Schmidt" },
-      ],
-    },
-  ];
+const filtered = blogs.filter((bl) => bl.category === blog.category);
+console.log(filtered)
 
   return (
     <div className="">
@@ -147,9 +15,11 @@ const BlogItem = ({blogs}) => {
         {language == "bn" ? "বিষয়সমূহ -" : "Our more blogs"}
       </h2>
       <ul className="mt-3">
-        {blogs.map((data, index) => (
-          <BlogOption key={index} data={data} />
-        ))}
+        {filtered?.map((blog, index) => <div key={index} className="flex  items-start justify-between bg-[#5c3a6de7] mt-2 px-4 text-white py-2">
+          <Link >{blog.blogName.length > 80 ? <>{blog.blogName.slice(0, 70)} ...</> : blog.blogName}</Link>
+          </div>  
+         
+        )}
       </ul>
     </div>
   );

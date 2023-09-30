@@ -211,7 +211,7 @@ const IndividualBlog = () => {
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
         <div className="lg:border-r-2 border-[#00000057] p-1">
-          <BlogItem blogs={blogs} />
+          <BlogItem blogs={blogs} blog={blog} />
         </div>
 
         <div className="col-span-3 lg:mt-0 mt-8 ">
