@@ -32,7 +32,7 @@ const Blog = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const [sortingOption, setSortingOption] = useState(""); // State for sorting option
+  const [sortingOption, setSortingOption] = useState(""); 
 
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
@@ -45,10 +45,13 @@ const Blog = () => {
 
   useEffect(() => {
     // Handle filtering and sorting whenever selectedCheckboxes, blogs, or sortingOption change
-    const filteredProducts =
-      selectedCheckboxes.length === 0
-        ? blogs
-        : blogs.filter((blog) => selectedCheckboxes.includes(blog.category));
+    let filteredProducts = [...blogs];
+
+    if (selectedCheckboxes.length > 0) {
+      filteredProducts = filteredProducts.filter((blog) =>
+        selectedCheckboxes.includes(blog.category)
+      );
+    }
 
     const getSortedData = (data, sortingOption) => {
       switch (sortingOption) {
