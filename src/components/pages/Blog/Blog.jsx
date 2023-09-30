@@ -20,6 +20,7 @@ import BlogCard from "./BlogCard";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import Loader from "../../common/loader/Loader";
 
 const categories = [
   "Machine Learning",
@@ -151,11 +152,13 @@ const Blog = () => {
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const pagination = [1, 2, 3, 4, 5];
   const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(" http://localhost:5000/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data));
+      setIsLoading(false)
   }, []);
   
   const handleCheckboxChange = (event) => {
@@ -200,9 +203,9 @@ const Blog = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+if(isLoading) return <Loader/>
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
+    <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
       <div
         className="shadow-lg"
         style={{
@@ -212,7 +215,7 @@ const Blog = () => {
           width: "full",
         }}
       >
-        <div className="width-screen flex flex-col items-center justify-center py-[90px]">
+        <div className="width-screen flex flex-col items-center justify-center py-10">
           <h2 className="text-[30px] font-bold">
             {language == "bn" ? "ব্লগ" : "Blog"}
           </h2>

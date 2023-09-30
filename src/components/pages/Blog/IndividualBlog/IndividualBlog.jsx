@@ -1,9 +1,6 @@
-import demo from "../demo.png";
-import comment from "../Assests/comment.svg";
 import facebook from "../Assests/facebook.svg";
 import linkdeIn from "../Assests/linkdeIn.svg";
 import share from "../Assests/share.svg";
-import avatar from "../Assests/avatar.png";
 import Comment from "./Comment";
 import IndividualBlogCard from "./IndividualBlogCard";
 import NewsLetter from "../NewsLetter";
@@ -20,13 +17,13 @@ import UseUser from "../../../../hooks/useUser";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../../Context/AuthProvider";
+import Loader from "../../../common/loader/Loader";
 
 const IndividualBlog = () => {
   const { language } = useContext(MyContext);
   const { user } = useContext(AuthContext);
   const [userinfo] = UseUser();
   const [like, setLike] = useState(false);
-  const [disLike, setDisLike] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [cmnt, setComment] = useState("");
   // const [allComments, setAllComments] = useState([]);
@@ -47,7 +44,7 @@ const IndividualBlog = () => {
     fetch(`http://localhost:5000/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id, cmnt]);
+  }, [id, cmnt,like]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
@@ -103,11 +100,18 @@ const IndividualBlog = () => {
         });
       });
   };
-  const handleLike = () => {
-    // Create the comment object with comment and userinfo
-    const data = {status : "liked" , email: userinfo.email, date: new Date() };
 
-    // Send a PATCH request to update the comment in your MongoDB database
+  //handling like system
+  const handleLike = () => {
+    //user cant like the blog untill the user is logged in
+    if (!user?.email) {
+      toast.error('Please login first');
+      return;
+    }
+    // Create the likes object with likes and userinfo
+    const data = {status : "liked" , email: user?.email, blogId : id, date: new Date() };
+
+    // Send a PATCH request to update the likes in your MongoDB database
     fetch(`http://localhost:5000/like/${blog._id}`, {
       method: "PATCH",
       headers: {
@@ -117,14 +121,18 @@ const IndividualBlog = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        // console.log(responseData)
+        console.log(responseData)
+        if(responseData.error){
+          toast.error("You've given a react already")
+          return
+        }
         if (responseData) {
           toast.success("The Blog is liked", {
             toastId: blog._id.toString(),
           });
-
+          setLike(!like)
         } else {
-          // Handle the case where the comment wasn't added successfully
+          // Handle the case where the likes wasn't added successfully
          toast.error("Something went wrong")
         }
       })
@@ -140,12 +148,65 @@ const IndividualBlog = () => {
       });
   };
 
+  //handling dislike system
+  const handleDisLike = () => {
+    //user cant like the blog untill the user is logged in
+    if (!user?.email) {
+      toast.error('Please login first');
+      return;
+    }
+    // Create the likes object with likes and userinfo
+    const data = {status : "disliked" , email: user?.email, blogId : id, date: new Date() };
 
+    // Send a PATCH request to update the likes in your MongoDB database
+    fetch(`http://localhost:5000/dislike/${blog._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData)
+        if(responseData.error){
+          toast.error("You've given a react already")
+          return
+        }
+        if (responseData) {
+          toast.success("The Blog is disliked", {
+            toastId: blog._id.toString(),
+          });
+          setLike(!like)
+        } else {
+          // Handle the case where the likes wasn't added successfully
+         toast.error("Something went wrong")
+        }
+      })
+      .catch((error) => {
+        // Handle any network or other errors that may occur during the request
+        console.error("Error:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong. Please try again later.",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+  };
 
+  // Making sure the user will be able to like or dislike only one time
+  const filterLiked = blog?.likes?.find((like) => like.email === user?.email);
+  const filterDisLiked = blog?.dislikes?.find((dislike) => dislike.email === user?.email);
+  const handleAlreadyReacted =()=>{
+    toast.error("You've given a react already")
+  }
   scrollTo;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if(!user || !blog) return <Loader/>;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
@@ -194,17 +255,33 @@ const IndividualBlog = () => {
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
              <div className="flex items-center gap-4">
-              <span className="text-white">55 </span>
-                <BiLike
-                  onClick={() => handleLike()}
-                  className="text-2xl text-center text-white"
-                  /> 
+              <span className="text-white">{blog?.likes?.length} </span>
+            {/* filtering from backend if the user liked the blog or not */}
+               
+             {
+              filterDisLiked ? <BiLike
+              onClick={() => handleAlreadyReacted()}
+              className="text-2xl text-center text-white"
+              /> :  filterLiked ?  <AiFillLike onClick={() => handleAlreadyReacted()}  className="text-2xl text-center text-white"/> :<BiLike
+              onClick={() => handleLike()}
+              className="text-2xl text-center text-white"
+              />
+             }
+                
                   </div>
+
+{/* filtering from backend if the user disliked the blog or not */}
            <div className="flex gap-4">
-           <BiDislike
-                  onClick={() => setDisLike(!disLike)}
-                  className="text-2xl text-center text-white"
-                /><span className="text-white">5 </span>
+             {
+              filterLiked ? <BiDislike onClick={() => handleAlreadyReacted()}
+              className="text-2xl text-center text-white"/> : filterDisLiked ? <AiFillDislike onClick={() => handleAlreadyReacted()}
+              className="text-2xl text-center text-white"/> : <BiDislike
+              onClick={() => handleDisLike()}
+              className="text-2xl text-center text-white"
+            />
+             }
+           
+                <span className="text-white">{blog?.dislikes?.length} </span>
            </div>
                
     
@@ -220,7 +297,7 @@ const IndividualBlog = () => {
               <img src={share} alt="" className="cursor-pointer" />
             </div>
           </div>
-
+                      {/* Comment section */}
           {
             user ?  <div className="pt-[32px] ">
             <div className="flex justify-center items-center gap-x-[10px] ">

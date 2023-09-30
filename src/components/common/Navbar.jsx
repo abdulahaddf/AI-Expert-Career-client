@@ -22,7 +22,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
-  const isAdmin = false;
+  const isAdmin = true;
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
