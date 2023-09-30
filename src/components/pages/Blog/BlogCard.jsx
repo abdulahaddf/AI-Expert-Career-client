@@ -5,7 +5,7 @@ import viwes from './Assests/views.png';
 import comment from './Assests/comment.png';
 
 const BlogCard = ({ blog }) => {
-  console.log(blog);
+  // console.log(blog);
   return (
     <div  className="bg-white w-[288px] h-[389px] rounded-[10px]">
       <div className="flex flex-col gap-5 justify-center items-center p-2">

@@ -3,18 +3,6 @@ import icon from "./Assests/RectangleIon.png";
 import left from "./Assests/left.svg";
 import right from "./Assests/right.svg";
 import { useContext, useState } from "react";
-import img1 from "./Assests/Rectangle.png";
-import img2 from "./Assests/Rectangle1.png";
-import img3 from "./Assests/Rectangle2.png";
-import img4 from "./Assests/Rectangle3.png";
-import img5 from "./Assests/Rectangle4.png";
-import img6 from "./Assests/Rectangle5.png";
-import img7 from "./Assests/Rectangle6.png";
-import img8 from "./Assests/Rectangle7.png";
-import img9 from "./Assests/Rectangle8.png";
-import img10 from "./Assests/Rectangle9.png";
-import img11 from "./Assests/Rectangle10.png";
-import img12 from "./Assests/Rectangle11.png";
 import CategoryCard from "./CategoryCard";
 import BlogCard from "./BlogCard";
 import { useEffect } from "react";
@@ -23,137 +11,34 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Loader from "../../common/loader/Loader";
 
 const categories = [
-  "Machine Learning",
-  "deep learning",
-  "Blockchain technology",
-  "Digital Marketing",
-  "Graphic design",
-  "Cryptocurrency",
-  "Modern ai",
+  "Machine learning",
+  "Data science",
+  "Data analysis",
+  "Computer vision",
+  "Deep learning",
+  "NLP",
+  "Prompt Engineering",
+  "IoT",
+  "Artificial Intelligence",
+  "Others",
 ];
 
-const productsData = [
-  {
-    id: 1,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    type_data: "Trends",
-    views: "50",
-    image: img1,
-  },
-  {
-    id: 2,
-    title: "deep learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    type_data: "Most Reviews",
-    views: "50",
-    image: img2,
-  },
-  {
-    id: 3,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    type_data: "Other",
-    views: "50",
-    image: img3,
-  },
-  {
-    id: 4,
-    title: "Blockchain technology",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img4,
-  },
-  {
-    id: 5,
-    title: "Blockchain technology",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img5,
-  },
-  {
-    id: 6,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img6,
-  },
-  {
-    id: 7,
-    title: "Blockchain technology",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img7,
-  },
-  {
-    id: 8,
-    title: "Blockchain technology",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img8,
-  },
-  {
-    id: 9,
-    title: "Blockchain technology",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img9,
-  },
-  {
-    id: 10,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img10,
-  },
-  {
-    id: 11,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit voluptatibus ut labore quod dolorum ab expedita dolor fugiat sed voluptas?",
-    comments: "50",
-    views: "50",
-    image: img11,
-  },
-  {
-    id: 12,
-    title: "Machine Learning",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem inventore dolorum hic cum ratione, at unde iusto numquam ea dolor.",
-    comments: "50",
-    views: "50",
-    image: img12,
-  },
-];
+
 
 const Blog = () => {
   const { language } = useContext(MyContext);
-  const [newData, setNewData] = useState(productsData);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
-  const pagination = [1, 2, 3, 4, 5];
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [newData, setNewData] = useState(blogs);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+
+
+
+// console.log(selectedCheckboxes)    
   useEffect(() => {
     fetch(" http://localhost:5000/blogs")
       .then((response) => response.json())
@@ -171,41 +56,75 @@ const Blog = () => {
       );
     }
   };
-
+console.log(newData)
   const filteredProducts =
     selectedCheckboxes.length === 0
-      ? newData
-      : newData.filter((product) => selectedCheckboxes.includes(product.title));
+      ? blogs
+      : blogs.filter((blog) => selectedCheckboxes.includes(blog.category));
+
+      console.log(filteredProducts)
+
+
+
+
+
 
   const getFilter = (event) => {
     const filters = event.target.value;
     if (filters === "Trends") {
-      const filterData = productsData.filter(
+      const filterData = blogs.filter(
         (product) => product.type_data === filters
       );
       setNewData(filterData);
     } else if (filters === "Most Reviews") {
-      const filterData = productsData.filter(
+      const filterData = blogs.filter(
         (product) => product.type_data === filters
       );
       setNewData(filterData);
     } else if (filters === "Other") {
-      const filterData = productsData.filter(
+      const filterData = blogs.filter(
         (product) => product.type_data === filters
       );
       setNewData(filterData);
     } else {
-      setNewData(productsData);
+      setNewData(blogs);
     }
   };
 
+
+
+  // ---------- pagination calculated ---------------
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedBlogs = filteredProducts.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 if(isLoading) return <Loader/>
   return (
-    <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
       <div
         className="shadow-lg"
         style={{
@@ -247,8 +166,8 @@ if(isLoading) return <Loader/>
         </div>
 
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">
-          {/* Hide this section on medium and small devices */}
-          <div className="hidden lg:block">
+          {/* Hide this section on small devices */}
+          <div className="hidden md:block">
             <div className="flex flex-col justify-between items-center">
               <h2 className="font-bold text-[20px] pb-[40px]">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
@@ -269,7 +188,7 @@ if(isLoading) return <Loader/>
             <div className="">
               {/* <BlogCard></BlogCard> */}
               <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
-                {blogs?.map((blog) => (
+                {paginatedBlogs?.map((blog) => (
                   <BlogCard key={blog._id} blog={blog} />
                 ))}
               </div>
@@ -278,20 +197,66 @@ if(isLoading) return <Loader/>
         </div>
 
         <div className="flex gap-4 justify-center pt-[40px]">
-          <div className="w-[50px] h-[50px] bg-[#D9D9D9] rounded-[10px] font-bold flex justify-center items-center">
-            <img src={left} alt="" />
-          </div>
-          {pagination?.map((pageNumber, i) => (
+         
+          {/* {pagination?.map((pageNumber, i) => (
             <button
               key={i}
               className="w-[50px] h-[50px] bg-[#D9D9D9] rounded-[10px] font-bold"
             >
               {pageNumber}
             </button>
+          ))} */}
+<div className="flex justify-center mt-8">
+          <button
+            className={`px-4 py-2 rounded-md mx-2 ${
+              currentPage === 1
+                ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                : "bg-[#ea5050] text-white hover:bg-primary"
+            }`}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              className={`${
+                currentPage === index + 1
+                  ? "bg-[#ea5050] text-white"
+                  : "bg-slate-200 hover:bg-gray-300 text-gray-700"
+              } px-3 py-1 mx-1 rounded-md cursor-pointer`}
+            >
+              {index + 1}
+            </button>
           ))}
-          <div className="w-[50px] h-[50px] bg-[#D9D9D9] rounded-[10px] font-bold flex justify-center items-center">
-            <img src={right} alt="" />
-          </div>
+
+          <button
+            className={`px-4 py-2 rounded-md mx-2 ${
+              currentPage === totalPages
+                ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                : "bg-[#ea5050] text-white hover:bg-primary"
+            }`}
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+         
         </div>
       </div>
     </div>

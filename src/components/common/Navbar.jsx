@@ -359,31 +359,31 @@ const Navbar = () => {
                             <li>
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="ml-3 hover:no-underline hover:text-primary "
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="ml-3 hover:text-primary  hover:no-underline"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           ) : (
                             <li className="flex flex-col ml-3 pb-5 ">
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="ml-3 hover:no-underline hover:text-primary "
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="ml-3 hover:text-primary  hover:no-underline"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           )
                         ) : (
@@ -629,31 +629,31 @@ const Navbar = () => {
                             <li>
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="hover:text-primary  hover:no-underline ml-3"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           ) : (
                             <li className="flex flex-col ml-3 pb-5 ">
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="hover:text-primary  hover:no-underline ml-3"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           )
                         ) : (
@@ -838,31 +838,31 @@ const Navbar = () => {
                             <li>
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="hover:text-primary  hover:no-underline ml-3"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           ) : (
                             <li className="flex flex-col ml-3 pb-5 ">
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="hover:no-underline hover:text-primary "
+                                className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
                               </Link>
-                              <a
-                                className="hover:text-primary  hover:no-underline"
+                              <li
+                                className="hover:text-primary  hover:no-underline ml-3"
                                 onClick={logOut}
                               >
                                 Logout
-                              </a>
+                              </li>
                             </li>
                           )
                         ) : (
