@@ -18,6 +18,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../../Context/AuthProvider";
 import Loader from "../../../common/loader/Loader";
+import BlogCard from "../BlogCard";
 
 const IndividualBlog = () => {
   const { language } = useContext(MyContext);
@@ -25,12 +26,13 @@ const IndividualBlog = () => {
   const [userinfo] = UseUser();
   const [like, setLike] = useState(false);
   const [blogs, setBlogs] = useState([]);
-  const [cmnt, setComment] = useState("");
-  // const [allComments, setAllComments] = useState([]);
-  const { id } = useParams();
-  console.log(id);
   const [blog, setBlog] = useState([]);
-  console.log(blog);
+  const [cmnt, setComment] = useState("");
+  const { id } = useParams();
+
+
+  // console.log(id);
+  // console.log(blog);
   const allComments = blog?.comments?.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -201,7 +203,23 @@ const IndividualBlog = () => {
   const handleAlreadyReacted =()=>{
     toast.error("You've given a react already")
   }
-  scrollTo;
+  
+// Filter the random blogs for recommendation
+  const filtered = blogs?.filter((bl) => bl.category === blog.category && bl._id !== blog._id)
+                
+  // console.log(filtered)
+  // Shuffle the filtered array randomly
+  for (let i = filtered.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+  }
+  
+  // Select the blogs from the shuffled array for recommendation
+  const randomBlogs = filtered.slice(0, 5);
+  const randomCardBlog = filtered.slice(0, 4);
+
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -211,7 +229,7 @@ const IndividualBlog = () => {
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
         <div className="lg:border-r-2 border-[#00000057] p-1">
-          <BlogItem blogs={blogs} blog={blog} />
+          <BlogItem randomBlogs={randomBlogs} />
         </div>
 
         <div className="col-span-3 lg:mt-0 mt-8 ">
@@ -359,8 +377,11 @@ const IndividualBlog = () => {
               : "You may interest also those topics"}
           </h2>
 
-          <div className="md:pb-[150px] pt-[35px]">
-            <IndividualBlogCard></IndividualBlogCard>
+          <div className="md:pb-[150px] pt-[35px] grid grid-cols-4">
+            {
+              randomCardBlog?.map(blog => <BlogCard key={blog._id} blog={blog} />)
+            }
+          
           </div>
 
           <div className="pb-[200px]">

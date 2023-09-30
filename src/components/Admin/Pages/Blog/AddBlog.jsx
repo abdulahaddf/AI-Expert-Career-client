@@ -77,6 +77,7 @@ const AddBlog = () => {
         // Reset the input fields to empty values
         setBlogName("");
         setDescription("");
+        setDescriptionBN("");
         setCategory("");
         setSubcategory("");
         setSelectedTags([]);

@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { MyContext } from "../../../../../Context/Context";
 import { Link } from "react-router-dom";
 
-const BlogItem = ({blogs , blog}) => {
-  console.log(blogs, blog);
+const BlogItem = ({randomBlogs}) => {
+
   const { language } = useContext(MyContext);
-const filtered = blogs.filter((bl) => bl.category === blog.category);
-console.log(filtered)
+
+
 
   return (
     <div className="">
@@ -15,8 +15,8 @@ console.log(filtered)
         {language == "bn" ? "বিষয়সমূহ -" : "Our more blogs"}
       </h2>
       <ul className="mt-3">
-        {filtered?.map((blog, index) => <div key={index} className="flex  items-start justify-between bg-[#5c3a6de7] mt-2 px-4 text-white py-2">
-          <Link >{blog.blogName.length > 80 ? <>{blog.blogName.slice(0, 70)} ...</> : blog.blogName}</Link>
+        {randomBlogs?.map((blog, index) => <div key={index} className="flex  items-start justify-between bg-[#5c3a6de7] mt-2 px-4 text-white py-2">
+          <Link to={`/single-blog/${blog._id}`} >{blog.blogName.length > 80 ? <>{blog.blogName.slice(0, 80)} ...</> : blog.blogName}</Link>
           </div>  
          
         )}

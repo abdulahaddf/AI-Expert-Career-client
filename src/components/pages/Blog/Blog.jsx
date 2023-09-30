@@ -1,7 +1,5 @@
 import blogBanner from "./Assests/blogbanner.png";
 import icon from "./Assests/RectangleIon.png";
-import left from "./Assests/left.svg";
-import right from "./Assests/right.svg";
 import { useContext, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import BlogCard from "./BlogCard";
@@ -34,18 +32,40 @@ const Blog = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const [sortingOption, setSortingOption] = useState(""); // State for sorting option
 
-
-
-
-// console.log(selectedCheckboxes)    
   useEffect(() => {
-    fetch(" http://localhost:5000/blogs")
+    fetch("http://localhost:5000/blogs")
       .then((response) => response.json())
-      .then((data) => setBlogs(data));
-      setIsLoading(false)
-  }, []);
-  
+      .then((data) => {
+        setBlogs(data);
+        setIsLoading(false);
+      });
+  }, []); 
+
+  useEffect(() => {
+    // Handle filtering and sorting whenever selectedCheckboxes, blogs, or sortingOption change
+    const filteredProducts =
+      selectedCheckboxes.length === 0
+        ? blogs
+        : blogs.filter((blog) => selectedCheckboxes.includes(blog.category));
+
+    const getSortedData = (data, sortingOption) => {
+      switch (sortingOption) {
+        case "Trends":
+          return data.sort((a, b) => b.likes.length - a.likes.length);
+        case "Most Reviews":
+          return data.sort((a, b) => b.comments.length - a.comments.length);
+        default:
+          return data;
+      }
+    };
+
+    const sortedAndFilteredData = getSortedData(filteredProducts, sortingOption);
+    setNewData(sortedAndFilteredData);
+    setCurrentPage(1); // Reset to the first page when changing filters
+  }, [selectedCheckboxes, blogs, sortingOption]);
+
   const handleCheckboxChange = (event) => {
     const checkboxValue = event.target.value;
     if (event.target.checked) {
@@ -56,58 +76,30 @@ const Blog = () => {
       );
     }
   };
-console.log(newData)
-  const filteredProducts =
-    selectedCheckboxes.length === 0
-      ? blogs
-      : blogs.filter((blog) => selectedCheckboxes.includes(blog.category));
-
-      console.log(filteredProducts)
-
-
-
-
-
 
   const getFilter = (event) => {
     const filters = event.target.value;
-    if (filters === "Trends") {
-      const filterData = blogs.filter(
-        (product) => product.type_data === filters
-      );
-      setNewData(filterData);
-    } else if (filters === "Most Reviews") {
-      const filterData = blogs.filter(
-        (product) => product.type_data === filters
-      );
-      setNewData(filterData);
-    } else if (filters === "Other") {
-      const filterData = blogs.filter(
-        (product) => product.type_data === filters
-      );
-      setNewData(filterData);
-    } else {
-      setNewData(blogs);
-    }
+    setSortingOption(filters);
   };
 
-
-
-  //  pagination 
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-
+  // Pagination
+  const totalPages = Math.ceil(newData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const paginatedBlogs = filteredProducts.slice(startIndex, endIndex);
+
+  // Slice the sorted and filtered data for pagination
+  const paginatedBlogs = newData.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 10 , behavior: "smooth" });
+    window.scrollTo({ top: 10, behavior: "smooth" });
   };
 
 
 
-
+   
+  
+ 
 
 
 
@@ -155,7 +147,7 @@ if(isLoading) return <Loader/>
             </div>
             <select
               onChange={getFilter}
-              className="w-24 py-4 border-none bg-white text-center text-[#ED1B23] text-xl font-bold"
+              className="w-48 py-4 border-none bg-white text-center text-[#ED1B23] text-xl font-bold"
             >
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
