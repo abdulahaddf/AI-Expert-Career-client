@@ -240,8 +240,7 @@ if(isLoading) return <Loader/>
                 : "bg-[#ea5050] text-white hover:bg-primary"
             }`}
             onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
+            disabled={currentPage === totalPages}>
             Next
           </button>
         </div>
