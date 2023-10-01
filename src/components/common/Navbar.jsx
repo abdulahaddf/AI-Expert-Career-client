@@ -399,112 +399,7 @@ const Navbar = () => {
                 ""
               )}
 
-              {/* {user && (
-                <span>
-                  <button
-                    to="/about-us"
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 "
-                        : isPending
-                        ? "pending"
-                        : "px-3"
-                    }
-                  >
-                    <div className="dropdown inline-block relative">
-                      <button className=" hover:text-[#ED1B24] lg:px-4 py-2 font-bold gap-3  inline-flex items-center">
-                        <img
-                          className="w-[60px] h-[60px] rounded-full"
-                          src={user?.photoURL  || "https://i.ibb.co/sg6hmZ7/user.png"} 
-                          alt=""
-                        />
-                        <svg
-                          className="fill-current h-4 w-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{" "}
-                        </svg>
-                      </button>
-                      <ul className="dropdown-menu  absolute z-40 bg-[#F1D8E5] text-gray-700 pt-1">
-                        <li className="">
-                          <Link
-                            className="rounded-t  text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={dashboard} alt="" />
-                              <span>Dashboard</span>
-                            </div>
-                          </Link>
-                        </li>
-                        <li className="">
-                          <Link
-                            className="rounded-t  text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/my-profile"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myProfile} alt="" />
-                              <span>My Profile</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/my-courses"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myCourses} alt="" />
-                              <span>My courses</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/wishlist"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={myWishlist} alt="" />
-                              <span>My Wishlist</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/purchase-history"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={purchases} alt="" />
-                              <span>Purchase History</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/dashboard/certification"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={certificate} alt="" />
-                              <span>Certification</span>
-                            </div>
-                          </Link>
-                          <Link
-                            className=" text-black py-2 px-4 block whitespace-no-wrap"
-                            to="/"
-                          >
-                            <div className="flex items-center gap-2">
-                              <img src={logout} alt="" />
-                              <span>Logout</span>
-                            </div>
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </button>
-                  <div className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg">
-                    <Link className="duration-100 hover:text-[red]" to="/">
-                      Contact Us
-                    </Link>
-                  </div>
-                </span>
-              )} */}
-
+            
            
             </div>
             {!scrollNav && (
@@ -716,12 +611,12 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
+{/* Scroll nav starts from here */}
       <div
         className={`shadow bg-white fixed top-0 w-full z-[100] ${
           scrollNav
             ? "transition-transform ease-linear duration-200 translate-y-0"
-            : "transition-transform ease-linear -translate-y-full"
+            : "transition-transform ease-linear duration-200 -translate-y-full"
         } `}
       >
         <div className="py-2 px-4 relative   mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-20 lg:px-28 2xl:px-8">
@@ -786,7 +681,28 @@ const Navbar = () => {
                   </span>
                 </Link>
               )}
-              
+                <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+                  <p
+                    onClick={() => setLanguage("bn")}
+                    className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                      language == "bn"
+                        ? "bg-[#ED1B24] text-white"
+                        : "bg-[#ffffff] text-black"
+                    }`}
+                  >
+                    বাংলা
+                  </p>
+                  <p
+                    onClick={() => setLanguage("en")}
+                    className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                      language == "en"
+                        ? "bg-[#ED1B24] text-white"
+                        : "bg-[#fbf9f9] text-black"
+                    }`}
+                  >
+                    Eng
+                  </p>
+                </button>
                 {user ? (
                 <div>
                   <div
@@ -878,32 +794,9 @@ const Navbar = () => {
                 ""
               )}
 
-              {user ? (
-                ""
-              ) : (
-                <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
-                  <p
-                    onClick={() => setLanguage("bn")}
-                    className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
-                      language == "bn"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#ffffff] text-black"
-                    }`}
-                  >
-                    বাংলা
-                  </p>
-                  <p
-                    onClick={() => setLanguage("en")}
-                    className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
-                      language == "en"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#fbf9f9] text-black"
-                    }`}
-                  >
-                    Eng
-                  </p>
-                </button>
-              )}
+          
+              
+            
             </div>
             {scrollNav && (
               <div className="lg:hidden ">

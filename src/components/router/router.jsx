@@ -42,9 +42,11 @@ import AiKitDetails from '../pages/Kit/Kit/AiKitDetails';
 import AiToolsDetails from '../pages/Kit/Kit/AiToolsDetails';
 import FreeCourses from '../pages/Courses/FreeCourses';
 import ResetForm from '../common/Authentication/ResetForm';
-import AddBlog from '../Admin/Pages/Blog/AddBlog';
-import ManageBlog from '../Admin/Pages/Blog/ManageBlog';
-import EditBlog from '../Admin/Pages/Blog/EditBlog';
+import AddBlog from '../../Dashboard/Admin/Blog/AddBlog';
+import EditBlog from '../../Dashboard/Admin/Blog/EditBlog';
+import ManageBlog from '../../Dashboard/Admin/Blog/ManageBlog';
+import ManageUser from '../../Dashboard/Admin/ManageUser/ManageUser';
+
 
 export const router = createBrowserRouter([
 
@@ -134,10 +136,7 @@ export const router = createBrowserRouter([
       {
         path: '/single-blog/:id',
         element: <IndividualBlog></IndividualBlog>,
-        // loader: ({ params }) =>
-        //   fetch(
-        //     `http://localhost:5000/singleblogs/${params.id}`
-        //   ),
+        
       },
       {
         path: '/individual-blog/:id',
@@ -275,6 +274,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/edit-blog/:id',
         element: <EditBlog/>,
+      },
+      {
+        path: '/dashboard/manage-users',
+        element: <ManageUser/>,
       },
     ],
   },

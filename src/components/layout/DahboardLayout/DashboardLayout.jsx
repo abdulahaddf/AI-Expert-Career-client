@@ -85,6 +85,7 @@ const DashboardLayout = () => {
                   {language === "bn" ? "ড্যাশবোর্ড" : "Admin"}
                 </NavLink>
 
+              
                 <NavLink
                   to={"/dashboard/my-profile"}
                   className={({ isActive }) =>
@@ -100,6 +101,22 @@ const DashboardLayout = () => {
                         : "text-red-600"}mb-[4px] mr-2 `}
                   />
                   {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                </NavLink>
+                <NavLink
+                  to={"/dashboard/manage-users"}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                  }
+                >
+                  <BsPerson
+                    className={`${({ isActive }) =>
+                      isActive
+                        ? "text-white"
+                        : "text-red-600"}mb-[4px] mr-2 `}
+                  />
+                  {language === "bn" ? "পরিচালনা করুন" : "Manage Users"}
                 </NavLink>
 
                 <NavLink
