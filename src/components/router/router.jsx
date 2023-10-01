@@ -46,6 +46,9 @@ import AddBlog from '../../Dashboard/Admin/Blog/AddBlog';
 import EditBlog from '../../Dashboard/Admin/Blog/EditBlog';
 import ManageBlog from '../../Dashboard/Admin/Blog/ManageBlog';
 import ManageUser from '../../Dashboard/Admin/ManageUser/ManageUser';
+import AddCourse from '../../Dashboard/Admin/Course/AddCourse';
+import ManageCourses from '../../Dashboard/Admin/Course/ManageCourses';
+import EditCourse from '../../Dashboard/Admin/Course/EditCourse';
 
 
 export const router = createBrowserRouter([
@@ -278,6 +281,18 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/manage-users',
         element: <ManageUser/>,
+      },
+      {
+        path: '/dashboard/add-course',
+        element: <AddCourse/>,
+      },
+      {
+        path: '/dashboard/manage-courses',
+        element: <ManageCourses/>,
+      },
+      {
+        path: '/dashboard/edit-course/:id',
+        element: <EditCourse/>,
       },
     ],
   },
