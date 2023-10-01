@@ -12,6 +12,11 @@ const EditCourse = () => {
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     
+
+
+
+
+
     const categoryOptions = [
       "Machine learning",
       "Data science",
