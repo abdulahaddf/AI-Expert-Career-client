@@ -47,13 +47,14 @@ const AddCourse = () => {
     ];
 
 
-  
+//   handling dynamic FAQ section
       const { fields: faqFields, append: faqAppend, remove: faqRemove } = useFieldArray(
         {
           control,
           name: 'faqItems',
         }
       );
+    //   handle dynamic goal
       const { fields: goalFields, append: goalAppend, remove: goalRemove } = useFieldArray(
         {
           control,
@@ -63,7 +64,7 @@ const AddCourse = () => {
 
 
 
-
+// getting dynamic molecules for courses  from modules
       const watchModules = useWatch({ control, name: 'modules' });
 
       const addModule = () => {
@@ -104,15 +105,18 @@ const AddCourse = () => {
           category,
           instructor,
           insDesignation,
+          insImage,
           modules,
           startDate,
-        //   endDate,
+          endDate,
+          faqItems,
+          goals,
         } = data;
       console.log(data)
         // Check if image is selected
         if (image) {
           try {
-            const imageUploadUrl = `https://api.imgbbcom/1/upload?key=${import.meta.env.VITE_Image_Upload_token}`;
+            const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_Image_Upload_token}`;
             
             const coverForm = new FormData();
             coverForm.append("image", image);
@@ -137,14 +141,19 @@ const AddCourse = () => {
               description,
               category,
               features : selectedFeatures,
+              Collaborators : selectedCollaborators,
               courseType,
               courseFee,
               discount,
               duration,
               instructor,
               insDesignation,
+              insImage,
               modules,
               startDate,
+              endDate,
+              faqItems,
+              goals,
               comments: [],
             };
         console.log(courseData)
