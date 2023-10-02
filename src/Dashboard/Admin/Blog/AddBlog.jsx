@@ -5,12 +5,12 @@ import Swal from "sweetalert2";
 const AddBlog = () => {
   const [blogName, setBlogName] = useState("");
   const [description, setDescription] = useState("");
+  const editor = useRef(null);
   const [descriptionBN, setDescriptionBN] = useState("");
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [newTag, setNewTag] = useState("");
-  const editor = useRef(null);
   const [image, setImage] = useState(null); // Store the selected image file
 
   const handleSubmit = async (e) => {
