@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Swal from "sweetalert2";
+import Loader from "../../../components/common/loader/Loader";
 
 const ManageCourses = () => {
     const [courses, setcourses] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       fetch(" http://localhost:5000/courses")
         .then((response) => response.json())
         .then((data) => setcourses(data));
+        setIsLoading(false);
     }, [courses]);
     console.log(courses);
     const handleDelete = (course) => {
@@ -39,6 +42,9 @@ const ManageCourses = () => {
         }
       });
     };
+
+
+    if(isLoading) return <Loader/>
     return (
         <div>
       <h1 className="text-3xl text-center my-5">Manage All courses</h1>
@@ -70,13 +76,13 @@ const ManageCourses = () => {
                 <td className="text-center">
                   <Link to={`/dashboard/edit-course/${course._id}`}
                    
-                    className="btn btn-outline btn-sm hover:bg-primary m-2 w-24 "
+                    className="btn-add m-2"
                   >
                     Edit
                   </Link>
                   <button
                     onClick={() => handleDelete(course)}
-                    className="btn btn-outline btn-sm hover:bg-primary m-2 w-24 "
+                    className="btn-add "
                   >
                     Delete
                   </button>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Loader from '../../../components/common/loader/Loader';
 
 const EditCourse = () => {
     const {id} = useParams();
@@ -14,6 +15,7 @@ const EditCourse = () => {
     const [category, setCategory] = useState(''); // Initialize with an empty category
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [pageLoading, setPageLoading] = useState(true);
     // console.log(id)
 // console.log(course);
 
@@ -40,6 +42,7 @@ const EditCourse = () => {
             setCourse(data);
             // Set default values using reset method
             reset(data);
+            setPageLoading(false);
           });
       }, [id,reset]);
 
@@ -128,13 +131,15 @@ const EditCourse = () => {
             }
         
             const responseData = await apiResponse.json();
-        
-            if (responseData.insertedId) {
+        console.log(responseData)
+            if (responseData.acknowledged) {
               Swal.fire({
-                title: "Success!",
-                text: "Course updated successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
+                position: "top-end",
+                    title: "Success!",
+                    text: "Course updated successfully",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1500,
               });
               setIsLoading(false);
             }
@@ -149,6 +154,7 @@ const EditCourse = () => {
             });
             setIsLoading(false);
           }
+          
         } 
         // When no image is selected
         else {
@@ -195,6 +201,7 @@ const EditCourse = () => {
                     text: "Course updated successfully",
                     icon: "success",
                     showConfirmButton: false,
+                    timer: 1500,
                    
                   });
                   setIsLoading(false);
@@ -259,9 +266,12 @@ const addNewFeature = () => {
     setCategory(e.target.value);
   };
 
+
+if (pageLoading) return <Loader/>
+
   return (
     <div className="container max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Add a Course</h1>
+      <h1 className="text-2xl font-bold mb-4">Update Course : {course.title}</h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className='flex justify-between'>
         <div className="mb-4">
@@ -293,7 +303,6 @@ const addNewFeature = () => {
          <div className="mb-4">
           <label htmlFor="category" className="block font-semibold mb-1">Category:</label>
           <select
-          required
             id="category"
             className="border border-gray-300 rounded-xl p-2 w-full"
             value={category}
@@ -441,7 +450,7 @@ const addNewFeature = () => {
 
 
         <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
-            {isLoading ? <p className='flex items-center gap-2'>Updating <span className="loading loading-spinner text-error"></span></p> : "Submit"}
+            {isLoading ? <p className='flex items-center gap-2 text-white'>Updating <span className="loading loading-spinner text-error"></span></p> : "Submit"}
           
         </button>
       </form>

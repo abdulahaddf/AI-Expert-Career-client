@@ -6,22 +6,22 @@ const AddCourse = () => {
     const { handleSubmit, register,  } = useForm();
     const [modules, setModules] = useState([{ title: '', contents: [] }]);
     const [selectedFeatures, setSelectedFeatures] = useState([]);
+    const [category, setCategory] = useState(''); // Initialize with an empty category
     const [newFeature, setNewFeature] = useState('');
     const [courseType, setCourseType] = useState('free');
-    const [category, setCategory] = useState(''); // Initialize with an empty category
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    
+    // console.log(selectedFeatures);
     const categoryOptions = [
       "Machine learning",
       "Data science",
       "Data analysis",
       "Computer vision",
       "Deep learning",
-      "NLP",
       "Prompt Engineering",
-      "IoT",
       "Artificial Intelligence",
+      "NLP",
+      "IoT",
       "Others",
     ];
 
@@ -31,7 +31,6 @@ const AddCourse = () => {
         const {
           title,
           description,
-          category,
           courseType,
           courseFee,
           discount,
@@ -40,8 +39,9 @@ const AddCourse = () => {
           insDesignation,
           modules,
           startDate,
+          endDate,
         } = data;
-      
+      console.log(data)
         // Check if image is selected
         if (image) {
           try {
@@ -69,6 +69,7 @@ const AddCourse = () => {
               cover: cover_image_url,
               description,
               category,
+              features : selectedFeatures,
               courseType,
               courseFee,
               discount,
@@ -79,9 +80,9 @@ const AddCourse = () => {
               startDate,
               comments: [],
             };
-        
+        console.log(courseData)
             // Send Course Data to API
-            const apiResponse = await fetch("http://localhost:5000/courses", {
+            const apiResponse = await fetch("http://localhost:500/courses", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -97,10 +98,12 @@ const AddCourse = () => {
         
             if (responseData.insertedId) {
               Swal.fire({
+                position: "top-end",
                 title: "Success!",
-                text: "Course added successfully",
+                text: "Course updated successfully",
                 icon: "success",
-                confirmButtonText: "Ok",
+                showConfirmButton: false,
+                timer: 1500,
               });
               setIsLoading(false);
             }
@@ -287,6 +290,14 @@ const addNewFeature = () => {
             <label htmlFor="discount" className="block font-semibold mb-1">Discount %</label>
             <input {...register('discount', { required: true })} type="number" id="discount" className="border border-gray-300 rounded-xl p-2 w-full" />
           </div>
+          <div className="mb-4">
+          <label htmlFor="startDate" className="block font-semibold mb-1">Start Date:</label>
+          <input {...register('startDate')} type="date" id="startDate" className="border border-gray-300 rounded-xl p-2" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="endDate" className="block font-semibold mb-1">End Date:</label>
+          <input {...register('endDate')} type="date" id="startDate" className="border border-gray-300 rounded-xl p-2" />
+        </div>
           </div>
         )}
 
@@ -304,10 +315,7 @@ const addNewFeature = () => {
           <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 w-full" />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="startDate" className="block font-semibold mb-1">Start Date:</label>
-          <input {...register('startDate')} type="date" id="startDate" className="border border-gray-300 rounded-xl p-2" />
-        </div>
+       
 <p className='block font-semibold mb-1 text-xl' >Design Course</p>
         <button type="button" className='btn-add my-2 font-semibold text-xl' onClick={addModule}>
           + Add Module

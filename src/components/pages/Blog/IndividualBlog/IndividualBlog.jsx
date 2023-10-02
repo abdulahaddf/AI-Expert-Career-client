@@ -46,7 +46,7 @@ const IndividualBlog = () => {
     fetch(`http://localhost:5000/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id, cmnt,like]);
+  }, [id, like]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);

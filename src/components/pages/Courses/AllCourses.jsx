@@ -9,10 +9,27 @@ import image7 from "./Assests/image7.png";
 import image8 from "./Assests/image8.png";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
+import useCourses from "../../../hooks/UseCourses";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
+const [courses, isLoading] = useCourses();
 
+const freeCourses = courses?.filter( course => course.courseType == "free");
+const paidCourses = courses?.filter( course => course.courseType == "paid");
+const MachineCourses = courses?.filter ( course => course.category == "Machine learning") ;
+const DataCourses = courses?.filter ( course => course.category == "Data science"); 
+const DataAnalysisCourses = courses?.filter ( course => course.category == "Data analysis"); 
+const ComputerCourses = courses?.filter ( course => course.category == "Computer vision"); 
+const DeepCourses = courses?.filter ( course => course.category == "Deep learning"); 
+const PromptCourses = courses?.filter ( course => course.category == "Prompt Engineering"); 
+const ArtificialCourses = courses?.filter ( course => course.category == "Artificial Intelligence"); 
+const NLPCourses = courses?.filter ( course => course.category == "NLP"); 
+const IoTCourses = courses?.filter ( course => course.category == "IoT"); 
+
+
+
+console.log(courses)
   const freeCourse = [
     {
       id: 1,
