@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
-import { useForm, } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const EditCourse = () => {
-    const { handleSubmit, register,  } = useForm();
+    const {id} = useParams();
+    const [course, setCourse] = useState([]);
     const [modules, setModules] = useState([{ title: '', contents: [] }]);
     const [selectedFeatures, setSelectedFeatures] = useState([]);
     const [newFeature, setNewFeature] = useState('');
@@ -11,9 +14,34 @@ const EditCourse = () => {
     const [category, setCategory] = useState(''); // Initialize with an empty category
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    
+    // console.log(id)
+// console.log(course);
 
 
+    const { handleSubmit, register, reset } = useForm({
+        defaultValues: {
+          title : course.title,
+          description : course.description,
+          category : course.category,
+          courseType : course.courseType,
+          courseFee : course.courseFee,
+          discount : course.discount,
+          duration : course.duration,
+          instructor : course.instructor,
+          insDesignation : course.insDesignation,
+          modules : course.modules,
+          startDate : course.startDate,
+        },
+      })
+      useEffect(() => {
+        fetch(`http://localhost:5000/singlecourse/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+            setCourse(data);
+            // Set default values using reset method
+            reset(data);
+          });
+      }, [id,reset]);
 
 
 
@@ -32,10 +60,12 @@ const EditCourse = () => {
 
 
     const onSubmit = async (data) => {
+        console.log(data)
         setIsLoading(true);
         const {
           title,
           description,
+          category,
           courseType,
           courseFee,
           discount,
@@ -72,6 +102,7 @@ const EditCourse = () => {
               title,
               cover: cover_image_url,
               description,
+              category,
               courseType,
               courseFee,
               discount,
@@ -80,12 +111,12 @@ const EditCourse = () => {
               insDesignation,
               modules,
               startDate,
-              comments: [],
+             
             };
         
             // Send Course Data to API
-            const apiResponse = await fetch("http://localhost:5000/courses", {
-              method: "POST",
+            const apiResponse = await fetch(`http://localhost:5000/update-course/${id}`, {
+              method: "PATCH",
               headers: {
                 "content-type": "application/json",
               },
@@ -101,7 +132,7 @@ const EditCourse = () => {
             if (responseData.insertedId) {
               Swal.fire({
                 title: "Success!",
-                text: "Course added successfully",
+                text: "Course updated successfully",
                 icon: "success",
                 confirmButtonText: "Ok",
               });
@@ -112,22 +143,76 @@ const EditCourse = () => {
             Swal.fire({
               position: "top-end",
               icon: "error",
-              title: "Course is not uploaded successfully",
+              title: "Course is not updated",
               showConfirmButton: false,
               timer: 1500,
             });
             setIsLoading(false);
           }
-        } else {
-          // Handle case when no image is selected
-          Swal.fire({
-            icon: "error",
-            title: "Please select a cover image",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          setIsLoading(false);
-        }
+        } 
+        // When no image is selected
+        else {
+            try {
+               
+          
+                // Prepare course Data
+                const courseData = {
+                title,
+                description,
+                cover : data.cover,
+                category,
+                courseType,
+                courseFee,
+                discount,
+                duration,
+                instructor,
+                insDesignation,
+                modules,
+                startDate,
+                  
+                };
+          console.log(courseData)
+                // Send course Data to API
+                const apiResponse = await 
+                fetch(`http://localhost:5000/update-course/${id}`, {
+                  method: "PATCH",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(courseData),
+                });
+          
+                if (!apiResponse.ok) {
+                  throw new Error("course insertion failed");
+                }
+          
+                const responseData = await apiResponse.json();
+          
+                if (responseData.acknowledged) {
+                  Swal.fire({
+                    position: "top-end",
+                    title: "Success!",
+                    text: "Course updated successfully",
+                    icon: "success",
+                    showConfirmButton: false,
+                   
+                  });
+                  setIsLoading(false);
+                  // Reset the input fields to empty values
+                  
+                }
+              } catch (error) {
+                console.error("Error:", error);
+                Swal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: "Course is not uploaded successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                setIsLoading(false);
+              }
+         }
       };
       
       
@@ -181,7 +266,7 @@ const addNewFeature = () => {
         <div className='flex justify-between'>
         <div className="mb-4">
           <label htmlFor="title" className="block font-semibold mb-1">Course Title:</label>
-          <input {...register('title', { required: true })} type="text" id="title" className="border border-gray-300 rounded-xl p-2 w-96" />
+          <input {...register('title')} type="text" id="title" className="border border-gray-300 rounded-xl p-2 w-96" />
         </div>
         <div className="mb-4">
             <label
@@ -191,7 +276,7 @@ const addNewFeature = () => {
               Cover Image
             </label>
             <input
-  {...register('image', { required: true })}
+  {...register('image')}
   type="file"
   id="image"
   className="input file-input file-input-bordered input-md text-black file-input-error"
@@ -202,7 +287,7 @@ const addNewFeature = () => {
 
         <div className="mb-4">
           <label htmlFor="description" className="block font-semibold mb-1">Course Description:</label>
-          <textarea {...register('description', { required: true })} id="description" className="border border-gray-300 rounded-xl p-2 w-full"></textarea>
+          <textarea {...register('description')} id="description" className="border border-gray-300 rounded-xl p-2 w-full"></textarea>
         </div>
          {/* Category Dropdown */}
          <div className="mb-4">
@@ -269,7 +354,7 @@ const addNewFeature = () => {
         <div className="mb-4">
           <label htmlFor="courseType" className="block font-semibold mb-1">Course Type:</label>
           <select
-            {...register('courseType', { required: true })}
+            {...register('courseType')}
             id="courseType"
             className="border border-gray-300 rounded-xl p-2 w-full"
             onChange={(e) => setCourseType(e.target.value)}
@@ -284,27 +369,27 @@ const addNewFeature = () => {
           <div>
             <div className="mb-4">
             <label htmlFor="courseFee" className="block font-semibold mb-1">Course Fee:</label>
-            <input required {...register('courseFee', { required: true })} type="number" id="courseFee" className="border border-gray-300 rounded-xl p-2 w-full " />
+            <input required {...register('courseFee')} type="number" id="courseFee" className="border border-gray-300 rounded-xl p-2 w-full " />
           </div>
             <div className="mb-4">
             <label htmlFor="discount" className="block font-semibold mb-1">Discount %</label>
-            <input {...register('discount', { required: true })} type="number" id="discount" className="border border-gray-300 rounded-xl p-2 w-full" />
+            <input {...register('discount')} type="number" id="discount" className="border border-gray-300 rounded-xl p-2 w-full" />
           </div>
           </div>
         )}
 
         <div className="mb-4">
           <label htmlFor="instructor" className="block font-semibold mb-1">Instructor:</label>
-          <input {...register('instructor', { required: true })} type="text" id="instructor" className="border border-gray-300 rounded-xl p-2 w-full " />
+          <input {...register('instructor')} type="text" id="instructor" className="border border-gray-300 rounded-xl p-2 w-full " />
         </div>
         <div className="mb-4">
           <label htmlFor="instructor" className="block font-semibold mb-1">Instructor Designation:</label>
-          <input {...register('insDesignation', { required: true })} type="text" id="insDesignation" className="border border-gray-300 rounded-xl p-2 w-full" />
+          <input {...register('insDesignation')} type="text" id="insDesignation" className="border border-gray-300 rounded-xl p-2 w-full" />
         </div>
 
         <div className="mb-4">
           <label htmlFor="duration" className="block font-semibold mb-1">Duration (min):</label>
-          <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 w-full" />
+          <input {...register('duration')} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 w-full" />
         </div>
 
         <div className="mb-4">
@@ -356,7 +441,7 @@ const addNewFeature = () => {
 
 
         <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
-            {isLoading ? <p className='flex items-center gap-2'>Loading <span className="loading loading-spinner text-error"></span></p> : "Submit"}
+            {isLoading ? <p className='flex items-center gap-2'>Updating <span className="loading loading-spinner text-error"></span></p> : "Submit"}
           
         </button>
       </form>

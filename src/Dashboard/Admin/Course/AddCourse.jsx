@@ -31,6 +31,7 @@ const AddCourse = () => {
         const {
           title,
           description,
+          category,
           courseType,
           courseFee,
           discount,
@@ -67,6 +68,7 @@ const AddCourse = () => {
               title,
               cover: cover_image_url,
               description,
+              category,
               courseType,
               courseFee,
               discount,
