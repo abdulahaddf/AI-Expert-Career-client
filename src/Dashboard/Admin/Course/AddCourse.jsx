@@ -21,7 +21,7 @@ const AddCourse = () => {
     const [image, setImage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const editor = useRef(null);
-    const { handleSubmit, register,control, setValue ,watch  } = useForm({
+    const { handleSubmit, register,control, setValue  } = useForm({
         defaultValues: {
           modules: [{ title: '', contents: [] }],
         },
