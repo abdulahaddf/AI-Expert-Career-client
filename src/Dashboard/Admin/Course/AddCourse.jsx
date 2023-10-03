@@ -54,6 +54,20 @@ const AddCourse = () => {
           name: 'faqItems',
         }
       );
+//   handling dynamic pre requisites section
+
+      const { fields: preFields, append: preAppend, remove: preRemove } = useFieldArray({
+        control,
+        name: 'preRequisites', 
+      });
+//   handle dynamic eligibleUsers
+      const { fields: eligibleFields, append: eligibleAppend, remove: eligibleRemove } = useFieldArray({
+        control,
+        name: 'eligibleUsers', 
+      });
+
+
+
     //   handle dynamic goal
       const { fields: goalFields, append: goalAppend, remove: goalRemove } = useFieldArray(
         {
@@ -114,6 +128,8 @@ const AddCourse = () => {
           endDate,
           faqItems,
           goals,
+          preRequisites,
+          eligibleUsers,
         } = data;
       console.log(data)
         // Check if image is selected
@@ -160,6 +176,8 @@ const AddCourse = () => {
               endDate,
               faqItems,
               goals,
+              preRequisites,
+              eligibleUsers,
               comments: [],
               assignments: [],
             };
@@ -458,7 +476,8 @@ const addNewCollaborator = () => {
 
 
 
-{/* Faq adding */}
+<div className='grid grid-cols-2 gap-10'>
+    {/* Faq adding */}
 
 <div className="my-10">
       <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions:</h2>
@@ -499,6 +518,73 @@ const addNewCollaborator = () => {
 
 
 
+
+
+
+  {/* Add pre requisites */}
+  <div className='my-10'>
+  <h3 className="text-2xl font-bold mb-4">Add pre requisites:</h3>
+  {preFields.map((pre, index) => (
+    <div key={pre.id} className="mb-4 flex items-center gap-5">
+      <input
+        type="text"
+        placeholder="pre requisites"
+        {...register(`preRequisites.${index}`)} 
+        className="w-full px-3 py-2 border border-gray-300 rounded-xl"
+      />
+      <button
+        type="button"
+        onClick={() => preRemove(index)}
+        className="mt-2  btn-add"
+      >
+        <FiDelete/>
+      </button>
+    </div>
+  ))}
+  <button
+    type="button"
+    onClick={() => preAppend('')}
+    className="btn-add"
+  >
+    <MdAdd/>  Add pre requisites
+  </button>
+</div>
+
+{/* Add eligible members */}
+<div className='my-10'>
+  <h3 className="text-2xl font-bold mb-4">Who will do the course:</h3>
+  {eligibleFields.map((eligible, index) => (
+    <div key={eligible.id} className="mb-4 flex items-center gap-5">
+      <input
+        type="text"
+        placeholder="Eligible User"
+        {...register(`eligibleUsers.${index}`)} // Use 'eligibleUsers' here
+        className="w-full px-3 py-2 border border-gray-300 rounded-xl"
+      />
+      <button
+        type="button"
+        onClick={() => eligibleRemove(index)}
+        className="mt-2  btn-add"
+      >
+        <FiDelete/>
+      </button>
+    </div>
+  ))}
+  <button
+    type="button"
+    onClick={() => eligibleAppend('')}
+    className="btn-add"
+  >
+    <MdAdd/>  Add Eligible User
+  </button>
+</div>
+
+
+
+
+
+
+
   {/* Add goals */}
  <div className='my-10'>
  <h3 className="text-2xl font-bold mb-4">Course Goals:</h3>
@@ -531,6 +617,7 @@ const addNewCollaborator = () => {
 
 
 
+</div>
 
 
 

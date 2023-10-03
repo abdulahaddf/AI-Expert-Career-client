@@ -24,6 +24,9 @@
   .btn-add {
     @apply btn btn-sm btn-ghost btn-outline text-primary hover:shadow-lg hover:bg-primary hover:border-0;
   }
+  .section {
+    @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
+  } 
   
 }
 

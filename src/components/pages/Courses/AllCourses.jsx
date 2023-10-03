@@ -10,6 +10,7 @@ import image8 from "./Assests/image8.png";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 import useCourses from "../../../hooks/UseCourses";
+import CourseCard from "./CourseCard";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
@@ -224,36 +225,8 @@ console.log(courses)
         </h2>
 
         <div className="grid lg:pl-28 lg:grid-cols-4 md:grid-cols-2 gap-4 justify-center">
-          {MachineCourses?.map((course) => (
-            <div
-              key={course._id}
-              className="w-full md:w-[280px] p-[16px] bg-white flex flex-col rounded-[7px]"
-            >
-              <img
-                className="w-full md:w-[279px] lg:h-[220px] md:h-[168px] pt-0"
-                src={course?.cover}
-                alt=""
-              />
-              <h2 className="pt-[15px] text-[18px] font-bold ">
-                {course.title}
-              </h2>
-              <p className="text-[14px] text-[#818181] font-bold">
-                {course.subtitle}
-              </p>
-
-              
-             
-                <div className="flex w-full justify-between items-center mt-6">
-                  <Link
-                    to={`/individualCourse/${course._id}`}
-                    className="px-[26px]  py-3 text-white bg-[#FF265A]/90 font-semibold rounded-[10px]"
-                  >
-                    {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
-                  </Link>
-                  <p className="font-semibold">TK {course.courseFee}</p>
-                </div>
-             
-            </div>
+          {MachineCourses?.slice(0, 4).map((course) => (
+            <CourseCard key={course._id} course={course}></CourseCard>
           ))}
         </div>
 
