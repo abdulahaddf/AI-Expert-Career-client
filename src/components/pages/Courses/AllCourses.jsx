@@ -211,6 +211,10 @@ console.log(courses)
         </div>
       </div>
 
+
+
+
+
       <div className="mb-12">
         {/* Development courses card ** data from array of object  */}
         <h2 className="text-[30px] font-bold text-center lg:text-left lg:pl-28">
@@ -220,46 +224,40 @@ console.log(courses)
         </h2>
 
         <div className="grid lg:pl-28 lg:grid-cols-4 md:grid-cols-2 gap-4 justify-center">
-          {machineLearningCourse?.map((machineLearning) => (
+          {MachineCourses?.map((course) => (
             <div
-              key={machineLearning.id}
+              key={course._id}
               className="w-full md:w-[280px] p-[16px] bg-white flex flex-col rounded-[7px]"
             >
               <img
                 className="w-full md:w-[279px] lg:h-[220px] md:h-[168px] pt-0"
-                src={machineLearning?.image}
+                src={course?.cover}
                 alt=""
               />
               <h2 className="pt-[15px] text-[18px] font-bold ">
-                {machineLearning.courseName}
+                {course.title}
               </h2>
               <p className="text-[14px] text-[#818181] font-bold">
-                {machineLearning.details}
+                {course.subtitle}
               </p>
 
-              {machineLearning.isFree ? (
-                <Link
-                  to={`/individualCourse/${machineLearning.id}`}
-                  className="flex justify-center"
-                >
-                  <button className="px-[26px] mt-6 py-3 text-white bg-[#FF265A]/90 font-semibold rounded-[10px]">
-                    {language == "bn" ? "শুরু করুন" : "Start"}
-                  </button>
-                </Link>
-              ) : (
+              
+             
                 <div className="flex w-full justify-between items-center mt-6">
                   <Link
-                    to={`/individualCourse/${machineLearning.id}`}
+                    to={`/individualCourse/${course._id}`}
                     className="px-[26px]  py-3 text-white bg-[#FF265A]/90 font-semibold rounded-[10px]"
                   >
-                    {language == "bn" ? "বিস্তারিত দেখুন" : "Buy"}
+                    {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
                   </Link>
-                  <p className="font-semibold">${machineLearning.price}</p>
+                  <p className="font-semibold">TK {course.courseFee}</p>
                 </div>
-              )}
+             
             </div>
           ))}
         </div>
+
+
 
         <div className="w-40 h-12 text-center pb-[20px] mt-10 mx-auto group relative inline-bloc shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] px-2 py-2 bg-red-600 focus:outline-none focus:ring">
           <span className="absolute inset-y-0 left-0 w-[2px]  bg-white transition-all group-hover:w-full"></span>

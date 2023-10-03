@@ -12,8 +12,8 @@ const AddCourse = () => {
     
     const [selectedFeatures, setSelectedFeatures] = useState([]);
     const [selectedCollaborators, setSelectedCollaborators] = useState([]);
-    
     const [description, setDescription] = useState("");
+    
     
     const [newFeature, setNewFeature] = useState('');
     const [newCollaborator, setNewCollaborator] = useState('');
@@ -98,6 +98,8 @@ const AddCourse = () => {
         setIsLoading(true);
         const {
           title,
+          subtitle,
+          coverVideo,
           courseType,
           courseFee,
           discount,
@@ -105,6 +107,7 @@ const AddCourse = () => {
           category,
           instructor,
           insDesignation,
+          insDescription,
           insImage,
           modules,
           startDate,
@@ -137,6 +140,8 @@ const AddCourse = () => {
             // Prepare Course Data with the cover image URL
             const courseData = {
               title,
+              subtitle,
+              coverVideo,
               cover: cover_image_url,
               description,
               category,
@@ -148,6 +153,7 @@ const AddCourse = () => {
               duration,
               instructor,
               insDesignation,
+              insDescription,
               insImage,
               modules,
               startDate,
@@ -155,10 +161,11 @@ const AddCourse = () => {
               faqItems,
               goals,
               comments: [],
+              assignments: [],
             };
         console.log(courseData)
             // Send Course Data to API
-            const apiResponse = await fetch("http://localhost:500/courses", {
+            const apiResponse = await fetch("http://localhost:5000/courses", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -256,7 +263,7 @@ const addNewCollaborator = () => {
       <h1 className="text-2xl font-bold mb-10 text-primary">Publish a Course</h1>
       <h1 className="text-2xl font-bold mb-4">Course Information:</h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <div className='flex justify-between'>
+        <div className='flex flex-wrap justify-between'>
         <div className="mb-4">
           <label htmlFor="title" className="block  mb-1">Course Title:</label>
           <input {...register('title', { required: true })} type="text" id="title" className="border border-gray-300 rounded-xl p-2" />
@@ -277,8 +284,8 @@ const addNewCollaborator = () => {
 />
           </div>
           <div className="mb-4">
-          <label htmlFor="coverVideo" className="block  mb-1">Cover URL(optional):</label>
-          <input {...register('coverVideo')} type="url" id="title" className="border border-gray-300 rounded-xl p-2 " />
+          <label htmlFor="coverVideo" className="block  mb-1">Cover Video URL(optional):</label>
+          <input {...register('coverVideo')} type="url" id="coverVideo" className="border border-gray-300 rounded-xl p-2 " />
         </div>
         
         </div>
@@ -299,7 +306,7 @@ const addNewCollaborator = () => {
 </div>
 
          {/* Category Dropdown */}
-         <div className='flex justify-between'>
+         <div className='flex flex-wrap justify-between'>
          <div className="mb-4">
         <label htmlFor="category" className="block font-semibold mb-1">
           Category:
@@ -313,7 +320,7 @@ const addNewCollaborator = () => {
             <select
               {...field}
               id="category"
-              className="rounded-xl p-2 w-96 select select-bordered"
+              className="rounded-xl p-2 md:w-96 select select-bordered"
             >
               <option value="">Select a Category</option>
               {categoryOptions.map((option, index) => (
@@ -328,7 +335,7 @@ const addNewCollaborator = () => {
       </div>
         <div className="mb-4">
           <label htmlFor="duration" className="block font-semibold mb-1">Duration (min):</label>
-          <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 w-96" />
+          <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 md:w-96" />
         </div>
          </div>
          {/* Course Features */}
@@ -429,15 +436,19 @@ const addNewCollaborator = () => {
           </div>
         )}
 {/* Instructor Profile */}
-            <p className='block font-semibold mb-1 text-2xl'>Instructor Profile :</p>
-        <div className='flex justify-between'>
+            <p className='block font-semibold mb-1 text-2xl'>Instructor Profile:</p>
+        <div className='flex flex-wrap justify-between'>
         <div className="mb-4">
-          <label htmlFor="instructor" className="block mb-2 font-medium text-gray-700">Instructor Name :</label>
+          <label htmlFor="instructor" className="block mb-2 font-medium text-gray-700">Instructor Name:</label>
           <input {...register('instructor', { required: true })} type="text" id="instructor" className="border border-gray-300 rounded-xl p-2 w-full " />
         </div>
         <div className="mb-4">
           <label htmlFor="instructor" className="block mb-2 font-medium text-gray-700">Instructor Designation:</label>
           <input {...register('insDesignation', { required: true })} type="text" id="insDesignation" className="border border-gray-300 rounded-xl p-2 w-full" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="insDescription" className="block mb-2 font-medium text-gray-700">Instructor Description:</label>
+          <input {...register('insDescription', { required: true })} type="text" id="insDescription" className="border border-gray-300 rounded-xl p-2 w-full " />
         </div>
         <div className="mb-4">
           <label htmlFor="insImage" className="block mb-2 font-medium text-gray-700">Instructor Photo URL:</label>
@@ -610,7 +621,7 @@ const addNewCollaborator = () => {
               />
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center space-x-2">
               <button
                 type="button"
                 className="btn-add my-2"
@@ -674,7 +685,7 @@ const addNewCollaborator = () => {
 
         
         <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
-            {isLoading ? <p className='flex items-center gap-2 text-white'>Loading <span className="loading loading-spinner text-error"></span></p> : "Submit"}
+            {isLoading ? <p className='flex items-center gap-2 text-white'>Uploading <span className="loading loading-spinner text-error"></span></p> : "Submit"}
           
         </button>
       </form>

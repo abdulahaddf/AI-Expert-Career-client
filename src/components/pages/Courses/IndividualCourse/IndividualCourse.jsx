@@ -15,14 +15,54 @@ import image1 from "../Assests/image1.png";
 import image2 from "../Assests/image2.png";
 import image3 from "../Assests/image3.png";
 import image4 from "../Assests/image4.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../../../../Context/Context";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 const IndividualCourse = () => {
   const { addToCart, setAddToCart, language } = useContext(MyContext);
+  const [course, setCourse] = useState([]);
+  const { id } = useParams();
+console.log(course)
+
+  //fetching data for individual course
+  useEffect(() => {
+    fetch(`http://localhost:5000/singlecourse/${id}`)
+      .then((response) => response.json())
+      .then((data) => setCourse(data));
+  }, [id]);
+
+
   const handleAddtoCart = () => {
     setAddToCart([...addToCart, "one"]);
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // for course content
   const courseContent = [
     {
