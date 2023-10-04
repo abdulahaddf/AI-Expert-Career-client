@@ -23,11 +23,11 @@ const Event = () => {
     "id:": 0,
     img: "https://events.devby.io/ckeditor_assets/pictures/27306/content_x600.jpg",
     title: "Ai event for beginners 1",
-    date: "january 17-19, 2023",
+    date: "january 17-19, 2024",
     location: "online",
     ticketRemainig: 50,
     ticketId: "ad32as",
-    eventTime: "2023-6-22 20:49:59",
+    eventTime: "2024-6-22 20:49:59",
     holderInfo: {
       img: "https://randomuser.me/api/portraits/men/55.jpg",
       name: "Shahin khan",
@@ -72,24 +72,24 @@ const Event = () => {
     about: {
       details:
         "Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose",
-      lastDate: "2023-12-11:59:59",
+      lastDate: "2024-12-11:59:59",
     },
     eventConference: {
       Schedule: [
         {
-          date: "30.5.2023",
+          date: "30.5.2024",
           address: "Hall A",
         },
         {
-          date: "30.5.2023",
+          date: "30.5.2024",
           address: "Hall A",
         },
         {
-          date: "30.5.2023",
+          date: "30.5.2024",
           address: "Hall A",
         },
         {
-          date: "30.5.2023",
+          date: "30.5.2024",
           address: "Hall A",
         },
       ],

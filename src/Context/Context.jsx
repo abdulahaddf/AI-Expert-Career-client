@@ -6,7 +6,7 @@ export const MyContext = createContext();
 const Context = ({ children }) => {
   const [eventData, setEventData] = useState({});
   const [addToCart, setAddToCart] = useState([]);
-  const [user, setUser] = useState(false);
+  // const [user, setUser] = useState(false);
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'bn');
 
 
@@ -27,8 +27,8 @@ const Context = ({ children }) => {
     setEventData,
     addToCart,
     setAddToCart,
-    user,
-    setUser,
+    // user,
+    // setUser,
     language
 ,setLanguage  };
 

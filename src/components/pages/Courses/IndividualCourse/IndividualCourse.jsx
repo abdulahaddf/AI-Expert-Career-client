@@ -10,9 +10,14 @@ import { MyContext } from "../../../../Context/Context";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MdOutlineVideoLibrary } from "react-icons/md";
+import Loader from "../../../common/loader/Loader";
+import { AiFillLock } from "react-icons/ai";
+import CountDown from "./CountDown";
+import moment from "moment";
 const IndividualCourse = () => {
   const { addToCart, setAddToCart, language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
+  const [isLoading, SetLoading] = useState(true);
   const { id } = useParams();
 console.log(course)
 
@@ -21,6 +26,7 @@ console.log(course)
     fetch(`http://localhost:5000/singlecourse/${id}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
+      SetLoading(false);
   }, [id]);
 
 
@@ -48,6 +54,7 @@ console.log(course)
     modules,
     startDate,
     endDate,
+    courseDate,
     faqItems,
     goals,
     comments,
@@ -65,8 +72,9 @@ console.log(course)
   //   window.scrollTo(0, 0);
   // }, []);
 
+  if(isLoading) return <Loader/>
   return (
-  <section className="px-4 py-2 my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 flex gap-10">
+  <section className="px-4 py-2 my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 flex gap-10 ">
     {/* Left Side Contents */}
 <section className="space-y-10">
 <h1 className="text-2xl font-bold">{title}</h1>
@@ -79,7 +87,7 @@ console.log(course)
 
 <div>
 <h3 className="text-2xl font-bold my-3">  {language == "bn"
-            ? "এই কোর্সের ভেতরে যা যা রয়েছে:"
+            ? "কোর্স বিবরণ:"
             : "Course Details:"}</h3>
 <div className="section">
   <p dangerouslySetInnerHTML={{ __html: description }}></p>
@@ -90,12 +98,12 @@ console.log(course)
 {/* who can do the course */}
 <div>
 <h3 className="text-2xl font-bold my-3">  {language == "bn"
-            ? "এই কোর্সের ভেতরে যা যা রয়েছে:"
+            ? "কারা এই কোর্সের জন্য উপযুক্ত:"
             : "Who Are Suitable For This Course:"}</h3>
-            <div className="section grid grid-cols-2">
+            <div className="section grid grid-cols-2 text-lg">
             {
             eligibleUsers?.map(eli => <div key={eli}> 
-            <p className="flex items-center gap-3 my-3"><FaHandPointRight className="text-primary text-lg"/> {eli}</p>
+            <p className="flex items-center gap-3 my-3 "><FaHandPointRight className="text-primary text-lg"/> {eli}</p>
   </div>)
 } </div>
 </div>
@@ -103,21 +111,21 @@ console.log(course)
 {/* preRequisites */}
 <div>
 <h3 className="text-2xl font-bold my-3">  {language == "bn"
-            ? "এই কোর্সের ভেতরে যা যা রয়েছে:"
+            ? "কোর্সের প্রয়োজনীয়তা:"
             : "Course Requirements:"}</h3>
             <div className="section grid grid-cols-2">
             {
             preRequisites?.map(pre => <div key={pre}> 
-            <p className="flex items-center gap-3 my-3"><FaHandPointRight className="text-primary text-lg"/> {pre}</p>
+            <p className="flex items-center gap-3 my-3 text-lg"><FaHandPointRight className="text-primary text-lg"/> {pre}</p>
   </div>)
 } </div>
 </div>
 {/* Course Goals */}
 <div>
 <h3 className="text-2xl font-bold my-3">  {language == "bn"
-            ? "এই কোর্সের ভেতরে যা যা রয়েছে:"
+            ? "কোর্সের লক্ষ্য:"
             : "Course Goals:"}</h3>
-            <div className="section grid grid-cols-2">
+            <div className="section grid grid-cols-2 text-lg">
             {
             goals?.map(goal => <div key={goal}> 
             <p className="flex items-center gap-3 my-3"><FaHandPointRight className="text-primary text-lg"/> {goal}</p>
@@ -140,7 +148,7 @@ console.log(course)
           className="flex cursor-pointer items-center justify-between gap-1.5 rounded-xl bg-slate-100 p-3 text-gray-900"
           
         >
-          <h2 className="font-semibold cursor-pointer">
+          <h2 className="font-bold cursor-pointer">
             {module.title}
           </h2>
           <svg
@@ -160,9 +168,13 @@ console.log(course)
         </summary>
         <p className="mt-4 px-4 leading-relaxed text-gray-700 ">
           {module.contents.map((c) => (
-            <p className="flex items-center gap-3 my-3 cursor-pointer" key={c}>
+            <div className="flex items-center justify-between" key={c}>
+            <p className="flex items-center gap-3 my-3 cursor-pointer text-lg font-semibold" >
               <MdOutlineVideoLibrary /> {c.title}
             </p>
+
+            <AiFillLock className="text-gray-400"/>
+            </div>
           ))}
         </p>
       </details>
@@ -229,7 +241,7 @@ console.log(course)
       </span>
     </summary>
 
-    <p className="mt-4 leading-relaxed text-gray-700">
+    <p className="mt-4 leading-relaxed font-normal text-gray-700">
      {faq.answer}
     </p>
   </details>
@@ -262,7 +274,7 @@ console.log(course)
 
 
     {/* right Side Contents */}
-<section>
+<section className="">
   {/* Features */}
 <div className="section w-96 text-sm ">
   <h3 className="text-xl font-bold my-3">  {language == "bn"
@@ -272,7 +284,7 @@ console.log(course)
 {
   features?.map(feature => <div key={feature}> 
   
-  <p className="flex items-center gap-3 my-3"><FaHandPointRight className="text-primary text-lg"/> {feature}</p>
+  <p className="flex items-center gap-3 my-3 text-lg"><FaHandPointRight className="text-primary text-lg"/> {feature}</p>
   </div>)
 }
 </div>
@@ -280,11 +292,11 @@ console.log(course)
 
 
 <div className="course-details text-base mt-5">
-  <p className="flex gap-5 p-2 ">Course Fee : <span className="line-through text-gray-500">{courseFee}</span> <span >{discountAmount}</span>
-   <span className="text-red-600"> Save: {discount}%</span>
+  <p className="flex p-2 text-xl">Course Fee :  <span className="line-through text-gray-500 mx-2 text-md">{courseFee}</span> <span className="text-xl">{discountAmount}</span>
+   <span className="text-red-600 ml-4"> Save: {discount}%</span>
   </p>
  
-
+<button className="button-30">Enroll Now</button>
  
 </div>
 
@@ -293,6 +305,25 @@ console.log(course)
 
 </div>
 
+
+{/* Course count down */}
+
+<CountDown startDate={startDate} endDate={endDate}/>
+<div className="section flex justify-between ">
+  <div className="">
+  <h3 className="text-md font-semibold my-3">  {language == "bn"
+            ? "ভর্তি শেষ:"
+            : "Admission will end on:"}</h3> 
+            <p>{moment(endDate).format('MMMM Do YYYY')}</p>
+  </div>
+  <p className="border-[1px] border-black/25"/>
+  <div className="">
+  <h3 className="text-sm font-semibold my-3">  {language == "bn"
+            ? "কোর্স শুরু হবে:"
+            : "Course will start on:"}</h3>
+            <p>{moment(courseDate).format('MMMM Do YYYY')}</p>
+  </div>
+</div>
 
 
 </section>

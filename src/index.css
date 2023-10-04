@@ -17,6 +17,55 @@
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins&display=swap');
 
 
+  /* @font-face {
+    font-family: 'Li Ador Noirrit';
+    src: url('./fonts/Li Ador Noirrit Light.ttf')  format('truetype'),
+     url('./fonts/Li Ador Noirrit Regular.ttf')  format('truetype'),
+     url('./fonts/Li Ador Noirrit SemiBold.ttf')  format('truetype'),
+     url('./fonts/Li Ador Noirrit Bold.ttf')  format('truetype');
+    
+    unicode-range: U+0980-09FF, U+200C-200D;
+
+} */
+@font-face {
+  font-family: 'Li Ador Noirrit Light';
+  src: url('./fonts/Li Ador Noirrit Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  unicode-range: U+0980-09FF, U+200C-200D;
+}
+
+@font-face {
+  font-family: 'Li Ador Noirrit Regular';
+  src: url('./fonts/Li Ador Noirrit Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+0980-09FF, U+200C-200D;
+}
+
+@font-face {
+  font-family: 'Li Ador Noirrit SemiBold';
+  src: url('./fonts/Li Ador Noirrit SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  unicode-range: U+0980-09FF, U+200C-200D;
+}
+
+@font-face {
+  font-family: 'Li Ador Noirrit Bold';
+  src: url('./fonts/Li Ador Noirrit Bold.ttf') format('truetype');
+  font-weight: 700; /* Use 700 for bold */
+  font-style: normal;
+  unicode-range: U+0980-09FF, U+200C-200D;
+}
+
+
+
+
+
+
+
+
 @layer components {
   .btn-custom-sm {
     @apply btn btn-sm  hover:bg-primary text-primary hover:text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-200 border-b-2 border-red-600 hover:border-red-400;
@@ -34,9 +83,11 @@
 
 :root {
   /* font-family: "Josefin Sans", sans-serif; */
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', 'Li Ador Noirrit Regular','Li Ador Noirrit SemiBold','Li Ador Noirrit Bold', sans-serif;
+  /* font-family: 'Li Ador Noirrit' , 'DM Sans',  sans-serif; */
+  /* font-family:  'DM Sans', 'Li Ador Noirrit' ,  sans-serif; */
   line-height: 1.5;
-  font-weight: 400;
+  /* font-weight: 500; */
 
   color: #000000cc;
   background: url("../public/img/fullBg.png");
@@ -45,12 +96,79 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  font-synthesis: none;
+  /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
 }
+
+
+
+
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #ED1B24;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #ffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .no-select {
   -webkit-touch-callout: none;

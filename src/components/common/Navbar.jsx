@@ -268,7 +268,7 @@ const Navbar = () => {
               </ul>
               {user ? (
                 <Link className="hidden sm:block" to="/courses">
-                  <button className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md text-black shadow-lg">
+                  <button className=" button-30 btn-sm">
                     Enroll
                   </button>
                 </Link>
@@ -665,7 +665,7 @@ const Navbar = () => {
               </ul>
               {user ? (
                 <Link className="hidden sm:block" to="/courses">
-                  <button className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md text-black shadow-lg">
+                  <button className=" button-30 px-5 btn-sm  ">
                     Enroll
                   </button>
                 </Link>

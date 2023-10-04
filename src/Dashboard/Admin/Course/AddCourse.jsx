@@ -126,6 +126,7 @@ const AddCourse = () => {
           modules,
           startDate,
           endDate,
+          courseDate,
           faqItems,
           goals,
           preRequisites,
@@ -174,6 +175,7 @@ const AddCourse = () => {
               modules,
               startDate,
               endDate,
+              courseDate,
               faqItems,
               goals,
               preRequisites,
@@ -443,13 +445,22 @@ const addNewCollaborator = () => {
             <label htmlFor="discount" className="block font-semibold mb-1">Discount %</label>
             <input {...register('discount', { required: true })} type="number" id="discount" className="border border-gray-300 rounded-xl p-2 w-full" />
           </div>
-          <div className="mb-4">
-          <label htmlFor="startDate" className="block font-semibold mb-1">Start Date:</label>
+          
+       <div className='flex justify-between'>
+       <div className="mb-4">
+          <label htmlFor="startDate" className="block font-semibold mb-1">Admission Start Date:</label>
           <input {...register('startDate')} type="date" id="startDate" className="border border-gray-300 rounded-xl p-2" />
         </div>
+
+
+       <div className="mb-4">
+          <label htmlFor="endDate" className="block font-semibold mb-1">Admission End Date:</label>
+          <input {...register('endDate')} type="date" id="endDate" className="border border-gray-300 rounded-xl p-2" />
+        </div>
+       </div>
         <div className="mb-4">
-          <label htmlFor="endDate" className="block font-semibold mb-1">End Date:</label>
-          <input {...register('endDate')} type="date" id="startDate" className="border border-gray-300 rounded-xl p-2" />
+          <label htmlFor="courseDate" className="block font-semibold mb-1">Course will start:</label>
+          <input {...register('courseDate')} type="date" id="courseDate" className="border border-gray-300 rounded-xl p-2" />
         </div>
           </div>
         )}
