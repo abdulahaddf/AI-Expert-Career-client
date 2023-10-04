@@ -5,6 +5,7 @@ import JoditEditor from "jodit-react";
 import { useRef } from 'react';
 import { FiDelete } from 'react-icons/fi';
 import { MdAdd, MdPlaylistRemove, MdRemoveCircle } from 'react-icons/md';
+import DriveLinkConverter from './DriveLinkConverter';
 
 
 const AddCourse = () => {
@@ -280,7 +281,10 @@ const addNewCollaborator = () => {
 
   return (
     <div className="container max-w-5xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-10 text-primary">Publish a Course</h1>
+     
+     <h1 className="text-2xl font-bold mb-10 text-primary">Publish a Course</h1>
+      
+   
       <h1 className="text-2xl font-bold mb-4">Course Information:</h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className='flex flex-wrap justify-between'>
@@ -636,7 +640,8 @@ const addNewCollaborator = () => {
 
 
     {/* Add Collaborators */}
-    <div className="mb-4">
+    <div className='flex justify-between'>
+    <div className="mb-4 w-1/2">
           <label htmlFor="Collaborators" className="text-2xl font-bold mb-4">
             Course Collaborators:
           </label>
@@ -678,7 +683,9 @@ const addNewCollaborator = () => {
             </button>
           </div>
         </div>
-
+    <DriveLinkConverter/>
+   
+        </div>
       
 
 
