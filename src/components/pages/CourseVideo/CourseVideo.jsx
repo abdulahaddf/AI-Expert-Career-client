@@ -1,8 +1,8 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import "video-react/dist/video-react.css"; // import css
 import mediaIcon from "../../../assets/Dashboard/mediaLogo.png";
 import mediaIcon2 from "../../../assets/Dashboard/mediaLogo-2.png";
+import "video-react/dist/video-react.css"; // import css
 import {
   Player,
   ControlBar,

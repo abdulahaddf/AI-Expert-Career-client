@@ -1,9 +1,6 @@
-import { Disclosure } from "@headlessui/react";
-import { ChevronUpIcon } from "@heroicons/react/20/solid";
-import { BsHeart, BsFillPeopleFill, BsStopwatch } from "react-icons/bs";
+
 import { FaClipboardList, FaHandPointRight } from "react-icons/fa";
-import { SiYoutubemusic } from "react-icons/si";
-import Right from "../Assests/rights.svg";
+
 
 import { useContext, useState } from "react";
 import { MyContext } from "../../../../Context/Context";
@@ -14,6 +11,9 @@ import Loader from "../../../common/loader/Loader";
 import { AiFillLock } from "react-icons/ai";
 import CountDown from "./CountDown";
 import moment from "moment";
+import { Player } from "video-react";
+import "video-react/dist/video-react.css";
+import ReactPlayer from "react-player";
 const IndividualCourse = () => {
   const { addToCart, setAddToCart, language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
@@ -27,7 +27,7 @@ console.log(course)
       .then((response) => response.json())
       .then((data) => setCourse(data));
       SetLoading(false);
-  }, [id]);
+  }, [id,course]);
 
 
   const handleAddtoCart = () => {
@@ -62,7 +62,7 @@ console.log(course)
     preRequisites,
     eligibleUsers,
   } = course ;
-
+console.log(coverVideo)
   // const discountAmount = (discount / 100) * courseFee;
   const discountAmount = courseFee * (1 - discount / 100);
 
@@ -79,9 +79,17 @@ console.log(course)
 <section className="space-y-10">
 <h1 className="text-2xl font-bold">{title}</h1>
 <h2 className="text-xl ">{subtitle}</h2>
-<figure>
-  <img src={cover} alt="" className="max-w-3xl"/>
-</figure>
+<div className="w-[768px]">
+  {
+    coverVideo ? <ReactPlayer url={coverVideo} /> : <img src={cover} alt="" className="max-w-3xl"/>
+  }
+  </div>
+  
+
+
+
+
+
 
 {/* description */}
 
@@ -292,9 +300,11 @@ console.log(course)
 
 
 <div className="course-details text-base mt-5">
-  <p className="flex p-2 text-xl">Course Fee :  <span className="line-through text-gray-500 mx-2 text-md">{courseFee}</span> <span className="text-xl">{discountAmount}</span>
-   <span className="text-red-600 ml-4"> Save: {discount}%</span>
-  </p>
+  {
+    courseType === "paid" ? <p className="flex p-2 text-xl">Course Fee :  <span className="line-through text-gray-500 mx-2 text-md">{courseFee}</span> <span className="text-xl">{discountAmount}</span>
+    <span className="text-red-600 ml-4"> Save: {discount}%</span>
+   </p> : <p className="text-xl font-semibold">Free Course</p>
+  }
  
 <button className="button-30">Enroll Now</button>
  
@@ -308,22 +318,24 @@ console.log(course)
 
 {/* Course count down */}
 
-<CountDown startDate={startDate} endDate={endDate}/>
-<div className="section flex justify-between ">
-  <div className="">
-  <h3 className="text-md font-semibold my-3">  {language == "bn"
-            ? "ভর্তি শেষ:"
-            : "Admission will end on:"}</h3> 
-            <p>{moment(endDate).format('MMMM Do YYYY')}</p>
-  </div>
-  <p className="border-[1px] border-black/25"/>
-  <div className="">
-  <h3 className="text-sm font-semibold my-3">  {language == "bn"
-            ? "কোর্স শুরু হবে:"
-            : "Course will start on:"}</h3>
-            <p>{moment(courseDate).format('MMMM Do YYYY')}</p>
-  </div>
-</div>
+{
+  courseType === "paid" && <><CountDown startDate={startDate} endDate={endDate}/>
+  <div className="section flex justify-between ">
+    <div className="">
+    <h3 className="text-md font-semibold my-3">  {language == "bn"
+              ? "ভর্তি শেষ:"
+              : "Admission will end on:"}</h3> 
+              <p>{moment(endDate).format('MMMM Do YYYY')}</p>
+    </div>
+    <p className="border-[1px] border-black/25"/>
+    <div className="">
+    <h3 className="text-sm font-semibold my-3">  {language == "bn"
+              ? "কোর্স শুরু হবে:"
+              : "Course will start on:"}</h3>
+              <p>{moment(courseDate).format('MMMM Do YYYY')}</p>
+    </div>
+  </div></>
+}
 
 
 </section>
