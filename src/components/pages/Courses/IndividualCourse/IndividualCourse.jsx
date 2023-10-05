@@ -14,7 +14,7 @@ import "video-react/dist/video-react.css";
 import ReactPlayer from "react-player";
 import PromoCode from "./PromoCode";
 const IndividualCourse = () => {
-  const [isLoading, SetLoading] = useState(true);
+  
   const { addToCart, setAddToCart, language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
@@ -25,7 +25,7 @@ const IndividualCourse = () => {
     fetch(`http://localhost:5000/singlecourse/${id}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
-    SetLoading(false);
+    
   }, [id, course]);
 
   const handleAddtoCart = () => {
