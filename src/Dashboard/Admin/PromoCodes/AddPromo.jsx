@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const AddPromo = () => {
-  const { darkMode } = useContext(AuthContext);
+  
 
   const [promos, setPromos] = useState([]);
   const { register, handleSubmit, watch, reset } = useForm();
@@ -73,21 +73,15 @@ const AddPromo = () => {
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className={
-            darkMode
-              ? "bg-gray border-[1px] rounded-md p-4 md:p-5"
-              : "bg-slate-100 rounded-md p-4 md:p-5"
-          }
+          className="bg-slate-100 rounded-md p-4 md:p-5"
+        
         >
           <div className="flex items-center justify-center gap-5 mx-auto">
             <div className="form-control w-full">
               <label className="label">
                 <span
-                  className={
-                    darkMode
-                      ? "label-text font-semibold w-full text-white"
-                      : "label-text font-semibold w-full "
-                  }
+                  className="label-text font-semibold w-full "
+                
                 >
                   Promo Code
                 </span>
@@ -104,11 +98,8 @@ const AddPromo = () => {
             <div className="form-control w-full">
               <label className="label">
                 <span
-                  className={
-                    darkMode
-                      ? "label-text font-semibold text-white"
-                      : "label-text font-semibold"
-                  }
+                  className= "label-text font-semibold"
+                 
                 >
                   Discount
                 </span>
@@ -124,7 +115,7 @@ const AddPromo = () => {
             </div>
             <div>
               <input
-                className="btn-custom w-20 mt-8"
+                className="btn-add"
                 type="submit"
                 value="Add"
               />
@@ -137,9 +128,8 @@ const AddPromo = () => {
         <table className="table table-zebra shadow-xl w-full text-center rounded-md">
           {/* head */}
           <thead
-            className={
-              darkMode ? "bg-gray text-white" : "bg-primary text-white"
-            }
+            className= "bg-primary text-white"
+           
           >
             <tr>
               <th>#</th>
@@ -150,20 +140,19 @@ const AddPromo = () => {
           </thead>
           <tbody>
             {promos.map((promo, index) => (
-              <tr className={darkMode ? "bg-black/80" : ""} key={promo._id}>
-                <th className={darkMode ? "bg-black/80" : ""}>{index + 1}</th>
+              <tr  key={promo._id}>
+                <th >{index + 1}</th>
 
-                <td className={darkMode ? "bg-black/80" : ""}>{promo.promo}</td>
-                <td className={darkMode ? "bg-black/80" : ""}>
+                <td >{promo.promo}</td>
+                <td >
                   {promo.discount}
                 </td>
 
-                <td className={darkMode ? "bg-black/80" : ""}>
+                <td >
                   <button
                     onClick={() => handleDelete(promo)}
-                    className={
-                      darkMode ? "btn-custom-dark bg-[#d71d24]" : "btn-custom"
-                    }
+                    className= "btn-add"
+                   
                   >
                     Delete
                   </button>

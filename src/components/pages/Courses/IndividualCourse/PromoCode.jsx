@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../../Context/Context";
 
-const PromoCode = ({ discountAmount, discount, courseFee }) => {
+const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
     const { language } = useContext(MyContext);
   const [promo, setPromo] = useState([]);
   const [appliedPromo, setAppliedPromo] = useState("");
@@ -77,7 +77,7 @@ const PromoCode = ({ discountAmount, discount, courseFee }) => {
           </span>{" "}
         </p>
         <div className="text-center">
-          <Link to="/enroll" className="button-30">
+          <Link to="/enroll" state={{course , payable , discountAmount }} className="button-30">
             Enroll Now
           </Link>
         </div>

@@ -304,7 +304,7 @@ console.log(course)
 <div className="course-details text-base mt-5">
   {/* paid course enrollment */}
   {
-    courseType === "paid" ?<> <PromoCode discountAmount={discountAmount} courseFee={courseFee} discount={discount} />
+    courseType === "paid" ?<> <PromoCode discountAmount={discountAmount} courseFee={courseFee} discount={discount} course={course}/>
 
    </> :
   //  free course enrollment

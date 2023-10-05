@@ -6,6 +6,7 @@ import { MyContext } from "../../../Context/Context";
 const UserProfile = () => {
   const [edit, setEdit] = useState(false);
   const { language } = useContext(MyContext);
+  
   const updateHandler = () => {
     setEdit(!edit);
   };
