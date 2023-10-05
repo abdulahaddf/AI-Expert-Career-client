@@ -65,7 +65,7 @@ const ResetForm = () => {
           </div>
 
           <div className="flex justify-center">
-            <button type="submit" className="btn-custom">
+            <button type="submit" className="btn-add">
               Reset Password
             </button>
           </div>

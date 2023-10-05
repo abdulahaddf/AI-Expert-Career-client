@@ -56,6 +56,7 @@ const CoursesHeader = () => {
             </div>
           </div>
         </SwiperSlide>
+        
         <SwiperSlide>
           <div
             className="w-screen lg:py-12 lg:pl-28 h-full"

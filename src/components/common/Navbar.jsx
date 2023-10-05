@@ -49,7 +49,8 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
+      {/* about */}
+      {/* <li>
         <NavLink
           to="/about-us"
           className={({ isActive, isPending }) =>
@@ -62,7 +63,7 @@ const Navbar = () => {
         >
           About
         </NavLink>
-      </li>
+      </li> */}
 
       <li className="swc">
         <NavLink
@@ -75,7 +76,8 @@ const Navbar = () => {
               : "px-3 hover:text-[#ED1B24] duration-150"
           }
         >
-          <div className="dropdown inline-block relative">
+{/* resourses */}
+          {/* <div className="dropdown inline-block relative">
             <button className=" hover:text-[#ED1B24] lg:px-4 py-2 font-bold  inline-flex items-center">
               <span className="">Resource</span>
               <svg
@@ -104,7 +106,8 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
+
         </NavLink>
       </li>
       <li>
@@ -121,31 +124,65 @@ const Navbar = () => {
           Blog
         </NavLink>
       </li>
+
+      <li>
+      <NavLink
+          to="/blog"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              : isPending
+              ? "pending"
+              : "px-3 hover:text-[#ED1B24] duration-150"
+          }
+        >
+          AI Roadmap
+        </NavLink>
+            
+          </li>
+      <li>
+      <NavLink
+          to="/blog"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              : isPending
+              ? "pending"
+              : "px-3 hover:text-[#ED1B24] duration-150"
+          }
+        >
+            Course
+        </NavLink>
+            
+          </li>
+      <li>
+      <NavLink
+          to="/blog"
+          className={({ isActive, isPending }) =>
+            isActive
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              : isPending
+              ? "pending"
+              : "px-3 hover:text-[#ED1B24] duration-150"
+          }
+        >
+             AI Consultancy
+        </NavLink>
+            
+          </li>
+          
+          
       <li>
         <ul className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg">
-          <li className="mt-2">
-            <Link className="duration-100 hover:text-[red]" to="/roadmap">
-              AI Roadmap
-            </Link>
-          </li>
-          <li className="mt-2">
-            <Link className="duration-100 hover:text-[red]" to="/course">
-              Course
-            </Link>
-          </li>
-          <li className="mt-2">
-            <Link className="duration-100 hover:text-[red]" to="/ai-consultant">
-              Ai Consultancy
-            </Link>
-          </li>
-          <li className="mt-2">
+         
+          {/* <li className="mt-2">
             <Link className="duration-100 hover:text-[red]" to="/">
               Job Opportunity
             </Link>
-          </li>
+          </li> */}
         </ul>
       </li>
-      <li className="">
+      {/* <li className="">
         <NavLink
           to="/career"
           className={({ isActive, isPending }) =>
@@ -203,9 +240,9 @@ const Navbar = () => {
             </ul>
           </div>
         </NavLink>
-      </li>
+      </li> */}
 
-      <li className="mr-3">
+      {/* <li className="mr-3">
         <NavLink
           to="/event"
           className={({ isActive, isPending }) =>
@@ -222,7 +259,8 @@ const Navbar = () => {
             </button>
           </div>
         </NavLink>
-      </li>
+      </li> */}
+
     </>
   );
 
