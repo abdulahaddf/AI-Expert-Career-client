@@ -77,7 +77,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
           </span>{" "}
         </p>
         <div className="text-center">
-          <Link to="/enroll" state={{course , payable , discountAmount }} className="button-30">
+          <Link to="/enroll" state={{course , payable , discountAmount, courseFee }} className="button-30">
             Enroll Now
           </Link>
         </div>

@@ -51,6 +51,8 @@ import ManageCourses from '../../Dashboard/Admin/Course/ManageCourses';
 import EditCourse from '../../Dashboard/Admin/Course/EditCourse';
 import Enroll from '../pages/Courses/IndividualCourse/Enroll';
 import AddPromo from '../../Dashboard/Admin/PromoCodes/AddPromo';
+import FreeEnroll from '../pages/Courses/IndividualCourse/FreeEnroll';
+import CompletePurchaseCourse from '../pages/Courses/IndividualCourse/CompletePurchaseCourse';
 
 
 export const router = createBrowserRouter([
@@ -136,6 +138,14 @@ export const router = createBrowserRouter([
       {
         path: '/enroll',
         element: <Enroll/>,
+      },
+      {
+        path: '/free-course',
+        element: <FreeEnroll/>,
+      },
+      {
+        path: '/complete-enroll',
+        element: <CompletePurchaseCourse/>,
       },
       {
         path: '/blog',
