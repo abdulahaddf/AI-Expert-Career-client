@@ -19,6 +19,7 @@ import { MyContext } from "../../../Context/Context";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { FaBloggerB, FaUsersCog } from "react-icons/fa";
 import { MdManageSearch } from "react-icons/md";
+import { CiDiscount1 } from "react-icons/ci";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const {user, logOut } = useContext(AuthContext);
@@ -68,7 +69,7 @@ const DashboardLayout = () => {
                {
                 isAdmin ? 
                 // Admin Dashboard link starts from here
-                <ul className="w-full py-[30px] md:px-4 flex  flex-col">
+                <ul className="w-full h-full py-[30px] md:px-4 flex  flex-col">
                 <NavLink
                   to={"/dashboard/user-dashboard"}
                   className={({ isActive }) =>
@@ -185,6 +186,24 @@ const DashboardLayout = () => {
                     {language === "bn" ? "কোর্স পরিচালনা করুন" : "Manage courses"}
                   </NavLink>
 
+
+                <NavLink
+                    to={"/dashboard/promo"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                    }
+                  >
+                    <CiDiscount1
+                      className={`${({ isActive }) =>
+                        isActive
+                          ? "text-white"
+                          : "text-red-600"}mb-[4px] mr-2 `}
+                    />
+                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Promo Codes"}
+                  </NavLink>
+
               
 
                 
@@ -292,6 +311,9 @@ const DashboardLayout = () => {
                     />
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
                   </NavLink>
+
+
+                  
                 </ul>
                }
 

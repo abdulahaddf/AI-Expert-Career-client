@@ -5,7 +5,7 @@ import { FaClipboardList, FaHandPointRight } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { MyContext } from "../../../../Context/Context";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MdOutlineVideoLibrary } from "react-icons/md";
 import Loader from "../../../common/loader/Loader";
 import { AiFillLock } from "react-icons/ai";
@@ -14,10 +14,11 @@ import moment from "moment";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
 import ReactPlayer from "react-player";
+import PromoCode from "./PromoCode";
 const IndividualCourse = () => {
+  const [isLoading, SetLoading] = useState(true);
   const { addToCart, setAddToCart, language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
-  const [isLoading, SetLoading] = useState(true);
   const { id } = useParams();
 console.log(course)
 
@@ -28,13 +29,14 @@ console.log(course)
       .then((data) => setCourse(data));
       SetLoading(false);
   }, [id,course]);
-
+  
 
   const handleAddtoCart = () => {
     setAddToCart([...addToCart, "one"]);
   };
 
   const  {
+    _id,
     title,
     subtitle,
     coverVideo,
@@ -62,15 +64,15 @@ console.log(course)
     preRequisites,
     eligibleUsers,
   } = course ;
-console.log(coverVideo)
+// console.log(coverVideo)
   // const discountAmount = (discount / 100) * courseFee;
   const discountAmount = courseFee * (1 - discount / 100);
 
 
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if(isLoading) return <Loader/>
   return (
@@ -300,13 +302,17 @@ console.log(coverVideo)
 
 
 <div className="course-details text-base mt-5">
+  {/* paid course enrollment */}
   {
-    courseType === "paid" ? <p className="flex p-2 text-xl">Course Fee :  <span className="line-through text-gray-500 mx-2 text-md">{courseFee}</span> <span className="text-xl">{discountAmount}</span>
-    <span className="text-red-600 ml-4"> Save: {discount}%</span>
-   </p> : <p className="text-xl font-semibold">Free Course</p>
+    courseType === "paid" ?<> <PromoCode discountAmount={discountAmount} courseFee={courseFee} discount={discount} />
+
+   </> :
+  //  free course enrollment
+    <><p className="text-xl font-semibold">Free Course</p>
+   <button className="button-30">Enroll Now</button>
+    </>
   }
  
-<button className="button-30">Enroll Now</button>
  
 </div>
 

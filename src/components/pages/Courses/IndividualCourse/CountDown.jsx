@@ -6,7 +6,7 @@ import { useState } from "react";
 import { MyContext } from "../../../../Context/Context";
 
 
-const startDate = "2023-10-20"
+const startDate = "2023-10-01"
 const endDate = "2023-10-25"
 
 const CountDown = () => {
