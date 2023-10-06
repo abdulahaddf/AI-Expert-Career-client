@@ -3,7 +3,8 @@ import UseUser from "../../../../hooks/useUser";
 import { useState } from "react";
 import Loader from "../../../common/loader/Loader";
 import { toast } from "react-toastify";
-
+import Lottie from "lottie-react";
+import free from "../../../../assets/aiload/free.json";
 
 const FreeEnroll = () => {
     const [userinfo]= UseUser();
@@ -66,7 +67,7 @@ const FreeEnroll = () => {
     return (
         <div className="flex justify-evenly h-[70vh] items-center">
             <div className="section h-fit w-2/5 text-xl p-14">
-                <h1 className="font-bold my-4">User Information:</h1>
+                <h1 className="font-bold my-4">Your Information:</h1>
                     
                 <div className="space-y-2 ">
                     <p>
@@ -85,7 +86,8 @@ const FreeEnroll = () => {
                 <p>If you want to update your Information <Link to="/dashboard/my-profile" className="text-blue-600">Click Here</Link></p>
                 </div>
             </div>
-            <div className="section w-2/5 p-12 text-xl space-y-3">
+           <div className="flex section">
+           <div className=" p-12 text-xl space-y-3">
                 <h1 className="font-bold my-4">Course Details</h1>
                 <p className="font-semibold">{title}</p>
                 <p className="">Free Course</p>
@@ -104,6 +106,14 @@ const FreeEnroll = () => {
     </div>
                 <Link onClick={handleSubmit} disabled={!isChecked} state={title} to="/complete-enroll" className="btn-add">Complete Enrollment</Link>
             </div>
+            <div className="w-42 flex items-center ">
+            <Lottie
+          className="select-none pointer-events-none no-select unselectable w-full"
+          animationData={free}
+          loop={true}
+        />
+            </div>
+           </div>
         </div>
     );
 };

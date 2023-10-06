@@ -91,9 +91,9 @@ console.log(tId, number)
       }, []);
       if(!userinfo) return <Loader/>
     return (
-        <div className="flex justify-evenly h-[100vh] ">
+        <div className="flex justify-evenly h-[100vh] my-10">
             <div className="section h-fit w-2/5 text-xl p-14">
-                <h1 className="font-bold my-4">User Information:</h1>
+                <h1 className="font-bold my-4 text-3xl">User Information:</h1>
                     
                 <div className="space-y-2 ">
                     <p>
@@ -112,15 +112,15 @@ console.log(tId, number)
                 <p>If you want to update your Information <Link to="/dashboard/my-profile" className="text-blue-600">Click Here</Link></p>
                 </div>
             </div>
-            <div className="section w-2/5 p-12 text-xl space-y-3">
-                <h1 className="font-bold my-4">Course Details</h1>
-                <p className="font-semibold">{title}</p>
+            <div className="section w-2/5 h-fit p-5 text-xl space-y-3">
+                <h1 className="font-bold my-4 text-3xl">Payment Process</h1>
+                <p className="font-semibold">Course Name: {title}</p>
                
 
 
 
                 <div>
-      <section className="text-slate-900 font-semibold my-5 p-1   space-y-4 ">
+      <section className="text-slate-900 font-semibold my-5 p-1  space-y-4 ">
         <p className=" flex justify-between border-b-2">
           <span className="text-xl"> {language == "bn"
             ? "কোর্সের মূল্য:"
@@ -146,15 +146,49 @@ console.log(tId, number)
             ৳ {payable ? payable : discountAmount}{" "}
           </span>{" "}
         </p>
-        <div className="text-center">
-         <p className="text-sm font-normal">
-            You Need to pay <span className="text-primary text-lg">{payable ? payable : discountAmount}</span> TK to <span className="text-primary text-lg">0190-2221726 </span>
-            through Bkash, Nagad or Rocket then give the Transection ID and the number from which you send the money in the following input field. Then submit for the Admin Approval 
-         </p>
-
-        
-
-        </div>
+        {
+            language == "bn" ? <><p className="text-sm font-normal">
+            আপনি নিম্নলিখিত পদক্ষেপগুলি অনুসরণ করে আপনার পেমেন্ট সম্পূর্ণ করতে হবে:
+          </p>
+          <ol className="list-decimal pl-5">
+            <li className="text-sm font-normal">
+              নিম্নোক্ত নম্বরে <span className="text-primary text-lg">{payable ? payable : discountAmount}</span> টাকা সরবরাহ করুন:
+              <span className="text-primary text-lg"> 0190-2221726</span>
+            </li>
+            <li className="text-sm font-normal">
+              লেনদেন সম্পূর্ণ করতে Bkash, Nagad, বা Rocket ব্যবহার করুন।
+            </li>
+            <li className="text-sm font-normal">
+              নীচের ইনপুট ফিল্ডে আপনার লেনদেনের ট্রান্সঅ্যাকশন আইডি এবং যে মোবাইল নম্বরটি ব্যবহার করেছেন, সেই নম্বরটি প্রদান করুন।
+            </li>
+            <li className="text-sm font-normal">
+              "সাবমিট" বোতামে ক্লিক করুন এবং অ্যাডমিনের অনুমোদনের জন্য অপেক্ষা করুন।
+            </li>
+          </ol>
+          </> : <div className="">
+            <p className="text-sm font-normal">
+      To complete your payment, please follow these steps:
+    </p>
+    <ol className="list-decimal pl-5 space-y-2 my-2">
+      <li className="text-sm font-normal">
+        Transfer <span className="text-primary text-lg">{payable ? payable : discountAmount}</span> TK to the following number:
+        <span className="text-primary text-lg"> 0190-2221726</span>
+      </li>
+      <li className="text-sm font-normal">
+        Use Bkash, Nagad, or Rocket for the transaction.
+      </li>
+      <li className="text-sm font-normal">
+        Enter your Transaction ID and the phone number you used for the transaction in the input fields below.
+      </li>
+      <li className="text-sm font-normal">
+        Click the "Submit" button to request Admin approval.
+      </li>
+    </ol>
+    
+            
+    
+            </div>
+        }
         <label className="flex items-center gap-3 text-sm">
         <input
           type="text"
@@ -196,12 +230,15 @@ console.log(tId, number)
           onChange={handleCheckboxChange}
           className="checkbox checkbox-sm checkbox-error "
         />
-        Accept All Terms and Conditions
+        {language == "bn"
+            ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
+            : "Accept All Terms and Conditions"}
+        
       </label>
       <br />
      
     </div>
-                <Link onClick={handleSubmit} disabled={!isChecked} state={title} to="/complete-enroll" className="btn-add">Complete Enrollment</Link>
+                <Link onClick={handleSubmit} disabled={!isChecked} state={title} to="/complete-enroll" className="btn-add">Submit</Link>
             </div>
         </div>
     );
@@ -209,12 +246,3 @@ console.log(tId, number)
 
 export default Enroll;
 
-
-
-
-        // <div className="w-full h-[100vh]">
-
-        //     <h1 className="text-3xl text-center my-10">Enroll your Course :  {title}</h1>
-        //     <h3 className="text-3xl text-center my-10">You Need to pay :  {payable ? payable :  discountAmount}</h3>
-
-        // </div>

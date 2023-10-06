@@ -65,7 +65,7 @@ const Navbar = () => {
         </NavLink>
       </li> */}
 
-      <li className="swc">
+      {/* <li className="swc">
         <NavLink
           to=""
           className={({ isActive, isPending }) =>
@@ -76,8 +76,8 @@ const Navbar = () => {
               : "px-3 hover:text-[#ED1B24] duration-150"
           }
         >
-{/* resourses */}
-          {/* <div className="dropdown inline-block relative">
+ resourses 
+          <div className="dropdown inline-block relative">
             <button className=" hover:text-[#ED1B24] lg:px-4 py-2 font-bold  inline-flex items-center">
               <span className="">Resource</span>
               <svg
@@ -106,10 +106,10 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-          </div> */}
+          </div>
 
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to="/blog"
