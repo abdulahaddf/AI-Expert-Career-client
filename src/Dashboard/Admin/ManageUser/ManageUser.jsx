@@ -151,13 +151,15 @@ const ManageUser = () => {
                     ? "Admin"
                     : user.role === "consultant"
                     ? "Consultant"
+                    : user.role === "super admin"
+                    ? "Super Admin"
                     : "User"}
                 </td>
                 <td >
                   <button
                     className="btn-custom-sm "
                     onClick={() => handleMakeAdmin(user)}
-                    disabled={user.role === "admin"}
+                    disabled={user.role === "admin" || user.role === "super admin"}
                   >
                     {" "}
                  Admin
@@ -166,14 +168,14 @@ const ManageUser = () => {
                   <button
                     className="btn-custom-sm m-2"
                     onClick={() => handleMakeConsultant(user)}
-                    disabled={user.role === "consultant"}
+                    disabled={user.role === "consultant" || user.role === "super admin"}
                   >
                    consultant
                   </button>
                   <button
                     className="btn-custom-sm"
                     onClick={() => handleMakeUser(user)}
-                    disabled={user.role === "user"}
+                    disabled={user.role === "user" || user.role === "super admin"}
                   >
                    User
                   </button>
@@ -183,7 +185,7 @@ const ManageUser = () => {
                 <button
                     className="btn-custom-sm"
                     onClick={() => handleDelete(user)}
-                    disabled={user.role === "admin"}
+                    disabled={user.role === "admin" || user.role === "super admin"}
                   >
                    <AiFillDelete />
                   </button></td>
