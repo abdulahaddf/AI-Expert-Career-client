@@ -90,9 +90,9 @@
   /* font-weight: 500; */
 
   color: #000000cc;
-  background: url("../public/img/fullBg.png");
+  /* background: url("../public/img/fullBg.png"); */
   background-size: cover;
-  background: linear-gradient(176.98deg, #fff3f8 -4.94%, #e1f9f0 42.2%, rgba(244, 213, 255, 0.96) 110.23%);
+  /* background: linear-gradient(176.98deg, #fff3f8 -4.94%, #e1f9f0 42.2%, rgba(244, 213, 255, 0.96) 110.23%); */
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -647,7 +647,7 @@ ul li:nth-child(odd) .date {
 }
 
 .event-page {
-  background: linear-gradient(176.98deg, #fff3f8 -4.94%, #e1f9f0 42.2%, rgba(244, 213, 255, 0.96) 110.23%);
+  /* background: linear-gradient(176.98deg, #fff3f8 -4.94%, #e1f9f0 42.2%, rgba(244, 213, 255, 0.96) 110.23%); */
 }
 
 .rounded-ts {

@@ -1,32 +1,43 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const CourseCart = ({ item }) => {
-    const { image, progress } = item
-    const [progressPercentage, setProgressPercentage] = useState(10)
-    useEffect(() => {
-        setProgressPercentage(progress)
-    }, [progress])
-    return (
-        <div className='flex '>
-            <img src={image} alt="" className='mr-4 h-[130px] w-[145px]' />
-            <div className='md:space-y-3 space-y-1'>
-                <h3 className='font-bold'>Adobe Photoshop Advance Training</h3>
-                <p className='text-sm text-black/70 font-bold'>Dan Scott</p>
+const CourseCart = ({ courseData }) => {
+  const { course, progress } = courseData;
 
-                <div className="w-full bg-[#D9D9D9] rounded-full h-4 dark:bg-gray-700 relative mb-1">
-                    <div className="bg-[#ED1B24] h-4 rounded-full" style={{ width: `${progressPercentage}%` }} ></div>
-                    <p className='absolute -top-[4px] right-2'>{progressPercentage < 100 ? <span className='text-[10px] text-white/80 font-bold'>{`${progressPercentage}% Complete`}</span> : <span className='text-[10px] text-white font-bold'>Completed</span>}</p>
-                </div>
-                <div className='h-6 flex justify-center items-center w-[129px] bg-[#ED1B24] rounded-full text-white font-bold text-sm'>
-                    <Link to={`/my-course/${2}`} >
-                        <button className=''>Continue course</button>
-                    </Link>
-                </div>
+  return (
+    <div className="flex section w-fit p-5 ">
+      <img src={course?.cover} alt="" className="mr-4 w-32 h-20" />
+      <div className="md:space-y-3 space-y-1">
+        <h3 className="font-bold">{course.title}</h3>
+        <p className="text-sm text-black/70 font-bold">{course.instructor}</p>
 
-            </div>
+        <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1">
+          <div
+            className="bg-[#ED1B24] h-4 rounded-full"
+            style={{ width: `${progress}%` }}
+          ></div>
         </div>
-    );
+        <p
+          className={`text-primary ${
+            progress === 100 ? "text-[10px] font-bold" : ""
+          }`}
+        >
+          {progress === 100 ? "Completed" : `${progress}% Complete`}
+        </p>
+        <div className="h-6  w-[129px]  rounded-full text-white font-bold text-sm">
+          <Link
+            disabled={courseData.status === "pending"}
+            className=" btn-add"
+            to={`/my-course/${2}`}
+            state={course}
+          >
+            Continue
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CourseCart;

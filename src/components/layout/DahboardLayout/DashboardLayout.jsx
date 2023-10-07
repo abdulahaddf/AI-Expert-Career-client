@@ -20,12 +20,14 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import { FaBloggerB, FaUsersCog } from "react-icons/fa";
 import { MdManageSearch } from "react-icons/md";
 import { CiDiscount1 } from "react-icons/ci";
+import useAdmin from "../../../hooks/useAdmin";
+import UseUser from "../../../hooks/useUser";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const {user, logOut } = useContext(AuthContext);
-
   const [isOpen, setIsOpen] = useState(false);
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  const [userinfo] = UseUser();
   const gradientColor =
     "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
   // const sideNavItem = ["Dashboard", "My Profile", "My courses", "My Wislist", "Purchase History", "Certification"];
@@ -67,9 +69,9 @@ const DashboardLayout = () => {
               </button>
               <div>
                {
-                isAdmin ? 
+                isAdmin || userinfo?.role === "super admin" ? 
                 // Admin Dashboard link starts from here
-                <ul className="w-full h-full py-[30px] md:px-4 flex  flex-col">
+                <ul className="w-full h-full py-4 md:px-4 flex  flex-col">
                 <NavLink
                   to={"/dashboard/user-dashboard"}
                   className={({ isActive }) =>

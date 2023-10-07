@@ -17,12 +17,15 @@ import certificate from "../../assets/profile_icons/BadgeCheckOutline.png";
 import logout from "../../assets/profile_icons/Vector.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
+import useAdmin from "../../hooks/useAdmin";
+import UseUser from "../../hooks/useUser";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -362,7 +365,7 @@ const Navbar = () => {
                         <img
                           className="w-[60px] h-[60px] rounded-full"
                           src={
-                            user?.photoURL ||
+                            userinfo?.photoURL ||
                             "https://i.ibb.co/sg6hmZ7/user.png"
                           }
                           alt="user"

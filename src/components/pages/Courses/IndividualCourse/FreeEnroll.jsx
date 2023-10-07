@@ -9,7 +9,7 @@ import free from "../../../../assets/aiload/free.json";
 const FreeEnroll = () => {
     const [userinfo]= UseUser();
     const location = useLocation();
-    const {_id, title} = location.state;
+    const {_id, title, course} = location.state;
     const [isChecked, setIsChecked] = useState(false);
 
 
@@ -21,13 +21,16 @@ const FreeEnroll = () => {
     
         try {
         
-          // Prepare Enroll Data
+          // Prepare course enroll Data
           const courseData = {
             userId : userinfo._id,
             name : userinfo.displayName,
             email : userinfo.email,
+            course : course,
             courseId : _id,
             courseTitle : title,
+            progress: 0,
+            certificate : false,
             status : "approved",
           };
     

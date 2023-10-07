@@ -777,7 +777,7 @@ const addNewCollaborator = () => {
                     <label htmlFor={`modules[${moduleIndex}].contents[${contentIndex}].url`} className="block font-semibold mb-1">Content URL:</label>
                     <input
                       {...register(`modules[${moduleIndex}].contents[${contentIndex}].url`)}
-                      type="text"
+                      type="url"
                       className="border border-gray-300 rounded-xl p-2 w-full"
                     />
                   </div>

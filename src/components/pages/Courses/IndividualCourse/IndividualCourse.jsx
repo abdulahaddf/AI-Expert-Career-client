@@ -304,7 +304,7 @@ const IndividualCourse = () => {
                 //  free course enrollment
                 <>
                   <p className="text-xl font-semibold my-5">Free Course</p>
-                  <Link state={{_id, title}} to="/free-course" className="button-30">Enroll Now</Link>
+                  <Link state={{_id, title, course}} to="/free-course" className="button-30">Enroll Now</Link>
                 </>
               )}
             </div>
