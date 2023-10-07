@@ -21,7 +21,7 @@ import { useLocation } from "react-router-dom";
 import { MdOutlineVideoLibrary } from "react-icons/md";
 import { AiFillLock } from "react-icons/ai";
 import ReactPlayer from "react-player";
-import DocViewer, { DocViewerRenderers } from "react-doc-viewer";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
 
 const CourseVideo = () => {
   const { language } = useContext(MyContext);
@@ -46,8 +46,8 @@ console.log(ass)
 
 
 const docs = [
-  { uri: "https://docs.google.com/document/d/e/2PACX-1vQtKuO49FzP4Kz_nRvCwGVXx0LkZ-nyejlLN841r_zt5xKklO3Oom634afIbWy6GOEXoioZzkzfV9U-/pub",
-  fileType: 'docx' },
+  { uri: "https://docs.google.com/document/d/e/2PACX-1vSWFhGxSDJTxJjQl6ezZ_jcFScMGW7-KrfQSga89N4_XvSHIdGsW0TvxfMJ39YUVM-ywz_lk_osDyjw/pub?embedded=true",
+  fileType: 'doc' },
   
 ];
 
@@ -59,15 +59,23 @@ const handleContent = (c) => {
   if(c.type === "assignment"){
     setAssTitle(c.title);
     setAss(c.url);
-    // setVideoSource("")
+    setVideoSource("")
+    setQuiz("")
+    
   }
   if(c.type === "quiz"){
     setQuizTitle(c.title);
     setQuiz(c.url);
+    setVideoSource("")
+    
+    setAss("")
   }
   if(c.type === "content"){
     setCourseTitle(c.title);
     setVideoSource(c.url);
+    
+    setQuiz("")
+    setAss("")
   }
   else( console.log("Error"))
 
@@ -238,7 +246,7 @@ const handleContent = (c) => {
         </Player> */}
 
         {
-          videoSource ? <ReactPlayer url={videoSource} /> : ass ?  <DocViewer documents={ass} /> : "kiso nai"
+          videoSource ? <ReactPlayer className="w-[50vw] h-[60vh]" url={videoSource} /> : ass ?  <iframe className="w-[50vw] h-[60vh]" src={ass}></iframe> : quiz ? <iframe src={quiz} width="640" height="1343" >Loading…</iframe> : "kiso nai"
         }
 
 
@@ -256,15 +264,11 @@ const handleContent = (c) => {
             </button>
           </div>
         </div>
-      <DocViewer pluginRenderers={DocViewerRenderers} documents={docs} />
-      <iframe
-        src="https://docs.google.com/document/d/1tdXzpY8_Uhu_oUFl7cEa334-41R3IFYzUuCmx4wdOB8/pub?embedded=true"
-        width="70%"
-        height= "100%"
-        frameBorder="0"
-        scrolling="no"
-        title="Google Doc Viewer"
-      ></iframe>
+        <div>
+        
+        </div>
+      {/* <DocViewer prefetchMethod="GET" pluginRenderers={DocViewerRenderers} documents={docs} /> */}
+      
       </div>
     </div>
   );
