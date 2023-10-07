@@ -37,7 +37,7 @@ const MyCourse = () => {
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-[30px] gap-5 2xl:gap-x-0">
         {courses?.map((course, i) => (
-          <CourseCart key={i} courseData={course} />
+          <CourseCart key={i} courseData={course} userId={userinfo._id} />
         ))}
       </div>
 

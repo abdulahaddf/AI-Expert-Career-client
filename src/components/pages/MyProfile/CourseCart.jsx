@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const CourseCart = ({ courseData }) => {
+const CourseCart = ({ courseData, userId }) => {
   const { course, progress } = courseData;
 
   return (
@@ -30,7 +30,7 @@ const CourseCart = ({ courseData }) => {
             disabled={courseData.status === "pending"}
             className=" btn-add"
             to={`/my-course/${2}`}
-            state={course}
+            state={{course, userId}}
           >
             Continue
           </Link>
