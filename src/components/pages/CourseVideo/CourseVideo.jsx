@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useLocation, useParams } from "react-router-dom";
-import { MdVideoLibrary } from "react-icons/md";
+import {  MdVideoLibrary } from "react-icons/md";
 import ReactPlayer from "react-player";
 import { toast } from "react-toastify";
 import Loader from "../../common/loader/Loader";
-import { AiFillCheckCircle } from "react-icons/ai";
+import Certificate from "./Certificate";
+import moment from "moment";
 
 const CourseVideo = () => {
   const { id } = useParams();
@@ -164,6 +165,47 @@ const CourseVideo = () => {
   }, [course, completedCount, totalContentCount]);
   console.log(progressPercentage);
 
+
+
+
+
+ 
+const postCompletionTime = async () => {
+  console.log("Posting completion time:")
+  try {
+    // Make a POST request to your Express route to update the main course enrollment collection
+    const response = await fetch("http://localhost:5000/completedtime", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: userId, // Replace with the appropriate user ID
+        courseId: course._id, // Replace with the appropriate course ID
+        completionTime: moment().format('MMMM Do YYYY, h:mm a'), // Completion time
+      }),
+    });
+
+    if (response.status === 200) {
+      // Handle success, e.g., show a success message to the user
+      console.log("Course completion status updated successfully");
+    } else {
+      // Handle any errors, e.g., show an error message to the user
+      console.error("Error updating course completion status");
+    }
+  } catch (error) {
+    // Handle any network or other errors
+    console.error(error);
+  }
+};
+
+
+
+// when the course is completed post the completing time
+if (progressPercentage == 100) {
+  postCompletionTime();
+}
+
   const handleMarkAsComplete = async (moduleTitle, contentTitle) => {
     try {
       const requestBody = {
@@ -182,6 +224,8 @@ const CourseVideo = () => {
       });
 
       if (response.status === 200) {
+        console.log("Progress Percentage:", progressPercentage);
+        
         // Mark the content as complete in the state
         setCompletedContent((prevCompletedContent) => ({
           ...prevCompletedContent,
@@ -208,7 +252,7 @@ const CourseVideo = () => {
       {/* Sidebar with modules and contents */}
       <div className="col-span-12 md:col-span-1 mt-5 md:mt-0">
         <div className="section">
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-2xl font-bold">
             {language === "bn"
               ? "কোর্সের পরিপূর্ণ কারিকুলাম:"
               : "Course Content:"}
@@ -273,12 +317,16 @@ const CourseVideo = () => {
         <div>
           <p>Progress: {progressPercentage.toFixed(2)}%</p>
         </div>
-        <div>
-          <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1">
+        <div className="flex justify-between items-center">
+          <div className="w-2/3 bg-[#D9D9D9] h-4 rounded-full mb-1">
             <div
               className="bg-[#ED1B24] h-4 rounded-full"
               style={{ width: `${progressPercentage}%` }}
             ></div>
+          </div>
+          {/* Download Certificate */}
+          <div className="flex items-center">
+            <button disabled={progressPercentage != 100} className="btn-add"> <Certificate/> </button>
           </div>
           {/* <p
           className={`text-primary ${
