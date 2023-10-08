@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const CourseCart = ({ courseData, userId }) => {
-  const { course, progress } = courseData;
+  const { course, progress, _id } = courseData;
 
   return (
     <div className="flex section w-fit p-5 ">
@@ -29,7 +29,7 @@ const CourseCart = ({ courseData, userId }) => {
           <Link
             disabled={courseData.status === "pending"}
             className=" btn-add"
-            to={`/my-course/${2}`}
+            to={`/my-course/${_id}`}
             state={{course, userId}}
           >
             Continue
