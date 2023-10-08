@@ -21,9 +21,9 @@ const CourseVideo = () => {
   const [quiz, setQuiz] = useState("");
   const [completedContent, setCompletedContent] = useState([]);
   const [completedCount, setCompletedCount] = useState(0);
-const [totalContentCount, setTotalContentCount] = useState(0);
-const [progress, setProgress] = useState(0);
-// ... (other code)
+  const [totalContentCount, setTotalContentCount] = useState(0);
+  const [selectedContentIndex, setSelectedContentIndex] = useState(null);
+  const [progressPercentage, setProgressPercentage] = useState(0);
 
   useEffect(() => {
     fetch(`http://localhost:5000/singleEnrolledcourse/${id}`)
@@ -42,8 +42,6 @@ const [progress, setProgress] = useState(0);
         setLoading(false); // Handle errors and set loading to false
       });
   }, [id]);
-
- 
 
   const updateStateVariables = (content) => {
     if (content.type === "assignment") {
@@ -80,6 +78,7 @@ const [progress, setProgress] = useState(0);
     setCurrentModuleIndex(moduleIndex);
     setCurrentContentIndex(contentIndex);
     updateStateVariables(content);
+    setSelectedContentIndex(content.title);
   };
 
   const handlePrevious = () => {
@@ -88,13 +87,18 @@ const [progress, setProgress] = useState(0);
       updateStateVariables(
         course.modules[currentModuleIndex].contents[currentContentIndex - 1]
       );
+      setSelectedContentIndex(
+        course.modules[currentModuleIndex].contents[currentContentIndex - 1]
+          .title
+      );
     } else if (currentModuleIndex > 0) {
       setCurrentModuleIndex(currentModuleIndex - 1);
       const prevModuleContents =
         course.modules[currentModuleIndex - 1].contents;
       setCurrentContentIndex(prevModuleContents.length - 1);
-      updateStateVariables(
-        prevModuleContents[prevModuleContents.length - 1]
+      updateStateVariables(prevModuleContents[prevModuleContents.length - 1]);
+      setSelectedContentIndex(
+        prevModuleContents[prevModuleContents.length - 1].title
       );
     }
   };
@@ -103,74 +107,62 @@ const [progress, setProgress] = useState(0);
     const currentModule = course.modules[currentModuleIndex];
     if (currentContentIndex < currentModule.contents.length - 1) {
       setCurrentContentIndex(currentContentIndex + 1);
-      updateStateVariables(
-        currentModule.contents[currentContentIndex + 1]
+      updateStateVariables(currentModule.contents[currentContentIndex + 1]);
+      setSelectedContentIndex(
+        currentModule.contents[currentContentIndex + 1].title
       );
     } else if (currentModuleIndex < course.modules.length - 1) {
       setCurrentModuleIndex(currentModuleIndex + 1);
       setCurrentContentIndex(0);
-      updateStateVariables(
-        course.modules[currentModuleIndex + 1].contents[0]
+      updateStateVariables(course.modules[currentModuleIndex + 1].contents[0]);
+      setSelectedContentIndex(
+        course.modules[currentModuleIndex + 1].contents[0].title
       );
     }
   };
 
   const currentModule = course.modules?.[currentModuleIndex];
   const currentContent = currentModule?.contents?.[currentContentIndex];
-console.log(currentContent?.completed)
-// console.log(completedContent[currentContent?.title])
+  console.log(currentContent?.completed);
+  // console.log(completedContent[currentContent?.title])
 
-
-
-
-// reload dile ase 
-
-
-
-console.log(totalContentCount)
-console.log(completedCount)
-useEffect(() => {
-  // Calculate the total content count based on your course data
-  let totalCount = 0;
-  if (course?.modules) {
-    course.modules.forEach((module) => {
-      totalCount += module.contents.length;
-    });
-  }
-  setTotalContentCount(totalCount);
-}, [course,completedCount]);
-
-
-useEffect(() => {
-  // Calculate the total content count based on your course data
-  let totalCompletedCount = 0;
-  if (course?.modules) {
-    course.modules.forEach((module) => {
-      module.contents.forEach((content) => {
-        if (content.completed !== undefined) {
-          totalCompletedCount += content.completed ? 1 : 0;
-        }
+  console.log(totalContentCount);
+  console.log(completedCount);
+  useEffect(() => {
+    // Calculate the total content count based on your course data
+    let totalCount = 0;
+    if (course?.modules) {
+      course.modules.forEach((module) => {
+        totalCount += module.contents.length;
       });
-    });
-  }
-  setCompletedCount(totalCompletedCount);
-}, [course,completedContent]);
+    }
+    setTotalContentCount(totalCount);
+  }, [course, completedCount]);
 
-// Calculate the progress percentage
-const progressPercentage = (completedCount / totalContentCount) * 100;
-console.log(progressPercentage)
+  useEffect(() => {
+    // Calculate the total content count based on your course data
+    let totalCompletedCount = 0;
+    if (course?.modules) {
+      course.modules.forEach((module) => {
+        module.contents.forEach((content) => {
+          if (content.completed !== undefined) {
+            totalCompletedCount += content.completed ? 1 : 0;
+          }
+        });
+      });
+    }
+    setCompletedCount(totalCompletedCount);
+  }, [course]);
 
-
-
-
-
-
-
-
-
-
-
-
+  // Calculate the progress percentage
+  // const progressPercentage = (completedCount / totalContentCount) * 100;
+  useEffect(() => {
+    if (totalContentCount > 0) {
+      const percentage = (completedCount / totalContentCount) * 100;
+      setProgressPercentage(percentage);
+    }
+  }, [course, completedCount, totalContentCount]);
+  console.log(progressPercentage);
 
   const handleMarkAsComplete = async (moduleTitle, contentTitle) => {
     try {
@@ -190,13 +182,13 @@ console.log(progressPercentage)
       });
 
       if (response.status === 200) {
-         // Mark the content as complete in the state
-      setCompletedContent((prevCompletedContent) => ({
-        ...prevCompletedContent,
-        [contentTitle]: true,
-      }));
+        // Mark the content as complete in the state
+        setCompletedContent((prevCompletedContent) => ({
+          ...prevCompletedContent,
+          [contentTitle]: true,
+        }));
+        setCompletedCount((prevCompletedCount) => prevCompletedCount + 1);
         toast.success("Content marked as complete successfully");
-        
       } else {
         toast.error("Error marking content as complete");
       }
@@ -213,7 +205,6 @@ console.log(progressPercentage)
 
   return (
     <div className="grid grid-cols-3 gap-x-4 mt-5 mb-20 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-4">
-     
       {/* Sidebar with modules and contents */}
       <div className="col-span-12 md:col-span-1 mt-5 md:mt-0">
         <div className="section">
@@ -248,7 +239,11 @@ console.log(progressPercentage)
                   <p className="mt-4 text-gray-700 ">
                     {module.contents.map((content, contentIndex) => (
                       <div
-                        className="flex items-center "
+                        className={`flex items-center ${
+                          selectedContentIndex === content.title
+                            ? "bg-gray-300 rounded-2xl" // Change this to your desired background color
+                            : ""
+                        }`}
                         key={contentIndex}
                       >
                         <p
@@ -257,7 +252,10 @@ console.log(progressPercentage)
                           }
                           className="flex items-center w-full gap-3 h-fit text-left my-3 cursor-pointer text-lg font-medium"
                         >
-                          <p><MdVideoLibrary className="w-[30px]"/></p>  <p>{content.title}</p>
+                          <p>
+                            <MdVideoLibrary className="w-[30px]" />
+                          </p>{" "}
+                          <p>{content.title}</p>
                         </p>
                       </div>
                     ))}
@@ -273,28 +271,23 @@ console.log(progressPercentage)
       <div className="col-span-12 md:col-span-2 border-black/25 p-4 h-fit rounded-lg border-[1px]">
         <h3 className="text-[24px]  font-bold">{course.title}</h3>
         <div>
-  <p>Progress: {progressPercentage.toFixed(2)}%</p>
-</div>
-<div>
-<div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1">
-          <div
-            className="bg-[#ED1B24] h-4 rounded-full"
-            style={{ width: `${progressPercentage}%` }}
-          ></div>
+          <p>Progress: {progressPercentage.toFixed(2)}%</p>
         </div>
-        {/* <p
+        <div>
+          <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1">
+            <div
+              className="bg-[#ED1B24] h-4 rounded-full"
+              style={{ width: `${progressPercentage}%` }}
+            ></div>
+          </div>
+          {/* <p
           className={`text-primary ${
             progressPercentage === 100 ? "text-[10px] font-bold" : ""
           }`}
         >
           {progressPercentage === 100 ? "Completed" : `${progressPercentage}% Complete`}
         </p> */}
-</div>
-
-
-
-
-
+        </div>
 
         <div className="flex justify-center my-4">
           {currentContent ? (
@@ -313,12 +306,7 @@ console.log(progressPercentage)
                   title="Assignment"
                 ></iframe>
               ) : currentContent.type === "quiz" ? (
-                <iframe
-                  src={quiz}
-                  width="700"
-                  height="900"
-                  title="Quiz"
-                >
+                <iframe src={quiz} width="700" height="900" title="Quiz">
                   Loading…
                 </iframe>
               ) : (
@@ -335,9 +323,7 @@ console.log(progressPercentage)
             <button
               className="btn-add mr-3"
               onClick={handlePrevious}
-              disabled={
-                currentModuleIndex === 0 && currentContentIndex === 0
-              }
+              disabled={currentModuleIndex === 0 && currentContentIndex === 0}
             >
               {language === "bn" ? "পূর্ববর্তী" : "Previous"}
             </button>
@@ -346,20 +332,19 @@ console.log(progressPercentage)
               onClick={handleNext}
               disabled={
                 currentModuleIndex === course.modules.length - 1 &&
-                currentContentIndex ===
-                  currentModule.contents.length - 1
+                currentContentIndex === currentModule.contents.length - 1
               }
             >
               {language === "bn" ? "পরবর্তী" : "Next"}
             </button>
             <button
               className="btn-add"
-              disabled={completedContent[currentContent?.title] || currentContent?.completed}
+              disabled={
+                completedContent[currentContent?.title] ||
+                currentContent?.completed
+              }
               onClick={() =>
-                handleMarkAsComplete(
-                  currentModule.title,
-                  currentContent?.title
-                )
+                handleMarkAsComplete(currentModule.title, currentContent?.title)
               }
             >
               {language === "bn"
