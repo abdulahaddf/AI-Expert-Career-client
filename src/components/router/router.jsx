@@ -53,6 +53,7 @@ import Enroll from '../pages/Courses/IndividualCourse/Enroll';
 import AddPromo from '../../Dashboard/Admin/PromoCodes/AddPromo';
 import FreeEnroll from '../pages/Courses/IndividualCourse/FreeEnroll';
 import CompletePurchaseCourse from '../pages/Courses/IndividualCourse/CompletePurchaseCourse';
+import ControlEnrollments from '../../Dashboard/Admin/Course/ControlEnrollments';
 
 
 export const router = createBrowserRouter([
@@ -313,6 +314,10 @@ export const router = createBrowserRouter([
       {
         path: '/dashboard/promo',
         element: <AddPromo/>,
+      },
+      {
+        path: '/dashboard/control-enrollments',
+        element: <ControlEnrollments/>,
       },
     ],
   },

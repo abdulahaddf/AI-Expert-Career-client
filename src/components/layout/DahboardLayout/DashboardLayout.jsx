@@ -27,7 +27,7 @@ const DashboardLayout = () => {
   const {user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isAdmin] = useAdmin();
-  console.log(isAdmin)
+  // console.log(isAdmin)
   const [userinfo] = UseUser();
   // const gradientColor =
   //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
@@ -192,7 +192,7 @@ const DashboardLayout = () => {
                     {language === "bn" ? "কোর্স পরিচালনা করুন" : "Manage courses"}
                   </NavLink>
                 <NavLink
-                    to={"/dashboard/manage-enrollment"}
+                    to={"/dashboard/control-enrollments"}
                     className={({ isActive }) =>
                       isActive
                         ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"

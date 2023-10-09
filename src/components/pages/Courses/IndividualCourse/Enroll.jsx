@@ -194,6 +194,7 @@ console.log(tId, number)
         }
         <label className="flex items-center gap-3 text-sm">
         <input
+        required
           type="text"
           onChange={handleTIdChange}
           placeholder="Enter Your Transection ID"
@@ -203,6 +204,7 @@ console.log(tId, number)
       </label>
         <label className="flex items-center gap-3 text-sm">
         <input
+        required
           type="number"
           onChange={handleNumberChange}
           placeholder="Enter Sender Number"
