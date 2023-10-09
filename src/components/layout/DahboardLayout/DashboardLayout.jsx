@@ -61,7 +61,7 @@ const DashboardLayout = () => {
                 isOpen
                   ? "pt-[3rem] translate-x-0 opacity-95 "
                   : "opacity-0 -translate-x-full "
-              } lg:h-[525px] h-screen lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
+              }  h-fit lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -190,6 +190,22 @@ const DashboardLayout = () => {
                           : "text-red-600"}mb-[4px] mr-2 `}
                     />
                     {language === "bn" ? "কোর্স পরিচালনা করুন" : "Manage courses"}
+                  </NavLink>
+                <NavLink
+                    to={"/dashboard/manage-enrollment"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                    }
+                  >
+                    <BsLaptop
+                      className={`${({ isActive }) =>
+                        isActive
+                          ? "text-white"
+                          : "text-red-600"}mb-[4px] mr-2 `}
+                    />
+                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Control Enrollments"}
                   </NavLink>
 
 
@@ -322,14 +338,7 @@ const DashboardLayout = () => {
                   
                 </ul>
                }
-
-
-
-
-
-
-
-                <div className="absolute bottom-5 left-[36px] flex items-center cursor-pointer">
+                <div className="lg:bg-[#ED1B24]/20 flex justify-center pb-2  items-center cursor-pointer">
                   <img
                     src={logoutLogo}
                     alt=""
@@ -339,7 +348,14 @@ const DashboardLayout = () => {
                     {language === "bn" ? "লগ আউট" : "Logout"}
                   </button>
                 </div>
+
+
+
               </div>
+
+
+
+
             </div>
             <div className="w-full">
               <Outlet />
