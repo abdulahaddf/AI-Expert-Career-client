@@ -27,14 +27,18 @@ const DashboardLayout = () => {
   const {user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isAdmin] = useAdmin();
+  console.log(isAdmin)
   const [userinfo] = UseUser();
-  const gradientColor =
-    "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
-  // const sideNavItem = ["Dashboard", "My Profile", "My courses", "My Wislist", "Purchase History", "Certification"];
+  // const gradientColor =
+  //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
+ 
+
+
+
   return (
     <div>
       <Navbar />
-      <div className="relative " style={{ background: gradientColor }}>
+      <div className="relative " >      {/* style={{ background: gradientColor }} */} 
         {
           <button
             onClick={() => setIsOpen(true)}

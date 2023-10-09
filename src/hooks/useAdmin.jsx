@@ -8,6 +8,7 @@ const useAdmin = () => {
     const {user, loading} = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
     const token = localStorage.getItem("access-token");
+    
     // use axios secure with react query
     const {data: isAdmin, isLoading: isAdminLoading} = useQuery({
         queryKey: ['admin', user?.email],

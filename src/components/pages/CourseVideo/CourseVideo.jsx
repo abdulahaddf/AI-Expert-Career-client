@@ -369,14 +369,14 @@ if (progressPercentage == 100) {
           <h3 className="text-xl w-1/2 font-bold">{currentContent?.title}</h3>
           <div>
             <button
-              className="btn-add mr-3"
+              className="btn-black mr-3 "
               onClick={handlePrevious}
               disabled={currentModuleIndex === 0 && currentContentIndex === 0}
             >
               {language === "bn" ? "পূর্ববর্তী" : "Previous"}
             </button>
             <button
-              className="btn-add mr-3"
+              className="btn-black mr-3"
               onClick={handleNext}
               disabled={
                 currentModuleIndex === course.modules.length - 1 &&
@@ -386,7 +386,7 @@ if (progressPercentage == 100) {
               {language === "bn" ? "পরবর্তী" : "Next"}
             </button>
             <button
-              className="btn-add"
+              className="btn-add "
               disabled={
                 completedContent[currentContent?.title] ||
                 currentContent?.completed
