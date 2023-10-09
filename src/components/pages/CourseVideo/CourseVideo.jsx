@@ -25,7 +25,7 @@ const CourseVideo = () => {
   const [totalContentCount, setTotalContentCount] = useState(0);
   const [selectedContentIndex, setSelectedContentIndex] = useState(null);
   const [progressPercentage, setProgressPercentage] = useState(0);
-
+console.log(id)
   useEffect(() => {
     fetch(`http://localhost:5000/singleEnrolledcourse/${id}`)
       .then((response) => {
@@ -326,7 +326,7 @@ if (progressPercentage == 100) {
           </div>
           {/* Download Certificate */}
           <div className="flex items-center">
-            <button disabled={progressPercentage != 100} className="btn-add"> <Certificate/> </button>
+            <button disabled={progressPercentage != 100} className="btn-add" > <Certificate id={id}/> </button>
           </div>
           {/* <p
           className={`text-primary ${
