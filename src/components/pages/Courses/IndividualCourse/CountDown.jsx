@@ -6,10 +6,9 @@ import { useState } from "react";
 import { MyContext } from "../../../../Context/Context";
 
 
-const startDate = "2023-10-01"
-const endDate = "2023-10-25"
 
-const CountDown = () => {
+
+const CountDown = ({startDate,endDate }) => {
     const [countdown, setCountdown] = useState('');
     const { language } = useContext(MyContext);
     const [coming, setComing]= useState(true);

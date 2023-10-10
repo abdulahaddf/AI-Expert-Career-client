@@ -46,6 +46,12 @@ const AddCourse = () => {
       "IoT",
       "Others",
     ];
+    const mainCategoryOptions = [
+      "Free",
+      "Fundamental",
+      "Job Requirement Based",
+      
+    ];
 
 
 //   handling dynamic FAQ section
@@ -120,6 +126,7 @@ const AddCourse = () => {
           discount,
           duration,
           category,
+          mainCategory,
           instructor,
           insDesignation,
           insDescription,
@@ -162,6 +169,7 @@ const AddCourse = () => {
               coverVideo,
               cover: cover_image_url,
               description,
+              mainCategory,
               category,
               features : selectedFeatures,
               Collaborators : selectedCollaborators,
@@ -182,7 +190,7 @@ const AddCourse = () => {
               preRequisites,
               eligibleUsers,
               comments: [],
-              assignments: [],
+              
             };
         console.log(courseData)
             // Send Course Data to API
@@ -329,8 +337,41 @@ const addNewCollaborator = () => {
           />
 </div>
 
-         {/* Category Dropdown */}
+        
+
+
+         {/*Category Dropdown */}
          <div className='flex flex-wrap justify-between'>
+          {/* main category */}
+         <div className="mb-4">
+        <label htmlFor="mainCategory" className="block font-semibold mb-1">
+          Main Category:
+        </label>
+        <Controller
+          name="mainCategory" // This should match the "name" attribute
+          control={control}
+          rules={{ required: true }} // Add validation rules here
+          defaultValue="" // Set a default value if needed
+          render={({ field }) => (
+            <select
+              {...field}
+              id="mainCategory"
+              className="rounded-xl p-2 md:w-72 select select-bordered"
+            >
+              <option value="">Select a Main Category</option>
+              {mainCategoryOptions.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          )}
+        />
+     
+
+      </div>
+
+
          <div className="mb-4">
         <label htmlFor="category" className="block font-semibold mb-1">
           Category:
@@ -344,7 +385,7 @@ const addNewCollaborator = () => {
             <select
               {...field}
               id="category"
-              className="rounded-xl p-2 md:w-96 select select-bordered"
+              className="rounded-xl p-2 md:w-72 select select-bordered"
             >
               <option value="">Select a Category</option>
               {categoryOptions.map((option, index) => (
@@ -359,9 +400,12 @@ const addNewCollaborator = () => {
       </div>
         <div className="mb-4">
           <label htmlFor="duration" className="block font-semibold mb-1">Duration (min):</label>
-          <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 md:w-96" />
+          <input {...register('duration', { required: true })} type="number" id="duration" className="border border-gray-300 rounded-xl p-2 md:w-64" />
         </div>
          </div>
+
+
+
          {/* Course Features */}
 
          <div className="mb-4">

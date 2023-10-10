@@ -9,10 +9,10 @@ const CourseCard = ({ course }) => {
   return (
     <div
       key={course._id}
-      className="w-full md:w-[280px] p-[16px] bg-white flex flex-col rounded-[7px] hover:shadow-xl"
+      className="w-full md:w-[280px] p-[16px] bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl"
     >
       <img
-        className="w-full md:w-[279px] lg:h-[220px] md:h-[168px] pt-0"
+        className="w-full md:w-[279px]  pt-0"
         src={course?.cover}
         alt=""
       />
@@ -22,7 +22,7 @@ const CourseCard = ({ course }) => {
       <div className="flex w-full justify-between items-center mt-6">
         <Link
           to={`/individualCourse/${course._id}`}
-          className="px-[16px]  py-1 text-white bg-[#FF265A]/90  rounded-[10px] hover:scale-105 duration-300"
+          className="btn-black"
         >
           {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
         </Link>

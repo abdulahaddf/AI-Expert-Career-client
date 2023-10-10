@@ -36,9 +36,9 @@ const DashboardLayout = () => {
 
 
   return (
-    <div>
+    <div className="">
       <Navbar />
-      <div className="relative " >      {/* style={{ background: gradientColor }} */} 
+      <div className="" >      {/* style={{ background: gradientColor }} */} 
         {
           <button
             onClick={() => setIsOpen(true)}
@@ -53,7 +53,7 @@ const DashboardLayout = () => {
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className=" relative pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
+          className="mb-10 pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
         >
           <div className="flex  space-x-0 lg:space-x-[18px]">
             <div
@@ -75,7 +75,7 @@ const DashboardLayout = () => {
                {
                 isAdmin || userinfo?.role === "super admin" ? 
                 // Admin Dashboard link starts from here
-                <ul className="w-full h-full py-4 md:px-4 flex  flex-col">
+                <ul className="w-full h-full md:px-4 flex  flex-col">
                 <NavLink
                   to={"/dashboard/user-dashboard"}
                   className={({ isActive }) =>

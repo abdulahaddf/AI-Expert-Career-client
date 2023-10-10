@@ -71,13 +71,16 @@
     @apply btn btn-sm  hover:bg-primary text-primary hover:text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-200 border-b-2 border-red-600 hover:border-red-400;
   }
   .btn-add {
-    @apply btn btn-sm btn-ghost btn-outline text-primary hover:shadow-lg hover:bg-primary hover:border-0;
+    @apply btn btn-sm btn-ghost btn-outline normal-case text-primary hover:shadow-lg hover:bg-primary hover:border-0;
   }
   .btn-red {
-    @apply btn btn-sm btn-ghost btn-outline text-primary border-[1px] border-primary   shadow-2xl hover:bg-primary hover:border-primary;
+    @apply btn btn-sm btn-ghost btn-outline normal-case text-primary border-[1px] border-primary   shadow-2xl hover:bg-primary hover:border-primary;
   }
+  .btn-see {
+    @apply btn btn-md btn-ghost btn-outline normal-case text-primary border-[1px] border-primary   shadow-2xl hover:bg-primary hover:border-primary px-5 text-xl ;
+  } 
   .btn-black {
-    @apply btn btn-sm btn-ghost btn-outline  hover:shadow-lg hover:bg-black hover:border-0;
+    @apply btn btn-sm btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:border-0;
   }
   .section {
     @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;

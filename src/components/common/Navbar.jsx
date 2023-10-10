@@ -130,7 +130,7 @@ const Navbar = () => {
 
       <li>
       <NavLink
-          to="/blog"
+          to="/roadmap"
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -145,7 +145,7 @@ const Navbar = () => {
           </li>
       <li>
       <NavLink
-          to="/blog"
+          to="/courses"
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -160,7 +160,7 @@ const Navbar = () => {
           </li>
       <li>
       <NavLink
-          to="/blog"
+          to="/ai-consultant"
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
