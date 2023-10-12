@@ -57,6 +57,7 @@ import ControlEnrollments from "../../Dashboard/Admin/Course/ControlEnrollments"
 import AllCourses from "../pages/Courses/AllCourses/AllCourses";
 import AllCategoryCourses from "../pages/Courses/AllCourses/AllCategoryCourses";
 import AllMainCategoryCourses from "../pages/Courses/AllCourses/AllMainCategoryCourses";
+import AddCourseBanner from "../../Dashboard/Admin/CourseBanner/AddCourseBanner";
 
 export const router = createBrowserRouter([
   {
@@ -325,6 +326,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/control-enrollments",
         element: <ControlEnrollments />,
+      },
+      {
+        path: "/dashboard/course-banner",
+        element: <AddCourseBanner />,
       },
     ],
   },
