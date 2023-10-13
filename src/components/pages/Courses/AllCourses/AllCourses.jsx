@@ -7,6 +7,7 @@ import CourseCard from "../CourseCard";
 import Loader from "../../../common/loader/Loader";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
@@ -15,7 +16,8 @@ const AllCourses = () => {
   const fundamentalCourses = courses?.filter((course) => course.mainCategory == "Fundamental");
   const jobBasedCourses = courses?.filter((course) => course.mainCategory == "Job Requirement Based");
   const [banners, setBanners] = useState([]);
-  
+  const [openModalIndex, setOpenModalIndex] = useState("");
+  const { register, handleSubmit, reset } = useForm();
   useEffect(() => {
     fetch(" http://localhost:5000/banners")
       .then((response) => response.json())
@@ -52,7 +54,74 @@ const AllCourses = () => {
     <h1 className="text-2xl text-center">{banner.title}</h1>
     <img src={banner.banner} alt="" />
     <h2>{banner.subtitle}</h2>
-    <button className="btn-add w-full">Join Free seminar</button>
+    <button
+    onClick={() => {
+      const modalId = `${banner._id}`;
+      const modal = document.getElementById(modalId);
+      setOpenModalIndex(modal);
+      if (modal) {
+        // setTId(userinfo._id);
+        modal.showModal();
+      }
+    }}
+    className="btn-add w-full">Join Free seminar</button>
+
+      <dialog id={`${banner._id}`} className="modal">
+                <form
+                  // onSubmit={handleSubmit(updatePicture)}
+                  method="dialog"
+                  className="modal-box   text-black "
+                >
+                  <button
+                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                    onClick={() => {
+                      const modalId = `${banner._id}`;
+                      const modal = document.getElementById(modalId);
+                      if (modal) {
+                        modal.close();
+                      }
+                    }}
+                  >
+                    ✕
+                  </button>
+
+                  <div className="mb-2">
+                  <p className="">Your Name:</p>
+                    <input
+                      type="text"
+                      {...register("name")}
+                      className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  input file-input file-input-bordered w-full file-input-error"
+                    />
+                  </div>
+                  <div className="mb-2">
+                  <p className="">Phone Number:</p>
+                    <input 
+                      type="number"
+                      {...register("phone")}
+                      className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  input file-input file-input-bordered w-full file-input-error"
+                    />
+                  </div>
+                  <div className="mb-2">
+                  <p className="">Email:</p>
+                    <input
+                      type="email"
+                      {...register("name")}
+                      className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  input file-input file-input-bordered w-full file-input-error"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <button type="submit" className="btn-add">
+                      Confirm
+                    </button>
+                  </div>
+                  
+
+                 
+                </form>
+              </dialog>
   </div>
 
   {/* Course categories */}
