@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 const CategoryCard = ({
@@ -9,7 +10,7 @@ const CategoryCard = ({
   return (
     <div className="text-[20px] font-bold">
       <input
-        className='mr-2'
+        className='mr-2 checkbox checkbox-md items-center'
         value={category}
         id={`flexCheckDefault-${index}`}
         checked={selectedCheckboxes.includes(category)}

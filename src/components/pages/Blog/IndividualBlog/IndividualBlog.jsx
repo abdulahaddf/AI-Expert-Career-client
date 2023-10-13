@@ -29,6 +29,10 @@ const IndividualBlog = () => {
   const [blog, setBlog] = useState([]);
   const [cmnt, setComment] = useState("");
   const { id } = useParams();
+  const [randomBlogs, setRandomBlogs] = useState([]);
+  const [randomCardBlog, setRandomCardBlog] = useState([]);
+  const [reload, setReload] = useState(false);
+
 
 
   // console.log(id);
@@ -46,7 +50,7 @@ const IndividualBlog = () => {
     fetch(`http://localhost:5000/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id, like]);
+  }, [id,like,reload]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
@@ -78,7 +82,7 @@ const IndividualBlog = () => {
           toast.success("Comment added successfully", {
             toastId: blog._id.toString(),
           });
-
+          setReload(true);
           // Clear the comment input field
           setComment("");
         } else {
@@ -198,33 +202,58 @@ const IndividualBlog = () => {
   };
 
   // Making sure the user will be able to like or dislike only one time
-  const filterLiked = blog?.likes?.find((like) => like.email === user?.email);
-  const filterDisLiked = blog?.dislikes?.find((dislike) => dislike.email === user?.email);
+  const filterLiked = blog?.likes?.find((like) => like?.email === user?.email);
+  const filterDisLiked = blog?.dislikes?.find((dislike) => dislike?.email === user?.email);
   const handleAlreadyReacted =()=>{
     toast.error("You've given a react already")
   }
   
-// Filter the random blogs for recommendation
-  const filtered = blogs?.filter((bl) => bl.category === blog.category && bl._id !== blog._id)
+// // Filter the random blogs for recommendation
+//   const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id)
                 
-  // console.log(filtered)
-  // Shuffle the filtered array randomly
-  for (let i = filtered.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-  }
+//   // console.log(filtered)
+//   // Shuffle the filtered array randomly
+//   for (let i = filtered.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+//   }
   
-  // Select the blogs from the shuffled array for recommendation
-  const randomBlogs = filtered.slice(0, 5);
-  const randomCardBlog = filtered.slice(0, 4);
+//   // Select the blogs from the shuffled array for recommendation
+//   const randomBlogs = filtered.slice(0, 5);
+//   const randomCardBlog = filtered.slice(0, 4);
 
+  useEffect(() => {
+    // Fetch and shuffle the blogs for recommendation
+    const fetchRandomBlogs = async () => {
+      // const response = await fetch("http://localhost:5000/blogs");
+      // const data = await response.json();
+
+      // Filter the random blogs for recommendation
+      const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id);
+
+      // Shuffle the filtered array randomly
+      for (let i = filtered.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+      }
+
+      // Select the blogs from the shuffled array for recommendation
+      const randomBlogs = filtered.slice(0, 5);
+      const randomCardBlog = filtered.slice(0, 4);
+
+      setRandomBlogs(randomBlogs);
+      setRandomCardBlog(randomCardBlog);
+    };
+
+    fetchRandomBlogs();
+  }, [blog]);
 
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  if(!user || !blog) return <Loader/>;
+  if( !blog) return <Loader/>;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">

@@ -5,15 +5,24 @@ import { MyContext } from "../../../../Context/Context";
 import useCourses from "../../../../hooks/UseCourses";
 import CourseCard from "../CourseCard";
 import Loader from "../../../common/loader/Loader";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
   const [courses, isLoading] = useCourses();
-
   const freeCourses = courses?.filter((course) => course.mainCategory == "Free");
   const fundamentalCourses = courses?.filter((course) => course.mainCategory == "Fundamental");
   const jobBasedCourses = courses?.filter((course) => course.mainCategory == "Job Requirement Based");
- 
+  const [banners, setBanners] = useState([]);
+  
+  useEffect(() => {
+    fetch(" http://localhost:5000/banners")
+      .then((response) => response.json())
+      .then((data) => setBanners(data));
+     
+  }, [banners]);
+ const banner = banners[0];
 
   const categories = [
     { category: "Machine learning", label: "Machine Learning Courses" },
@@ -39,12 +48,15 @@ const AllCourses = () => {
       {/* Banner */}
       <div className="my-10 flex flex-col lg:flex-row">
   {/* Dynamic banners and titles */}
-  <div className="border-[1px] border-black/25 lg:w-1/2 rounded-lg p-2 order-1 lg:order-2">
-    <h1 className="text-2xl text-center">Join Free seminar</h1>
+  <div className="border-[1px] border-black/25 lg:w-1/2 rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
+    <h1 className="text-2xl text-center">{banner.title}</h1>
+    <img src={banner.banner} alt="" />
+    <h2>{banner.subtitle}</h2>
+    <button className="btn-add w-full">Join Free seminar</button>
   </div>
 
   {/* Course categories */}
-  <div className="grid grid-cols-2 md:grid-cols-3 text-md w-full lg:w-1/2 gap-5 order-2 my-5 lg:my-0 lg:order-1">
+  <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full lg:w-1/2 gap-5 order-2 my-5 lg:my-0 lg:order-1">
     {categories.map((categoryItem) => (
       <Link
         key={categoryItem.category}

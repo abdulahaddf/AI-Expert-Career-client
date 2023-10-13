@@ -11,12 +11,12 @@ const AddBlog = () => {
   const [subcategory, setSubcategory] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [newTag, setNewTag] = useState("");
-  const [image, setImage] = useState(null); // Store the selected image file
+  const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     console.log(e);
     e.preventDefault();
-
+console.log(image);
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
