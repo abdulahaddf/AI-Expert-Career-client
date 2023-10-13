@@ -25,7 +25,6 @@ const AllCourses = () => {
      
   }, [banners]);
  const banner = banners[0];
-
   const categories = [
     { category: "Machine learning", label: "Machine Learning Courses" },
     { category: "Data science", label: "Data Science Courses" },
