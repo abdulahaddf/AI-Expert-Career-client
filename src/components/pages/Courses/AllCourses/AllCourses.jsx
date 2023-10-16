@@ -42,6 +42,7 @@ const AllCourses = () => {
 
   console.log(courses);
  
+  
 
   if (isLoading) return <Loader />;
   return (
