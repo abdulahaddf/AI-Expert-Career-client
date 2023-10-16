@@ -26,7 +26,7 @@ const CourseCard = ({ course }) => {
         >
           {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
         </Link>
-        <p className="font-semibold">TK {course.courseFee}</p>
+        <p className="font-semibold">{ course.courseFee > 0 ?  <>TK {course.courseFee}</> : "Free"}</p>
       </div>
     </div>
   );

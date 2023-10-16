@@ -14,7 +14,7 @@ const ManageCourses = () => {
         .then((data) => setcourses(data));
         setIsLoading(false);
     }, [courses]);
-    console.log(courses);
+    // console.log(courses);
     const handleDelete = (course) => {
       Swal.fire({
         title: "Are you sure?",

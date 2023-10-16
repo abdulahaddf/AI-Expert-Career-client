@@ -299,7 +299,7 @@ const DashboardLayout = () => {
                     {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}
                   </NavLink>
 
-                  <NavLink
+                  {/* <NavLink
                     to={"/dashboard/wishlist"}
                     className={({ isActive }) =>
                       isActive
@@ -348,13 +348,13 @@ const DashboardLayout = () => {
                           : "text-red-600"}mb-[4px] mr-2 `}
                     />
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
-                  </NavLink>
+                  </NavLink> */}
 
 
                   
                 </ul>
                }
-                <div className="lg:bg-[#ED1B24]/20 flex justify-center pb-2  items-center cursor-pointer">
+                <div className=" flex justify-center pb-2  items-center cursor-pointer lg:bg-[#ED1B24]/20">
                   <img
                     src={logoutLogo}
                     alt=""

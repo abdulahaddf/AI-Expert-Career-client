@@ -42,7 +42,7 @@ const AllCourses = () => {
 
   console.log(courses);
  
-  
+
 
   if (isLoading) return <Loader />;
   return (
@@ -219,7 +219,7 @@ const AllCourses = () => {
           ))}
         </div>
 
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-10 ">
       <Link state={courses} to="/allCourses/Job Requirement Based" className="btn-see">
             {language == "bn" ? "আরো দেখুন" : "See More"}
        </Link>

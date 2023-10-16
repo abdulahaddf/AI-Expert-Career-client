@@ -12,8 +12,8 @@ const CourseCart = ({ courseData, userId }) => {
         <h3 className="font-bold">{course.title}</h3>
         <p className="text-sm text-black/70 font-bold">{course.instructor}</p>
 
-        <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1">
-          <div
+        {/* <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1"> */}
+          {/* <div
             className="bg-[#ED1B24] h-4 rounded-full"
             style={{ width: `${progress}%` }}
           ></div>
@@ -24,7 +24,7 @@ const CourseCart = ({ courseData, userId }) => {
           }`}
         >
           {progress === 100 ? "Completed" : `${progress}% Complete`}
-        </p>
+        </p> */}
         <div className="h-6  w-[129px]  rounded-full text-white font-bold text-sm">
           <Link
             disabled={courseData.status === "pending"}

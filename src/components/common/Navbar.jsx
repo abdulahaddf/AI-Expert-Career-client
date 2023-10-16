@@ -382,10 +382,10 @@ const Navbar = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
-                  rounded-box  md:w-40 lg:w-36 "
+                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-32
+                  rounded-box   text-left"
                     >
-                      <li className="ml-3 mt-3">
+                      <li className=" mt-3">
                         <Link
                           to="/dashboard/my-profile"
                           className="justify-between hover:no-underline  hover:text-primary"
@@ -394,33 +394,39 @@ const Navbar = () => {
                           <span className=""></span>
                         </Link>
                       </li>
-                      <li>
+                      <li className="">
                         {user ? (
                           isAdmin ? (
                             <li>
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="ml-3 hover:no-underline hover:text-primary "
+                                className=" hover:no-underline hover:text-primary "
                               >
                                 Dashboard
                               </Link>
                               <li
-                                className="ml-3 hover:text-primary  hover:no-underline"
+                                className=" hover:text-primary  hover:no-underline"
                                 onClick={logOut}
                               >
                                 Logout
                               </li>
                             </li>
                           ) : (
-                            <li className="flex flex-col ml-3 pb-5 ">
+                            <li className="flex flex-col  pb-5 ">
                               <Link
                                 to="/dashboard/user-dashboard"
-                                className="ml-3 hover:no-underline hover:text-primary "
+                                className="hover:no-underline hover:text-primary "
                               >
                                 Dashboard
                               </Link>
                               <li
-                                className="ml-3 hover:text-primary  hover:no-underline"
+                                className=" hover:text-primary  hover:no-underline"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </li>
+                              <li
+                                className=" hover:text-primary  hover:no-underline"
                                 onClick={logOut}
                               >
                                 Logout
