@@ -257,6 +257,7 @@ const removeContentWithType = (moduleIndex, contentIndex) => {
           title,
           description,
           subtitle,
+          cover: course.cover,
           coverVideo,
           courseType,
           courseFee,

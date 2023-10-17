@@ -245,9 +245,27 @@ const DashboardLayout = () => {
               
 
                 
-              </ul> :      
+              </ul> : userinfo?.role === "consultant" ? 
+              // Consultant Dashboard link starts from here
+              <ul className="w-full py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">  
+              <NavLink
+                    to={"/dashboard/consultant-profile"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                    }
+                  >
+                    <BsPerson
+                      className={`${({ isActive }) =>
+                        isActive
+                          ? "text-white"
+                          : "text-red-600"}mb-[4px] mr-2 `}
+                    />
+                    {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                  </NavLink></ul> :      
               // User Routes starts from Here
-              <ul className="w-full py-[30px] md:px-4 flex  flex-col">
+              <ul className="w-full py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">
                   <NavLink
                     to={"/dashboard/user-dashboard"}
                     className={({ isActive }) =>

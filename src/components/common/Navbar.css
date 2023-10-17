@@ -20,7 +20,7 @@
 .dropdown:hover .dropdown-menu{
   transition: all 0.3s ease;
   padding: 5px;
-  height: 85px!important;
+  height: 120px!important;
 }
 .dropdown-menu-2{
   border-radius: 8px;
