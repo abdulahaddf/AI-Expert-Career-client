@@ -137,7 +137,14 @@ const ConsultantProfile = () => {
             >
               <BiEdit className="text-xl" /> Update Photo
             </button>
-            <button
+            <Link to="/dashboard/edit-consultant-profile"
+                
+                className="btn-add"
+              >
+              <RiInformationLine/>
+                Update Information
+              </Link>
+            {/* <button
                 onClick={() => {
                   const modalId = `${userinfo._id}`;
                   const modal = document.getElementById(modalId);
@@ -151,7 +158,7 @@ const ConsultantProfile = () => {
               >
               <RiInformationLine/>
                 Update Information
-              </button>
+              </button> */}
 
 
             <div>
@@ -160,7 +167,7 @@ const ConsultantProfile = () => {
             </div>
 
 
-
+{/* Update profile picture */}
               <dialog id={`${userinfo.displayName}`} className="modal">
                 <form
                   onSubmit={handleSubmit(updatePicture)}
@@ -209,7 +216,7 @@ const ConsultantProfile = () => {
         </div>
         
         <div className="col-span-3 p-3">
-          <div className="md:grid grid-cols-2 mt-2 gap-8">
+          <div className="md:grid grid-cols-3 mt-2 gap-8">
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="name">
                 {language === "bn" ? "নাম" : "Name"}
@@ -235,38 +242,126 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070] " htmlFor="address">
-                {language === "bn" ? "ঠিকানা" : "Address"}
+              <label className="text-[#707070] " >
+                {language === "bn" ? "ঠিকানা" : "Designation"}
               </label>
               <p className="text-lg font-bold">
-                {userinfo?.address ? (
-                  userinfo?.address
+                {userinfo?.designation ? (
+                  userinfo?.designation
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
             </div>
             <div className="mt-8">
-              {/* <button
-                onClick={() => {
-                  const modalId = `${userinfo._id}`;
-                  const modal = document.getElementById(modalId);
-                  setOpenModalIndex(modal);
-                  if (modal) {
-                    // setTId(userinfo._id);
-                    modal.showModal();
-                  }
-                }}
-                className="btn-add"
-              >
-                Update Information
-              </button> */}
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Description"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.description ? (
+                  userinfo?.description
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "About"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.about ? (
+                  userinfo?.about
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Recent Works"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.recentWorks ? (
+                  userinfo?.recentWorks
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Recent Successes"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.successes ? (
+                  userinfo?.successes
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Experience"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.experience ? (
+                  userinfo?.experience
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Educational qualification"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.qualification ? (
+                  userinfo?.qualification
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Availability"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.availability ? (
+                  userinfo?.availability
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070]" >
+                {language === "bn" ? "ঠিকানা" : "Working With"}
+              </label>
+              <p className="text-lg font-bold">
+                {userinfo?.workingWith ? (
+                  userinfo?.workingWith
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
 
-              <dialog id={`${userinfo._id}`} className="modal">
+
+
+
+
+            <div className="mt-8 ">
+             
+
+              <dialog id={`${userinfo._id}`} className="modal ">
                 <form
                   onSubmit={handleSubmit(updateProfile)}
                   method="dialog"
-                  className="modal-box   text-black "
+                  className="modal-box   text-black"
                 >
                   <button
                     className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
@@ -281,13 +376,12 @@ const ConsultantProfile = () => {
                     ✕
                   </button>
 
-                  {/* {console.log(userinfo)} */}
-                  <h3 className="font-bold text-lg">{userinfo.displayName}</h3>
+                  
 
-                  <h3 className="text-3xl font-semibold text-center  uppercase">
+                  <h3 className="text-xl font-semibold text-center  uppercase">
                     Update Profile{" "}
                   </h3>
-                  <div>
+                  <div className="grid grid-cols-2 gap-5">
                     <div className="mb-2">
                       <label
                         htmlFor="name"

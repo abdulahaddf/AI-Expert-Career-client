@@ -59,6 +59,7 @@ import AllCategoryCourses from "../pages/Courses/AllCourses/AllCategoryCourses";
 import AllMainCategoryCourses from "../pages/Courses/AllCourses/AllMainCategoryCourses";
 import AddCourseBanner from "../../Dashboard/Admin/CourseBanner/AddCourseBanner";
 import ConsultantProfile from "../../Dashboard/Consultant/ConsultantProfile";
+import EditConsultantProfile from "../../Dashboard/Consultant/EditConsultantProfile";
 
 export const router = createBrowserRouter([
   {
@@ -335,6 +336,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/consultant-profile",
         element: <ConsultantProfile />,
+      },
+      {
+        path: "/dashboard/edit-consultant-profile",
+        element: <EditConsultantProfile />,
       },
     ],
   },
