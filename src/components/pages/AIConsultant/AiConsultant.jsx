@@ -5,10 +5,14 @@ import { useContext, useState } from "react";
 import ListItem from "./ListItem";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
+import UseUsers from "../../../hooks/useUsers";
 const AiConsultant = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState([]);
   const { language } = useContext(MyContext);
+  const [users, loading,] =UseUsers();
+  const consultants = users.filter(user => user.role === "consultant");
+  console.log(consultants)
   //
 
   const data = [
@@ -32,13 +36,13 @@ const AiConsultant = () => {
   }, []);
 
   return (
-    <div className="bg-[#f3f2ff00] lg:mt-[10px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
-      <div className=" pb-[92px] pt-[130px]">
+    <div className=" lg:mt-[10px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
+      <div className=" ">
         <div className="">
           <h1 className="font-bold text-center text-[35px]">
             {language == "bn"
               ? "ক্যারিয়ারের সঠিক দিক নির্দেশনার জন্য কনসালটেন্ট খুঁজুন"
-              : "Search Ai Consultant, Make an Appointment"}
+              : "One Stop Solution in your AI Career paths"}
           </h1>
           <p className="text-center Roboto">
             {language == "bn"
@@ -46,7 +50,7 @@ const AiConsultant = () => {
               : "No matter what background you are a student or learner, the right roadmap can take you to the pinnacle of success. Our AI roadmap and consultancy services are developed by these experts in various fields"}
           </p>
 
-          <div className="mt-10 md:mt-[104px] md:flex lg:items-center">
+          <div className="mt-10 md:my-12 md:flex lg:items-center">
             <h3 className="mr-0 md:mr-[55px] lg:mr-[112px] font-semibold text-lg lg:text-2xl">
               {language == "bn"
                 ? "ক্যাটাগরি নির্বাচন করুণ"
@@ -126,36 +130,34 @@ const AiConsultant = () => {
           <hr className="border-[0.5px] border-[#ACACAC] my-4" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-5 mt-10">
-            {[...Array(10)].map((item, i) => (
+            {consultants.map((c, i) => (
               <Link
                 key={i}
-                to={"/ai-consultant-profile/2"}
+                to={"/ai-consultant-profile"}
+                state={c}
                 className="flex items-center p-2    "
               >
                 <div className="lg:flex p-6 bg-[#fff] lg:divide-x-2 divide-[#000000d7] shadow-lg">
-                  <div className="flex flex-col text-center lg:w-[40%] lg:px-10">
-                    <img className="lg:w-[70%] mx-auto" src={userImg} alt="" />
+                  <div className="flex flex-col text-center  lg:px-10">
+                    <img className="w-44 h-40 rounded-full mx-auto" src={c.photoURL} alt="" />
                     <h2 className="text-[20px] font-bold mt-[10px] mb-[12px]">
-                      Eleanor Rena
+                      {c.displayName}
                     </h2>
-                    <p>Data Science, AI software engineer</p>
+                    <p>{c.designation}</p>
                     <button className="px-[3px] py-[8px] bg-[#ED1B24] rounded-md text-sm text-white shadow-lg mt-5">
                       View Profile
                     </button>
                   </div>
                   <div className="lg:flex flex-col justify-between lg:w-[60%] lg:px-10 mt-5 lg:mt-0">
-                    <h2 className="text-[17px] font-bold">Qualification</h2>
+                    <h2 className="text-[17px] font-bold">Availability</h2>
                     <p className="text-[#515151]/90">
-                      M.sc of computer science
+                      {c?.selectedDays?.map(d => <p key={d}>{d}</p> )}
                     </p>
-                    <h2 className="text-[17px] font-bold">Speciality</h2>
+                    <h2 className="text-[17px] font-bold">Works With</h2>
                     <p className="text-[#515151]/90">
-                      Senior at AI software engineer
+                    {c?.workingWith?.map(d => <p key={d}>{d}</p> )}
                     </p>
-                    <h2 className="text-[17px] font-bold">Place </h2>
-                    <p className="text-[#515151]/90">
-                      IDB Bhaban, Shah ali plaza,{" "}
-                    </p>
+                    
                     <button className=" py-[8px] border-2 border-[#ED1B24] rounded-md text-black shadow-lg mt-5 w-full lg:w-auto">
                       Booking available online
                     </button>

@@ -12,7 +12,23 @@ const EditConsultantProfile = () => {
 // console.log(userinfo)
   
       const daysOfWeek = ['Saturday','Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', ];
-    const { control, handleSubmit, register,getValues } = useForm();
+    const { control, handleSubmit, register,getValues } = useForm({
+            defaultValues: {
+            displayName: userinfo?.displayName,
+            email: userinfo?.email,
+            phone: userinfo?.phone,
+            designation: userinfo?.designation,
+            description: userinfo?.description,
+            about: userinfo?.about,
+            recentWorks: userinfo?.recentWorks,
+            successes: userinfo?.successes,
+            experience: userinfo?.experience,
+            qualification: userinfo?.qualification,
+            availability: userinfo?.availability,
+            selectedDays: userinfo?.selectedDays,
+            workingWith: userinfo?.workingWith,
+        },
+      });
 
   const { fields: recentWorks, append: appendRecentWork, remove: removeRecentWork } = useFieldArray({
     control,

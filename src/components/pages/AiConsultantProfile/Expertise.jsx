@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import hand from "../../../assets/AiConsultant/image 3.png";
 import DatePicker from "react-datepicker";
@@ -5,44 +6,23 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FiChevronDown } from "react-icons/fi";
 import DateIcon from "../../../assets/AiConsultant/🦆 icon _calendar_.png";
 import { MyContext } from "../../../Context/Context";
-const Expertise = () => {
+const Expertise = ({consultant}) => {
+  const {selectedDays, workingWith} = consultant;
   const [startDate, setStartDate] = useState(new Date());
   const [appointDate, setAppointDate] = useState(new Date());
   const { language } = useContext(MyContext);
   const [hideButton, setHideButton] = useState(false);
   return (
     <div>
-      <h3 className="uppercase text-xl mt-4">Expertise</h3>
+      <h3 className="uppercase text-xl mt-4">Availability</h3>
       <div className="mt-3 space-y-4">
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">Machine Learning</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">Deep Learning</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">AI Architect</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">AI Project Lead</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">AI Technical Lead</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">AI Technical Lead</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <img src={hand} alt="" />
-          <p className="text-xl">AI Technical Lead</p>
-        </div>
+        {selectedDays.map((a,i) => <p key={i}>{a}</p>)}
       </div>
+      <h3 className="uppercase text-xl mt-4">Works With</h3>
+      <div className="mt-3 space-y-4">
+        {workingWith.map((w,i) => <p key={i}>{w}</p>)}
+      </div>
+
       <div className="flex justify-center mt-12">
         <button
           onClick={() => setHideButton(true)}
