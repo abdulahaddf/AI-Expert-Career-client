@@ -73,9 +73,9 @@ const AiConsultanProfile = () => {
           ? "সাম্প্রতিক কাজের উদাহরণ"
           : "Recent Works"}
       </h2>
-      <ul className="space-y-7 ml-12 mt-12">
-        {recentWorks?.map(r => <div key={r} className="flex">
-          <div className="w-7 mr-7 mt-1">
+      <ul className="space-y-2 ml-5 my-2">
+        {recentWorks?.map(r => <div key={r} className="flex items-center">
+          <div className="w-2 mr-3">
             <div className="bullet"></div>
           </div>
           <li className="text-xl font-medium ">
@@ -90,8 +90,8 @@ const AiConsultanProfile = () => {
         <h2 className="text-[30px] font-bold mt-[30px]">
           {language == "bn" ? "সমসাময়িক সফলতাগুলো" : "Recent Success"}
         </h2>
-        {successes?.map(s =>  <div key={s} className="ml-[50px] space-y-4 mt-[30px]">
-          <p className="font-semibold lg:text-[30px]">
+        {successes?.map(s =>  <div key={s} className="ml-5 space-y-2 ">
+          <p className="text-lg">
             {s}
           </p>
         
