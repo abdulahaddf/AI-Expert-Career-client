@@ -15,6 +15,7 @@ import Loader from "../../components/common/loader/Loader";
 
 const ConsultantProfile = () => {
   const [userinfo, isLoading, refetch] = UseUser();
+  console.log(userinfo)
   const { language } = useContext(MyContext);
   const [openModalIndex, setOpenModalIndex] = useState("");
   const [openPicModalIndex, setPicOpenModalIndex] = useState("");
@@ -218,22 +219,22 @@ const ConsultantProfile = () => {
         <div className="col-span-3 p-3">
           <div className="md:grid grid-cols-3 mt-2 gap-8">
             <div className="mt-8">
-              <label className="text-[#707070] " htmlFor="name">
+              <label className="text-lg font-bold " htmlFor="name">
                 {language === "bn" ? "নাম" : "Name"}
               </label>
-              <p className="text-lg font-bold">{userinfo?.displayName}</p>
+              <p className="text-md">{userinfo?.displayName}</p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070] " htmlFor="email">
+              <label className="text-lg font-bold " htmlFor="email">
                 {language === "bn" ? "ইমেইল " : "Email"}
               </label>
-              <p className="text-lg font-bold">{userinfo?.email}</p>
+              <p className="text-md">{userinfo?.email}</p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070] " htmlFor="phone">
+              <label className="text-lg font-bold " htmlFor="phone">
                 {language === "bn" ? "মোবাইল" : "Phone"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.phone ? (
                   userinfo?.phone
                 ) : (
@@ -242,10 +243,10 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070] " >
+              <label className="text-lg font-bold " >
                 {language === "bn" ? "ঠিকানা" : "Designation"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.designation ? (
                   userinfo?.designation
                 ) : (
@@ -254,10 +255,10 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Description"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.description ? (
                   userinfo?.description
                 ) : (
@@ -266,10 +267,10 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "About"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.about ? (
                   userinfo?.about
                 ) : (
@@ -278,22 +279,22 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Recent Works"}
               </label>
-              <p className="text-lg font-bold">
-                {userinfo?.recentWorks ? (
-                  userinfo?.recentWorks
-                ) : (
+              <p className="text-md">
+                {userinfo?.recentWorks ? 
+                   <>{userinfo?.recentWorks.map(r => <p key={r}>{r}</p>)}</>
+                 : (
                   <p className="font-normal">null</p>
                 )}
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Recent Successes"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.successes ? (
                   userinfo?.successes
                 ) : (
@@ -302,48 +303,46 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Experience"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.experience ? (
-                  userinfo?.experience
+                  <>{userinfo?.experience.map(r => <p key={r}>{r}</p>)}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Educational qualification"}
               </label>
-              <p className="text-lg font-bold">
-                {userinfo?.qualification ? (
-                  userinfo?.qualification
-                ) : (
+              <p className="text-md">
+                {userinfo?.qualification ?  <>{userinfo?.qualification.map(r => <p key={r}>{r}</p>)}</>  : (
                   <p className="font-normal">null</p>
                 )}
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Availability"}
               </label>
-              <p className="text-lg font-bold">
-                {userinfo?.availability ? (
-                  userinfo?.availability
+              <p className="text-md">
+                {userinfo?.selectedDays ? (
+                   <>{userinfo?.selectedDays.map(r => <p key={r}>{r}</p>)}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-[#707070]" >
+              <label className="text-lg font-bold" >
                 {language === "bn" ? "ঠিকানা" : "Working With"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-md">
                 {userinfo?.workingWith ? (
-                  userinfo?.workingWith
+                   <>{userinfo?.workingWith.map(r => <p key={r}>{r}</p>)}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
@@ -357,7 +356,7 @@ const ConsultantProfile = () => {
             <div className="mt-8 ">
              
 
-              <dialog id={`${userinfo._id}`} className="modal ">
+              {/* <dialog id={`${userinfo._id}`} className="modal ">
                 <form
                   onSubmit={handleSubmit(updateProfile)}
                   method="dialog"
@@ -449,7 +448,7 @@ const ConsultantProfile = () => {
                     Submit
                   </button>
                 </form>
-              </dialog>
+              </dialog> */}
             </div>
           </div>
         </div>
