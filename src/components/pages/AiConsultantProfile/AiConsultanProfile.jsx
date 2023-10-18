@@ -37,7 +37,7 @@ const AiConsultanProfile = () => {
 
             <div className="space-y-[20px]">
 
-              <h1 className="font-bold text-[30px]">{displayName}</h1>
+              <h1 className="font-bold text-2xl">{displayName}</h1>
 
               <p className="w-[193px] font-medium text-xl ">
                 {designation}
@@ -62,13 +62,15 @@ const AiConsultanProfile = () => {
 
           <div className="col-span-8 lg:col-span-5 border-t border-black">
           <div>
-      <h2 className="text-[30px] font-bold mt-7">
+      <h2 className="text-2xl font-bold mt-7">
         {language == "bn" ? "কন্সাল্টেন্টের বিবরণ" : "About"}
       </h2>
-      <p className="text-lg  font-medium mt-2.5">
+      <p className="text-lg ml-5 font-medium mt-2">
         {about}
       </p>
-      <h2 className="text-[30px] font-bold mt-7">
+      <hr className="border-[0.5] mt-12 border-black" />
+
+      <h2 className="text-2xl font-bold mt-7">
         {language == "bn"
           ? "সাম্প্রতিক কাজের উদাহরণ"
           : "Recent Works"}
@@ -87,7 +89,7 @@ const AiConsultanProfile = () => {
       <hr className="border-[0.5] mt-8 border-black" />
 
       <div>
-        <h2 className="text-[30px] font-bold mt-[30px]">
+        <h2 className="text-2xl font-bold mt-[30px]">
           {language == "bn" ? "সমসাময়িক সফলতাগুলো" : "Recent Success"}
         </h2>
         {successes?.map(s =>  <div key={s} className="ml-5 space-y-2 ">
@@ -99,20 +101,21 @@ const AiConsultanProfile = () => {
        
       </div>
       <hr className="border-[0.5] mt-12 border-black" />
-      <h2 className="text-[30px] font-bold my-[30px]">
+      <h2 className="text-2xl font-bold mt-[30px]">
         {language == "bn" ? "অভিজ্ঞতা" : "Experience"}
       </h2>
-      {experience?.map((e,i) => <div key={i} className="ml-[50px]">
-        <p className="font-semibold lg:text-[24px]">
+      {experience?.map((e,i) => <div key={i} className="ml-5 space-y-2">
+        <p className="text-lg">
         {e}
         </p>
       </div>  )}
+      <hr className="border-[0.5] mt-12 border-black" />
      
-      <h2 className="text-[30px] font-bold my-[30px]">
+      <h2 className="text-2xl font-bold mt-[30px]">
         {language == "bn" ? "শিক্ষাগত যোগ্যতা" : "Educational Qualification"}
       </h2>
-      {qualification?.map((e,i) => <div key={i} className="ml-[50px] space-y-5">
-        <p className="font-semibold lg:text-[24px]">
+      {qualification?.map((e,i) => <div key={i} className="ml-5 space-y-2">
+        <p className="text-lg">
         {e}
         </p>
         

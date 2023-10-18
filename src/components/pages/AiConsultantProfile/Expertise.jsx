@@ -14,12 +14,12 @@ const Expertise = ({consultant}) => {
   const [hideButton, setHideButton] = useState(false);
   return (
     <div>
-      <h3 className="uppercase text-xl mt-4">Availability</h3>
-      <div className="mt-3 space-y-4">
+      <h3 className="font-semibold text-2xl mt-4">Availability</h3>
+      <div className="mt-3 space-y-2 text-lg">
         {selectedDays.map((a,i) => <p key={i}>{a}</p>)}
       </div>
-      <h3 className="uppercase text-xl mt-4">Works With</h3>
-      <div className="mt-3 space-y-4">
+      <h3 className="font-semibold text-2xl mt-4">Works With</h3>
+      <div className="mt-3 space-y-2 text-lg">
         {workingWith.map((w,i) => <p key={i}>{w}</p>)}
       </div>
 
