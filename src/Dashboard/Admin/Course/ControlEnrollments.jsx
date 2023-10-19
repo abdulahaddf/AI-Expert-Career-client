@@ -8,7 +8,6 @@ const ControlEnrollments = () => {
     const [enrolled, setEnrolled] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [status, setStatus] = useState("");
-    // const {name, email, amount, tId, sender, courseTitle, status} = enrolled;
 console.log(enrolled)
     useEffect(() => {
       fetch("http://localhost:5000/enrolled")

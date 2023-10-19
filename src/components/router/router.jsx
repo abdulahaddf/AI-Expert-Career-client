@@ -60,6 +60,7 @@ import AllMainCategoryCourses from "../pages/Courses/AllCourses/AllMainCategoryC
 import AddCourseBanner from "../../Dashboard/Admin/CourseBanner/AddCourseBanner";
 import ConsultantProfile from "../../Dashboard/Consultant/ConsultantProfile";
 import EditConsultantProfile from "../../Dashboard/Consultant/EditConsultantProfile";
+import ControlAppointments from "../../Dashboard/Admin/Appointments/ControlAppointments";
 
 export const router = createBrowserRouter([
   {
@@ -340,6 +341,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/edit-consultant-profile",
         element: <EditConsultantProfile />,
+      },
+      {
+        path: "/dashboard/control-appointments",
+        element: <ControlAppointments />,
       },
     ],
   },
