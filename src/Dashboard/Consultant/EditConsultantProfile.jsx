@@ -11,7 +11,9 @@ const EditConsultantProfile = () => {
     const [userinfo, isLoading, refetch] = UseUser();
 // console.log(userinfo)
   
-      const daysOfWeek = ['Saturday','Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', ];
+    const daysOfWeek = ['Saturday','Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', ];
+    const servicesOptions = ['Research', 'Career Consulting', 'Project'];
+
     const { control, handleSubmit, register,getValues } = useForm({
             defaultValues: {
             displayName: userinfo?.displayName,
@@ -46,15 +48,13 @@ const EditConsultantProfile = () => {
     control,
     name: 'qualification',
   });
-  const { fields: workingWith, append: appendWorkingWith, remove: removeWorkingWith } = useFieldArray({
-    control,
-    name: 'workingWith',
-  });
+
 
   const onSubmit = (data) => {
     console.log('Form Data:', data);
-    const { name, email, phone, designation, description, about, recentWorks, successes, experience, qualification, availability, workingWith } = data;
+    const { name, email, phone, designation, description, about, recentWorks, successes, experience, qualification, availability, } = data;
     const selectedDays = daysOfWeek.filter((day) => getValues(`availability.${day}`));
+    const workingWith = servicesOptions.filter((service) => getValues(`services.${service}`));
     // console.log('Selected Days:', selectedDays);
     const profile = {
         displayName: name, 
@@ -233,7 +233,31 @@ const EditConsultantProfile = () => {
         </div>
 
 
-
+        <div className="">
+          <label className="block text-sm font-semibold text-gray-800">Working With</label>
+          <div className="space-y-2">
+            {servicesOptions.map((service) => (
+              <div key={service} className="flex items-center gap-2">
+                <Controller
+                  name={`services.${service}`}
+                  control={control}
+                  render={({ field }) => (
+                    <>
+                      <input
+                        {...field}
+                        type="checkbox"
+                        className='checkbox checkbox-xs'
+                      />
+                      <label>
+                        {service}
+                      </label>
+                    </>
+                  )}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
 
 
@@ -355,34 +379,7 @@ const EditConsultantProfile = () => {
 
       
 
-        <div className="">
-          <label className="block text-sm font-semibold text-gray-800">Working With</label>
-          {workingWith?.map((field, index) => (
-            <div key={field.id}>
-              <Controller
-                name={`workingWith[${index}]`}
-                control={control}
-                defaultValue={field.value}
-                render={({ field }) => (
-                  <input
-                    {...field}
-                    type="text"
-                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
-                  />
-                )}
-              />
-              <button type="button" className='btn-black m-2' onClick={() => removeWorkingWith(index)}>
-                Remove
-              </button>
-            </div>
-          ))}
-          <button
-            type="button" className='btn-black m-2'
-            onClick={() => appendWorkingWith('')}
-          >
-            Add Working With
-          </button>
-        </div>
+       
 
 
 
