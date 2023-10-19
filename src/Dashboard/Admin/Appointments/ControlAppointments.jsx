@@ -92,7 +92,6 @@ console.log(appointments)
                  </form>
                 <div className="text-left space-y-4">
                     <h1 className="text-2xl text-center mb-10 font-semibold">User Details {a.urgent ? <span className="text-primary text-lg">(Urgent)</span> : null}</h1>
-                
                 <h1>  <span className="font-semibold">User Name:</span>  {a.name}</h1>
                 <p><span className="font-semibold">Mail:</span>  {a.email}</p>
                 <p><span className="font-semibold">Appointment Date:</span>  {a.appointDate}</p>
