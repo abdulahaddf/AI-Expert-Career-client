@@ -113,8 +113,7 @@ console.log(appointments)
                                     handleRequest(a._id);
                                     disableAcceptButton(a._id); 
                                 }}
-                                className="btn btn-success btn-xs normal-case text-white mx-1"
-                            >
+                                className="btn btn-success btn-xs normal-case text-white mx-1">
                                 Accept
                             </button>
                         </td>
