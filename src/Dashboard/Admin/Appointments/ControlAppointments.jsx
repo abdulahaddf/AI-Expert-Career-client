@@ -91,14 +91,15 @@ console.log(appointments)
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                  </form>
                 <div className="text-left space-y-4">
-                {a.urgent ? <p className="text-primary text-2xl text-center my-3">Urgent</p> : null}
-                <h1>User Name: {a.name}</h1>
-                <p>Mail: {a.email}</p>
-                <p>Appointment Date: {a.appointDate}</p>
-                <p>Appointment Time: {a.appointTime}</p>
-                <p>Problem Type: {a.problemType}</p>
-                <p>Case Summary: {a.caseSummary}</p>
-                <p>Attached File: {a.fileLink}</p>
+                    <h1 className="text-2xl text-center mb-10 font-semibold">User Details {a.urgent ? <span className="text-primary text-lg">(Urgent)</span> : null}</h1>
+                
+                <h1>  <span className="font-semibold">User Name:</span>  {a.name}</h1>
+                <p><span className="font-semibold">Mail:</span>  {a.email}</p>
+                <p><span className="font-semibold">Appointment Date:</span>  {a.appointDate}</p>
+                <p><span className="font-semibold">Appointment Time:</span>  {a.appointTime}</p>
+                <p><span className="font-semibold">Problem Type:</span> {a.problemType}</p>
+                <p><span className="font-semibold">Case Summary:</span>  {a.caseSummary}</p>
+                <p><span className="font-semibold">Attached File:</span> {a.fileLink}</p>
                 </div>
 
                 </div>
