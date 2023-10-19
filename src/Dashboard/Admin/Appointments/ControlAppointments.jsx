@@ -6,9 +6,8 @@ import { toast } from "react-toastify";
 const ControlAppointments = () => {
     const [appointments, setAppointments] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [status, setStatus] = useState("");
-    const [request, setRequest] = useState("");
-    const [confirmation, setConfirmation] = useState("");
+    const [disabledAcceptButtons, setDisabledAcceptButtons] = useState([]);
+    const [disabledConfirmButtons, setDisabledConfirmButtons] = useState([]);
 console.log(appointments)
     useEffect(() => {
       fetch("http://localhost:5000/appointments")
@@ -17,14 +16,49 @@ console.log(appointments)
         setIsLoading(false);
     }, []);
 
-    const handleApprove = (id) => {
-        setStatus("approved")
-        console.log("approved")
+    const disableAcceptButton = (id) => {
+        setDisabledAcceptButtons((prevDisabled) => [...prevDisabled, id]);
+    };
+
+    // Function to disable the "Confirm" button for a specific appointment
+    const disableConfirmButton = (id) => {
+        setDisabledConfirmButtons((prevDisabled) => [...prevDisabled, id]);
+    };
+
+    const handleRequest = (id) => {
+        
+        // console.log("approved")
         const data = {
-            status: "approved",
+            request: "approved",
           };
           // console.log(data);
-          fetch(`http://localhost:5000/enrollStatus/${id}`, {
+          fetch(`http://localhost:5000/appointRequest/${id}`, {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              // console.log(data);
+              if (data.modifiedCount > 0) {
+                
+                toast.info("Request Approved", {
+                  icon: <AiFillCheckCircle className="text-xl text-green-500" />,
+                });
+              }
+              else toast.error("Something went wrong")
+            })
+    }
+    const handleApprove = (id) => {
+       
+        console.log("approved")
+        const data = {
+            confirmation: "approved",
+          };
+          // console.log(data);
+          fetch(`http://localhost:5000/appointConfirmation/${id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -69,15 +103,38 @@ console.log(appointments)
                 <td className= {`${a.urgent ? "text-primary text-center" : "text-center" }`}>{a.name}</td>
                 <td className="text-center">{a.appointDate}</td>
                 <td className="text-center">{a.appointTime}</td>
-                <td className="text-center">{request || a.request} <button
-                    disabled={status || a.status === 'approved'}
-                    onClick={()=>handleApprove(a._id)}
-                    className="btn btn-success btn-xs normal-case text-white mx-1">Accept</button></td>
-                <td className="text-center">{confirmation || a.confirmation} <button
-                    disabled={status || a.status === 'approved'}
-                    onClick={()=>handleApprove(a._id)}
-                    className="btn btn-success btn-xs normal-case text-white mx-1">Confirm</button></td>
+
+
+                <td className="text-center">
+                            {/* {a.request === 'approved' ? a.request : a.request}{" "} */}
+                            <button
+                                disabled={disabledAcceptButtons.includes(a._id) || a.request === 'approved'}
+                                onClick={() => {
+                                    handleRequest(a._id);
+                                    disableAcceptButton(a._id); 
+                                }}
+                                className="btn btn-success btn-xs normal-case text-white mx-1"
+                            >
+                                Accept
+                            </button>
+                        </td>
+
+                        <td className="text-center">
+                            {/* {a.confirmation === 'approved' ? a.confirmation : confirmation}{" "} */}
+                            <button
+                                disabled={disabledConfirmButtons.includes(a._id) || a.confirmation === 'approved'}
+                                onClick={() => {
+                                    handleApprove(a._id);
+                                    disableConfirmButton(a._id);
+                                }}
+                                className="btn btn-success btn-xs normal-case text-white mx-1"
+                            >
+                                Confirm
+                            </button>
+                        </td>
                
+
+
                 <td className="text-center">
                     <button onClick={()=>document.getElementById(`${a._id}`).showModal()}
                     
