@@ -127,8 +127,7 @@ console.log(appointments)
                                     handleApprove(a._id);
                                     disableConfirmButton(a._id);
                                 }}
-                                className="btn btn-success btn-xs normal-case text-white mx-1"
-                            >
+                                className="btn btn-success btn-xs normal-case text-white mx-1">
                                 Confirm
                             </button>
                      </td>
