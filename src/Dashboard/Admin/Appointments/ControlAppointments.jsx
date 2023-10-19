@@ -131,7 +131,7 @@ console.log(appointments)
                             >
                                 Confirm
                             </button>
-                        </td>
+                     </td>
                
 
 
