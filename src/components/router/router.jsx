@@ -29,7 +29,7 @@ import DashboardLayout from "../layout/DahboardLayout/DashboardLayout";
 import PurchaseHistory from "../pages/PurchaseHistory/PurchaseHistory";
 import Certificate from "../pages/Certificate/Certificate";
 import UserDashboard from "../pages/Dashboard/UserDashboard";
-import MyCourse from "../pages/MyProfile/MyCourse";
+import MyCourse from "../../Dashboard/User/Course/MyCourse";
 import CourseVideo from "../pages/CourseVideo/CourseVideo";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import JobOpportunity from "../pages/JobOpportunity/JobOpportunity";
@@ -61,6 +61,7 @@ import AddCourseBanner from "../../Dashboard/Admin/CourseBanner/AddCourseBanner"
 import ConsultantProfile from "../../Dashboard/Consultant/ConsultantProfile";
 import EditConsultantProfile from "../../Dashboard/Consultant/EditConsultantProfile";
 import ControlAppointments from "../../Dashboard/Admin/Appointments/ControlAppointments";
+import Appointments from "../../Dashboard/User/Appointments/Appointments";
 
 export const router = createBrowserRouter([
   {
@@ -134,11 +135,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-courses/:category",
-        element: <AllCategoryCourses/>,
+        element: <AllCategoryCourses />,
       },
       {
         path: "/allCourses/:mainCategory",
-        element: <AllMainCategoryCourses/>,
+        element: <AllMainCategoryCourses />,
       },
       {
         path: "/free_courses",
@@ -265,6 +266,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/my-courses",
         element: <MyCourse />,
+      },
+      {
+        path: "/dashboard/my-appointments",
+        element: <Appointments />,
       },
       {
         path: "/dashboard/my-profile",

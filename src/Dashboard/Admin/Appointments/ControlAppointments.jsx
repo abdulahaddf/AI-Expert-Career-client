@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
@@ -101,8 +102,9 @@ console.log(appointments)
                 <th>{index + 1}</th>
                 <td>{a.cName}</td>
                 <td className= {`${a.urgent ? "text-primary text-center" : "text-center" }`}>{a.name}</td>
-                <td className="text-center">{a.appointDate}</td>
-                <td className="text-center">{a.appointTime}</td>
+                <td className="text-center">{moment(a.appointDate).format("MMMM Do YYYY")}</td>
+                <td className="text-center">{moment(a.appointTime).format(
+                              "h:mm a")}</td>
 
 
                 <td className="text-center">
