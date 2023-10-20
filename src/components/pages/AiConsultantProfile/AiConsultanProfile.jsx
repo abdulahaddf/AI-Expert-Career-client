@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../../../Context/Context';
+import Loader from '../../common/loader/Loader';
 const AiConsultanProfile = () => {
   const { language } = useContext(MyContext);
   const location = useLocation();
@@ -17,6 +18,7 @@ const AiConsultanProfile = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  if(!workingWith) return <Loader/>;
   return (
 
     <div className="  mx-auto my-7">

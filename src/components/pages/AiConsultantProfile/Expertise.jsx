@@ -3,14 +3,16 @@ import { useContext, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from "react-toastify";
+import UseUser from "../../../hooks/useUser";
 
 
 
 const Expertise = ({consultant}) => {
   const { displayName : cName, email : cMail, photoURL, phone : cPhone, designation, description, about, recentWorks, successes, experience, qualification, availability, workingWith,selectedDays } = consultant;
+  const [userinfo] = UseUser();
   const { language } = useContext(MyContext);
   const [hideButton, setHideButton] = useState(false);
-  const { control, handleSubmit, reset } = useForm();
+  const { control, handleSubmit, reset } = useForm({ defaultValues: { email: userinfo.email } });
 
 // console.log(conMail);
 
@@ -132,10 +134,11 @@ const Expertise = ({consultant}) => {
           <Controller
             name="email"
             control={control}
-            rules={{ required: true }}
+            // rules={{ required: true }}
             render={({ field }) => (
               <input
                 {...field}
+                value={userinfo.email}
                 type="email"
                 placeholder="Enter your email address"
                 className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"

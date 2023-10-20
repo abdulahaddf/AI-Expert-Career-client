@@ -103,8 +103,7 @@ console.log(appointments)
                 <td>{a.cName}</td>
                 <td className= {`${a.urgent ? "text-primary text-center" : "text-center" }`}>{a.name}</td>
                 <td className="text-center">{moment(a.appointDate).format("MMMM Do YYYY")}</td>
-                <td className="text-center">{moment(a.appointTime).format(
-                              "h:mm a")}</td>
+                <td className="text-center">{a.appointTime}</td>
 
 
                 <td className="text-center">
@@ -154,8 +153,10 @@ console.log(appointments)
                 <p><span className="font-semibold">Appointment Date:</span>  {a.appointDate}</p>
                 <p><span className="font-semibold">Appointment Time:</span>  {a.appointTime}</p>
                 <p><span className="font-semibold">Problem Type:</span> {a.problemType}</p>
-                <p><span className="font-semibold">Case Summary:</span>  {a.caseSummary}</p>
-                <p><span className="font-semibold">Attached File:</span> {a.fileLink}</p>
+                {a.caseSummary ?  <p><span className="font-semibold">Case Summary:</span>  {a.caseSummary}</p> : ""}
+                {a.fileLink ? <p><span className="font-semibold">Attached File:</span> {a.fileLink}</p> : ""}
+                {a.tId ? <p><span className="font-semibold">Transection ID:</span> {a.tId}</p> : ""}
+                {a.senderNumber ? <p><span className="font-semibold">Sender Number:</span> {a.senderNumber}</p> : ""}
                 </div>
 
                 </div>
