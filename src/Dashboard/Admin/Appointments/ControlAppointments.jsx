@@ -52,10 +52,32 @@ console.log(appointments)
               else toast.error("Something went wrong")
             })
     }
-    const handleApprove = (id) => {
-       
-       
-    }
+    const [toEmail1, setToEmail1] = useState("");
+    const [toEmail2, setToEmail2] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+
+    const sendEmail = async () => {
+        try {
+            const response = await fetch("/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ toEmail1, toEmail2, subject, message }),
+            });
+
+            if (response.ok) {
+                alert("Email sent successfully!");
+            } else {
+                alert("Failed to send the email.");
+            }
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("An error occurred while sending the email.");
+        }
+    };
+
     return (
         <div>
             <h1 className="text-3xl text-center my-5">Control Appointments</h1>
@@ -103,7 +125,8 @@ console.log(appointments)
                                 disabled={disabledConfirmButtons.includes(a._id) || a.confirmation === 'approved'}
                                 onClick={() => {
                                     handleApprove(a._id);
-                                    disableConfirmButton(a._id);
+                                    // disableConfirmButton(a._id);
+                                    document.getElementById(`${a.createAt}`).showModal()
                                 }}
                                 className="btn btn-success btn-xs normal-case text-white mx-1">
                                 Confirm
@@ -139,6 +162,73 @@ console.log(appointments)
 
                 </div>
                 </dialog>
+
+
+                {/* sending mail */}
+                <dialog id={`${a.createAt}`} className="modal">
+                <div className="modal-box">
+                <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                 </form>
+                
+                <p>{a.email}</p>
+                <p>{a.cMail}</p>
+
+
+
+
+
+<div>
+<div>
+            <h2>Email Sender</h2>
+            <div>
+                <input
+                    type="email"
+                    placeholder="Recipient Email 1"
+                    value={a.email}
+                    onChange={(e) => setToEmail1(e.target.value)}
+                />
+            </div>
+            <div>
+                <input
+                    type="email"
+                    placeholder="Recipient Email 2"
+                    value={a.cMail}
+                    onChange={(e) => setToEmail2(e.target.value)}
+                />
+            </div>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    // value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                />
+            </div>
+            <div>
+                <textarea
+                    placeholder="Message"
+                    // value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                />
+            </div>
+            <div>
+                <button 
+                // onClick={sendEmail}
+                >Send Email</button>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+                </div>
+                </dialog>
+
               </tr>
             ))}
           </tbody>
