@@ -178,7 +178,6 @@ console.log(appointments)
 
 
 
-
 <div>
 <div>
             <h2>Email Sender</h2>
