@@ -157,7 +157,7 @@ const ManageUser = () => {
                 </td>
                 <td >
                   <button
-                    className="btn-custom-sm "
+                    className="btn-black "
                     onClick={() => handleMakeAdmin(user)}
                     disabled={user.role === "admin" || user.role === "super admin"}
                   >
@@ -166,14 +166,14 @@ const ManageUser = () => {
                   </button>
 
                   <button
-                    className="btn-custom-sm m-2"
+                    className="btn-black m-2"
                     onClick={() => handleMakeConsultant(user)}
                     disabled={user.role === "consultant" || user.role === "super admin"}
                   >
                    consultant
                   </button>
                   <button
-                    className="btn-custom-sm"
+                    className="btn-black"
                     onClick={() => handleMakeUser(user)}
                     disabled={user.role === "user" || user.role === "super admin"}
                   >
@@ -183,7 +183,7 @@ const ManageUser = () => {
                 </td>
                 <td className="text-xl text-primary text-center"> 
                 <button
-                    className="btn-custom-sm"
+                    className="btn-black"
                     onClick={() => handleDelete(user)}
                     disabled={user.role === "admin" || user.role === "super admin"}
                   >

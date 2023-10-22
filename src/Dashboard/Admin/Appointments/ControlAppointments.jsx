@@ -54,29 +54,7 @@ console.log(appointments)
     }
     const handleApprove = (id) => {
        
-        console.log("approved")
-        const data = {
-            confirmation: "approved",
-          };
-          // console.log(data);
-          fetch(`http://localhost:5000/appointConfirmation/${id}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(data),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              // console.log(data);
-              if (data.modifiedCount > 0) {
-                
-                toast.info("Request Approved", {
-                  icon: <AiFillCheckCircle className="text-xl text-green-500" />,
-                });
-              }
-              else toast.error("Something went wrong")
-            })
+       
     }
     return (
         <div>
