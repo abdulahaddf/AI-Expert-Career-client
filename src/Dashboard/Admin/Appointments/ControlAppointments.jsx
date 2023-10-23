@@ -9,7 +9,12 @@ const ControlAppointments = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [disabledAcceptButtons, setDisabledAcceptButtons] = useState([]);
     const [disabledConfirmButtons, setDisabledConfirmButtons] = useState([]);
-console.log(appointments)
+    const [toEmail1, setToEmail1] = useState("");
+    const [toEmail2, setToEmail2] = useState("");
+    const [subject, setSubject] = useState("");
+    const [message, setMessage] = useState("");
+// console.log(appointments)
+console.log(toEmail1, toEmail2, subject, message);
     useEffect(() => {
       fetch("http://localhost:5000/appointments")
         .then((response) => response.json())
@@ -25,7 +30,7 @@ console.log(appointments)
     const disableConfirmButton = (id) => {
         setDisabledConfirmButtons((prevDisabled) => [...prevDisabled, id]);
     };
-
+    `   `
     const handleRequest = (id) => {
         
         // console.log("approved")
@@ -52,31 +57,37 @@ console.log(appointments)
               else toast.error("Something went wrong")
             })
     }
-    const [toEmail1, setToEmail1] = useState("");
-    const [toEmail2, setToEmail2] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
 
-    const sendEmail = async () => {
+    const sendEmail = async (a) => {
+       {setToEmail1(a.email)}
+            {setToEmail2(a.cMail)}
+
         try {
-            const response = await fetch("/send-email", {
-                method: "POST",
+            const response = await fetch("http://localhost:5000/send-email", {
+                method: "POST", // Use POST to send the email data
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ toEmail1, toEmail2, subject, message }),
+                body: JSON.stringify({
+                    toEmail1,
+                    toEmail2,
+                    subject,
+                    message,
+                    accessToken: "1049813ba0412fa9645289cae40ae22",
+                }),
             });
-
+    console.log(response);
             if (response.ok) {
-                alert("Email sent successfully!");
+                toast.success("Email sent successfully!");
             } else {
-                alert("Failed to send the email.");
+                toast.error("Failed to send the email.");
             }
         } catch (error) {
             console.error("Error sending email:", error);
             alert("An error occurred while sending the email.");
         }
     };
+    
 
     return (
         <div>
@@ -124,7 +135,7 @@ console.log(appointments)
                             <button
                                 disabled={disabledConfirmButtons.includes(a._id) || a.confirmation === 'approved'}
                                 onClick={() => {
-                                    handleApprove(a._id);
+                                    // handleApprove(a._id);
                                     // disableConfirmButton(a._id);
                                     document.getElementById(`${a.createAt}`).showModal()
                                 }}
@@ -179,14 +190,16 @@ console.log(appointments)
 
 
 <div>
-<div>
+<div> 
+
             <h2>Email Sender</h2>
             <div>
+           
                 <input
                     type="email"
                     placeholder="Recipient Email 1"
                     value={a.email}
-                    onChange={(e) => setToEmail1(e.target.value)}
+                   
                 />
             </div>
             <div>
@@ -194,27 +207,27 @@ console.log(appointments)
                     type="email"
                     placeholder="Recipient Email 2"
                     value={a.cMail}
-                    onChange={(e) => setToEmail2(e.target.value)}
+                    // onChange={(e) => setToEmail2(e.target.value)}
                 />
             </div>
             <div>
                 <input
                     type="text"
                     placeholder="Subject"
-                    // value={subject}
+                    value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                 />
             </div>
             <div>
                 <textarea
                     placeholder="Message"
-                    // value={message}
+                    value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
             </div>
             <div>
                 <button 
-                // onClick={sendEmail}
+                onClick={()=>sendEmail(a)}
                 >Send Email</button>
             </div>
         </div>
