@@ -5,6 +5,7 @@ const TermsAndConditions = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  
   return (
     <div className="bg-gray-100 p-10">
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
