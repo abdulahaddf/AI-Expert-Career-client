@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import UseUser from '../../hooks/useUser';
 import Loader from '../../components/common/loader/Loader';
+import { CiSquareRemove } from 'react-icons/ci';
 
 const EditConsultantProfile = () => {
     const [userinfo, isLoading, refetch] = UseUser();
@@ -279,8 +280,8 @@ const EditConsultantProfile = () => {
                   />
                 )}
               />
-              <button type="button" className='btn-black m-2'  onClick={() => removeRecentWork(index)}>
-                Remove
+              <button type="button" className=' m-2'  onClick={() => removeRecentWork(index)}>
+                <CiSquareRemove className='text-2xl'/>
               </button>
             </div>
           ))}
@@ -307,8 +308,8 @@ const EditConsultantProfile = () => {
                   />
                 )}
               />
-              <button type="button" className='btn-black m-2' onClick={() => removeSuccess(index)}>
-                Remove
+              <button type="button" className='m-2' onClick={() => removeSuccess(index)}>
+                <CiSquareRemove className='text-2xl'/>
               </button>
             </div>
           ))}
@@ -335,8 +336,8 @@ const EditConsultantProfile = () => {
                   />
                 )}
               />
-              <button type="button" className='btn-black m-2' onClick={() => removeExperience(index)}>
-                Remove
+              <button type="button" className=' m-2' onClick={() => removeExperience(index)}>
+                <CiSquareRemove className='text-2xl'/>
               </button>
             </div>
           ))}
@@ -364,8 +365,8 @@ const EditConsultantProfile = () => {
                   />
                 )}
               />
-              <button type="button" className='btn-black m-2' onClick={() => removeQualification(index)}>
-                Remove
+              <button type="button" className=' m-2' onClick={() => removeQualification(index)}>
+                <CiSquareRemove className='text-2xl'/>
               </button>
             </div>
           ))}

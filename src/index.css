@@ -79,6 +79,9 @@
   .btn-see {
     @apply btn btn-md btn-ghost btn-outline normal-case text-primary border-[1px] border-primary   shadow-lg hover:bg-primary hover:border-primary px-5 text-xl ;
   } 
+  /* .btn-black {
+    @apply border-black border-2 hover:shadow-lg hover:bg-black hover:text-white py-[1px] duration-300 px-2 rounded-lg font-semibold;
+  } */
   .btn-black {
     @apply btn btn-sm btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:border-0;
   }

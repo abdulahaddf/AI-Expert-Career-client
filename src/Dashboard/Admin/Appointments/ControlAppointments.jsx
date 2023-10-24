@@ -26,11 +26,7 @@ console.log(toEmail1, toEmail2, subject, message);
         setDisabledAcceptButtons((prevDisabled) => [...prevDisabled, id]);
     };
 
-    // Function to disable the "Confirm" button for a specific appointment
-    const disableConfirmButton = (id) => {
-        setDisabledConfirmButtons((prevDisabled) => [...prevDisabled, id]);
-    };
-    `   `
+
     const handleRequest = (id) => {
         
         // console.log("approved")
@@ -59,8 +55,8 @@ console.log(toEmail1, toEmail2, subject, message);
     }
 
     const sendEmail = async (a) => {
-       {setToEmail1(a.email)}
-            {setToEmail2(a.cMail)}
+       setToEmail1(a.email)
+            setToEmail2(a.cMail)
 
         try {
             const response = await fetch("http://localhost:5000/send-email", {
@@ -73,11 +69,11 @@ console.log(toEmail1, toEmail2, subject, message);
                     toEmail2,
                     subject,
                     message,
-                    accessToken: "1049813ba0412fa9645289cae40ae22",
                 }),
             });
-    console.log(response);
+    // console.log(response);
             if (response.ok) {
+                document.getElementById(a.createAt).close()
                 toast.success("Email sent successfully!");
             } else {
                 toast.error("Failed to send the email.");
@@ -103,7 +99,7 @@ console.log(toEmail1, toEmail2, subject, message);
               <th className="text-center">Date</th>
               <th className="text-center">Time</th>
               <th className="text-center">Approval</th>
-              <th className="text-center">ConFirmation</th>
+              <th className="text-center">Confirmation</th>
               <th className="text-center">Details</th>
             </tr>
           </thead>
@@ -133,14 +129,14 @@ console.log(toEmail1, toEmail2, subject, message);
                         <td className="text-center">
                             {/* {a.confirmation === 'approved' ? a.confirmation : confirmation}{" "} */}
                             <button
-                                disabled={disabledConfirmButtons.includes(a._id) || a.confirmation === 'approved'}
+                                // disabled={disabledConfirmButtons.includes(a._id) || a.confirmation === 'approved'}
                                 onClick={() => {
                                     // handleApprove(a._id);
                                     // disableConfirmButton(a._id);
                                     document.getElementById(`${a.createAt}`).showModal()
                                 }}
-                                className="btn btn-success btn-xs normal-case text-white mx-1">
-                                Confirm
+                                className="btn-black ">
+                               Send Mail
                             </button>
                      </td>
                
@@ -149,7 +145,7 @@ console.log(toEmail1, toEmail2, subject, message);
                 <td className="text-center">
                     <button onClick={()=>document.getElementById(`${a._id}`).showModal()}
                     
-                    className="btn btn-success btn-xs normal-case text-white mx-1">Details</button>
+                    className="btn-black">Details</button>
                 </td>
                 {/* Details */}
                 <dialog id={`${a._id}`} className="modal">
@@ -167,7 +163,7 @@ console.log(toEmail1, toEmail2, subject, message);
                 <p><span className="font-semibold">Problem Type:</span> {a.problemType}</p>
                 {a.caseSummary ?  <p><span className="font-semibold">Case Summary:</span>  {a.caseSummary}</p> : ""}
                 {a.fileLink ? <p><span className="font-semibold">Attached File:</span> {a.fileLink}</p> : ""}
-                {a.tId ? <p><span className="font-semibold">Transection ID:</span> {a.tId}</p> : ""}
+                {a.tId ? <p><span className="font-semibold">Transaction ID:</span> {a.tId}</p> : ""}
                 {a.senderNumber ? <p><span className="font-semibold">Sender Number:</span> {a.senderNumber}</p> : ""}
                 </div>
 
@@ -183,54 +179,60 @@ console.log(toEmail1, toEmail2, subject, message);
                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                  </form>
                 
-                <p>{a.email}</p>
-                <p>{a.cMail}</p>
+               
 
 
 
 
 <div>
-<div> 
+<div className=" p-2  text-left">
+    <h2 className="text-2xl font-semibold my-5 text-center">Sending Mail</h2>
+    <div className="mb-4">
+        <p className="font-semibold pb-1">User Mail</p>
+        <input
+            type="email"
+            placeholder="Recipient Email 1"
+            value={a.email}
+            className="w-full p-2 border rounded "
+        />
+    </div>
+    <div className="mb-4">
+    <p className="font-semibold pb-1">Consultant Mail</p>
+        <input
+            type="email"
+            placeholder="Recipient Email 2"
+            value={a.cMail}
+            className="w-full p-2 border rounded "
+        />
+    </div>
+    <div className="mb-4">
+    <p className="font-semibold pb-1">Subject</p>
+        <input
+            type="text"
+            placeholder="Subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            className="w-full p-2 border rounded "
+        />
+    </div>
+    <div className="mb-4">
+    <p className="font-semibold pb-1">Mail body</p>
+        <textarea
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full p-2 border rounded "
+        />
+    </div>
+    <div className="text-center">
+        <button
+            onClick={() => sendEmail(a)}
+            className="btn-black">
+            Send Email
+        </button>
+    </div>
+</div>
 
-            <h2>Email Sender</h2>
-            <div>
-           
-                <input
-                    type="email"
-                    placeholder="Recipient Email 1"
-                    value={a.email}
-                   
-                />
-            </div>
-            <div>
-                <input
-                    type="email"
-                    placeholder="Recipient Email 2"
-                    value={a.cMail}
-                    // onChange={(e) => setToEmail2(e.target.value)}
-                />
-            </div>
-            <div>
-                <input
-                    type="text"
-                    placeholder="Subject"
-                    value={subject}
-                    onChange={(e) => setSubject(e.target.value)}
-                />
-            </div>
-            <div>
-                <textarea
-                    placeholder="Message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                />
-            </div>
-            <div>
-                <button 
-                onClick={()=>sendEmail(a)}
-                >Send Email</button>
-            </div>
-        </div>
 </div>
 
 
