@@ -264,7 +264,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <UserDashboard />,
+        element:<PrivateRoute><UserDashboard /></PrivateRoute> ,
       },
       {
         path: "/dashboard/user-dashboard",
@@ -312,43 +312,43 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/manage-blog",
-        element: <ManageBlog />,
+        element: <AdminRoute> <ManageBlog /></AdminRoute>,
       },
       {
         path: "/dashboard/edit-blog/:id",
-        element: <EditBlog />,
+        element: <AdminRoute><EditBlog /></AdminRoute>,
       },
       {
         path: "/dashboard/manage-users",
-        element: <ManageUser />,
+        element:  <AdminRoute><ManageUser /></AdminRoute>,
       },
       {
         path: "/dashboard/add-course",
-        element: <AddCourse />,
+        element: <AdminRoute><AddCourse /></AdminRoute>,
       },
       {
         path: "/dashboard/manage-courses",
-        element: <ManageCourses />,
+        element: <AdminRoute><ManageCourses /></AdminRoute>,
       },
       {
         path: "/dashboard/edit-course/:id",
-        element: <EditCourse />,
+        element: <AdminRoute><EditCourse /></AdminRoute>,
       },
       {
         path: "/dashboard/promo",
-        element: <AddPromo />,
+        element:<AdminRoute><AddPromo /></AdminRoute> ,
       },
       {
         path: "/dashboard/control-enrollments",
-        element: <ControlEnrollments />,
+        element: <AdminRoute><ControlEnrollments /></AdminRoute>,
       },
       {
         path: "/dashboard/course-banner",
-        element: <AddCourseBanner />,
+        element: <AdminRoute><AddCourseBanner /></AdminRoute>,
       },
       {
         path: "/dashboard/consultant-profile",
-        element: <ConsultantProfile />,
+        element: <PrivateRoute><ConsultantProfile /></PrivateRoute>,
       },
       {
         path: "/dashboard/edit-consultant-profile",
@@ -356,7 +356,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/control-appointments",
-        element: <ControlAppointments />,
+        element: <AdminRoute><ControlAppointments /></AdminRoute>,
       },
     ],
   },
