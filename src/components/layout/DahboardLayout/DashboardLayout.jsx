@@ -26,9 +26,9 @@ const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const {user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [isAdmin] = useAdmin();
-  // console.log(isAdmin)
   const [userinfo] = UseUser();
+  const isAdmin = userinfo?.role === "admin";
+  console.log(isAdmin)
   // const gradientColor =
   //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
  

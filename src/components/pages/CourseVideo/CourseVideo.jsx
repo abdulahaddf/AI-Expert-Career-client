@@ -255,7 +255,7 @@ const CourseVideo = () => {
               <div key={moduleIndex}>
                 <details className="group [&_summary::-webkit-details-marker]:hidden rounded-xl p-2 bg-white ">
                   <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-xl bg-slate-100 p-3 text-gray-900">
-                    <h2 className="font-bold text-lg cursor-pointer">
+                    <h2 className="font-bold md:text-lg cursor-pointer">
                       {module.title}
                     </h2>
                     <svg

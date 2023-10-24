@@ -9,16 +9,15 @@ import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
 import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
-import useAdmin from "../../hooks/useAdmin";
 import UseUser from "../../hooks/useUser";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
-  const [isAdmin] = useAdmin();
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
+  const isAdmin = userinfo?.role === "admin";
 console.log(isAdmin)
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -397,7 +396,7 @@ console.log(isAdmin)
                                 Dashboard
                               </Link>
                               <li
-                                className=" hover:text-primary  hover:no-underline "
+                                className=" hover:text-primary  hover:no-underline ml-2"
                                 onClick={logOut}
                               >
                                 Logout
@@ -405,18 +404,15 @@ console.log(isAdmin)
                             </li>
                           ) : (
                             <li className="flex flex-col h-96  pb-5 ">
+                             
                               <Link
                                 to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-2"
                               >
                                 Dashboard
                               </Link>
-                              <li
-                                className=" hover:text-primary  hover:no-underline ml-2"
-                                onClick={logOut}
-                              >
-                                Logoutt
-                              </li>
+                              
+                              
                               <li
                                 className=" hover:text-primary  hover:no-underline ml-2"
                                 onClick={logOut}
