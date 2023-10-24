@@ -12,7 +12,7 @@ const AboutUs = () => {
 
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   return (
     <div className="mt-[60px] lg:mt-[100px]">

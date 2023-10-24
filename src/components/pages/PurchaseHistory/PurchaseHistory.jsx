@@ -5,7 +5,7 @@ const PurchaseHistory = () => {
   const { language } = useContext(MyContext);
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   return (
     <div className=" w-full">

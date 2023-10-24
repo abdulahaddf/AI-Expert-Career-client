@@ -76,22 +76,7 @@ const DashboardLayout = () => {
                 isAdmin || userinfo?.role === "super admin" ? 
                 // Admin Dashboard link starts from here
                 <ul className="w-full h-full md:px-4 flex  flex-col">
-                <NavLink
-                  to={"/dashboard/user-dashboard"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <BsGrid
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "ড্যাশবোর্ড" : "Admin"}
-                </NavLink>
+               
 
               
                 <NavLink
@@ -282,7 +267,7 @@ const DashboardLayout = () => {
                   </NavLink></ul> :      
               // User Routes starts from Here
               <ul className="w-full py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">
-                  <NavLink
+                  {/* <NavLink
                     to={"/dashboard/user-dashboard"}
                     className={({ isActive }) =>
                       isActive
@@ -297,7 +282,7 @@ const DashboardLayout = () => {
                           : "text-red-600"}mb-[4px] mr-2 `}
                     />
                     {language === "bn" ? "ড্যাশবোর্ড" : "Dashboard"}
-                  </NavLink>
+                  </NavLink> */}
 
                   <NavLink
                     to={"/dashboard/my-profile"}

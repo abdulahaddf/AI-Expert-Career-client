@@ -1,7 +1,7 @@
-import  { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useLocation, useParams } from "react-router-dom";
-import {  MdVideoLibrary } from "react-icons/md";
+import { MdVideoLibrary } from "react-icons/md";
 import ReactPlayer from "react-player";
 import { toast } from "react-toastify";
 import Loader from "../../common/loader/Loader";
@@ -25,7 +25,7 @@ const CourseVideo = () => {
   const [totalContentCount, setTotalContentCount] = useState(0);
   const [selectedContentIndex, setSelectedContentIndex] = useState(null);
   const [progressPercentage, setProgressPercentage] = useState(0);
-console.log(id)
+  console.log(id);
   useEffect(() => {
     fetch(`http://localhost:5000/singleEnrolledcourse/${id}`)
       .then((response) => {
@@ -165,46 +165,39 @@ console.log(id)
   }, [course, completedCount, totalContentCount]);
   console.log(progressPercentage);
 
+  const postCompletionTime = async () => {
+    console.log("Posting completion time:");
+    try {
+      // Make a POST request to your Express route to update the main course enrollment collection
+      const response = await fetch("http://localhost:5000/completedtime", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: userId, // Replace with the appropriate user ID
+          courseId: course._id, // Replace with the appropriate course ID
+          completionTime: moment().format("MMMM Do YYYY, h:mm a"), // Completion time
+        }),
+      });
 
-
-
-
- 
-const postCompletionTime = async () => {
-  console.log("Posting completion time:")
-  try {
-    // Make a POST request to your Express route to update the main course enrollment collection
-    const response = await fetch("http://localhost:5000/completedtime", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: userId, // Replace with the appropriate user ID
-        courseId: course._id, // Replace with the appropriate course ID
-        completionTime: moment().format('MMMM Do YYYY, h:mm a'), // Completion time
-      }),
-    });
-
-    if (response.status === 200) {
-      // Handle success, e.g., show a success message to the user
-      console.log("Course completion status updated successfully");
-    } else {
-      // Handle any errors, e.g., show an error message to the user
-      console.error("Error updating course completion status");
+      if (response.status === 200) {
+        // Handle success, e.g., show a success message to the user
+        console.log("Course completion status updated successfully");
+      } else {
+        // Handle any errors, e.g., show an error message to the user
+        console.error("Error updating course completion status");
+      }
+    } catch (error) {
+      // Handle any network or other errors
+      console.error(error);
     }
-  } catch (error) {
-    // Handle any network or other errors
-    console.error(error);
+  };
+
+  // when the course is completed post the completing time
+  if (progressPercentage == 100) {
+    postCompletionTime();
   }
-};
-
-
-
-// when the course is completed post the completing time
-if (progressPercentage == 100) {
-  postCompletionTime();
-}
 
   const handleMarkAsComplete = async (moduleTitle, contentTitle) => {
     try {
@@ -225,7 +218,7 @@ if (progressPercentage == 100) {
 
       if (response.status === 200) {
         console.log("Progress Percentage:", progressPercentage);
-        
+
         // Mark the content as complete in the state
         setCompletedContent((prevCompletedContent) => ({
           ...prevCompletedContent,
@@ -242,7 +235,7 @@ if (progressPercentage == 100) {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   if (loading) return <Loader />;
@@ -326,7 +319,10 @@ if (progressPercentage == 100) {
           </div>
           {/* Download Certificate */}
           <div className="flex items-center">
-            <button disabled={progressPercentage != 100} className="btn-add" > <Certificate id={id}/> </button>
+            <button disabled={progressPercentage != 100} className="btn-add">
+              {" "}
+              <Certificate id={id} />{" "}
+            </button>
           </div>
           {/* <p
           className={`text-primary ${

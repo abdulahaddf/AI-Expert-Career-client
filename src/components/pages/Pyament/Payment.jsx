@@ -16,7 +16,7 @@ const Payment = () => {
   const { language } = useContext(MyContext);
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   return (
     <div className="bg-white mt-[70px] lg:mt-[100px]">

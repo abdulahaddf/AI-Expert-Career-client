@@ -89,6 +89,14 @@ const Footer = () => {
               </h2>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p>
+                  <Link to="/terms&conditions"
+                  >
+                    {language !== "bn"
+                      ? "Terms & Conditions"
+                      : "প্রজেক্ট ও প্রডাক্টস"}
+                  </Link>
+                </p>
+                <p>
                   <a
                     href="https://forum.solana.com/"
                     target="_blank"

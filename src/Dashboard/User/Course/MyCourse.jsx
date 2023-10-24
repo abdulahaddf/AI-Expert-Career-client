@@ -19,7 +19,7 @@ const MyCourse = () => {
   console.log(courses);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   if (!courses) return <Loader />;
@@ -31,11 +31,23 @@ const MyCourse = () => {
             {" "}
             {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}{" "}
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 mt-[30px] gap-5 2xl:gap-x-0">
-            {courses?.map((course, i) => (
-              <CourseCart key={i} courseData={course} userId={userinfo._id} />
-            ))}
-          </div>
+          <>
+            {courses.length > 0 ? (
+              <div className="grid  lg:grid-cols-2 mt-[30px] gap-5 2xl:gap-x-0 mx-auto">
+                {courses?.map((course, i) => (
+                  <CourseCart
+                    key={i}
+                    courseData={course}
+                    userId={userinfo._id}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="my-10 text-3xl font-semibold text-center">
+                You did not enrolled in any Course
+              </p>
+            )}
+          </>
         </div>
       ) : (
         <p className="my-10 text-3xl font-semibold text-center">

@@ -33,8 +33,6 @@ const IndividualBlog = () => {
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
 
-
-
   // console.log(id);
   // console.log(blog);
   const allComments = blog?.comments?.sort(
@@ -45,24 +43,24 @@ const IndividualBlog = () => {
   const displayedComments = showAllComments
     ? allComments
     : allComments?.slice(0, 5);
-    //fetching data for individual blog
+  //fetching data for individual blog
   useEffect(() => {
     fetch(`http://localhost:5000/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id,like,reload]);
+  }, [id, like, reload]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
   };
-//fetching data for all blogs
+  //fetching data for all blogs
   useEffect(() => {
     fetch(" http://localhost:5000/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data));
   }, []);
 
-// handling the comment
+  // handling the comment
   const handleComment = () => {
     // Create the comment object with comment and userinfo
     const commentData = { comment: cmnt, userinfo, date: new Date() };
@@ -111,11 +109,16 @@ const IndividualBlog = () => {
   const handleLike = () => {
     //user cant like the blog untill the user is logged in
     if (!user?.email) {
-      toast.error('Please login first');
+      toast.error("Please login first");
       return;
     }
     // Create the likes object with likes and userinfo
-    const data = {status : "liked" , email: user?.email, blogId : id, date: new Date() };
+    const data = {
+      status: "liked",
+      email: user?.email,
+      blogId: id,
+      date: new Date(),
+    };
 
     // Send a PATCH request to update the likes in your MongoDB database
     fetch(`http://localhost:5000/like/${blog._id}`, {
@@ -127,19 +130,19 @@ const IndividualBlog = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData)
-        if(responseData.error){
-          toast.error("You've given a react already")
-          return
+        console.log(responseData);
+        if (responseData.error) {
+          toast.error("You've given a react already");
+          return;
         }
         if (responseData) {
           toast.success("The Blog is liked", {
             toastId: blog._id.toString(),
           });
-          setLike(!like)
+          setLike(!like);
         } else {
           // Handle the case where the likes wasn't added successfully
-         toast.error("Something went wrong")
+          toast.error("Something went wrong");
         }
       })
       .catch((error) => {
@@ -158,11 +161,16 @@ const IndividualBlog = () => {
   const handleDisLike = () => {
     //user cant like the blog untill the user is logged in
     if (!user?.email) {
-      toast.error('Please login first');
+      toast.error("Please login first");
       return;
     }
     // Create the likes object with likes and userinfo
-    const data = {status : "disliked" , email: user?.email, blogId : id, date: new Date() };
+    const data = {
+      status: "disliked",
+      email: user?.email,
+      blogId: id,
+      date: new Date(),
+    };
 
     // Send a PATCH request to update the likes in your MongoDB database
     fetch(`http://localhost:5000/dislike/${blog._id}`, {
@@ -174,19 +182,19 @@ const IndividualBlog = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData)
-        if(responseData.error){
-          toast.error("You've given a react already")
-          return
+        console.log(responseData);
+        if (responseData.error) {
+          toast.error("You've given a react already");
+          return;
         }
         if (responseData) {
           toast.success("The Blog is disliked", {
             toastId: blog._id.toString(),
           });
-          setLike(!like)
+          setLike(!like);
         } else {
           // Handle the case where the likes wasn't added successfully
-         toast.error("Something went wrong")
+          toast.error("Something went wrong");
         }
       })
       .catch((error) => {
@@ -203,24 +211,26 @@ const IndividualBlog = () => {
 
   // Making sure the user will be able to like or dislike only one time
   const filterLiked = blog?.likes?.find((like) => like?.email === user?.email);
-  const filterDisLiked = blog?.dislikes?.find((dislike) => dislike?.email === user?.email);
-  const handleAlreadyReacted =()=>{
-    toast.error("You've given a react already")
-  }
-  
-// // Filter the random blogs for recommendation
-//   const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id)
-                
-//   // console.log(filtered)
-//   // Shuffle the filtered array randomly
-//   for (let i = filtered.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
-//   }
-  
-//   // Select the blogs from the shuffled array for recommendation
-//   const randomBlogs = filtered.slice(0, 5);
-//   const randomCardBlog = filtered.slice(0, 4);
+  const filterDisLiked = blog?.dislikes?.find(
+    (dislike) => dislike?.email === user?.email
+  );
+  const handleAlreadyReacted = () => {
+    toast.error("You've given a react already");
+  };
+
+  // // Filter the random blogs for recommendation
+  //   const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id)
+
+  //   // console.log(filtered)
+  //   // Shuffle the filtered array randomly
+  //   for (let i = filtered.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+  //   }
+
+  //   // Select the blogs from the shuffled array for recommendation
+  //   const randomBlogs = filtered.slice(0, 5);
+  //   const randomCardBlog = filtered.slice(0, 4);
 
   useEffect(() => {
     // Fetch and shuffle the blogs for recommendation
@@ -229,7 +239,9 @@ const IndividualBlog = () => {
       // const data = await response.json();
 
       // Filter the random blogs for recommendation
-      const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id);
+      const filtered = blogs?.filter(
+        (bl) => bl?.category === blog?.category && bl?._id !== blog?._id
+      );
 
       // Shuffle the filtered array randomly
       for (let i = filtered.length - 1; i > 0; i--) {
@@ -248,12 +260,11 @@ const IndividualBlog = () => {
     fetchRandomBlogs();
   }, [blog]);
 
-
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
-  if( !blog) return <Loader/>;
+  if (!blog) return <Loader />;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
@@ -301,37 +312,49 @@ const IndividualBlog = () => {
           </div>
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
-             <div className="flex items-center gap-4">
-              <span className="text-white">{blog?.likes?.length} </span>
-            {/* filtering from backend if the user liked the blog or not */}
-               
-             {
-              filterDisLiked ? <BiLike
-              onClick={() => handleAlreadyReacted()}
-              className="text-2xl text-center text-white"
-              /> :  filterLiked ?  <AiFillLike onClick={() => handleAlreadyReacted()}  className="text-2xl text-center text-white"/> :<BiLike
-              onClick={() => handleLike()}
-              className="text-2xl text-center text-white"
-              />
-             }
-                
-                  </div>
+              <div className="flex items-center gap-4">
+                <span className="text-white">{blog?.likes?.length} </span>
+                {/* filtering from backend if the user liked the blog or not */}
 
-{/* filtering from backend if the user disliked the blog or not */}
-           <div className="flex gap-4">
-             {
-              filterLiked ? <BiDislike onClick={() => handleAlreadyReacted()}
-              className="text-2xl text-center text-white"/> : filterDisLiked ? <AiFillDislike onClick={() => handleAlreadyReacted()}
-              className="text-2xl text-center text-white"/> : <BiDislike
-              onClick={() => handleDisLike()}
-              className="text-2xl text-center text-white"
-            />
-             }
-           
+                {filterDisLiked ? (
+                  <BiLike
+                    onClick={() => handleAlreadyReacted()}
+                    className="text-2xl text-center text-white"
+                  />
+                ) : filterLiked ? (
+                  <AiFillLike
+                    onClick={() => handleAlreadyReacted()}
+                    className="text-2xl text-center text-white"
+                  />
+                ) : (
+                  <BiLike
+                    onClick={() => handleLike()}
+                    className="text-2xl text-center text-white"
+                  />
+                )}
+              </div>
+
+              {/* filtering from backend if the user disliked the blog or not */}
+              <div className="flex gap-4">
+                {filterLiked ? (
+                  <BiDislike
+                    onClick={() => handleAlreadyReacted()}
+                    className="text-2xl text-center text-white"
+                  />
+                ) : filterDisLiked ? (
+                  <AiFillDislike
+                    onClick={() => handleAlreadyReacted()}
+                    className="text-2xl text-center text-white"
+                  />
+                ) : (
+                  <BiDislike
+                    onClick={() => handleDisLike()}
+                    className="text-2xl text-center text-white"
+                  />
+                )}
+
                 <span className="text-white">{blog?.dislikes?.length} </span>
-           </div>
-               
-    
+              </div>
             </div>
             <div className="flex justify-center items-center gap-8">
               <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
@@ -344,34 +367,40 @@ const IndividualBlog = () => {
               <img src={share} alt="" className="cursor-pointer" />
             </div>
           </div>
-                      {/* Comment section */}
-          {
-            user ?  <div className="pt-[32px] ">
-            <div className="flex justify-center items-center gap-x-[10px] ">
-              <img
-                src={userinfo?.photoURL}
-                alt=""
-                className="w-12 h-12 rounded-full"
-              />
-              <input
-                type="text"
-                value={cmnt}
-                placeholder={language == "bn" ? "কমেন্ট করুন" : "Add a comment"}
-                className="border-none w-full bg-[#eefaf993] text-lg font-bold p-2"
-                onChange={(e) => setComment(e.target.value)}
-              />
+          {/* Comment section */}
+          {user ? (
+            <div className="pt-[32px] ">
+              <div className="flex justify-center items-center gap-x-[10px] ">
+                <img
+                  src={userinfo?.photoURL}
+                  alt=""
+                  className="w-12 h-12 rounded-full"
+                />
+                <input
+                  type="text"
+                  value={cmnt}
+                  placeholder={
+                    language == "bn" ? "কমেন্ট করুন" : "Add a comment"
+                  }
+                  className="border-none w-full bg-[#eefaf993] text-lg font-bold p-2"
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </div>
+              <div className="flex flex-row-reverse gap-7 pt-2">
+                <button
+                  onClick={() => handleComment()}
+                  className="bg-[#FF0944] w-[130px] text-white rounded font-bold"
+                >
+                  {language == "bn" ? "ঙ্কমেন্ট" : "Comment"}
+                </button>
+              </div>
             </div>
-            <div className="flex flex-row-reverse gap-7 pt-2">
-              <button
-                onClick={() => handleComment()}
-                className="bg-[#FF0944] w-[130px] text-white rounded font-bold"
-              >
-                {language == "bn" ? "ঙ্কমেন্ট" : "Comment"}
-              </button>
-            </div>
-          </div> : <p className="my-10 text-center text-xl cursor-pointer text-primary">Login to Comment Here</p>
-          }
-         
+          ) : (
+            <p className="my-10 text-center text-xl cursor-pointer text-primary">
+              Login to Comment Here
+            </p>
+          )}
+
           <div className="my-5">
             {displayedComments?.map((cmt, index) => (
               <Comment cmt={cmt} key={index}></Comment>
@@ -407,10 +436,9 @@ const IndividualBlog = () => {
           </h2>
 
           <div className="md:pb-[150px] pt-[35px] grid grid-cols-4">
-            {
-              randomCardBlog?.map(blog => <BlogCard key={blog._id} blog={blog} />)
-            }
-          
+            {randomCardBlog?.map((blog) => (
+              <BlogCard key={blog._id} blog={blog} />
+            ))}
           </div>
 
           <div className="pb-[200px]">

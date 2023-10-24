@@ -19,8 +19,6 @@ const ConsultantProfile = () => {
   const { register, handleSubmit, reset } = useForm();
   // const { displayName, email, photoURL, phone, address, city } = userinfo;
 
- 
-
   const updatePicture = (data) => {
     if (data !== "null") {
       const { url } = data;
@@ -74,7 +72,7 @@ const ConsultantProfile = () => {
 
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   if (isLoading) return <Loader />;
   return (
@@ -109,7 +107,6 @@ const ConsultantProfile = () => {
                 <RiInformationLine />
                 Update Information
               </Link>
-          
 
               <div>
                 <Link className=" btn-add" to="/forget">

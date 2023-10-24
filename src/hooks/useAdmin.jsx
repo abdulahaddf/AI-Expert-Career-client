@@ -18,6 +18,7 @@ const useAdmin = () => {
             return res.data.admin;
         }
     })
+    console.log(isAdmin)
     return [isAdmin, isAdminLoading]
 }
 export default useAdmin;

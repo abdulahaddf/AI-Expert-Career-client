@@ -17,7 +17,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   const {
@@ -28,10 +28,9 @@ const Login = () => {
     watch,
   } = useForm();
 
-const navigate = useNavigate();
-const location = useLocation();
-const from = location?.state?.from?.pathname || "/"
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleForm = (data) => {
     const { email, password } = data;
@@ -55,7 +54,6 @@ const from = location?.state?.from?.pathname || "/"
         ) {
           toast.error("Invalid email or password");
         } else {
-          
           toast(errorMessage.slice(10, 61));
         }
       });
@@ -145,7 +143,11 @@ const from = location?.state?.from?.pathname || "/"
                   src={loginBG}
                   alt=""
                 />
-                <form action="" className="" onSubmit={handleSubmit(handleForm)}>
+                <form
+                  action=""
+                  className=""
+                  onSubmit={handleSubmit(handleForm)}
+                >
                   <input
                     type="email"
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
@@ -235,7 +237,7 @@ const from = location?.state?.from?.pathname || "/"
                 {/* join with google button  */}
                 <div className="mt-10  w-[16rem] mx-auto text-center">
                   <button
-                  onClick={handleGoogleSignIn}
+                    onClick={handleGoogleSignIn}
                     className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
                   >
                     <img

@@ -11,9 +11,6 @@ import { Link } from "react-router-dom";
 import { RiInformationLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
-
-
-
 const UserProfile = () => {
   const [userinfo, isLoading, refetch] = UseUser();
   const { language } = useContext(MyContext);
@@ -41,13 +38,13 @@ const UserProfile = () => {
             openModalIndex.close();
           }
           reset(); // Reset the form
-          toast.success("Profile updated successfully")
+          toast.success("Profile updated successfully");
           refetch();
         } else if (res.data.modifiedCount === 0 || res.data.matchedCount > 1) {
           if (openModalIndex) {
             openModalIndex.close();
           }
-          toast.error("Profile is not updated")
+          toast.error("Profile is not updated");
         }
       })
       .catch((err) => console.log(err));
@@ -84,7 +81,7 @@ const UserProfile = () => {
                 if (res.data.modifiedCount > 0) {
                   reset();
 
-                  toast.success("Your Picture updated successfully")
+                  toast.success("Your Picture updated successfully");
                   if (openPicModalIndex) {
                     openPicModalIndex.close();
                   }
@@ -92,8 +89,7 @@ const UserProfile = () => {
                   res.data.modifiedCount == 0 ||
                   res.data.matchedCount > 1
                 ) {
-                  
-                  toast.error("Picture is not updated")
+                  toast.error("Picture is not updated");
                   if (openPicModalIndex) {
                     openPicModalIndex.close();
                   }
@@ -107,7 +103,7 @@ const UserProfile = () => {
 
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   if (isLoading) return <Loader />;
   return (
@@ -116,29 +112,29 @@ const UserProfile = () => {
         <div className="flex justify-center">
           <div className=" bg-[#ed1b2600] p-6">
             <figure className="flex justify-center">
-            <img
-              src={userinfo?.photoURL}
-              className="w-[160px] h-[160px] mt-10 rounded-full"
-              alt=""
-            />
+              <img
+                src={userinfo?.photoURL}
+                className="w-[160px] h-[160px] mt-10 rounded-full"
+                alt=""
+              />
             </figure>
 
             <div className="space-y-5 mt-5 flex flex-col justify-center">
-            <button
-              onClick={() => {
-                const modalId = `${userinfo.displayName}`;
-                const modal = document.getElementById(modalId);
-                setPicOpenModalIndex(modal);
-                if (modal) {
-                  // setTId(userinfo._id);
-                  modal.showModal();
-                }
-              }}
-              className="btn-add"
-            >
-              <BiEdit className="text-xl" /> Update Photo
-            </button>
-            <button
+              <button
+                onClick={() => {
+                  const modalId = `${userinfo.displayName}`;
+                  const modal = document.getElementById(modalId);
+                  setPicOpenModalIndex(modal);
+                  if (modal) {
+                    // setTId(userinfo._id);
+                    modal.showModal();
+                  }
+                }}
+                className="btn-add"
+              >
+                <BiEdit className="text-xl" /> Update Photo
+              </button>
+              <button
                 onClick={() => {
                   const modalId = `${userinfo._id}`;
                   const modal = document.getElementById(modalId);
@@ -150,65 +146,57 @@ const UserProfile = () => {
                 }}
                 className="btn-add"
               >
-              <RiInformationLine/>
+                <RiInformationLine />
                 Update Information
               </button>
 
-
-            <div>
-            <Link className=" btn-add" to="/forget"><BiReset/> Reset Your Password</Link>
+              <div>
+                <Link className=" btn-add" to="/forget">
+                  <BiReset /> Reset Your Password
+                </Link>
+              </div>
             </div>
-            </div>
 
-
-
-              <dialog id={`${userinfo.displayName}`} className="modal">
-                <form
-                  onSubmit={handleSubmit(updatePicture)}
-                  method="dialog"
-                  className="modal-box   text-black "
+            <dialog id={`${userinfo.displayName}`} className="modal">
+              <form
+                onSubmit={handleSubmit(updatePicture)}
+                method="dialog"
+                className="modal-box   text-black "
+              >
+                <button
+                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                  onClick={() => {
+                    const modalId = `${userinfo.displayName}`;
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                      modal.close();
+                    }
+                  }}
                 >
-                  <button
-                    className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                    onClick={() => {
-                      const modalId = `${userinfo.displayName}`;
-                      const modal = document.getElementById(modalId);
-                      if (modal) {
-                        modal.close();
-                      }
-                    }}
-                  >
-                    ✕
-                  </button>
+                  ✕
+                </button>
 
-                  <h3 className="font-bold text-lg">Change Your Picture</h3>
-                  <div className="mb-2">
-                    <input
-                      checked={true}
-                      type="file"
-                      id="url"
-                      {...register("url")}
-                      className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                <h3 className="font-bold text-lg">Change Your Picture</h3>
+                <div className="mb-2">
+                  <input
+                    checked={true}
+                    type="file"
+                    id="url"
+                    {...register("url")}
+                    className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
-                    />
-                  </div>
-                  <div className="mt-6">
-                    <button type="submit" className="btn-add">
-                      Update
-                    </button>
-                  </div>
-                  
-
-                 
-                </form>
-              </dialog>
-
-
-         
+                  />
+                </div>
+                <div className="mt-6">
+                  <button type="submit" className="btn-add">
+                    Update
+                  </button>
+                </div>
+              </form>
+            </dialog>
           </div>
-          
         </div>
-        
+
         <div className="col-span-3 p-3">
           <div className="md:grid grid-cols-2 mt-2 gap-8">
             <div className="mt-8">

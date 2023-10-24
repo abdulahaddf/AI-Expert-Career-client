@@ -12,8 +12,8 @@ import img11 from "../Assests/Rectangle10.png";
 import img12 from "../Assests/Rectangle11.png";
 import viwes from "../Assests/views.png";
 import comment from "../Assests/comment.png";
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react'
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const IndividualBlogCard = () => {
   const blogs = [
@@ -128,37 +128,30 @@ const IndividualBlogCard = () => {
   ];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-5 lg:gap-[40px] justify-center">
         {blogs?.slice(0, 4).map((blog) => (
-          <div
-            key={blog.id}
-            className="bg-white  w-full rounded-[10px]"
-          >
+          <div key={blog.id} className="bg-white  w-full rounded-[10px]">
             <div className="flex flex-col p-3 gap-5 justify-center items-center">
-              <img
-                className=" w-full  "
-                src={blog.image}
-                alt=""
-              />
+              <img className=" w-full  " src={blog.image} alt="" />
               <div className="p-4">
                 <h2 className="font-bold text-[16px]">{blog.title}</h2>
                 <p className="w-full">
-                  {blog.description.slice(0, 70)} <span className="text-[gray]">...</span>
+                  {blog.description.slice(0, 70)}{" "}
+                  <span className="text-[gray]">...</span>
                 </p>
 
                 <div className="flex justify-between items-center gap-[40px]">
                   <div>
-                    <Link to={`/individual-blog/${blog.id}`} >
+                    <Link to={`/individual-blog/${blog.id}`}>
                       <button className="w-[91px] h-[44px] bg-[#ED1B23] text-white text-[16px] font-[600] rounded-[10px]">
                         Read
                       </button>
                     </Link>
-
                   </div>
                   <div className="flex justify-between gap-[30px]">
                     <div className="flex gap-1 cursor-pointer">

@@ -14,7 +14,7 @@ const TicketCart = () => {
   const { eventData } = useContext(MyContext);
   console.log(eventData);
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
   return (
     <div id="idStart">

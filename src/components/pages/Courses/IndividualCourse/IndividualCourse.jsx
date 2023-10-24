@@ -14,7 +14,6 @@ import "video-react/dist/video-react.css";
 import ReactPlayer from "react-player";
 import PromoCode from "./PromoCode";
 const IndividualCourse = () => {
-  
   const { addToCart, setAddToCart, language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
@@ -25,7 +24,6 @@ const IndividualCourse = () => {
     fetch(`http://localhost:5000/singlecourse/${id}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
-    
   }, [id, course]);
 
   const handleAddtoCart = () => {
@@ -66,7 +64,7 @@ const IndividualCourse = () => {
   const discountAmount = courseFee * (1 - discount / 100);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   if (!title) return <Loader />;
@@ -304,7 +302,13 @@ const IndividualCourse = () => {
                 //  free course enrollment
                 <>
                   <p className="text-xl font-semibold my-5">Free Course</p>
-                  <Link state={{_id, title, course}} to="/free-course" className="button-30">Enroll Now</Link>
+                  <Link
+                    state={{ _id, title, course }}
+                    to="/free-course"
+                    className="button-30"
+                  >
+                    Enroll Now
+                  </Link>
                 </>
               )}
             </div>

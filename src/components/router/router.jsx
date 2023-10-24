@@ -62,6 +62,9 @@ import ConsultantProfile from "../../Dashboard/Consultant/ConsultantProfile";
 import EditConsultantProfile from "../../Dashboard/Consultant/EditConsultantProfile";
 import ControlAppointments from "../../Dashboard/Admin/Appointments/ControlAppointments";
 import Appointments from "../../Dashboard/User/Appointments/Appointments";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import TermsAndConditions from "../common/Terms&Conditions/TermsAndConditions";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +91,10 @@ export const router = createBrowserRouter([
       {
         path: "/forget",
         element: <ResetForm />,
+      },
+      {
+        path: "/terms&conditions",
+        element: <TermsAndConditions />,
       },
       {
         path: "/cart",
@@ -265,15 +272,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/my-courses",
-        element: <MyCourse />,
+        element:<PrivateRoute><MyCourse /></PrivateRoute> ,
       },
       {
         path: "/dashboard/my-appointments",
-        element: <Appointments />,
+        element:<PrivateRoute> <Appointments /></PrivateRoute>,
       },
       {
         path: "/dashboard/my-profile",
-        element: <UserProfile />,
+        element:<PrivateRoute> <UserProfile /></PrivateRoute>,
       },
       {
         path: "/dashboard/purchase-history",
@@ -285,7 +292,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <UserProfile />,
+        element: <PrivateRoute><UserProfile /></PrivateRoute>,
       },
       {
         path: "/dashboard/purchase_history",
@@ -301,7 +308,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/add-blog",
-        element: <AddBlog />,
+        element:<AdminRoute><AddBlog /></AdminRoute> ,
       },
       {
         path: "/dashboard/manage-blog",

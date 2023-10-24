@@ -7,14 +7,6 @@ import Cart from "../../assets/CartFigma.svg";
 import "./Navbar.css";
 import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
-
-import dashboard from "../../assets/profile_icons/Layout.png";
-import myProfile from "../../assets/profile_icons/User.png";
-import myCourses from "../../assets/profile_icons/Laptop.png";
-import myWishlist from "../../assets/profile_icons/Heart.png";
-import purchases from "../../assets/profile_icons/File.png";
-import certificate from "../../assets/profile_icons/BadgeCheckOutline.png";
-import logout from "../../assets/profile_icons/Vector.png";
 import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
 import useAdmin from "../../hooks/useAdmin";
@@ -27,7 +19,7 @@ const Navbar = () => {
   const [isAdmin] = useAdmin();
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
-
+console.log(isAdmin)
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -399,7 +391,7 @@ const Navbar = () => {
                           isAdmin ? (
                             <li>
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className=" hover:no-underline hover:text-primary ml-2"
                               >
                                 Dashboard
@@ -414,7 +406,7 @@ const Navbar = () => {
                           ) : (
                             <li className="flex flex-col h-96  pb-5 ">
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-2"
                               >
                                 Dashboard
@@ -570,7 +562,7 @@ const Navbar = () => {
                           isAdmin ? (
                             <li>
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
@@ -585,7 +577,7 @@ const Navbar = () => {
                           ) : (
                             <li className="flex flex-col ml-3 pb-5 ">
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
@@ -800,7 +792,7 @@ const Navbar = () => {
                           isAdmin ? (
                             <li>
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard
@@ -815,7 +807,7 @@ const Navbar = () => {
                           ) : (
                             <li className="flex flex-col ml-3 pb-5 ">
                               <Link
-                                to="/dashboard/user-dashboard"
+                                to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-3"
                               >
                                 Dashboard

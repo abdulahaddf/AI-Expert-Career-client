@@ -10,13 +10,12 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Signup = () => {
-  
-    const { createUser, signInGoogle, signInFB, profileUpdate, setLoading } =
+  const { createUser, signInGoogle, signInFB, profileUpdate, setLoading } =
     useContext(AuthContext);
   const { language } = useContext(MyContext);
   // scrollTo
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 10, behavior: "smooth" });
   }, []);
 
   const {
@@ -25,23 +24,21 @@ const Signup = () => {
     reset,
     formState: { errors },
   } = useForm();
- 
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
   const handleForm = (data) => {
-    const { email, name, password, } = data;
+    const { email, name, password } = data;
 
     createUser(email, password)
-    .then(() => {
-      profileUpdate({ displayName: name,  }).then(
-        () => {
+      .then(() => {
+        profileUpdate({ displayName: name }).then(() => {
           const saveUser = {
             displayName: data.name,
             email: data.email,
-            phone : data.phone,
+            phone: data.phone,
             role: "user",
           };
           fetch("http://localhost:5000/users", {
@@ -66,12 +63,11 @@ const Signup = () => {
                 navigate(from, { replace: true });
               }
             });
-        }
-      );
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // Handle google signin

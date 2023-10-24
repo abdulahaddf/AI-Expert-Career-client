@@ -21,7 +21,7 @@ const CompletePurchaseCourse = () => {
             <h3>You've Enrolled the course</h3>
             <p>Course Name : {title}</p>
             <p>Please wait for the admin approval</p>
-            <p><Link className="text-blue-600">Click Here</Link>To Explore More Courses</p>
+            <p><Link to="/dashboard/my-courses" className="text-blue-600">Click Here </Link> To Explore Your Course</p>
         </div>
         </div>
     );
