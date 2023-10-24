@@ -12,7 +12,7 @@ const AdminRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     // const [isAdmin, isAdminLoading] = useAdmin();
     const [userinfo] = UseUser();
-    const isAdmin = userinfo?.role === "admin";
+    const isAdmin = userinfo?.role === "admin" || userinfo?.role === "super admin";
     const location = useLocation();
 
     if(loading ){

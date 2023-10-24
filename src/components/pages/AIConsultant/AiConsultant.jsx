@@ -25,10 +25,10 @@ const AiConsultant = () => {
     setFilteredCon(consultants);
   }, [users]);
 
-  console.log(filteredCon);
+  // console.log(filteredCon);
 
   const today = moment().format("dddd");
-  console.log(today);
+  // console.log(today);
 
   const handleSearchInputChange = (event) => {
     setSearchText(event.target.value);
