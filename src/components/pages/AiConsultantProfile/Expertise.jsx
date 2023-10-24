@@ -4,6 +4,8 @@ import { MyContext } from "../../../Context/Context";
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from "react-toastify";
 import UseUser from "../../../hooks/useUser";
+import { SiSocketdotio } from "react-icons/si";
+import { FaRegDotCircle } from "react-icons/fa";
 
 
 
@@ -12,7 +14,7 @@ const Expertise = ({consultant}) => {
   const [userinfo] = UseUser();
   const { language } = useContext(MyContext);
   const [hideButton, setHideButton] = useState(false);
-  const { control, handleSubmit, reset } = useForm({ defaultValues: { email: userinfo.email } });
+  const { control, handleSubmit, reset } = useForm({ defaultValues: { email: userinfo?.email } });
 
 // console.log(conMail);
 
@@ -88,11 +90,12 @@ const Expertise = ({consultant}) => {
     <div>
       <h3 className="font-semibold text-2xl mt-4">Availability</h3>
       <div className="mt-3 space-y-2 text-lg">
-        {selectedDays.map((a,i) => <p key={i}>{a}</p>)}
+      {selectedDays?.map(d => <p className="flex items-center gap-1" key={d}><FaRegDotCircle/> {d}</p> )}
       </div>
       <h3 className="font-semibold text-2xl mt-4">Works With</h3>
       <div className="mt-3 space-y-2 text-lg">
-        {workingWith.map((w,i) => <p key={i}>{w}</p>)}
+        {/* {workingWith.map((w,i) => <p key={i}>{w}</p>)} */}
+        {workingWith?.map(d => <p className="flex items-center gap-1" key={d}> <SiSocketdotio/> {d}</p> )}
       </div>
 
       <div className="flex justify-center mt-12">

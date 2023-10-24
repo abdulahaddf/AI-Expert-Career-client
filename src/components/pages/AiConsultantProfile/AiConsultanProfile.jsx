@@ -7,6 +7,12 @@ import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { MyContext } from '../../../Context/Context';
 import Loader from '../../common/loader/Loader';
+import { LuNewspaper } from 'react-icons/lu';
+import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
+import { GrCatalogOption, GrUserExpert } from "react-icons/gr";
+
+
+
 const AiConsultanProfile = () => {
   const { language } = useContext(MyContext);
   const location = useLocation();
@@ -78,12 +84,10 @@ const AiConsultanProfile = () => {
           : "Recent Works"}
       </h2>
       <ul className="space-y-2 ml-5 my-2">
-        {recentWorks?.map(r => <div key={r} className="flex items-center">
-          <div className="w-2 mr-3">
-            <div className="bullet"></div>
-          </div>
+        {recentWorks?.map(r => <div key={r} className="flex items-center gap-2">
+        <LuNewspaper/>
           <li className="text-xl font-medium ">
-            {r}
+           {r}
           </li>
         </div>)}
        
@@ -95,8 +99,8 @@ const AiConsultanProfile = () => {
           {language == "bn" ? "সমসাময়িক সফলতাগুলো" : "Recent Success"}
         </h2>
         {successes?.map(s =>  <div key={s} className="ml-5 space-y-2 ">
-          <p className="text-lg">
-            {s}
+          <p className="text-lg flex items-center gap-2">
+           <IoCheckmarkDoneCircleOutline/> {s}
           </p>
         
         </div>)}
@@ -107,8 +111,8 @@ const AiConsultanProfile = () => {
         {language == "bn" ? "অভিজ্ঞতা" : "Experience"}
       </h2>
       {experience?.map((e,i) => <div key={i} className="ml-5 space-y-2">
-        <p className="text-lg">
-        {e}
+        <p className="text-lg flex items-center gap-2">
+       <GrUserExpert/> {e}
         </p>
       </div>  )}
       <hr className="border-[0.5] mt-12 border-black" />
@@ -117,8 +121,8 @@ const AiConsultanProfile = () => {
         {language == "bn" ? "শিক্ষাগত যোগ্যতা" : "Educational Qualification"}
       </h2>
       {qualification?.map((e,i) => <div key={i} className="ml-5 space-y-2">
-        <p className="text-lg">
-        {e}
+        <p className="text-lg flex items-center gap-2">
+       <GrCatalogOption/> {e}
         </p>
         
       </div> )}
