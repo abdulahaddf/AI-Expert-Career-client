@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const GrapichDesignForm = () => {
   // scrollTo
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
     <div className="h-screen bg-[#F3F2FF]">

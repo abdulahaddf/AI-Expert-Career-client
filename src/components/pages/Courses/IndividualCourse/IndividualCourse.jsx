@@ -64,7 +64,7 @@ const IndividualCourse = () => {
   const discountAmount = courseFee * (1 - discount / 100);
 
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   if (!title) return <Loader />;

@@ -143,12 +143,12 @@ const AiConsultant = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // scrollTo
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   if (loading && !filterCon) return <Loader />;
   return (

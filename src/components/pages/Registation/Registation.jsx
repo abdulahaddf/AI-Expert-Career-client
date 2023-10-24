@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const Registation = () => {
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
     <div className="md:mt-110px] mt-[70px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 flex justify-center items-center">

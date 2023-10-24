@@ -11,7 +11,7 @@ import HomeTestimonial from "./HomeTestimonial";
 
 const Home = () => {
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
     <>

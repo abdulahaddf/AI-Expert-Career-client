@@ -21,8 +21,6 @@ const categories = [
   "Others",
 ];
 
-
-
 const Blog = () => {
   const { language } = useContext(MyContext);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
@@ -32,7 +30,7 @@ const Blog = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const [sortingOption, setSortingOption] = useState(""); 
+  const [sortingOption, setSortingOption] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/blogs")
@@ -41,7 +39,7 @@ const Blog = () => {
         setBlogs(data);
         setIsLoading(false);
       });
-  }, []); 
+  }, []);
 
   useEffect(() => {
     // Handle filtering and sorting whenever selectedCheckboxes, blogs, or sortingOption change
@@ -64,7 +62,10 @@ const Blog = () => {
       }
     };
 
-    const sortedAndFilteredData = getSortedData(filteredProducts, sortingOption);
+    const sortedAndFilteredData = getSortedData(
+      filteredProducts,
+      sortingOption
+    );
     setNewData(sortedAndFilteredData);
     setCurrentPage(1); // Reset to the first page when changing filters
   }, [selectedCheckboxes, blogs, sortingOption]);
@@ -95,29 +96,14 @@ const Blog = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
-
-
-   
-  
- 
-
-
-
-
-
-
-
-
-
 
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-if(isLoading) return <Loader/>
+  if (isLoading) return <Loader />;
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
       <div
@@ -155,7 +141,6 @@ if(isLoading) return <Loader/>
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
               <option value="Most Reviews">Most Reviews</option>
-         
             </select>
           </div>
         </div>
@@ -181,70 +166,60 @@ if(isLoading) return <Loader/>
           </div>
           <div className="col-span-4">
             <div className="">
-             {
-              paginatedBlogs.length > 0 && paginatedBlogs ?  <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
-              {paginatedBlogs?.map((blog) => (
-                <BlogCard key={blog._id} blog={blog} />
-              ))}
-            </div> : <p className="text-2xl text-center w-4/5">No Blogs Found</p>
-             }
+              {paginatedBlogs.length > 0 && paginatedBlogs ? (
+                <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
+                  {paginatedBlogs?.map((blog) => (
+                    <BlogCard key={blog._id} blog={blog} />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-2xl text-center w-4/5">No Blogs Found</p>
+              )}
             </div>
           </div>
         </div>
 
         <div className="flex gap-4 justify-center pt-[40px]">
-         
-     {/* pagination */}
-<div className="flex justify-center mt-8">
-          <button
-            className={`px-4 py-2 rounded-md mx-2 ${
-              currentPage === 1
-                ? "bg-slate-300 text-gray-500 cursor-not-allowed"
-                : "bg-[#ea5050] text-white hover:bg-primary"
-            }`}
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-
-          {Array.from({ length: totalPages }, (_, index) => (
+          {/* pagination */}
+          <div className="flex justify-center mt-8">
             <button
-              key={index + 1}
-              onClick={() => handlePageChange(index + 1)}
-              className={`${
-                currentPage === index + 1
-                  ? "bg-[#ea5050] text-white"
-                  : "bg-slate-200 hover:bg-gray-300 text-gray-700"
-              } px-3 py-1 mx-1 rounded-md cursor-pointer`}
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === 1
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-[#ea5050] text-white hover:bg-primary"
+              }`}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
             >
-              {index + 1}
+              Previous
             </button>
-          ))}
 
-          <button
-            className={`px-4 py-2 rounded-md mx-2 ${
-              currentPage === totalPages
-                ? "bg-slate-300 text-gray-500 cursor-not-allowed"
-                : "bg-[#ea5050] text-white hover:bg-primary"
-            }`}
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}>
-            Next
-          </button>
-        </div>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`${
+                  currentPage === index + 1
+                    ? "bg-[#ea5050] text-white"
+                    : "bg-slate-200 hover:bg-gray-300 text-gray-700"
+                } px-3 py-1 mx-1 rounded-md cursor-pointer`}
+              >
+                {index + 1}
+              </button>
+            ))}
 
-
-
-
-
-
-
-
-
-
-
-         
+            <button
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === totalPages
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-[#ea5050] text-white hover:bg-primary"
+              }`}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

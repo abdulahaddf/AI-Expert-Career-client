@@ -158,7 +158,7 @@ const Event = () => {
   }, []); // Empty dependency array ensures the effect runs only once
 
   useEffect(() => {
-    window.scrollTo({ top: 10, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [event]);
 
   return (
