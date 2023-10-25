@@ -1,5 +1,6 @@
 import loginBG from "../../../assets/LoginBg.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { sendEmailVerification } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useContext } from "react";
@@ -10,7 +11,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Signup = () => {
-  const { createUser, signInGoogle, signInFB, profileUpdate, setLoading } =
+  const { createUser, signInGoogle, signInFB, profileUpdate, setLoading, logOut } =
     useContext(AuthContext);
   const { language } = useContext(MyContext);
   // scrollTo
@@ -33,7 +34,13 @@ const Signup = () => {
     const { email, name, password } = data;
 
     createUser(email, password)
-      .then(() => {
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(result)
+        logOut();
+        reset();
+        navigate(from, { replace: true });
+        sendVerificationEmail(loggedUser);
         profileUpdate({ displayName: name }).then(() => {
           const saveUser = {
             displayName: data.name,
@@ -51,22 +58,35 @@ const Signup = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                  position: "top-end",
-                  icon: "success",
-                  title: "User created successfully.",
-                  showConfirmButton: false,
-                  timer: 1500,
-                });
-                navigate(from, { replace: true });
-              }
+              // if (data.insertedId) {
+              //   reset();
+              //   Swal.fire({
+              //     position: "top-end",
+              //     icon: "success",
+              //     title: "Registered successfully. Please verify and login",
+              //     showConfirmButton: false,
+              //     timer: 2000,
+              //   });
+              //   // navigate(from, { replace: true });
+              // }
             });
         });
       })
       .catch((err) => {
         console.log(err);
+      });
+  };
+  const sendVerificationEmail = (user) => {
+    sendEmailVerification(user)
+      .then((result) => {
+        console.log(result);
+        Swal.fire({
+          position: 'center',
+          icon: 'warning',
+          title: 'Before login Your email Verify Please',
+          showConfirmButton: true,
+          // timer: 1500
+        });
       });
   };
 
