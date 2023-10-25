@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import html2pdf from 'html2pdf.js';
-import { useEffect, useState } from 'react';
-import { MdDownloadForOffline } from 'react-icons/md';
+import html2pdf from "html2pdf.js";
+import { useEffect, useState } from "react";
+import { MdDownloadForOffline } from "react-icons/md";
 
 const Certificate = ({ id }) => {
   console.log(id);
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
- 
-const {_id, name, courseTitle, completionTime} = course;
+
+  const { _id, name, courseTitle, completionTime } = course;
   useEffect(() => {
-    fetch(`http://localhost:5000/singleEnrolledcourse/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singleEnrolledcourse/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -30,14 +30,16 @@ const {_id, name, courseTitle, completionTime} = course;
   const generatePdf = () => {
     const pdfOptions = {
       margin: 0,
-      filename: 'certificate.pdf',
-      image: { type: 'jpeg', quality: 1 },
+      filename: "certificate.pdf",
+      image: { type: "jpeg", quality: 1 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a3', orientation: 'landscape' },
+      jsPDF: { unit: "mm", format: "a3", orientation: "landscape" },
     };
     const aspectRatio = 816 / 1056; // Height / Width
     const content = `
-    <div style="width: 1056px; height: ${1452 * aspectRatio}px; relative border-2 border-primary">
+    <div style="width: 1056px; height: ${
+      1452 * aspectRatio
+    }px; relative border-2 border-primary">
     <div class="absolute inset-0">
       <!-- Use the image as an <img> element -->
       <img src="../../../../src/assets/certificate/Certificate.jpg" style="width: 100%; height: 100%;" alt="Certificate Background" />
@@ -54,18 +56,17 @@ const {_id, name, courseTitle, completionTime} = course;
     html2pdf()
       .from(content)
       .set(pdfOptions)
-      .outputPdf('bloburi')
+      .outputPdf("bloburi")
       .then((pdfDataUri) => {
-        const link = document.createElement('a');
+        const link = document.createElement("a");
         link.href = pdfDataUri;
-        link.download = 'certificate.pdf';
+        link.download = "certificate.pdf";
 
         link.click();
       });
   };
 
   const handleButtonClick = () => {
-    
     setTimeout(() => {
       generatePdf();
     }, 2000); // 2000 milliseconds = 2 seconds
@@ -77,7 +78,14 @@ const {_id, name, courseTitle, completionTime} = course;
         className="flex gap-2 text-lg items-center"
         onClick={handleButtonClick}
       >
-        {loading ? <p>Loading</p> : <><MdDownloadForOffline />Certificate</>}
+        {loading ? (
+          <p>Loading</p>
+        ) : (
+          <>
+            <MdDownloadForOffline />
+            Certificate
+          </>
+        )}
       </button>
 
       <div>

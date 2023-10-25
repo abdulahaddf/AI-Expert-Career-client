@@ -27,7 +27,7 @@ const CourseVideo = () => {
   const [progressPercentage, setProgressPercentage] = useState(0);
   console.log(id);
   useEffect(() => {
-    fetch(`http://localhost:5000/singleEnrolledcourse/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singleEnrolledcourse/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -169,17 +169,20 @@ const CourseVideo = () => {
     console.log("Posting completion time:");
     try {
       // Make a POST request to your Express route to update the main course enrollment collection
-      const response = await fetch("http://localhost:5000/completedtime", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: userId, // Replace with the appropriate user ID
-          courseId: course._id, // Replace with the appropriate course ID
-          completionTime: moment().format("MMMM Do YYYY, h:mm a"), // Completion time
-        }),
-      });
+      const response = await fetch(
+        "https://ai-server-sooty.vercel.app/completedtime",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userId, // Replace with the appropriate user ID
+            courseId: course._id, // Replace with the appropriate course ID
+            completionTime: moment().format("MMMM Do YYYY, h:mm a"), // Completion time
+          }),
+        }
+      );
 
       if (response.status === 200) {
         // Handle success, e.g., show a success message to the user
@@ -208,13 +211,16 @@ const CourseVideo = () => {
         contentName: contentTitle,
       };
 
-      const response = await fetch("http://localhost:5000/markComplete", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      });
+      const response = await fetch(
+        "https://ai-server-sooty.vercel.app/markComplete",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
 
       if (response.status === 200) {
         console.log("Progress Percentage:", progressPercentage);

@@ -4,8 +4,6 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/AuthProvider";
 
 const AddPromo = () => {
-  
-
   const [promos, setPromos] = useState([]);
   const { register, handleSubmit, watch, reset } = useForm();
   console.log(watch("example"));
@@ -15,13 +13,16 @@ const AddPromo = () => {
 
     try {
       // Send Promo Codes Data to API
-      const apiResponse = await fetch("http://localhost:5000/promo", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const apiResponse = await fetch(
+        "https://ai-server-sooty.vercel.app/promo",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
 
       if (!apiResponse.ok) {
         throw new Error("Promo Code insertion failed");
@@ -39,7 +40,7 @@ const AddPromo = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/promo")
+    fetch("https://ai-server-sooty.vercel.app/promo")
       .then((response) => response.json())
       .then((data) => setPromos(data));
   }, [promos]);
@@ -54,7 +55,7 @@ const AddPromo = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/promo/${promo._id}`, {
+        fetch(`https://ai-server-sooty.vercel.app/promo/${promo._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -74,15 +75,11 @@ const AddPromo = () => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-slate-100 rounded-md p-4 md:p-5"
-        
         >
           <div className="flex items-center justify-center gap-5 mx-auto">
             <div className="form-control w-full">
               <label className="label">
-                <span
-                  className="label-text font-semibold w-full "
-                
-                >
+                <span className="label-text font-semibold w-full ">
                   Promo Code
                 </span>
               </label>
@@ -97,12 +94,7 @@ const AddPromo = () => {
             </div>
             <div className="form-control w-full">
               <label className="label">
-                <span
-                  className= "label-text font-semibold"
-                 
-                >
-                  Discount
-                </span>
+                <span className="label-text font-semibold">Discount</span>
               </label>
               <input
                 required
@@ -114,11 +106,7 @@ const AddPromo = () => {
               />
             </div>
             <div>
-              <input
-                className="btn-add"
-                type="submit"
-                value="Add"
-              />
+              <input className="btn-add" type="submit" value="Add" />
             </div>
           </div>
         </form>
@@ -127,10 +115,7 @@ const AddPromo = () => {
       <div className="max-w-[414px] md:max-w-[768px] lg:max-w-full overflow-x-auto mx-auto">
         <table className="table table-zebra shadow-xl w-full text-center rounded-md">
           {/* head */}
-          <thead
-            className= "bg-primary text-white"
-           
-          >
+          <thead className="bg-primary text-white">
             <tr>
               <th>#</th>
               <th>promo Code</th>
@@ -140,19 +125,16 @@ const AddPromo = () => {
           </thead>
           <tbody>
             {promos.map((promo, index) => (
-              <tr  key={promo._id}>
-                <th >{index + 1}</th>
+              <tr key={promo._id}>
+                <th>{index + 1}</th>
 
-                <td >{promo.promo}</td>
-                <td >
-                  {promo.discount}
-                </td>
+                <td>{promo.promo}</td>
+                <td>{promo.discount}</td>
 
-                <td >
+                <td>
                   <button
                     onClick={() => handleDelete(promo)}
-                    className= "btn-add"
-                   
+                    className="btn-add"
                   >
                     Delete
                   </button>

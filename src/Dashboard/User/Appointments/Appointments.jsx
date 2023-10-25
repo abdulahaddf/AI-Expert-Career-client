@@ -20,7 +20,9 @@ const Appointments = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/appoints?email=${userinfo?.email}`)
+      .get(
+        `https://ai-server-sooty.vercel.app/appoints?email=${userinfo?.email}`
+      )
       .then((data) => setAppointments(data.data));
   }, [userinfo]);
 
@@ -46,7 +48,7 @@ const Appointments = () => {
       senderNumber: number,
     };
     // console.log(data);
-    fetch(`http://localhost:5000/payment/${id}`, {
+    fetch(`https://ai-server-sooty.vercel.app/payment/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

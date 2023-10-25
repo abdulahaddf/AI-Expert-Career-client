@@ -11,8 +11,14 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
 const Signup = () => {
-  const { createUser, signInGoogle, signInFB, profileUpdate, setLoading, logOut } =
-    useContext(AuthContext);
+  const {
+    createUser,
+    signInGoogle,
+    signInFB,
+    profileUpdate,
+    setLoading,
+    logOut,
+  } = useContext(AuthContext);
   const { language } = useContext(MyContext);
   // scrollTo
   useEffect(() => {
@@ -36,7 +42,7 @@ const Signup = () => {
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(result)
+        console.log(result);
         logOut();
         reset();
         navigate(from, { replace: true });
@@ -48,7 +54,7 @@ const Signup = () => {
             phone: data.phone,
             role: "user",
           };
-          fetch("http://localhost:5000/users", {
+          fetch("https://ai-server-sooty.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -77,17 +83,16 @@ const Signup = () => {
       });
   };
   const sendVerificationEmail = (user) => {
-    sendEmailVerification(user)
-      .then((result) => {
-        console.log(result);
-        Swal.fire({
-          position: 'center',
-          icon: 'warning',
-          title: 'Please check your mail and verify to proceed',
-          showConfirmButton: true,
-          // timer: 1500
-        });
+    sendEmailVerification(user).then((result) => {
+      console.log(result);
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Please check your mail and verify to proceed",
+        showConfirmButton: true,
+        // timer: 1500
       });
+    });
   };
 
   // Handle google signin
@@ -102,7 +107,7 @@ const Signup = () => {
           photoURL: loggedInUser.photoURL,
           role: "user",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://ai-server-sooty.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -128,7 +133,7 @@ const Signup = () => {
   const handlefbSignIn = () => {
     signInFB()
       .then((result) => {
-        const loggedInUser = result.user;
+        const loggedInUser = result;
         console.log(loggedInUser);
         const saveUser = {
           displayName: loggedInUser.displayName,
@@ -136,7 +141,7 @@ const Signup = () => {
           photoURL: loggedInUser.photoURL,
           role: "user",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://ai-server-sooty.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

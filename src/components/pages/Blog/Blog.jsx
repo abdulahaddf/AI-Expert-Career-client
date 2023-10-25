@@ -33,7 +33,7 @@ const Blog = () => {
   const [sortingOption, setSortingOption] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://ai-server-sooty.vercel.app/blogs")
       .then((response) => response.json())
       .then((data) => {
         setBlogs(data);

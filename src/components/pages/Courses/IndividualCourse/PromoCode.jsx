@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import { MyContext } from "../../../../Context/Context";
 
 const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
-    const { language } = useContext(MyContext);
+  const { language } = useContext(MyContext);
   const [promo, setPromo] = useState([]);
   const [appliedPromo, setAppliedPromo] = useState("");
   const [payable, setPayable] = useState("");
   const [promoUpdate, setUpdate] = useState("");
   useEffect(() => {
-    fetch("http://localhost:5000/promo")
+    fetch("https://ai-server-sooty.vercel.app/promo")
       .then((response) => response.json())
       .then((data) => setPromo(data));
   }, []);
@@ -38,9 +38,10 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
     <div>
       <section className="text-slate-900 font-semibold my-5 p-1   space-y-5 ">
         <p className=" flex justify-between border-b-2">
-          <span className="text-xl"> {language == "bn"
-            ? "কোর্সের মূল্য:"
-            : "Course Fee:"}</span>{" "}
+          <span className="text-xl">
+            {" "}
+            {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
+          </span>{" "}
           <span className="line-through text-gray-500 mx-2 text-md">
             ৳ {courseFee}
           </span>{" "}
@@ -69,15 +70,17 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
         <p className="text-center font-thin text-slate-600">{promoUpdate}</p>
         {/* TODO _________ change the final amount by fetching the dis count */}
         <p className=" text-xl flex justify-between border-b-2">
-          {language == "bn"
-            ? "প্রদেয় মোট:"
-            : "Payable Total:"}
+          {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
           <span className="font-normal">
             ৳ {payable ? payable : discountAmount}{" "}
           </span>{" "}
         </p>
         <div className="text-center">
-          <Link to="/enroll" state={{course , payable , discountAmount, courseFee }} className="button-30">
+          <Link
+            to="/enroll"
+            state={{ course, payable, discountAmount, courseFee }}
+            className="button-30"
+          >
             Enroll Now
           </Link>
         </div>

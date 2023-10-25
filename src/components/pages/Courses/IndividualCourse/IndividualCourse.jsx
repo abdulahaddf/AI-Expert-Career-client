@@ -21,7 +21,7 @@ const IndividualCourse = () => {
 
   //fetching data for individual course
   useEffect(() => {
-    fetch(`http://localhost:5000/singlecourse/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singlecourse/${id}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
   }, [id, course]);

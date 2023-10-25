@@ -16,7 +16,7 @@ const AddBlog = () => {
   const handleSubmit = async (e) => {
     console.log(e);
     e.preventDefault();
-console.log(image);
+    console.log(image);
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
@@ -53,13 +53,16 @@ console.log(image);
       };
 
       // Send Blog Data to API
-      const apiResponse = await fetch("http://localhost:5000/blogs", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(blogData),
-      });
+      const apiResponse = await fetch(
+        "https://ai-server-sooty.vercel.app/blogs",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(blogData),
+        }
+      );
 
       if (!apiResponse.ok) {
         throw new Error("Blog insertion failed");

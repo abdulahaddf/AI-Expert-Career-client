@@ -71,7 +71,7 @@ const Login = () => {
           photoURL: loggedInUser.photoURL,
           role: "user",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://ai-server-sooty.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -105,7 +105,7 @@ const Login = () => {
           photoURL: loggedInUser.photoURL,
           role: "user",
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://ai-server-sooty.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

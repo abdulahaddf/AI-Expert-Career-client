@@ -45,7 +45,7 @@ const IndividualBlog = () => {
     : allComments?.slice(0, 5);
   //fetching data for individual blog
   useEffect(() => {
-    fetch(`http://localhost:5000/singleblogs/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
   }, [id, like, reload]);
@@ -55,7 +55,7 @@ const IndividualBlog = () => {
   };
   //fetching data for all blogs
   useEffect(() => {
-    fetch(" http://localhost:5000/blogs")
+    fetch(" https://ai-server-sooty.vercel.app/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data));
   }, []);
@@ -66,7 +66,7 @@ const IndividualBlog = () => {
     const commentData = { comment: cmnt, userinfo, date: new Date() };
 
     // Send a PATCH request to update the comment in your MongoDB database
-    fetch(`http://localhost:5000/update-comment/${blog._id}`, {
+    fetch(`https://ai-server-sooty.vercel.app/update-comment/${blog._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const IndividualBlog = () => {
     };
 
     // Send a PATCH request to update the likes in your MongoDB database
-    fetch(`http://localhost:5000/like/${blog._id}`, {
+    fetch(`https://ai-server-sooty.vercel.app/like/${blog._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -173,7 +173,7 @@ const IndividualBlog = () => {
     };
 
     // Send a PATCH request to update the likes in your MongoDB database
-    fetch(`http://localhost:5000/dislike/${blog._id}`, {
+    fetch(`https://ai-server-sooty.vercel.app/dislike/${blog._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -235,7 +235,7 @@ const IndividualBlog = () => {
   useEffect(() => {
     // Fetch and shuffle the blogs for recommendation
     const fetchRandomBlogs = async () => {
-      // const response = await fetch("http://localhost:5000/blogs");
+      // const response = await fetch("https://ai-server-sooty.vercel.app/blogs");
       // const data = await response.json();
 
       // Filter the random blogs for recommendation

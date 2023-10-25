@@ -4,24 +4,22 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-
 const EditBlog = () => {
-    const {id} = useParams();
-    console.log(id)
-    const [blog, setBlog] = useState([]);
-console.log(blog);
+  const { id } = useParams();
+  console.log(id);
+  const [blog, setBlog] = useState([]);
+  console.log(blog);
   useEffect(() => {
-    fetch( `http://localhost:5000/singleblogs/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
   }, [id]);
-//   const {blogName
-//     description
-//     descriptionBN
-//     category
-//     subcategory
-//     selectedTags} = blog;
-
+  //   const {blogName
+  //     description
+  //     descriptionBN
+  //     category
+  //     subcategory
+  //     selectedTags} = blog;
 
   const [blogName, setBlogName] = useState("");
   const [description, setDescription] = useState("");
@@ -40,113 +38,56 @@ console.log(blog);
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
-  
 
- if(image != null) {
-    try {
+    if (image != null) {
+      try {
         const coverForm = new FormData();
         coverForm.append("image", image);
-  
+
         // Upload Cover Image
         const coverResponse = await fetch(imageUploadUrl, {
           method: "POST",
           body: coverForm,
         });
-  
+
         if (!coverResponse.ok) {
           throw new Error("Cover image upload failed");
         }
-  
+
         const coverImageResponse = await coverResponse.json();
         const cover_image_url = coverImageResponse.data.display_url;
-  
+
         // Prepare Blog Data
         const blogData = {
-            blogName : blogName.length > 0 ? blogName : blog.blogName ,
-            category: category.length > 0 ? category : blog.category ,
-            subcategory: subcategory.length > 0 ? subcategory : blog.subcategory ,
-            selectedTags: selectedTags.length > 0 ? selectedTags : blog.selectedTags,
-            imageURL: cover_image_url ,
-            description,
-            descriptionBN,
-          
-        };
-  console.log(blogData)
-        // Send Blog Data to API
-        const apiResponse = await 
-        fetch(`http://localhost:5000/update-blog/${id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(blogData),
-        });
-        
-        if (!apiResponse.ok) {
-            throw new Error("Blog insertion failed");
-        }
-        
-        const responseData = await apiResponse.json();
-        console.log(responseData)
-  
-        if (responseData.acknowledged) {
-          Swal.fire({
-            title: "Success!",
-            text: "Blog updated successfully",
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
-          // Reset the input fields to empty values
-          setBlogName("");
-          setDescription("");
-          setCategory("");
-          setSubcategory("");
-          setSelectedTags([]);
-          setImage(null);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: "Blog is not uploaded successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
- }
- else {
-    try {
-       
-  
-        // Prepare Blog Data
-        const blogData = {
-          blogName : blogName.length > 0 ? blogName : blog.blogName ,
-          category: category.length > 0 ? category : blog.category ,
-          subcategory: subcategory.length > 0 ? subcategory : blog.subcategory ,
-          selectedTags: selectedTags.length > 0 ? selectedTags : blog.selectedTags,
-          imageURL: blog.imageURL ,
+          blogName: blogName.length > 0 ? blogName : blog.blogName,
+          category: category.length > 0 ? category : blog.category,
+          subcategory: subcategory.length > 0 ? subcategory : blog.subcategory,
+          selectedTags:
+            selectedTags.length > 0 ? selectedTags : blog.selectedTags,
+          imageURL: cover_image_url,
           description,
           descriptionBN,
-          
         };
-  console.log(blogData)
+        console.log(blogData);
         // Send Blog Data to API
-        const apiResponse = await 
-        fetch(`http://localhost:5000/update-blog/${id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(blogData),
-        });
-  
+        const apiResponse = await fetch(
+          `https://ai-server-sooty.vercel.app/update-blog/${id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(blogData),
+          }
+        );
+
         if (!apiResponse.ok) {
           throw new Error("Blog insertion failed");
         }
-  
+
         const responseData = await apiResponse.json();
-  
+        console.log(responseData);
+
         if (responseData.acknowledged) {
           Swal.fire({
             title: "Success!",
@@ -172,9 +113,64 @@ console.log(blog);
           timer: 1500,
         });
       }
- }
+    } else {
+      try {
+        // Prepare Blog Data
+        const blogData = {
+          blogName: blogName.length > 0 ? blogName : blog.blogName,
+          category: category.length > 0 ? category : blog.category,
+          subcategory: subcategory.length > 0 ? subcategory : blog.subcategory,
+          selectedTags:
+            selectedTags.length > 0 ? selectedTags : blog.selectedTags,
+          imageURL: blog.imageURL,
+          description,
+          descriptionBN,
+        };
+        console.log(blogData);
+        // Send Blog Data to API
+        const apiResponse = await fetch(
+          `https://ai-server-sooty.vercel.app/update-blog/${id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(blogData),
+          }
+        );
 
-   
+        if (!apiResponse.ok) {
+          throw new Error("Blog insertion failed");
+        }
+
+        const responseData = await apiResponse.json();
+
+        if (responseData.acknowledged) {
+          Swal.fire({
+            title: "Success!",
+            text: "Blog updated successfully",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+          // Reset the input fields to empty values
+          setBlogName("");
+          setDescription("");
+          setCategory("");
+          setSubcategory("");
+          setSelectedTags([]);
+          setImage(null);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Blog is not uploaded successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    }
   };
 
   // Define the options for category and subcategory
@@ -230,15 +226,12 @@ console.log(blog);
     setSelectedTags(updatedTags);
   };
 
-
-
-
-
-
-    return (
-        <div>
-            <h1 className="text-2xl text-center">Edit your Blog <span className="text-primary">{blog.blogName}</span> </h1>
-            <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-5">
+  return (
+    <div>
+      <h1 className="text-2xl text-center">
+        Edit your Blog <span className="text-primary">{blog.blogName}</span>{" "}
+      </h1>
+      <form onSubmit={handleSubmit} className="max-w-3xl mx-auto my-5">
         <div className="flex justify-between">
           <div className="mb-4">
             <label
@@ -253,7 +246,7 @@ console.log(blog);
               defaultValue={blog.blogName}
               required
               className="w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-orange"
-            //   value={blog.blogName}
+              //   value={blog.blogName}
               onChange={(e) => setBlogName(e.target.value)}
             />
           </div>
@@ -307,7 +300,6 @@ console.log(blog);
               id="subcategory"
               className="w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-orange"
               defaultValue={blog.subcategory}
-              
               onChange={handleSubcategoryChange}
             >
               <option value="">Select a Subcategory</option>
@@ -400,12 +392,13 @@ console.log(blog);
         </div>
         <button
           type="submit"
-          className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg">
+          className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg"
+        >
           Update
         </button>
       </form>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default EditBlog;

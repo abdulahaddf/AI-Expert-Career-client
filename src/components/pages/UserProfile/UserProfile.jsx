@@ -29,7 +29,7 @@ const UserProfile = () => {
     };
     axios
       .patch(
-        `http://localhost:5000/userinfoupdate/?email=${userinfo?.email}`,
+        `https://ai-server-sooty.vercel.app/userinfoupdate/?email=${userinfo?.email}`,
         profile
       )
       .then((res) => {
@@ -74,7 +74,7 @@ const UserProfile = () => {
             };
             axios
               .patch(
-                `http://localhost:5000/userpictureupdate/?email=${userinfo?.email}`,
+                `https://ai-server-sooty.vercel.app/userpictureupdate/?email=${userinfo?.email}`,
                 profile
               )
               .then((res) => {

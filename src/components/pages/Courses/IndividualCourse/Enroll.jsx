@@ -41,13 +41,16 @@ const Enroll = () => {
       };
 
       // Send Course Data to API
-      const apiResponse = await fetch("http://localhost:5000/enroll", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(courseData),
-      });
+      const apiResponse = await fetch(
+        "https://ai-server-sooty.vercel.app/enroll",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(courseData),
+        }
+      );
 
       if (!apiResponse.ok) {
         throw new Error("Course insertion failed");

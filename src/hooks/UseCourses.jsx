@@ -8,7 +8,9 @@ const useCourses = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/courses");
+        const response = await axios.get(
+          "https://ai-server-sooty.vercel.app/courses"
+        );
         setCourses(response.data);
         setIsLoading(false);
       } catch (error) {

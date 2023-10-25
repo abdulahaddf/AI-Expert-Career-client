@@ -12,7 +12,9 @@ const MyCourse = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/enrolled-course?email=${userinfo?.email}`)
+      .get(
+        `https://ai-server-sooty.vercel.app/enrolled-course?email=${userinfo?.email}`
+      )
       .then((data) => setCourses(data.data));
   }, [userinfo]);
 

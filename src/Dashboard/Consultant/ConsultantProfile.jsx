@@ -43,7 +43,7 @@ const ConsultantProfile = () => {
             };
             axios
               .patch(
-                `http://localhost:5000/userpictureupdate/?email=${userinfo?.email}`,
+                `https://ai-server-sooty.vercel.app/userpictureupdate/?email=${userinfo?.email}`,
                 profile
               )
               .then((res) => {
