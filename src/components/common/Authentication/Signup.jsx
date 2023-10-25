@@ -83,7 +83,7 @@ const Signup = () => {
         Swal.fire({
           position: 'center',
           icon: 'warning',
-          title: 'Before login Your email Verify Please',
+          title: 'Please check your mail and verify to proceed',
           showConfirmButton: true,
           // timer: 1500
         });
