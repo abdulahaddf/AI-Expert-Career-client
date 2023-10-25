@@ -110,6 +110,10 @@ const AddBlog = () => {
     "Prompt Engineering",
     "IoT",
     "Artificial Intelligence",
+    "Featured",
+    "Research", 
+    "Career Consulting", 
+    "Project",
     "Others",
   ];
 

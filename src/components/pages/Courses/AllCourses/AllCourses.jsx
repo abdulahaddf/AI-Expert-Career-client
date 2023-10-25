@@ -45,18 +45,18 @@ const AllCourses = () => {
     { category: "IoT", label: "IoT Courses" },
   ];
 
-  console.log(courses);
+  // console.log(courses);
 
-  if (isLoading) return <Loader />;
+  if (isLoading && banner && courses) return <Loader />;
   return (
     <div className="w-11/12 mx-auto">
       {/* Banner */}
       <div className="my-10 flex flex-col lg:flex-row">
         {/* Dynamic banners and titles */}
         <div className="border-[1px] border-black/25 lg:w-1/2 rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
-          <h1 className="text-2xl text-center">{banner.title}</h1>
-          <img src={banner.banner} alt="" />
-          <h2>{banner.subtitle}</h2>
+          <h1 className="text-2xl text-center">{banner?.title}</h1>
+          <img src={banner?.banner} alt="" />
+          <h2>{banner?.subtitle}</h2>
           <button
             onClick={() => {
               const modalId = `${banner._id}`;
@@ -72,7 +72,7 @@ const AllCourses = () => {
             Join Free seminar
           </button>
 
-          <dialog id={`${banner._id}`} className="modal">
+          <dialog id={`${banner?._id}`} className="modal">
             <form
               // onSubmit={handleSubmit(updatePicture)}
               method="dialog"
@@ -129,7 +129,7 @@ const AllCourses = () => {
 
         {/* Course categories */}
         <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full lg:w-1/2 gap-5 order-2 my-5 lg:my-0 lg:order-1">
-          {categories.map((categoryItem) => (
+          {categories?.map((categoryItem) => (
             <Link
               key={categoryItem.category}
               to={`/all-courses/${categoryItem.category}`}
@@ -139,7 +139,7 @@ const AllCourses = () => {
               <h2>{categoryItem.label}</h2>
               <p>
                 {
-                  courses.filter(
+                  courses?.filter(
                     (course) => course.category === categoryItem.category
                   ).length
                 }{" "}

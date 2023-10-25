@@ -267,12 +267,13 @@ const IndividualBlog = () => {
   if (!blog) return <Loader />;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
-      <div className="lg:grid grid-cols-4 pt-[123px] gap-x-[15px]">
-        <div className="lg:border-r-2 border-[#00000057] p-1">
+      <div className="w-4/5 mx-auto"> 
+      {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
+        {/* <div className="lg:border-r-2 border-[#00000057] p-1">
           <BlogItem randomBlogs={randomBlogs} />
-        </div>
+        </div> */}
 
-        <div className="col-span-3 lg:mt-0 mt-8 ">
+        <div className="col-span-4 lg:mt-0 mt-8 ">
           <div>
             <h2 className="font-bold text-3xl">{blog.blogName}</h2>
             <p>{moment(blog.createdAt).format("MMMM Do YYYY")}</p>
@@ -435,7 +436,7 @@ const IndividualBlog = () => {
               : "You may interest also those topics"}
           </h2>
 
-          <div className="md:pb-[150px] pt-[35px] grid grid-cols-4">
+          <div className="md:pb-[150px] pt-[35px] grid grid-cols-4 gap-5">
             {randomCardBlog?.map((blog) => (
               <BlogCard key={blog._id} blog={blog} />
             ))}

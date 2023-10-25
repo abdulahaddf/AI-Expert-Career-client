@@ -8,7 +8,7 @@ const CategoryCard = ({
   handleCheckboxChange,
 }) => {
   return (
-    <div className="text-[20px] font-bold">
+    <div className="text-[20px] font-bold flex items-center ">
       <input
         className='mr-2 checkbox checkbox-md items-center'
         value={category}

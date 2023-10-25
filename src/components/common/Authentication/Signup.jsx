@@ -134,7 +134,7 @@ const Signup = () => {
     signInFB()
       .then((result) => {
         const loggedInUser = result;
-        console.log(loggedInUser);
+        // console.log(loggedInUser);
         const saveUser = {
           displayName: loggedInUser.displayName,
           email: loggedInUser.email,

@@ -78,7 +78,7 @@ const EditConsultantProfile = () => {
     console.log("Form Data:", data);
     const {
       name,
-      email,
+      // email,
       phone,
       designation,
       description,

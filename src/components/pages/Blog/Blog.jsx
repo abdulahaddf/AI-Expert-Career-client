@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Loader from "../../common/loader/Loader";
+import FeaturedBlogs from "./FeaturedBlogs";
 
 const categories = [
   "Machine learning",
@@ -40,6 +41,11 @@ const Blog = () => {
         setIsLoading(false);
       });
   }, []);
+
+
+const featuredBlogs = blogs.filter(b => b.category === "Featured");
+// console.log(featuredBlogs);
+
 
   useEffect(() => {
     // Handle filtering and sorting whenever selectedCheckboxes, blogs, or sortingOption change
@@ -105,38 +111,28 @@ const Blog = () => {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-[120px]">
-      <div
-        className="shadow-lg"
-        style={{
-          backgroundImage: `url(${blogBanner})`,
-          backgroundSize: "cover",
-          height: "302px",
-          width: "full",
-        }}
-      >
-        <div className="width-screen flex flex-col items-center justify-center py-10">
-          <h2 className="text-[30px] font-bold">
-            {language == "bn" ? "ব্লগ" : "Blog"}
-          </h2>
-          <img className="w-[31px] pb-[30px]" src={icon} alt="" />
-          <p className="lg:w-[689px] text-center text-[#484848]">
-            {language == "bn"
-              ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা"
-              : "Welcome to our AI-related blog, where we delve into the limitless possibilities of Artificial Intelligence and its impact on various fields."}
-          </p>
-        </div>
-      </div>
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-5">
 
-      <div className=" py-[122px]">
+
+
+      {/* Slider */}
+   <div>
+<FeaturedBlogs featuredBlogs={featuredBlogs}/>
+   </div>
+
+
+
+
+{/* Blogs */}
+      <div className=" py-5">
         <div className="flex justify-end">
-          <div className=" mb-[33px] flex justify-between items-center space-x-6">
+          <div className=" mb-[33px] flex justify-evenly  items-center space-x-6">
             <div className="lg:hidden text-2xl">
               <BiDotsHorizontalRounded />
             </div>
             <select
               onChange={getFilter}
-              className="w-48 py-4 border-none bg-white text-center text-[#ED1B23] text-xl font-bold"
+              className="w-40 py-2 px-2  bg-white  text-xl  font-bold border"
             >
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
@@ -152,7 +148,7 @@ const Blog = () => {
               <h2 className="font-bold text-[20px] pb-[40px]">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
-              <div>
+              <div className="space-y-1">
                 {categories?.map((category, index) => (
                   <CategoryCard
                     key={index}
@@ -167,7 +163,7 @@ const Blog = () => {
           <div className="col-span-4">
             <div className="">
               {paginatedBlogs.length > 0 && paginatedBlogs ? (
-                <div className="grid  md:grid-cols-2 md:gap-x-20 lg:grid-cols-3 gap-[40px] justify-center">
+                <div className="grid  md:grid-cols-2  lg:grid-cols-3 gap-5 justify-evenly">
                   {paginatedBlogs?.map((blog) => (
                     <BlogCard key={blog._id} blog={blog} />
                   ))}
