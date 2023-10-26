@@ -7,8 +7,10 @@ import {
   BsGrid,
   BsPerson,
   BsLaptop,
+  BsImage,
+  BsLaptopFill,
 } from "react-icons/bs";
-import { AiOutlineHeart, AiOutlineVideoCameraAdd } from "react-icons/ai";
+import { AiFillMail, AiOutlineHeart, AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { VscVerified } from "react-icons/vsc";
 import { TbFileReport } from "react-icons/tb";
 import logoutLogo from "../../../assets/Dashboard/Vector.png";
@@ -17,8 +19,8 @@ import { NavLink } from "react-router-dom";
 import Footer from "../../common/footer/Footer";
 import { MyContext } from "../../../Context/Context";
 import { AuthContext } from "../../../Context/AuthProvider";
-import { FaBloggerB, FaUsersCog } from "react-icons/fa";
-import { MdAllInbox, MdManageSearch } from "react-icons/md";
+import { FaBloggerB, FaPercentage, FaUserEdit, FaUsersCog } from "react-icons/fa";
+import { MdAllInbox, MdManageSearch, MdVideoCameraFront } from "react-icons/md";
 import { CiDiscount1, CiMail } from "react-icons/ci";
 import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
@@ -168,7 +170,7 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <BsLaptop
+                    <BsLaptopFill
                       className={`${({ isActive }) =>
                         isActive
                           ? "text-white"
@@ -184,7 +186,7 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <BsLaptop
+                    <MdVideoCameraFront
                       className={`${({ isActive }) =>
                         isActive
                           ? "text-white"
@@ -200,7 +202,7 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <BsLaptop
+                    <FaUserEdit
                       className={`${({ isActive }) =>
                         isActive
                           ? "text-white"
@@ -216,7 +218,7 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <BsLaptop
+                    <BsImage
                       className={`${({ isActive }) =>
                         isActive
                           ? "text-white"
@@ -234,10 +236,10 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <CiDiscount1
+                    <FaPercentage
                       className={`${({ isActive }) =>
                         isActive
-                          ? "text-white"
+                          ? "text-white "
                           : "text-red-600"}mb-[4px] mr-2 `}
                     />
                     {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Promo Codes"}
@@ -250,7 +252,7 @@ const DashboardLayout = () => {
                         : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                     }
                   >
-                    <CiMail
+                    <AiFillMail
                       className={`${({ isActive }) =>
                         isActive
                           ? "text-white"

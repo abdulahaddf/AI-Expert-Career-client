@@ -214,17 +214,18 @@ const Enroll = () => {
           </section>
         </div>
 
-        <div>
-          <Link
-            to="/terms&conditions"
-            className="flex items-center gap-3 text-sm"
-          >
+        <div className="flex items-center gap-3">
+          
             <input
               type="checkbox"
               checked={isChecked}
               onChange={handleCheckboxChange}
               className="checkbox checkbox-sm checkbox-error "
             />
+            <Link
+            to="/terms&conditions"
+            className="flex items-center gap-3 text-sm"
+          >
             {language == "bn"
               ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
               : "Accept All Terms and Conditions"}

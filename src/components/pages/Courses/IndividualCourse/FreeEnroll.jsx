@@ -91,17 +91,18 @@ const FreeEnroll = () => {
           <h1 className="font-bold my-4">Course Details</h1>
           <p className="font-semibold">{title}</p>
           <p className="">Free Course</p>
-          <div>
-            <Link
-              to="/terms&conditions"
-              className="flex items-center gap-3 text-sm"
-            >
+          <div className="flex items-center gap-3">
+           
               <input
                 type="checkbox"
                 checked={isChecked}
                 onChange={handleCheckboxChange}
                 className="checkbox checkbox-sm checkbox-error "
               />
+               <Link
+              to="/terms&conditions"
+              className="flex items-center gap-3 text-sm"
+            >
               Accept All Terms and Conditions
             </Link>
             <br />

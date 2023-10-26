@@ -8,13 +8,9 @@ import Swal from "sweetalert2";
 
 const NewsLetter = () => {
   const { language } = useContext(MyContext);
-  
-  
-  
-  
+
   const [mail, setMail] = useState("");
   const [error, setError] = useState(null);
-  
 
   const validateEmail = (email) => {
     // Basic email validation using a regular expression
@@ -33,13 +29,16 @@ const NewsLetter = () => {
     setError(null); // Clear any previous errors
 
     try {
-      const response = await fetch("http://localhost:5000/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: mail }),
-      });
+      const response = await fetch(
+        "https://ai-server-sooty.vercel.app/newsletter",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: mail }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Something went wrong");
@@ -48,22 +47,19 @@ const NewsLetter = () => {
       const data = await response.json();
 
       if (data.insertedId) {
-      // setMail("")
+        // setMail("")
         Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "You've Subscribed successfully",
-              showConfirmButton: false,
-              timer: 1500,
-            });
+          position: "top-end",
+          icon: "success",
+          title: "You've Subscribed successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     } catch (error) {
       setError("An error occurred while subscribing. Please try again later.");
     }
   };
-
-
-
 
   return (
     <>
@@ -74,32 +70,31 @@ const NewsLetter = () => {
               ? "এ আই এর সকল আপডেট নিউজ পেতে এখনই সাবস্ক্রাইব করুন"
               : "Subscribe to our NEWSLETTER to get all the updates on AI"}
           </h2>
-         
+
           <div className="pt-14">
             <div className=" flex bg-white rounded-lg pl-2 border w-fit">
               <img src={email} alt="" />
               <div>
-      <form >
-        <input
-          type="email"
-          placeholder={language === "bn" ? "ই-মেইল" : "Email"}
-          value={mail}
-          onChange={(e) => setMail(e.target.value)}
-          className="outline-none  w-full p-3 border-none"
-        />
-        {/* <button type="submit">Subscribe</button> */}
-      </form>
-     
-    </div>
-   
-              <button onClick={handleSubmit}  className="bg-[#FF0944] text-white w-[171px] rounded-[5px]">
+                <form>
+                  <input
+                    type="email"
+                    placeholder={language === "bn" ? "ই-মেইল" : "Email"}
+                    value={mail}
+                    onChange={(e) => setMail(e.target.value)}
+                    className="outline-none  w-full p-3 border-none"
+                  />
+                  {/* <button type="submit">Subscribe</button> */}
+                </form>
+              </div>
+
+              <button
+                onClick={handleSubmit}
+                className="bg-[#FF0944] text-white w-[171px] rounded-[5px]"
+              >
                 {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
               </button>
             </div>
-            <div>
-
-{error && <p className="error-message">{error}</p>}
-</div>
+            <div>{error && <p className="error-message">{error}</p>}</div>
           </div>
         </div>
         <div className="flex justify-end w-1/2 lg:w-3/4 mx-auto">
