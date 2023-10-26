@@ -8,6 +8,8 @@ import { MyContext } from "../../../Context/Context";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Loader from "../../common/loader/Loader";
 import FeaturedBlogs from "./FeaturedBlogs";
+import { Link } from "react-router-dom";
+import NewsLetter from "./NewsLetter";
 
 const categories = [
   "Machine learning",
@@ -30,7 +32,7 @@ const Blog = () => {
   const [newData, setNewData] = useState(blogs);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
   const [sortingOption, setSortingOption] = useState("");
 
   useEffect(() => {
@@ -42,10 +44,8 @@ const Blog = () => {
       });
   }, []);
 
-
-const featuredBlogs = blogs.filter(b => b.category === "Featured");
-// console.log(featuredBlogs);
-
+  const featuredBlogs = blogs.filter((b) => b.category === "Featured");
+  // console.log(featuredBlogs);
 
   useEffect(() => {
     // Handle filtering and sorting whenever selectedCheckboxes, blogs, or sortingOption change
@@ -112,18 +112,12 @@ const featuredBlogs = blogs.filter(b => b.category === "Featured");
   if (isLoading) return <Loader />;
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-5">
-
-
-
       {/* Slider */}
-   <div>
-<FeaturedBlogs featuredBlogs={featuredBlogs}/>
-   </div>
+      <div>
+        <FeaturedBlogs featuredBlogs={featuredBlogs} />
+      </div>
 
-
-
-
-{/* Blogs */}
+      {/* Blogs */}
       <div className=" py-5">
         <div className="flex justify-end">
           <div className=" mb-[33px] flex justify-evenly  items-center space-x-6">
@@ -144,19 +138,27 @@ const featuredBlogs = blogs.filter(b => b.category === "Featured");
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">
           {/* Hide this section on small devices */}
           <div className="hidden md:block">
-            <div className="flex flex-col justify-between items-center">
-              <h2 className="font-bold text-[20px] pb-[40px]">
+            <div className="flex flex-col justify-between items-center h-full">
+              <h2 className="font-bold text-[20px] pb-5">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
-              <div className="space-y-1">
-                {categories?.map((category, index) => (
-                  <CategoryCard
-                    key={index}
-                    category={category}
-                    selectedCheckboxes={selectedCheckboxes}
-                    handleCheckboxChange={handleCheckboxChange}
-                  />
-                ))}
+              <div className="flex flex-col justify-between h-full">
+                <div className="space-y-1 ">
+                  {categories?.map((category, index) => (
+                    <CategoryCard
+                      key={index}
+                      category={category}
+                      selectedCheckboxes={selectedCheckboxes}
+                      handleCheckboxChange={handleCheckboxChange}
+                    />
+                  ))}
+                </div>
+                <div className="section">
+                  <h2 className="text-xl font-semibold">
+                    Are you Want to Know The Proper Roadmap of Al Journey?
+                  </h2>
+                  <Link className="btn-add my-2" to="/roadmap">Let&apos;s Go</Link>
+                </div>
               </div>
             </div>
           </div>
@@ -217,6 +219,9 @@ const featuredBlogs = blogs.filter(b => b.category === "Featured");
             </button>
           </div>
         </div>
+      </div>
+      <div className="my-10">
+      <NewsLetter/>
       </div>
     </div>
   );

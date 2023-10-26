@@ -28,13 +28,13 @@ const BlogCard = ({ blog }) => {
           <div>
            
               <Link  to={`/single-blog/${blog._id}`}>
-                <button className="btn-add">
+                <button className="btn-black">
                  <FaArrowRight/> Read More
                 </button>
               </Link>
          
           </div>
-          <div className="flex items-center justify-between gap-5 text-xl text-primary">
+          <div className="flex items-center justify-between gap-5 text-xl">
             <div className="flex gap-1 items-center cursor-pointer">
             
               <FaThumbsUp className=''/> 
