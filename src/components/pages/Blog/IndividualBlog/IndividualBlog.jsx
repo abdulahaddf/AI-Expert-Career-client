@@ -22,8 +22,9 @@ import BlogCard from "../BlogCard";
 import {
   FacebookShareButton,
   LinkedinShareButton,
-  All
+  TwitterShareButton,
 } from "react-share";
+import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 
 const IndividualBlog = () => {
   const { language } = useContext(MyContext);
@@ -37,8 +38,8 @@ const IndividualBlog = () => {
   const [randomBlogs, setRandomBlogs] = useState([]);
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
-  const currentURL = window.location.href
-  console.log(currentURL)
+  const currentURL = window.location.href;
+  console.log(currentURL);
   // console.log(id);
   // console.log(blog);
   const allComments = blog?.comments?.sort(
@@ -273,8 +274,8 @@ const IndividualBlog = () => {
   if (!blog) return <Loader />;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
-      <div className="w-4/5 mx-auto"> 
-      {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
+      <div className="w-4/5 mx-auto">
+        {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
         {/* <div className="lg:border-r-2 border-[#00000057] p-1">
           <BlogItem randomBlogs={randomBlogs} />
         </div> */}
@@ -363,22 +364,22 @@ const IndividualBlog = () => {
                 <span className="text-white">{blog?.dislikes?.length} </span>
               </div>
             </div>
-            <div className="flex justify-center items-center gap-8">
+            <div className="flex justify-center items-center gap-2">
               <FacebookShareButton url={currentURL}>
-                  
-              <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
-                <img src={facebook} alt="" />
-              </div>
+                <div className=" text-3xl text-primary cursor-pointer">
+                  <BsFacebook />
+                </div>
               </FacebookShareButton>
-<LinkedinShareButton url={currentURL}>
-              <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
-                <img src={linkdeIn} alt="" className=" " />
-              </div>
-</LinkedinShareButton>
-<All url={currentURL}>
-
-              <img src={share} alt="" className="cursor-pointer" />
-</All>
+              <LinkedinShareButton url={currentURL}>
+                <div className=" text-3xl text-primary  cursor-pointer">
+                  <BsLinkedin />
+                </div>
+              </LinkedinShareButton>
+              <TwitterShareButton url={currentURL}>
+                <div className="text-3xl text-primary cursor-pointer">
+                  <BsTwitter />
+                </div>
+              </TwitterShareButton>
             </div>
           </div>
           {/* Comment section */}
