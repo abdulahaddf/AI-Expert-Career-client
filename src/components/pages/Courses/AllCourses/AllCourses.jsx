@@ -8,6 +8,8 @@ import Loader from "../../../common/loader/Loader";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
@@ -19,11 +21,10 @@ const AllCourses = () => {
     (course) => course.mainCategory == "Fundamental"
   );
   const jobBasedCourses = courses?.filter(
-    (course) => course.mainCategory == "Job Requirement Based"
-  );
+    (course) => course.mainCategory == "Job Requirement Based");
   const [banners, setBanners] = useState([]);
-  const [openModalIndex, setOpenModalIndex] = useState("");
   const { register, handleSubmit, reset } = useForm();
+  const [openPicModalIndex, setPicOpenModalIndex] = useState("");
   useEffect(() => {
     fetch(" https://ai-server-sooty.vercel.app/banners")
       .then((response) => response.json())
@@ -47,6 +48,49 @@ const AllCourses = () => {
 
   // console.log(courses);  
 
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    if (data !== "null"){
+    try {
+      // Send Data to API
+      const apiResponse = await fetch(
+        "https://ai-server-sooty.vercel.app/seminar",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!apiResponse.ok) {
+        throw new Error("Request failed");
+      }
+
+      const responseData = await apiResponse.json();
+
+      if (responseData.insertedId) {
+        if (openPicModalIndex) {
+          openPicModalIndex.close();
+        }
+        toast.success("You'll be notified");
+        reset();
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+  }
+  
+
+
+
+
+
+
+
   if (isLoading && !banner && !courses) return <Loader />;
   return (
     <div className="w-11/12 mx-auto">
@@ -61,9 +105,8 @@ const AllCourses = () => {
             onClick={() => {
               const modalId = `${banner._id}`;
               const modal = document.getElementById(modalId);
-              setOpenModalIndex(modal);
+              setPicOpenModalIndex(modal);
               if (modal) {
-                // setTId(userinfo._id);
                 modal.showModal();
               }
             }}
@@ -74,7 +117,7 @@ const AllCourses = () => {
 
           <dialog id={`${banner?._id}`} className="modal">
             <form
-              // onSubmit={handleSubmit(updatePicture)}
+              onSubmit={handleSubmit(onSubmit)}
               method="dialog"
               className="modal-box   text-black "
             >
@@ -92,10 +135,11 @@ const AllCourses = () => {
               </button>
 
               <div className="mb-2">
+                <h1 className="text-2xl text-center font-bold mb-3">Join Free seminar</h1>
                 <p className="">Your Name:</p>
                 <input
                   type="text"
-                  {...register("name")}
+                  {...register("name", { required: true })}
                   className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />
@@ -104,7 +148,7 @@ const AllCourses = () => {
                 <p className="">Phone Number:</p>
                 <input
                   type="number"
-                  {...register("phone")}
+                  {...register("phone", { required: true })}
                   className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />
@@ -113,7 +157,7 @@ const AllCourses = () => {
                 <p className="">Email:</p>
                 <input
                   type="email"
-                  {...register("name")}
+                  {...register("email", { required: true })}
                   className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />

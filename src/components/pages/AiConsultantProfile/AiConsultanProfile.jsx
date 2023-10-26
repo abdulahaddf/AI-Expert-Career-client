@@ -73,7 +73,7 @@ const AiConsultanProfile = () => {
                 {language == "bn" ? "কন্সাল্টেন্টের বিবরণ" : "About"}
               </h2>
               <p className="text-lg ml-5 font-medium mt-2">{about}</p>
-              <hr className="border-[0.5] mt-12 border-black" />
+              {/* <hr className="border-[0.5] mt-12 border-black" /> */}
 
               <h2 className="text-2xl font-bold mt-7">
                 {language == "bn" ? "সাম্প্রতিক কাজের উদাহরণ" : "Recent Works"}
@@ -86,7 +86,7 @@ const AiConsultanProfile = () => {
                   </div>
                 ))}
               </ul>
-              <hr className="border-[0.5] mt-8 border-black" />
+              {/* <hr className="border-[0.5] mt-8 border-black" /> */}
 
               <div>
                 <h2 className="text-2xl font-bold mt-[30px]">
@@ -100,7 +100,7 @@ const AiConsultanProfile = () => {
                   </div>
                 ))}
               </div>
-              <hr className="border-[0.5] mt-12 border-black" />
+              {/* <hr className="border-[0.5] mt-12 border-black" /> */}
               <h2 className="text-2xl font-bold mt-[30px]">
                 {language == "bn" ? "অভিজ্ঞতা" : "Experience"}
               </h2>
@@ -111,7 +111,7 @@ const AiConsultanProfile = () => {
                   </p>
                 </div>
               ))}
-              <hr className="border-[0.5] mt-12 border-black" />
+              {/* <hr className="border-[0.5] mt-12 border-black" /> */}
 
               <h2 className="text-2xl font-bold mt-[30px]">
                 {language == "bn"
@@ -119,13 +119,13 @@ const AiConsultanProfile = () => {
                   : "Educational Qualification"}
               </h2>
               {qualification?.map((e, i) => (
-                <div key={i} className="ml-5 space-y-2">
+                <div key={i} className="ml-5 mb-2 space-y-2">
                   <p className="text-lg flex items-center gap-2">
                     <GrCatalogOption /> {e}
                   </p>
                 </div>
               ))}
-              <hr className="border-[0.5] mt-8 mb-36 border-black" />
+              {/* <hr className="border-[0.5] mt-8 mb-36 border-black" /> */}
             </div>
           </div>
 
