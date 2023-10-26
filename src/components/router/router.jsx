@@ -65,6 +65,7 @@ import Appointments from "../../Dashboard/User/Appointments/Appointments";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import TermsAndConditions from "../common/Terms&Conditions/TermsAndConditions";
+import NewsletterMail from "../../Dashboard/Admin/NewsletterMail/NewsletterMail";
 
 export const router = createBrowserRouter([
   {
@@ -357,6 +358,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/control-appointments",
         element: <AdminRoute><ControlAppointments /></AdminRoute>,
+      },
+      {
+        path: "/dashboard/newsletter",
+        element: <AdminRoute><NewsletterMail /></AdminRoute>,
       },
     ],
   },

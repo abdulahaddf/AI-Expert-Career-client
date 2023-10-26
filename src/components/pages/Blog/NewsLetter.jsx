@@ -2,34 +2,68 @@ import email from "./Assests/email.svg";
 import newsletter from "./Assests/newsLetter.svg";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
+import { useState } from "react";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
-import emailjs from '@emailjs/browser';
-import { useRef } from "react";
 
 const NewsLetter = () => {
   const { language } = useContext(MyContext);
-  const form = useRef();
-  const sendEmail = (e) => {
-   
+  
+  
+  
+  
+  const [mail, setMail] = useState("");
+  const [error, setError] = useState(null);
+  
+
+  const validateEmail = (email) => {
+    // Basic email validation using a regular expression
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_lnry645', 'template_861sgkd', form.current, '0rD29cz3B18UoueZt')
-      .then((result) => {
-          console.log(result.text);
-          if(result.text === 'OK'){
-            Swal.fire({
-              position: 'top-right',
-              icon: 'success',
-              title: "You've subscribed",
-              showConfirmButton: false,
-              timer: 1500
-            })
-          }
-          form.current.reset();
-      }, (error) => {
-          console.log(error.text);
+    if (!validateEmail(mail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setError(null); // Clear any previous errors
+
+    try {
+      const response = await fetch("http://localhost:5000/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: mail }),
       });
+
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+
+      const data = await response.json();
+
+      if (data.insertedId) {
+      // setMail("")
+        Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "You've Subscribed successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+      }
+    } catch (error) {
+      setError("An error occurred while subscribing. Please try again later.");
+    }
   };
+
+
+
 
   return (
     <>
@@ -42,17 +76,30 @@ const NewsLetter = () => {
           </h2>
          
           <div className="pt-14">
-            <div className="border flex bg-white w-full pl-2">
+            <div className=" flex bg-white rounded-lg pl-2 border w-fit">
               <img src={email} alt="" />
-              <input
-                type="email"
-                placeholder={language == "bn" ? "ই-মেইল" : "Email"}
-                className="border-none outline-none w-full p-3"
-              />
-              <button className="bg-[#FF0944] text-white w-[171px] rounded-[5px]">
+              <div>
+      <form >
+        <input
+          type="email"
+          placeholder={language === "bn" ? "ই-মেইল" : "Email"}
+          value={mail}
+          onChange={(e) => setMail(e.target.value)}
+          className="outline-none  w-full p-3 border-none"
+        />
+        {/* <button type="submit">Subscribe</button> */}
+      </form>
+     
+    </div>
+   
+              <button onClick={handleSubmit}  className="bg-[#FF0944] text-white w-[171px] rounded-[5px]">
                 {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
               </button>
             </div>
+            <div>
+
+{error && <p className="error-message">{error}</p>}
+</div>
           </div>
         </div>
         <div className="flex justify-end w-1/2 lg:w-3/4 mx-auto">
