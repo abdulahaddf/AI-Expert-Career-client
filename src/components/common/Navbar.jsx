@@ -395,12 +395,15 @@ console.log(isAdmin)
                               >
                                 Dashboard
                               </Link>
+                              <li>
+
                               <Link
                                 to="/dashboard/manage-users"
                                 className=" hover:no-underline hover:text-primary ml-2"
-                              >
+                                >
                                 Manage Users
                               </Link>
+                                </li>
                               <li
                                 className=" hover:text-primary  hover:no-underline ml-2"
                                 onClick={logOut}
