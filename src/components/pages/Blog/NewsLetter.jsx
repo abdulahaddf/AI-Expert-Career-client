@@ -2,9 +2,34 @@ import email from "./Assests/email.svg";
 import newsletter from "./Assests/newsLetter.svg";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
+import Swal from "sweetalert2";
+import emailjs from '@emailjs/browser';
+import { useRef } from "react";
 
 const NewsLetter = () => {
   const { language } = useContext(MyContext);
+  const form = useRef();
+  const sendEmail = (e) => {
+   
+    e.preventDefault();
+
+    emailjs.sendForm('service_lnry645', 'template_861sgkd', form.current, '0rD29cz3B18UoueZt')
+      .then((result) => {
+          console.log(result.text);
+          if(result.text === 'OK'){
+            Swal.fire({
+              position: 'top-right',
+              icon: 'success',
+              title: "You've subscribed",
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+          form.current.reset();
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 
   return (
     <>
@@ -15,11 +40,7 @@ const NewsLetter = () => {
               ? "এ আই এর সকল আপডেট নিউজ পেতে এখনই সাবস্ক্রাইব করুন"
               : "Subscribe to our NEWSLETTER to get all the updates on AI"}
           </h2>
-          <p className="text-[#696969] font-bold">
-            {language == "bn"
-              ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা"
-              : "Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years"}
-          </p>
+         
           <div className="pt-14">
             <div className="border flex bg-white w-full pl-2">
               <img src={email} alt="" />

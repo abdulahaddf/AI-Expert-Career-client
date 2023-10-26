@@ -19,6 +19,11 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../../../Context/AuthProvider";
 import Loader from "../../../common/loader/Loader";
 import BlogCard from "../BlogCard";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  All
+} from "react-share";
 
 const IndividualBlog = () => {
   const { language } = useContext(MyContext);
@@ -32,7 +37,8 @@ const IndividualBlog = () => {
   const [randomBlogs, setRandomBlogs] = useState([]);
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
-
+  const currentURL = window.location.href
+  console.log(currentURL)
   // console.log(id);
   // console.log(blog);
   const allComments = blog?.comments?.sort(
@@ -358,14 +364,21 @@ const IndividualBlog = () => {
               </div>
             </div>
             <div className="flex justify-center items-center gap-8">
+              <FacebookShareButton url={currentURL}>
+                  
               <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
                 <img src={facebook} alt="" />
               </div>
-
+              </FacebookShareButton>
+<LinkedinShareButton url={currentURL}>
               <div className="bg-[#FF0944] h-[24px] w-[24px] rounded-[50px] p-1 cursor-pointer">
                 <img src={linkdeIn} alt="" className=" " />
               </div>
+</LinkedinShareButton>
+<All url={currentURL}>
+
               <img src={share} alt="" className="cursor-pointer" />
+</All>
             </div>
           </div>
           {/* Comment section */}
