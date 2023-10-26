@@ -45,13 +45,13 @@ const AllCourses = () => {
     { category: "IoT", label: "IoT Courses" },
   ];
 
-  // console.log(courses);
+  // console.log(courses);  
 
-  if (isLoading && banner && courses) return <Loader />;
+  if (isLoading && !banner && !courses) return <Loader />;
   return (
     <div className="w-11/12 mx-auto">
       {/* Banner */}
-      <div className="my-10 flex flex-col lg:flex-row">
+      <div className="my-10 flex flex-col lg:flex-row ">
         {/* Dynamic banners and titles */}
         <div className="border-[1px] border-black/25 lg:w-1/2 rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
           <h1 className="text-2xl text-center">{banner?.title}</h1>
@@ -134,7 +134,7 @@ const AllCourses = () => {
               key={categoryItem.category}
               to={`/all-courses/${categoryItem.category}`}
               state={courses}
-              className="glass w-[190px] p-3 hover:bg-slate-200 rounded-lg"
+              className="glass md:w-[190px] p-3 hover:bg-slate-200 rounded-lg"
             >
               <h2>{categoryItem.label}</h2>
               <p>
@@ -159,7 +159,7 @@ const AllCourses = () => {
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
 
-          <div className="grid lg:pl-28 lg:grid-cols-4 md:grid-cols-2 gap-4 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
             {freeCourses?.slice(0, 4).map((course) => (
               <CourseCard key={course._id} course={course}></CourseCard>
             ))}
@@ -184,7 +184,7 @@ const AllCourses = () => {
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
 
-          <div className="grid lg:pl-28 lg:grid-cols-4 md:grid-cols-2 gap-4 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
             {fundamentalCourses?.slice(0, 4).map((course) => (
               <CourseCard key={course._id} course={course}></CourseCard>
             ))}
@@ -212,7 +212,7 @@ const AllCourses = () => {
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
 
-          <div className="grid lg:pl-28 lg:grid-cols-4 md:grid-cols-2 gap-4 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
             {jobBasedCourses?.slice(0, 4).map((course) => (
               <CourseCard key={course._id} course={course}></CourseCard>
             ))}

@@ -64,14 +64,14 @@ const NewsLetter = () => {
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row  md:items-center lg:space-x-4">
-        <div className="w-3/4 mx-auto">
+        <div className="md:w-3/4 mx-auto">
           <h2 className="md:text-3xl lg:text-[35px] font-bold pb-3">
             {language == "bn"
               ? "এ আই এর সকল আপডেট নিউজ পেতে এখনই সাবস্ক্রাইব করুন"
               : "Subscribe to our NEWSLETTER to get all the updates on AI"}
           </h2>
 
-          <div className="pt-14">
+          <div className="md:pt-14">
             <div className=" flex bg-white rounded-lg pl-2 border w-fit">
               <img src={email} alt="" />
               <div>
@@ -98,7 +98,7 @@ const NewsLetter = () => {
           </div>
         </div>
         <div className="flex justify-end w-1/2 lg:w-3/4 mx-auto">
-          <img src={newsletter} alt="" className="w-[497px] h-[379px]" />
+          <img src={newsletter} alt="" className="my-2 w-[497px]  md:h-[379px]" />
         </div>
       </div>
     </>

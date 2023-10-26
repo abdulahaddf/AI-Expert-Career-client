@@ -111,7 +111,7 @@ const Blog = () => {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 mt-5">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-5">
       {/* Slider */}
       <div>
         <FeaturedBlogs featuredBlogs={featuredBlogs} />
@@ -220,7 +220,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className="my-10">
+      <div className="md:my-10">
       <NewsLetter/>
       </div>
     </div>

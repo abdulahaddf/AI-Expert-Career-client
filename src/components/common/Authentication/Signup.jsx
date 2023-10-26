@@ -269,7 +269,8 @@ const Signup = () => {
                     ? "একাউন্ট আছে ?"
                     : " Already create an account"}
                 </h2>
-                <center>
+               <section className="w-[300px] mx-auto flex flex-col justify-center items-center">
+               <div className="">
                   <Link
                     className="group relative   shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] px-[60px] py-[14px] bg-[#ED1B24]"
                     to="/login"
@@ -280,15 +281,15 @@ const Signup = () => {
                       {language === "bn" ? "সাইন ইন" : " Sign In"}
                     </span>
                   </Link>
-                </center>
+                </div>
                 {/* join with google button  */}
-                <div className="mt-10  w-[16rem] mx-auto text-center">
+                <div className="mt-10  mx-auto text-center">
                   <button
                     onClick={handleGoogleSignIn}
-                    className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
+                    className="px-[36px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
                   >
                     <img
-                      className="mr-2 w-[20px] h-[20px]"
+                      className=" w-[20px] h-[20px]"
                       src="/src/assets/register/Google Logo.png"
                       alt="google_logo"
                     />
@@ -296,21 +297,22 @@ const Signup = () => {
                   </button>
                 </div>
                 {/* join with facebook button  */}
-                <div className="mt-5 w-[16rem] mx-auto text-center">
+                <div className="mt-5  mx-auto text-center">
                   <button
                     onClick={handlefbSignIn}
                     className="px-[20px] py-[10px] bg-[#1877F2] rounded-md text-white shadow-lg flex items-center"
                   >
                     <img
-                      className="mr-2 w-[20px] h-[20px]"
+                      className="mr-2 w-[20px] h-[20px] "
                       src="/src/assets/register/facebook_logo.png"
                       alt="facebook_logo"
                     />
                     Continue with Facebook
                   </button>
                 </div>
+               </section>
                 {/* join with linkedin button  */}
-                <div className="mt-5 w-[16rem] mx-auto text-center">
+                {/* <div className="mt-5 w-[16rem] mx-auto text-center">
                   <Link
                     to=""
                     className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
@@ -322,7 +324,7 @@ const Signup = () => {
                     />
                     Continue with Linkedin
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

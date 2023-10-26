@@ -11,7 +11,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { MyContext } from "../../../../Context/Context";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import moment from "moment";
 import UseUser from "../../../../hooks/useUser";
 import Swal from "sweetalert2";
@@ -39,6 +39,7 @@ const IndividualBlog = () => {
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
   const currentURL = window.location.href;
+  const location = useLocation();
   console.log(currentURL);
   // console.log(id);
   // console.log(blog);
@@ -274,7 +275,7 @@ const IndividualBlog = () => {
   if (!blog) return <Loader />;
   return (
     <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
-      <div className="w-4/5 mx-auto">
+      <div className="w-11/12 md:w-4/5 mx-auto">
         {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
         {/* <div className="lg:border-r-2 border-[#00000057] p-1">
           <BlogItem randomBlogs={randomBlogs} />
@@ -295,8 +296,8 @@ const IndividualBlog = () => {
             <figure className="flex justify-center">
               <img
                 src={blog?.imageURL}
-                alt=""
-                className="rounded pb-12 max-w-[700px]"
+                alt="banner"
+                className="rounded pb-12 w-[600px] "
               />
             </figure>
             {language == "bn" ? (
@@ -411,9 +412,11 @@ const IndividualBlog = () => {
               </div>
             </div>
           ) : (
-            <p className="my-10 text-center text-xl cursor-pointer text-primary">
+           <div className="flex justify-center">
+             <Link state={location} to="/login" className="my-10 text-center text-3xl cursor-pointer text-primary">
               Login to Comment Here
-            </p>
+            </Link>
+           </div>
           )}
 
           <div className="my-5">
@@ -450,7 +453,7 @@ const IndividualBlog = () => {
               : "You may interest also those topics"}
           </h2>
 
-          <div className="md:pb-[150px] pt-[35px] grid grid-cols-4 gap-5">
+          <div className="md:pb-[150px] pt-[35px] grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {randomCardBlog?.map((blog) => (
               <BlogCard key={blog._id} blog={blog} />
             ))}

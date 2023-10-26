@@ -1,4 +1,3 @@
-import { FaClipboardList, FaHandPointRight } from "react-icons/fa";
 
 import { useContext, useState } from "react";
 import { MyContext } from "../../../../Context/Context";
@@ -9,12 +8,16 @@ import Loader from "../../../common/loader/Loader";
 import { AiFillLock } from "react-icons/ai";
 import CountDown from "./CountDown";
 import moment from "moment";
-import { Player } from "video-react";
 import "video-react/dist/video-react.css";
 import ReactPlayer from "react-player";
 import PromoCode from "./PromoCode";
+import { FaHandPointRight } from "react-icons/fa";
+
+
+
+
 const IndividualCourse = () => {
-  const { addToCart, setAddToCart, language } = useContext(MyContext);
+  const {  language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
   console.log(course);
@@ -26,9 +29,7 @@ const IndividualCourse = () => {
       .then((data) => setCourse(data));
   }, [id, course]);
 
-  const handleAddtoCart = () => {
-    setAddToCart([...addToCart, "one"]);
-  };
+ 
 
   const {
     _id,
@@ -69,16 +70,20 @@ const IndividualCourse = () => {
 
   if (!title) return <Loader />;
   return (
-    <section className="px-4 py-2 my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 flex gap-10 ">
+    <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
-      <section className="space-y-10">
+      <section className="space-y-5  md:space-y-10">
         <h1 className="text-2xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
-        <div className="w-[768px]">
+        <div className="w-96 h-fit md:w-[538px] lg:w-[768px]">
           {coverVideo ? (
-            <ReactPlayer url={coverVideo} />
+           
+              <ReactPlayer  width="100%"
+               url={coverVideo} />
+          
+              
           ) : (
-            <img src={cover} alt="" className="max-w-3xl" />
+            <img src={cover} alt="" className=" md:max-w-3xl" />
           )}
         </div>
 
@@ -102,7 +107,7 @@ const IndividualCourse = () => {
               ? "কারা এই কোর্সের জন্য উপযুক্ত:"
               : "Who Are Suitable For This Course:"}
           </h3>
-          <div className="section grid grid-cols-2 text-lg">
+          <div className="section grid md:grid-cols-2 text-lg">
             {eligibleUsers?.map((eli) => (
               <div key={eli}>
                 <p className="flex items-center gap-3 my-3 ">
@@ -121,7 +126,7 @@ const IndividualCourse = () => {
               ? "কোর্সের প্রয়োজনীয়তা:"
               : "Course Requirements:"}
           </h3>
-          <div className="section grid grid-cols-2">
+          <div className="section grid md:grid-cols-2">
             {preRequisites?.map((pre) => (
               <div key={pre}>
                 <p className="flex items-center gap-3 my-3 text-lg">
@@ -137,7 +142,7 @@ const IndividualCourse = () => {
             {" "}
             {language == "bn" ? "কোর্সের লক্ষ্য:" : "Course Goals:"}
           </h3>
-          <div className="section grid grid-cols-2 text-lg">
+          <div className="section grid md:grid-cols-2 text-lg">
             {goals?.map((goal) => (
               <div key={goal}>
                 <p className="flex items-center gap-3 my-3">
@@ -206,8 +211,8 @@ const IndividualCourse = () => {
               : "Course Instructor:"}
           </h3>
           <div className="section">
-            <div className="flex items-center gap-5 p-5 border-b-[1px]">
-              <figure>
+            <div className="md:flex items-center gap-5 p-5 border-b-[1px] text-center">
+              <figure className="flex justify-center">
                 <img className="rounded-full w-20 h-20" src={insImage} alt="" />
               </figure>
               <div>

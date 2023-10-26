@@ -31,6 +31,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
+  console.log(from);
 
   const handleForm = (data) => {
     const { email, password } = data;
@@ -39,7 +40,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate("/");
+        navigate(from, { replace: true });
 
         toast.info("Successfully Signed In", {
           icon: <AiFillCheckCircle className="text-xl text-primary" />,
@@ -222,7 +223,7 @@ const Login = () => {
                     : "Create account"}
                 </h2>
                 {/* sign up button  */}
-                <center>
+                <div className="flex justify-center">
                   <Link
                     className="group relative  shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] px-[60px] py-[14px] bg-[#ED1B24] focus:outline-none "
                     to="/signup"
@@ -233,7 +234,7 @@ const Login = () => {
                       {language === "bn" ? "সাইন আপ" : "Sign Up"}
                     </span>
                   </Link>
-                </center>
+                </div>
                 {/* join with google button  */}
                 <div className="mt-10  w-[16rem] mx-auto text-center">
                   <button
@@ -263,7 +264,7 @@ const Login = () => {
                   </button>
                 </div>
                 {/* join with linkedin button  */}
-                <div className="mt-5 w-[16rem] mx-auto text-center">
+                {/* <div className="mt-5 w-[16rem] mx-auto text-center">
                   <Link
                     to=""
                     className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
@@ -275,7 +276,7 @@ const Login = () => {
                     />
                     Continue with Linkedin
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
