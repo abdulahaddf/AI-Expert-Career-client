@@ -9,6 +9,7 @@ const MyCourse = () => {
   const { language } = useContext(MyContext);
   const [courses, setCourses] = useState([]);
   const [userinfo] = UseUser();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -16,6 +17,7 @@ const MyCourse = () => {
         `https://ai-server-sooty.vercel.app/enrolled-course?email=${userinfo?.email}`
       )
       .then((data) => setCourses(data.data));
+      setLoading(false);
   }, [userinfo]);
 
   console.log(courses);
@@ -24,7 +26,7 @@ const MyCourse = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  if (!courses) return <Loader />;
+  if (loading && !courses) return <Loader />;
   return (
     <div className="lg:h-screen mb-12 w-4/5 mx-auto">
       {courses ? (

@@ -1,8 +1,8 @@
 import moment from "moment";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
-
+import JoditEditor from "jodit-react";
 const ControlAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,6 +12,11 @@ const ControlAppointments = () => {
   const [toEmail2, setToEmail2] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const editor = useRef(null);
+  console.log(message)
+
+
+
   // console.log(appointments)
   console.log(toEmail1, toEmail2, subject, message);
   useEffect(() => {
@@ -232,10 +237,9 @@ const ControlAppointments = () => {
                 </dialog>
 
                 {/* sending mail */}
-                <dialog id={`${a.createAt}`} className="modal">
+                <dialog id={`${a.createAt}`} className="modal ">
                   <div className="modal-box">
                     <form method="dialog">
-                      {/* if there is a button in form, it will close the modal */}
                       <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                         ✕
                       </button>
@@ -276,11 +280,18 @@ const ControlAppointments = () => {
                         </div>
                         <div className="mb-4">
                           <p className="font-semibold pb-1">Mail body</p>
-                          <textarea
+                          {/* <textarea
                             placeholder="Message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             className="w-full p-2 border rounded "
+                          /> */}
+
+                          <JoditEditor
+                            id="message"
+                            ref={editor}
+                            tabIndex={1}
+                            onChange={(s) => setMessage(s)}
                           />
                         </div>
                         <div className="text-center">

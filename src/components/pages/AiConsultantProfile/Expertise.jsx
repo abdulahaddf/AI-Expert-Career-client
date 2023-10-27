@@ -85,8 +85,8 @@ const Expertise = ({ consultant }) => {
       const responseData = await apiResponse.json();
 
       if (responseData.insertedId) {
-        reset();
         toast.success("You've Successfully requested for the appointment");
+        reset();
       }
     } catch (error) {
       console.error("Error:", error);

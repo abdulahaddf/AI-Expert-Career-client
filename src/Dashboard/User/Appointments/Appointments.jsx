@@ -106,14 +106,24 @@ const Appointments = () => {
                   </span>
                   {a.confirmation}{" "}
                 </p>
-                <button
-                  disabled={a.request === "pending"}
-                  className="btn-add tooltip tooltip-bottom"
-                  data-tip="You can submit your payment info after the approval by admin"
-                  onClick={() => document.getElementById(a._id).showModal()}
-                >
-                  Payment Info
-                </button>
+                <div className="flex gap-5 ">
+                  <button
+                    disabled={a.request === "pending"}
+                    className="btn-add tooltip tooltip-bottom"
+                    data-tip="You can submit your payment info after the approval by admin"
+                    onClick={() => document.getElementById(a._id).showModal()}
+                  >
+                    Payment Info
+                  </button>
+                  <Link
+                    to={"/ai-consultant-profile"}
+                    state={a?.consultant}
+                    className="btn-black"
+                    onClick={() => document.getElementById(a._id).showModal()}
+                  >
+                    View Consultant
+                  </Link>
+                </div>
                 <dialog id={a._id} className="modal">
                   <div className="modal-box">
                     <form method="dialog">
@@ -122,9 +132,67 @@ const Appointments = () => {
                         ✕
                       </button>
                     </form>
-                    <h1 className="text-2xl text-center ">
+                    <h1 className="text-2xl text-center mb-5 ">
                       Submit Your Payment Information
                     </h1>
+                    <div>
+                      {language == "bn" ? (
+                        <>
+                          <p className="text-sm font-normal">
+                            আপনার বুকিং সম্পূর্ণ করতে, অনুগ্রহ করে এই পদক্ষেপগুলি অনুসরণ করুন:
+                          </p>
+                          <ol className="list-decimal pl-5">
+                            <li className="text-sm font-normal">
+                              নিম্নোক্ত নম্বরে টাকা সরবরাহ করুন:
+                              <span className="text-primary text-lg">
+                                {" "}
+                                01995536898
+                              </span>
+                            </li>
+                            <li className="text-sm font-normal">
+                              লেনদেন সম্পূর্ণ করতে Bkash, Nagad, বা Rocket
+                              ব্যবহার করুন।
+                            </li>
+                            <li className="text-sm font-normal">
+                              নীচের ইনপুট ফিল্ডে আপনার লেনদেনের ট্রান্সঅ্যাকশন
+                              আইডি এবং যে মোবাইল নম্বরটি ব্যবহার করেছেন, সেই
+                              নম্বরটি প্রদান করুন।
+                            </li>
+                            <li className="text-sm font-normal">
+                              "সাবমিট" বোতামে ক্লিক করুন এবং অ্যাডমিনের
+                              অনুমোদনের জন্য অপেক্ষা করুন।
+                            </li>
+                          </ol>
+                        </>
+                      ) : (
+                        <div className="">
+                          <p className="text-sm font-normal">
+                            To complete your booking, please follow these steps:
+                          </p>
+                          <ol className="list-decimal pl-5 space-y-2 my-2">
+                            <li className="text-sm font-normal">
+                              Transfer TK to the following number:
+                              <span className="text-primary text-lg">
+                                {" "}
+                                01995536898
+                              </span>
+                            </li>
+                            <li className="text-sm font-normal">
+                              Use Bkash, Nagad, or Rocket for the transaction.
+                            </li>
+                            <li className="text-sm font-normal">
+                              Enter your Transaction ID and the phone number you
+                              used for the transaction in the input fields
+                              below.
+                            </li>
+                            <li className="text-sm font-normal">
+                              Click the "Submit" button to request Admin
+                              approval.
+                            </li>
+                          </ol>
+                        </div>
+                      )}
+                    </div>
                     <p>
                       <span className="font-semibold mr-2">Requested At:</span>
                       {moment(a.createAt).format("MMMM Do YYYY, h:mm a")}{" "}
@@ -151,14 +219,13 @@ const Appointments = () => {
                         Sender Number
                       </label>
                       <div className="flex items-center gap-2">
-                        
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            onChange={handleCheckboxChange}
-                            className="checkbox checkbox-sm checkbox-error "
-                          />
-                          <Link
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={handleCheckboxChange}
+                          className="checkbox checkbox-sm checkbox-error "
+                        />
+                        <Link
                           to="/terms&conditions"
                           className="flex items-center gap-3 text-sm"
                         >

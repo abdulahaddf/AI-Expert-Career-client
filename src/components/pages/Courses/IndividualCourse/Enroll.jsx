@@ -148,7 +148,7 @@ const Enroll = () => {
                       {payable ? payable : discountAmount}
                     </span>{" "}
                     টাকা সরবরাহ করুন:
-                    <span className="text-primary text-lg"> 0190-2221726</span>
+                    <span className="text-primary text-lg"> 01995536898</span>
                   </li>
                   <li className="text-sm font-normal">
                     লেনদেন সম্পূর্ণ করতে Bkash, Nagad, বা Rocket ব্যবহার করুন।
@@ -175,7 +175,7 @@ const Enroll = () => {
                       {payable ? payable : discountAmount}
                     </span>{" "}
                     TK to the following number:
-                    <span className="text-primary text-lg"> 0190-2221726</span>
+                    <span className="text-primary text-lg"> 01995536898</span>
                   </li>
                   <li className="text-sm font-normal">
                     Use Bkash, Nagad, or Rocket for the transaction.
@@ -215,14 +215,13 @@ const Enroll = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={handleCheckboxChange}
-              className="checkbox checkbox-sm checkbox-error "
-            />
-            <Link
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+            className="checkbox checkbox-sm checkbox-error "
+          />
+          <Link
             to="/terms&conditions"
             className="flex items-center gap-3 text-sm"
           >
