@@ -405,7 +405,7 @@ const IndividualBlog = () => {
               <div className="flex flex-row-reverse gap-7 pt-2">
                 <button
                   onClick={() => handleComment()}
-                  className="bg-[#FF0944] w-[130px] text-white rounded font-bold"
+                  className="btn-black"
                 >
                   {language == "bn" ? "ঙ্কমেন্ট" : "Comment"}
                 </button>

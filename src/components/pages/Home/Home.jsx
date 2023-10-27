@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import HeroAria from "./HeroAria";
 import HomeAbout from "./HomeAbout";
-import HomeBlogs from "./HomeBlog";
+// import HomeBlogs from "./HomeBlogs";
 import HomeCourses from "./HomeCourses";
 import HomeEvent from "./HomeEvent";
 import HomeHeading from "./HomeHeading";
 import HomePartnership from "./HomePartnership";
 import HomeSearch from "./HomeSearch";
 import HomeTestimonial from "./HomeTestimonial";
+import HomeBlogs from "./HomeBlog";
+import HomeBlogsSection from "./HomeBlogsSection";
 
 const Home = () => {
   useEffect(() => {
@@ -23,6 +25,7 @@ const Home = () => {
         <HomeCourses />
         <HomeHeading />
         <HomeBlogs />
+      <HomeBlogsSection/>
         <HomeTestimonial />
         <HomeEvent />
         <HomePartnership />

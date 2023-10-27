@@ -10,6 +10,7 @@ import { MyContext } from "../../Context/Context";
 import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
 import UseUser from "../../hooks/useUser";
+import HomeSearch from "../pages/Home/HomeSearch";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -282,12 +283,28 @@ console.log(isAdmin)
                 />
               </Link>
             }
+             <div className=" flex items-center   mr-32">
+            {/* <img className="-mr-14 z-20" src={Search} alt="" /> */}
+            <input
+              className="px-4 bg-white text-xs rounded-full w-[250px] h-[41px] relative border-black/25 border-2"
+              placeholder={
+                language === "bn"
+                  ? "পছন্দের কোর্সগুলো খুঁজুন"
+                  : "Search your favorite courses"
+              }
+              type="search"
+              name="jobSearch"
+              id=""
+            />
+
+          
+          </div>
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
                 <div className={"flex items-center"}>{menuItem}</div>
 
-                <li>
+                {/* <li>
                   <NavLink to="/cart" className="py-2 relative">
                     <img className="" src={Cart} alt="" />
                     <div className="h-4 w-4 bg-[#FE0651] rounded-full flex justify-center items-center -top-[8px] absolute -right-[6px]">
@@ -296,13 +313,13 @@ console.log(isAdmin)
                       </p>
                     </div>
                   </NavLink>
-                </li>
+                </li> */}
               </ul>
               {user ? (
                 <Link className="hidden sm:block" to="/courses">
-                  <button className=" button-30 btn-sm">
+                  {/* <button className=" button-30 btn-sm">
                     Enroll
-                  </button>
+                  </button> */}
                 </Link>
               ) : (
                 <Link

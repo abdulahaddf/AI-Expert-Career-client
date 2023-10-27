@@ -2,7 +2,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 
 const CallBtn = () => {
-  const phoneNumber = '+8801902221723';
+  const phoneNumber = '+8801995536898';
 
   const handleCall = () => {
     window.open(`tel:${phoneNumber}`);

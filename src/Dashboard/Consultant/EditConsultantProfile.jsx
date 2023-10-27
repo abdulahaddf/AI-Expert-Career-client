@@ -1,16 +1,19 @@
 import { useForm, Controller, useFieldArray } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
 import UseUser from "../../hooks/useUser";
 import Loader from "../../components/common/loader/Loader";
 import { CiSquareRemove } from "react-icons/ci";
+import JoditEditor from "jodit-react";
 
 const EditConsultantProfile = () => {
   const [userinfo, isLoading, refetch] = UseUser();
-  // console.log(userinfo)
+  const [summary, setSummary] = useState("");
+  const editor = useRef(null);
+  console.log(summary)
 
   const daysOfWeek = [
     "Saturday",
@@ -30,14 +33,16 @@ const EditConsultantProfile = () => {
       phone: userinfo?.phone,
       designation: userinfo?.designation,
       description: userinfo?.description,
-      about: userinfo?.about,
       recentWorks: userinfo?.recentWorks,
       successes: userinfo?.successes,
       experience: userinfo?.experience,
       qualification: userinfo?.qualification,
       availability: userinfo?.availability,
       selectedDays: userinfo?.selectedDays,
-      workingWith: userinfo?.workingWith,
+      summary: userinfo?.summary,
+      facebook: userinfo?.facebook,
+      linkedin: userinfo?.linkedin,
+      twitter: userinfo?.twitter,
     },
   });
 
@@ -77,17 +82,18 @@ const EditConsultantProfile = () => {
   const onSubmit = (data) => {
     console.log("Form Data:", data);
     const {
-      name,
-      // email,
+      displayName,
       phone,
       designation,
       description,
-      about,
       recentWorks,
       successes,
       experience,
       qualification,
       availability,
+      facebook,
+      linkedin,
+      twitter,
     } = data;
     const selectedDays = daysOfWeek.filter((day) =>
       getValues(`availability.${day}`)
@@ -95,21 +101,25 @@ const EditConsultantProfile = () => {
     const workingWith = servicesOptions.filter((service) =>
       getValues(`services.${service}`)
     );
+    // console.log(workingWith.length);
     // console.log('Selected Days:', selectedDays);
     const profile = {
-      displayName: name,
+      displayName,
       email: userinfo.email,
       phone,
       designation,
       description,
-      about,
       recentWorks,
       successes,
       experience,
       qualification,
       availability,
       selectedDays,
-      workingWith,
+      workingWith : workingWith.length > 0 ? workingWith : userinfo.workingWith,
+      summary,
+      facebook,
+      linkedin,
+      twitter,
     };
     axios
       .patch(
@@ -136,19 +146,19 @@ const EditConsultantProfile = () => {
           <div className="grid grid-cols-2 gap-8 space-y-4">
             <div className="">
               <label
-                htmlFor="name"
+                htmlFor="displayName"
                 className="block text-sm font-semibold text-gray-800"
               >
                 Name
               </label>
               <Controller
-                name="name"
+                name="displayName"
                 control={control}
                 render={({ field }) => (
                   <input
                     {...field}
                     type="text"
-                    id="name"
+                    id="displayName"
                     defaultValue={userinfo?.displayName}
                     className="block w-full px-4 py-2 mt-2 border rounded-lg"
                   />
@@ -216,13 +226,13 @@ const EditConsultantProfile = () => {
 
             <div className="">
               <label className="block text-sm font-semibold text-gray-800">
-                Description
+                Company Name
               </label>
               <Controller
                 name="description"
                 control={control}
                 render={({ field }) => (
-                  <textarea
+                  <input
                     {...field}
                     type="text"
                     className="block w-full px-4 py-2 mt-2 border rounded-lg"
@@ -232,19 +242,16 @@ const EditConsultantProfile = () => {
             </div>
 
             <div className="">
-              <label className="block text-sm font-semibold text-gray-800">
-                About
+              <label className="block text-sm font-semibold text-gray-800 mb-2">
+                Career Summary
               </label>
-              <Controller
-                name="about"
-                control={control}
-                render={({ field }) => (
-                  <textarea
-                    {...field}
-                    type="text"
-                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
-                  />
-                )}
+
+              <JoditEditor
+                id="summary"
+                ref={editor}
+                value={userinfo?.summary}
+                tabIndex={1}
+                onChange={(s) => setSummary(s)}
               />
             </div>
             <div className="">
@@ -440,8 +447,70 @@ const EditConsultantProfile = () => {
                 Add Qualification
               </button>
             </div>
+            <div className="">
+              <label
+                htmlFor="facebook"
+                className="block text-sm font-semibold text-gray-800"
+              >
+                Facebook Profile Link
+              </label>
+              <Controller
+                name="facebook"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type="url"
+                    id="facebook"
+                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  />
+                )}
+              />
+            </div>
+
+            <div className="">
+              <label
+                htmlFor="linkedin"
+                className="block text-sm font-semibold text-gray-800"
+              >
+                LinkedIn Profile Link
+              </label>
+              <Controller
+                name="linkedin"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type="url"
+                    id="linkedin"
+                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  />
+                )}
+              />
+            </div>
+
+            <div className="">
+              <label
+                htmlFor="twitter"
+                className="block text-sm font-semibold text-gray-800"
+              >
+                Twitter Profile Link
+              </label>
+              <Controller
+                name="twitter"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type="url"
+                    id="twitter"
+                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  />
+                )}
+              />
+            </div>
           </div>
-          <button type="submit" className="btn-add">
+          <button type="submit" className="btn-add my-5">
             Submit
           </button>
         </form>

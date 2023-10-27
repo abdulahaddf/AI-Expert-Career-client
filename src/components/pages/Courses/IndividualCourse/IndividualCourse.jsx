@@ -75,7 +75,7 @@ const IndividualCourse = () => {
       <section className="space-y-5  md:space-y-10">
         <h1 className="text-2xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
-        <div className="w-96 h-fit md:w-[538px] lg:w-[768px]">
+        <div className="w-96 h-fit  md:w-[538px] lg:w-[768px]">
           {coverVideo ? (
            
               <ReactPlayer  width="100%"
@@ -211,7 +211,7 @@ const IndividualCourse = () => {
               : "Course Instructor:"}
           </h3>
           <div className="section">
-            <div className="md:flex items-center gap-5 p-5 border-b-[1px] text-center">
+            <div className="md:flex items-center gap-5 p-5 border-b-[1px] text-center md:text-left">
               <figure className="flex justify-center">
                 <img className="rounded-full w-20 h-20" src={insImage} alt="" />
               </figure>
@@ -221,7 +221,7 @@ const IndividualCourse = () => {
               </div>
             </div>
             <br className=" " />
-            <p className="">{insDescription}</p>
+            <p className="text-lg">{insDescription}</p>
           </div>
         </div>
 
@@ -237,7 +237,7 @@ const IndividualCourse = () => {
             <div className="space-y-2 ">
               {faqItems?.map((faq) => (
                 <div key={faq}>
-                  <details className="group border-s-4 border-green-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden rounded-lg">
+                  <details className="group border-s-4 border-black bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden rounded-lg">
                     <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                       <h2 className="text-lg font-bold text-gray-900">
                         {faq.question}

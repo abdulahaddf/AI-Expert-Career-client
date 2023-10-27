@@ -121,18 +121,7 @@ const HomeBlogs = () => {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const { language } = useContext(MyContext);
 
-  const [blogs, setBlogs] = useState([]);
 
-
-
-  useEffect(() => {
-    fetch("https://ai-server-sooty.vercel.app/blogs")
-      .then((response) => response.json())
-      .then((data) => {
-        setBlogs(data);
-        // setIsLoading(false);
-      });
-  }, []);
 
 
 

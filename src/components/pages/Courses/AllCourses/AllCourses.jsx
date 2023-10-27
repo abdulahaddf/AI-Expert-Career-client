@@ -93,11 +93,11 @@ const AllCourses = () => {
 
   if (isLoading && !banner && !courses) return <Loader />;
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-4/5 mx-auto">
       {/* Banner */}
-      <div className="my-10 flex flex-col lg:flex-row ">
+      <div className="my-10 flex flex-col lg:flex-row justify-around mx-auto">
         {/* Dynamic banners and titles */}
-        <div className="border-[1px] border-black/25 lg:w-1/2 rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
+        <div className="border-[1px] border-black/25 lg:w-1/3 mx-auto rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
           <h1 className="text-2xl text-center">{banner?.title}</h1>
           <img src={banner?.banner} alt="" />
           <h2>{banner?.subtitle}</h2>
@@ -172,7 +172,9 @@ const AllCourses = () => {
         </div>
 
         {/* Course categories */}
-        <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full lg:w-1/2 gap-5 order-2 my-5 lg:my-0 lg:order-1">
+       <div className="">
+          <h1 className="text-xl text-center font-semibold mb-5">{language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Free Courses"}</h1>
+       <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
           {categories?.map((categoryItem) => (
             <Link
               key={categoryItem.category}
@@ -192,13 +194,14 @@ const AllCourses = () => {
             </Link>
           ))}
         </div>
+       </div>
       </div>
 
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
           {language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Free Courses"}
         </h2>
-        <hr className="w-20 h-2 bg-[#FF265A]/90 rounded-full mx-auto " />
+        <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
 
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}

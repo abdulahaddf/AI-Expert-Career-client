@@ -153,11 +153,11 @@ const Blog = () => {
                     />
                   ))}
                 </div>
-                <div className="section">
-                  <h2 className="text-xl font-semibold">
+                <div className="section bg-black h-96 flex flex-col justify-center">
+                  <h2 className="text-xl font-semibold text-white">
                     Are you Want to Know The Proper Roadmap of Al Journey?
                   </h2>
-                  <Link className="btn-add my-2" to="/roadmap">Let&apos;s Go</Link>
+                  <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/roadmap">Let&apos;s Go</Link>
                 </div>
               </div>
             </div>

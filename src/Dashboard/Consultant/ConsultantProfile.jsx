@@ -195,12 +195,13 @@ const ConsultantProfile = () => {
               </p>
             </div>
             <div className="mt-8">
-              <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Description"}
+              <label className="text-lg font-bold ">
+                {language === "bn" ? "ঠিকানা" : "Career Summary"}
               </label>
               <p className="text-md">
-                {userinfo?.description ? (
-                  userinfo?.description
+                {userinfo?.summary ? (
+                  <div className="" dangerouslySetInnerHTML={{ __html: userinfo?.summary.length > 250 ? userinfo?.summary.substring(0, 250) + ' ...' : userinfo?.summary }}></div>
+      
                 ) : (
                   <p className="font-normal">null</p>
                 )}
@@ -208,11 +209,11 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "About"}
+                {language === "bn" ? "ঠিকানা" : "Company Name"}
               </label>
               <p className="text-md">
-                {userinfo?.about ? (
-                  userinfo?.about
+                {userinfo?.description ? (
+                  userinfo?.description
                 ) : (
                   <p className="font-normal">null</p>
                 )}
@@ -311,7 +312,49 @@ const ConsultantProfile = () => {
               </p>
             </div>
 
-            <div className="mt-8 "></div>
+            <div className="mt-8 ">
+            <label className="text-lg font-bold">
+                {language === "bn" ? "ঠিকানা" : "Facebook Link"}
+              </label>
+              <p className="text-md">
+                {userinfo?.facebook ? (
+                  <>
+                    {userinfo?.facebook}
+                  </>
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+              </div>
+            <div className="mt-8 ">
+            <label className="text-lg font-bold">
+                {language === "bn" ? "ঠিকানা" : "Linkedin Link"}
+              </label>
+              <p className="text-md">
+                {userinfo?.linkedin ? (
+                  <>
+                    {userinfo?.linkedin}
+                  </>
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+              </div>
+            <div className="mt-8 ">
+            <label className="text-lg font-bold">
+                {language === "bn" ? "ঠিকানা" : "Twitter Link"}
+              </label>
+              <p className="text-md ">
+                {userinfo?.twitter ? (
+                  <>
+                    {userinfo?.twitter}
+                  </>
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+              </div>
+          
           </div>
         </div>
       </div>

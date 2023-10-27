@@ -61,6 +61,7 @@ const Expertise = ({ consultant }) => {
         cName,
         cMail,
         cPhone,
+        consultant,
         request: "pending",
         confirmation: "pending",
       };
@@ -95,8 +96,8 @@ const Expertise = ({ consultant }) => {
 
   return (
     <div>
-      <h3 className="font-semibold text-2xl mt-4">Availability</h3>
-      <div className="mt-3 space-y-2 text-lg">
+      <h3 className="font-semibold text-2xl">Availability</h3>
+      <div className=" space-y-2 section text-lg ml-2 mt-2">
         {selectedDays?.map((d) => (
           <p className="flex items-center gap-1" key={d}>
             <FaRegDotCircle /> {d}
@@ -104,7 +105,7 @@ const Expertise = ({ consultant }) => {
         ))}
       </div>
       <h3 className="font-semibold text-2xl mt-4">Works With</h3>
-      <div className="mt-3 space-y-2 text-lg">
+      <div className="section text-lg ml-2 mt-2 space-y-2 ">
         {/* {workingWith.map((w,i) => <p key={i}>{w}</p>)} */}
         {workingWith?.map((d) => (
           <p className="flex items-center gap-1" key={d}>
@@ -124,8 +125,8 @@ const Expertise = ({ consultant }) => {
       </div>
 
       {hideButton && (
-        <div className="mt-24 bg-[#FFFFFF]/30 p-9">
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <div className="mt-5 bg-[#FFFFFF]/30">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 section">
             <div>
               <label htmlFor="name" className="text-xl font-semibold">
                 Name*
@@ -271,7 +272,7 @@ const Expertise = ({ consultant }) => {
                 )}
               />
             </div>
-            <div>
+            <div className="flex items-center">
               <label htmlFor="urgent" className="text-xl text-primary mr-2">
                 Is it urgent?
               </label>
@@ -282,7 +283,7 @@ const Expertise = ({ consultant }) => {
                   <input
                     {...field}
                     type="checkbox"
-                    className="checkbox checkbox-xs"
+                    className="checkbox checkbox-xs checkbox-error"
                   />
                 )}
               />
