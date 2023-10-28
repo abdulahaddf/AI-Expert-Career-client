@@ -50,6 +50,7 @@ const AddBlog = () => {
         comments: [],
         likes: [],
         dislikes: [],
+        view : 0,
       };
 
       // Send Blog Data to API

@@ -2,9 +2,22 @@
 
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCommentAlt, FaThumbsUp } from 'react-icons/fa';
+import { AiFillEye } from 'react-icons/ai';
 
 
 const BlogCard = ({ blog }) => {
+
+
+  const formatViewCount = (view) => {
+    if (view >= 1000000) {
+      return `${(view / 1000000).toFixed(1)}M`;
+    } else if (view >= 1000) {
+      return `${(view / 1000).toFixed(1)}k`;
+    }
+    return view.toString();
+  };
+
+
   // console.log(blog);
   return (
     <div  className="section w-full flex flex-col justify-between  p-2">
@@ -42,8 +55,8 @@ const BlogCard = ({ blog }) => {
             </div>
 
             <div className="flex gap-1 items-center cursor-pointer">
-              <FaCommentAlt />
-              <p className="font-bold text-[14px]">{blog?.comments.length}</p>
+              <AiFillEye />
+              <p className="font-bold text-[14px]">{formatViewCount(blog?.view)}</p>
             </div>
           </div>
         </div>

@@ -60,9 +60,9 @@ const Blog = () => {
     const getSortedData = (data, sortingOption) => {
       switch (sortingOption) {
         case "Trends":
+          return data.sort((a, b) => b.view - a.view);
+        case "Most Liked":
           return data.sort((a, b) => b.likes.length - a.likes.length);
-        case "Most Reviews":
-          return data.sort((a, b) => b.comments.length - a.comments.length);
         default:
           return data;
       }
@@ -130,7 +130,7 @@ const Blog = () => {
             >
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
-              <option value="Most Reviews">Most Reviews</option>
+              <option value="Most Liked">Most Liked</option>
             </select>
           </div>
         </div>
