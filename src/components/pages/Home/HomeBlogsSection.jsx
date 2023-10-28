@@ -41,15 +41,15 @@ const HomeBlogsSection = () => {
             : "Blogs"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
-      <div className="11/12 mx-auto px-2 py-16 sm:px-0">
+      <div className="11/12 mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex space-x-5 rounded-xl bg-blue-900/20 text-black p-1">
+          <Tab.List className="flex space-x-5 rounded-full bg-blue-900/20 text-black p-1">
             {categories.map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) => (
-                  `w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black
-                  ring-white/60 ring-offset-2 ring-offset-black focus:outline-none focus:ring-2
+                  `w-full rounded-full py-2.5 text-sm font-medium leading-5 text-black
+                  ring-white/60  focus:outline-none 
                   ${selected ? 'bg-white shadow text-black' : 'text-black hover:bg-white/[0.12] hover:text-white'}`
                 )}
               >
@@ -64,7 +64,7 @@ const HomeBlogsSection = () => {
               categories.map((category, index) => (
                 <Tab.Panel
                   key={index}
-                  className="rounded-xl bg-white p-3 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                  className="rounded-full bg-white p-3 "
                 >
                   <div className="pt-3 grid grid-cols-2 gap-x-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
 
