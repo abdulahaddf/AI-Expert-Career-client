@@ -213,7 +213,7 @@ const EditCourse = () => {
 
         // Send Course Data to API
         const apiResponse = await fetch(
-          `http://localhost:500/update-course/${id}`,
+          `https://ai-server-sooty.vercel.app/update-course/${id}`,
           {
             method: "PATCH",
             headers: {

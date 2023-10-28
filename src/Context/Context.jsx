@@ -10,11 +10,7 @@ const Context = ({ children }) => {
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'bn');
 
 
-  // useEffect(() => {
-  //   fetch("http://localhost/users")
-  //   .then((response) => response.json())
-  //   .then(data => setUser(data))
-  // }, [])
+
 
 
 

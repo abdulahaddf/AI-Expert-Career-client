@@ -10,6 +10,7 @@ import HomeSearch from "./HomeSearch";
 import HomeTestimonial from "./HomeTestimonial";
 import HomeBlogs from "./HomeBlog";
 import HomeBlogsSection from "./HomeBlogsSection";
+import HomeCourseSection from "./HomeCourseSection";
 
 const Home = () => {
   useEffect(() => {
@@ -22,9 +23,9 @@ const Home = () => {
       <div className="lg:mt-[580px] mt-[870px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
         <HomeSearch />
         <HomeAbout />
-        <HomeCourses />
+        <HomeCourseSection />
         <HomeHeading />
-        <HomeBlogs />
+        {/* <HomeBlogs /> */}
       <HomeBlogsSection/>
         <HomeTestimonial />
         <HomeEvent />

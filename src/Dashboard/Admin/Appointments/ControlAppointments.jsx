@@ -111,7 +111,7 @@ const ControlAppointments = () => {
       });
   
       // Define the API request for approving the appointment
-      const approveRequest = fetch(`http://localhost:5000/appointConfirmation/${a._id}`, {
+      const approveRequest = fetch(`https://ai-server-sooty.vercel.app/appointConfirmation/${a._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
