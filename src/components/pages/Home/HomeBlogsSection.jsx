@@ -43,7 +43,7 @@ const HomeBlogsSection = () => {
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
       <div className="11/12 mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex space-x-5 rounded-full bg-blue-900/20 text-black p-1">
+          <Tab.List className="flex space-x-2 overflow-x-auto md:space-x-5  rounded-full bg-blue-900/20 text-black p-1">
             {categories.map((category) => (
               <Tab
                 key={category}
@@ -66,7 +66,7 @@ const HomeBlogsSection = () => {
                   key={index}
                   className="rounded-full bg-white p-3 "
                 >
-                  <div className="pt-3 grid grid-cols-2 gap-x-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
+                  <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
 
                   {blogs
                     .filter((blog) => blog.category === category)

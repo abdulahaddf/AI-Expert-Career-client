@@ -11,6 +11,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
 import UseUser from "../../hooks/useUser";
 import HomeSearch from "../pages/Home/HomeSearch";
+import SearchBox from "./SearchBox/SearchBox";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -136,20 +137,14 @@ const Navbar = () => {
                 />
               </Link>
             }
-            <div className=" flex items-center   mr-32">
-              {/* <img className="-mr-14 z-20" src={Search} alt="" /> */}
-              <input
-                className="px-4 bg-white text-xs rounded-full w-[250px] h-[41px] relative border-black/25 border-2"
-                placeholder={
-                  language === "bn"
-                    ? "পছন্দের কোর্সগুলো খুঁজুন"
-                    : "Search your favorite courses"
-                }
-                type="search"
-                name="jobSearch"
-                id=""
-              />
-            </div>
+
+
+<SearchBox/>
+
+
+
+
+
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
