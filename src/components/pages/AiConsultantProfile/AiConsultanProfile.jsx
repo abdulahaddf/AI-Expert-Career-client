@@ -3,7 +3,7 @@ import profile from "../../../assets/AiConsultant/Ellipse 46.png";
 import { BsFillStarFill } from "react-icons/bs";
 import Expertise from "./Expertise";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 import Loader from "../../common/loader/Loader";
@@ -88,21 +88,21 @@ const AiConsultanProfile = () => {
                 </p>
                </div>
                 <div className="flex lg:justify-center items-center gap-3 mr-10">
-                  <FacebookShareButton url={facebook}>
+                  <Link to={facebook} target="_blank">
                     <div className=" text-3xl text-primary cursor-pointer">
                       <BsFacebook />
                     </div>
-                  </FacebookShareButton>
-                  <LinkedinShareButton url={linkedin}>
+                  </Link>
+                  <Link to={linkedin} target="_blank">
                     <div className=" text-3xl text-primary  cursor-pointer">
                       <BsLinkedin />
                     </div>
-                  </LinkedinShareButton>
-                  <TwitterShareButton url={twitter}>
+                  </Link>
+                  <Link to={twitter} target="_blank">
                     <div className="text-3xl text-primary cursor-pointer">
                       <BsTwitter />
                     </div>
-                  </TwitterShareButton>
+                  </Link>
                 </div>
 
                 <CopyURLButton text={"Share Profile"}/>
