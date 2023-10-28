@@ -19,10 +19,11 @@ import {
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 import CopyURLButton from "./CopyUrlButton";
 import { useState } from "react";
+import ConReview from "./ConReview";
 
 const AiConsultanProfile = () => {
   const id = useParams();
-  console.log(id);
+  // console.log(id);
   const { language } = useContext(MyContext);
   const [consultant, setCon] = useState([])
   const [loading, setIsLoading]= useState(true)
@@ -55,11 +56,11 @@ const AiConsultanProfile = () => {
     linkedin,
     twitter,
   } = consultant;
-  console.log(consultant);
+  // console.log(consultant);
 
   const today = moment().format("dddd");
 
-  console.log(today);
+  // console.log(today);
 
   // scrollTo
   useEffect(() => {
@@ -204,6 +205,7 @@ const AiConsultanProfile = () => {
             <Expertise consultant={consultant} />
           </div>
         </div>
+          <ConReview cMail={email}/>
       </div>
     </div>
   );

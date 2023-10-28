@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import Swal from 'sweetalert2';
-import AddConReview from './AddConReview';
 
-const AddReviews = () => {
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
+
+const AddConReview = () => {
     const [image, setImage] = useState(null);
     const {
         register,
@@ -47,7 +46,7 @@ const AddReviews = () => {
 
       // Send Feedback Data to API
       const apiResponse = await fetch(
-        "http://localhost:5000/feedback",
+        "http://localhost:5000/review",
         {
           method: "POST",
           headers: {
@@ -85,15 +84,16 @@ const AddReviews = () => {
       });
     }
   };
-
-  return (
-    <div className='flex justify-around '>
-          <AddConReview/>
-      <div >
-        <h1 className="text-2xl font-bold text-center mb-4">Add Our Feedback</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    return (
+        <div>
+            <h1 className="text-2xl font-bold text-center mb-4">Add Consultant Review</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block mb-1">Name:</label>
+            <label htmlFor="email" className="block mb-1">Consultant Mail:</label>
+            <input {...register('email', { required: true })} type="email" id="email" className="w-80 border border-gray-300 rounded-xl px-3 py-2" />
+          </div>
+          <div>
+            <label htmlFor="name" className="block mb-1">Reviewer Name:</label>
             <input {...register('name', { required: true })} type="text" id="name" className="w-80 border border-gray-300 rounded-xl px-3 py-2" />
           </div>
           <div>
@@ -123,11 +123,8 @@ const AddReviews = () => {
             Submit
           </button>
         </form>
-      </div>
-    
-
-    </div>
-  );
+        </div>
+    );
 };
 
-export default AddReviews;
+export default AddConReview;

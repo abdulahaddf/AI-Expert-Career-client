@@ -16,21 +16,21 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const HomeTestimonial = () => {
+const ConReview = ({cMail}) => {
   const { language } = useContext(MyContext);
  const [feedback,setFeedback] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:5000/feedback")
+    fetch("http://localhost:5000/review")
       .then((response) => response.json())
       .then((data) => {
         setFeedback(data);
         // setIsLoading(false);
       });
   }, []);
-
-
-
+console.log(cMail);
+const filtered = feedback.filter(f => f.email === cMail) 
+console.log(filtered);
   return (
     <div className="mt-[80px] mb-[35px] relative">
       <h3 className="text-center font-bold text-[30px]">
@@ -74,7 +74,7 @@ const HomeTestimonial = () => {
           modules={[FreeMode, Pagination]}
           className="w-[95%] mx-auto"
         >
-          {feedback?.map(
+            {filtered.length > 0 ? <> {filtered?.map(
             ({ _id, name, imageURL, designation, feedback }) => (
               <SwiperSlide key={_id} className=" pb-16">
                 <div className="p-10 bg-[#fff] shadow-xl rounded-[20px] text-center mt-[120px] relative">
@@ -93,7 +93,8 @@ const HomeTestimonial = () => {
                 </div>
               </SwiperSlide>
             )
-          )}
+          )}</> : <p className="text-center text-xl my-10">No Reviews</p>}
+         
         </Swiper>
 
         {/* Pagination */}
@@ -102,4 +103,4 @@ const HomeTestimonial = () => {
   );
 };
 
-export default HomeTestimonial;
+export default ConReview;
