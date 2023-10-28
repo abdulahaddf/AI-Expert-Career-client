@@ -15,9 +15,7 @@ const ControlAppointments = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const editor = useRef(null);
-  console.log(message)
-
-
+  console.log(message);
 
   // console.log(appointments)
   console.log(toEmail1, toEmail2, subject, message);
@@ -56,52 +54,107 @@ const ControlAppointments = () => {
       });
   };
 
+  // const sendEmail = async (a) => {
+  //   setToEmail1(a.email);
+  //   setToEmail2(a.cMail);
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://ai-server-sooty.vercel.app/send-email",
+  //       {
+  //         method: "POST", // Use POST to send the email data
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           toEmail1,
+  //           toEmail2,
+  //           subject,
+  //           message,
+  //         }),
+  //       }
+  //     );
+  //     // console.log(response);
+  //     if (response.ok) {
+  //       document.getElementById(a.createAt).close();
+  //       toast.success("Email sent successfully!");
+  //     } else {
+  //       toast.error("Failed to send the email.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sending email:", error);
+  //     alert("An error occurred while sending the email.");
+  //   }
+  // };
+
+
+
+
+
   const sendEmail = async (a) => {
     setToEmail1(a.email);
     setToEmail2(a.cMail);
-
+  
     try {
-      const response = await fetch(
-        "https://ai-server-sooty.vercel.app/send-email",
-        {
-          method: "POST", // Use POST to send the email data
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            toEmail1,
-            toEmail2,
-            subject,
-            message,
-          }),
-        }
-      );
-      // console.log(response);
-      if (response.ok) {
+      // Define the API request for sending the email
+      const emailRequest = fetch("https://ai-server-sooty.vercel.app/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          toEmail1,
+          toEmail2,
+          subject,
+          message,
+        })
+      });
+  
+      // Define the API request for approving the appointment
+      const approveRequest = fetch(`http://localhost:5000/appointConfirmation/${a._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ confirmation: "approved" }),
+      });
+  
+      // Use Promise.all() to send both requests simultaneously
+      const [emailResponse, approveResponse] = await Promise.all([emailRequest, approveRequest]);
+  
+      if (emailResponse.ok && approveResponse.ok) {
+        // Handle success for both requests
         document.getElementById(a.createAt).close();
-        toast.success("Email sent successfully!");
+        toast.success("Emails sent and request approved successfully!");
       } else {
-        toast.error("Failed to send the email.");
+        // Handle error for one or both requests
+        toast.error("Failed to send email or approve the request.");
       }
     } catch (error) {
-      console.error("Error sending email:", error);
-      alert("An error occurred while sending the email.");
+      console.error("Error sending email or approving the request:", error);
+      alert("An error occurred while sending the email or approving the request.");
     }
   };
-
-
   
-  
-    const editorStyle = {
-      border: '1px solid #ccc',
-      borderRadius: '4px',
-      minHeight: '200px',
-      padding: '10px',
-      // zIndex: 10000,
-    };
 
 
-  if(!appointments) return <Loader/>;
+
+
+
+
+
+
+
+
+  const editorStyle = {
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    minHeight: "200px",
+    padding: "10px",
+    // zIndex: 10000,
+  };
+
+  if (!appointments) return <Loader />;
   return (
     <div>
       <h1 className="text-3xl text-center my-5">Control Appointments</h1>
@@ -293,9 +346,8 @@ const ControlAppointments = () => {
                             className="w-full p-2 border rounded "
                           />
                         </div>
-                        <div  className="mb-4 ">
+                        <div className="mb-4 ">
                           <p className="font-semibold pb-1">Mail body</p>
-                         
 
                           <JoditEditor
                             id="message"
@@ -308,10 +360,10 @@ const ControlAppointments = () => {
                         </div>
                         <div className="text-center">
                           <button
-                            onClick={() => sendEmail(a)}
+                            onClick={() => sendEmail(a)} // Pass the 'a' object and the 'id' to the function
                             className="btn-black"
                           >
-                            Send Email
+                            Send Email & Approve
                           </button>
                         </div>
                       </div>
