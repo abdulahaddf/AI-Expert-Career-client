@@ -1,20 +1,16 @@
-import React from 'react';
-import { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
-import Swal from 'sweetalert2';
-import AddConReview from './AddConReview';
+import React from "react";
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import Swal from "sweetalert2";
+import AddConReview from "./AddConReview";
 
 const AddReviews = () => {
-    const [image, setImage] = useState(null);
-    const {
-        register,
-        handleSubmit,
-        reset,
-      } = useForm();
+  const [image, setImage] = useState(null);
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     // console.log(data);
-    const {name, designation, feedback} =data;
+    const { name, designation, feedback } = data;
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
@@ -42,12 +38,11 @@ const AddReviews = () => {
         designation,
         feedback,
         imageURL: cover_image_url,
-        
       };
 
       // Send Feedback Data to API
       const apiResponse = await fetch(
-        "http://localhost:5000/feedback",
+        "https://ai-server-sooty.vercel.app/feedback",
         {
           method: "POST",
           headers: {
@@ -71,7 +66,7 @@ const AddReviews = () => {
           confirmButtonText: "Ok",
         });
         // Reset the input fields to empty values
-     reset();
+        reset();
         setImage(null);
       }
     } catch (error) {
@@ -87,18 +82,34 @@ const AddReviews = () => {
   };
 
   return (
-    <div className='flex justify-around '>
-          <AddConReview/>
-      <div >
-        <h1 className="text-2xl font-bold text-center mb-4">Add Our Feedback</h1>
+    <div className="flex justify-around ">
+      <AddConReview />
+      <div>
+        <h1 className="text-2xl font-bold text-center mb-4">
+          Add Our Feedback
+        </h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block mb-1">Name:</label>
-            <input {...register('name', { required: true })} type="text" id="name" className="w-80 border border-gray-300 rounded-xl px-3 py-2" />
+            <label htmlFor="name" className="block mb-1">
+              Name:
+            </label>
+            <input
+              {...register("name", { required: true })}
+              type="text"
+              id="name"
+              className="w-80 border border-gray-300 rounded-xl px-3 py-2"
+            />
           </div>
           <div>
-            <label htmlFor="designation" className="block mb-1">Designation:</label>
-            <input {...register('designation', { required: true })} type="text" id="designation" className="w-80 border border-gray-300 rounded-xl px-3 py-2" />
+            <label htmlFor="designation" className="block mb-1">
+              Designation:
+            </label>
+            <input
+              {...register("designation", { required: true })}
+              type="text"
+              id="designation"
+              className="w-80 border border-gray-300 rounded-xl px-3 py-2"
+            />
           </div>
           <div className="mb-4">
             <label
@@ -116,16 +127,20 @@ const AddReviews = () => {
             />
           </div>
           <div>
-            <label htmlFor="feedback" className="block mb-1">Feedback:</label>
-            <textarea {...register('feedback', { required: true })} id="feedback" className="w-80 border border-gray-300 rounded-xl px-3 py-2"></textarea>
+            <label htmlFor="feedback" className="block mb-1">
+              Feedback:
+            </label>
+            <textarea
+              {...register("feedback", { required: true })}
+              id="feedback"
+              className="w-80 border border-gray-300 rounded-xl px-3 py-2"
+            ></textarea>
           </div>
           <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
             Submit
           </button>
         </form>
       </div>
-    
-
     </div>
   );
 };

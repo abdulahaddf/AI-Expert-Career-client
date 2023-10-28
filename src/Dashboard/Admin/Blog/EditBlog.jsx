@@ -22,6 +22,7 @@ const EditBlog = () => {
   //     selectedTags} = blog;
 
   const [blogName, setBlogName] = useState("");
+  const [min, setMin] = useState("");
   const [description, setDescription] = useState("");
   const [descriptionBN, setDescriptionBN] = useState("");
   const editor = useRef(null);
@@ -60,6 +61,7 @@ const EditBlog = () => {
         // Prepare Blog Data
         const blogData = {
           blogName: blogName.length > 0 ? blogName : blog.blogName,
+          min: min ? min : blog?.min,
           category: category.length > 0 ? category : blog.category,
           subcategory: subcategory.length > 0 ? subcategory : blog.subcategory,
           selectedTags:
@@ -97,6 +99,7 @@ const EditBlog = () => {
           });
           // Reset the input fields to empty values
           setBlogName("");
+          setMin("");
           setDescription("");
           setCategory("");
           setSubcategory("");
@@ -118,6 +121,7 @@ const EditBlog = () => {
         // Prepare Blog Data
         const blogData = {
           blogName: blogName.length > 0 ? blogName : blog.blogName,
+          min: min ? min : blog?.min,
           category: category.length > 0 ? category : blog.category,
           subcategory: subcategory.length > 0 ? subcategory : blog.subcategory,
           selectedTags:
@@ -154,6 +158,7 @@ const EditBlog = () => {
           });
           // Reset the input fields to empty values
           setBlogName("");
+          setMin("");
           setDescription("");
           setCategory("");
           setSubcategory("");
@@ -369,7 +374,7 @@ const EditBlog = () => {
           <JoditEditor
             id="description"
             ref={editor}
-            value={blog.description}
+            value={blog?.description}
             tabIndex={1} // tabIndex of textarea
             onChange={(newDescription) => setDescription(newDescription)}
           />
@@ -385,11 +390,27 @@ const EditBlog = () => {
           <JoditEditor
             id="descriptionBN"
             ref={editor}
-            value={blog.descriptionBN}
+            value={blog?.descriptionBN}
             tabIndex={1} // tabIndex of textarea
             onChange={(newDescription) => setDescriptionBN(newDescription)}
           />
         </div>
+        <div className="mb-4">
+            <label
+              htmlFor="min"
+              className="block mb-2 font-medium text-gray-700"
+            >
+              Time required to read
+            </label>
+            <input
+              type="number"
+              id="min"
+              required
+              className="w-80 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-orange"
+              value={blog?.min}
+              onChange={(e) => setMin(e.target.value)}
+            />
+          </div>
         <button
           type="submit"
           className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg"
