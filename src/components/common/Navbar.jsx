@@ -19,7 +19,7 @@ const Navbar = () => {
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
   const isAdmin = userinfo?.role === "admin";
-console.log(isAdmin)
+  console.log(isAdmin);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -121,7 +121,7 @@ console.log(isAdmin)
       </li>
 
       <li>
-      <NavLink
+        <NavLink
           to="/roadmap"
           className={({ isActive, isPending }) =>
             isActive
@@ -133,10 +133,9 @@ console.log(isAdmin)
         >
           AI Roadmap
         </NavLink>
-            
-          </li>
+      </li>
       <li>
-      <NavLink
+        <NavLink
           to="/courses"
           className={({ isActive, isPending }) =>
             isActive
@@ -146,12 +145,11 @@ console.log(isAdmin)
               : "px-3 hover:text-[#ED1B24] duration-150"
           }
         >
-            Course
+          Course
         </NavLink>
-            
-          </li>
+      </li>
       <li>
-      <NavLink
+        <NavLink
           to="/ai-consultant"
           className={({ isActive, isPending }) =>
             isActive
@@ -161,15 +159,12 @@ console.log(isAdmin)
               : "px-3 hover:text-[#ED1B24] duration-150"
           }
         >
-             AI Consultancy
+          AI Consultancy
         </NavLink>
-            
-          </li>
-          
-          
+      </li>
+
       <li>
         <ul className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg">
-         
           {/* <li className="mt-2">
             <Link className="duration-100 hover:text-[red]" to="/">
               Job Opportunity
@@ -255,7 +250,6 @@ console.log(isAdmin)
           </div>
         </NavLink>
       </li> */}
-
     </>
   );
 
@@ -283,22 +277,20 @@ console.log(isAdmin)
                 />
               </Link>
             }
-             <div className=" flex items-center   mr-32">
-            {/* <img className="-mr-14 z-20" src={Search} alt="" /> */}
-            <input
-              className="px-4 bg-white text-xs rounded-full w-[250px] h-[41px] relative border-black/25 border-2"
-              placeholder={
-                language === "bn"
-                  ? "পছন্দের কোর্সগুলো খুঁজুন"
-                  : "Search your favorite courses"
-              }
-              type="search"
-              name="jobSearch"
-              id=""
-            />
-
-          
-          </div>
+            <div className=" flex items-center   mr-32">
+              {/* <img className="-mr-14 z-20" src={Search} alt="" /> */}
+              <input
+                className="px-4 bg-white text-xs rounded-full w-[250px] h-[41px] relative border-black/25 border-2"
+                placeholder={
+                  language === "bn"
+                    ? "পছন্দের কোর্সগুলো খুঁজুন"
+                    : "Search your favorite courses"
+                }
+                type="search"
+                name="jobSearch"
+                id=""
+              />
+            </div>
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
@@ -393,34 +385,35 @@ console.log(isAdmin)
                       className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-32
                   rounded-box   text-left h-96"
                     >
-                      <li className=" mt-3">
-                        <Link
-                          to="/dashboard/my-profile"
-                          className="justify-between hover:no-underline ml-2 hover:text-primary"
-                        >
-                          My Profile
-                          <span className=""></span>
-                        </Link>
-                      </li>
                       <li className="">
                         {user ? (
                           isAdmin ? (
                             <li>
-                              <Link
-                                to="/dashboard/my-profile"
-                                className=" hover:no-underline hover:text-primary ml-2"
-                              >
-                                Dashboard
-                              </Link>
-                              <li>
-
-                              <Link
-                                to="/dashboard/manage-users"
-                                className=" hover:no-underline hover:text-primary ml-2"
+                              <li className=" mt-3">
+                                <Link
+                                  to="/dashboard/my-profile"
+                                  className="justify-between hover:no-underline ml-2 hover:text-primary"
                                 >
-                                Manage Users
-                              </Link>
-                                </li>
+                                  My Profile
+                                  <span className=""></span>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link
+                                  to="/dashboard/my-profile"
+                                  className=" hover:no-underline hover:text-primary ml-2"
+                                >
+                                  Dashboard
+                                </Link>
+                              </li>
+                              <li>
+                                <Link
+                                  to="/dashboard/manage-users"
+                                  className=" hover:no-underline hover:text-primary ml-2"
+                                >
+                                  Manage Users
+                                </Link>
+                              </li>
                               <li
                                 className=" hover:text-primary  hover:no-underline ml-2"
                                 onClick={logOut}
@@ -428,17 +421,24 @@ console.log(isAdmin)
                                 Logout
                               </li>
                             </li>
-                          ) : (
+                          ) : userinfo?.role === "consultant" ?                       
+                          <li className=" mt-3">
+                          <Link
+                            to="/dashboard/consultant-profile"
+                            className="justify-between hover:no-underline ml-2 hover:text-primary"
+                          >
+                            My Profile
+                            <span className=""></span>
+                          </Link>
+                        </li> : (
                             <li className="flex flex-col h-96  pb-5 ">
-                             
                               <Link
                                 to="/dashboard/my-profile"
                                 className="hover:no-underline hover:text-primary ml-2"
                               >
                                 Dashboard
                               </Link>
-                              
-                              
+
                               <li
                                 className=" hover:text-primary  hover:no-underline ml-2"
                                 onClick={logOut}
@@ -459,9 +459,6 @@ console.log(isAdmin)
               ) : (
                 ""
               )}
-
-            
-           
             </div>
             {!scrollNav && (
               <div className="lg:hidden ">
@@ -535,95 +532,97 @@ console.log(isAdmin)
                             </NavLink>
                           </li>
                           {user ? (
-                <div>
-                  <div
-                    className=" dropdown dropdown-hover "
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <label
-                      tabIndex={0}
-                      className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
-                    >
-                      {" "}
-                      <div className="flex items-center hover:text-primary">
-                        <img
-                          className="w-[60px] h-[60px] rounded-full"
-                          src={
-                            user?.photoURL ||
-                            "https://i.ibb.co/sg6hmZ7/user.png"
-                          }
-                          alt="user"
-                        />
+                            <div>
+                              <div
+                                className=" dropdown dropdown-hover "
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                              >
+                                <label
+                                  tabIndex={0}
+                                  className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                                >
+                                  {" "}
+                                  <div className="flex items-center hover:text-primary">
+                                    <img
+                                      className="w-[60px] h-[60px] rounded-full"
+                                      src={
+                                        user?.photoURL ||
+                                        "https://i.ibb.co/sg6hmZ7/user.png"
+                                      }
+                                      alt="user"
+                                    />
 
-                        <span className="text-xl ">
-                          <RiArrowDownSLine
-                            className={`${
-                              isHovered ? "transform rotate-180 " : ""
-                            } transition-transform duration-300 inline-block `}
-                          ></RiArrowDownSLine>
-                        </span>
-                      </div>
-                    </label>
-                    <ul
-                      tabIndex={0}
-                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                                    <span className="text-xl ">
+                                      <RiArrowDownSLine
+                                        className={`${
+                                          isHovered
+                                            ? "transform rotate-180 "
+                                            : ""
+                                        } transition-transform duration-300 inline-block `}
+                                      ></RiArrowDownSLine>
+                                    </span>
+                                  </div>
+                                </label>
+                                <ul
+                                  tabIndex={0}
+                                  className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
                   rounded-box  md:w-40 lg:w-36 "
-                    >
-                      <li className="ml-3 mt-3">
-                        <Link
-                          to="/dashboard/my-profile"
-                          className="justify-between hover:no-underline  hover:text-primary"
-                        >
-                          My Profile
-                          <span className=""></span>
-                        </Link>
-                      </li>
-                      <li>
-                        {user ? (
-                          isAdmin ? (
-                            <li>
-                              <Link
-                                to="/dashboard/my-profile"
-                                className="hover:no-underline hover:text-primary ml-3"
-                              >
-                                Dashboard
-                              </Link>
-                              <li
-                                className="hover:text-primary  hover:no-underline ml-3"
-                                onClick={logOut}
-                              >
-                                Logout
-                              </li>
-                            </li>
-                          ) : (
-                            <li className="flex flex-col ml-3 pb-5 ">
-                              <Link
-                                to="/dashboard/my-profile"
-                                className="hover:no-underline hover:text-primary ml-3"
-                              >
-                                Dashboard
-                              </Link>
-                              <li
-                                className="hover:text-primary  hover:no-underline ml-3"
-                                onClick={logOut}
-                              >
-                                Logout
-                              </li>
-                            </li>
-                          )
-                        ) : (
-                          ""
-                        )}
-                      </li>
+                                >
+                                  <li className="ml-3 mt-3">
+                                    <Link
+                                      to="/dashboard/my-profile"
+                                      className="justify-between hover:no-underline  hover:text-primary"
+                                    >
+                                      My Profile
+                                      <span className=""></span>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    {user ? (
+                                      isAdmin ? (
+                                        <li>
+                                          <Link
+                                            to="/dashboard/my-profile"
+                                            className="hover:no-underline hover:text-primary ml-3"
+                                          >
+                                            Dashboard
+                                          </Link>
+                                          <li
+                                            className="hover:text-primary  hover:no-underline ml-3"
+                                            onClick={logOut}
+                                          >
+                                            Logout
+                                          </li>
+                                        </li>
+                                      ) : (
+                                        <li className="flex flex-col ml-3 pb-5 ">
+                                          <Link
+                                            to="/dashboard/my-profile"
+                                            className="hover:no-underline hover:text-primary ml-3"
+                                          >
+                                            Dashboard
+                                          </Link>
+                                          <li
+                                            className="hover:text-primary  hover:no-underline ml-3"
+                                            onClick={logOut}
+                                          >
+                                            Logout
+                                          </li>
+                                        </li>
+                                      )
+                                    ) : (
+                                      ""
+                                    )}
+                                  </li>
 
-                      <li></li>
-                    </ul>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
+                                  <li></li>
+                                </ul>
+                              </div>
+                            </div>
+                          ) : (
+                            ""
+                          )}
                           <li className="text-center">
                             <Link
                               className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
@@ -672,7 +671,7 @@ console.log(isAdmin)
           </div>
         </div>
       </div>
-{/* Scroll nav starts from here */}
+      {/* Scroll nav starts from here */}
       <div
         className={`shadow bg-white fixed top-0 w-full z-[100] ${
           scrollNav
@@ -726,9 +725,7 @@ console.log(isAdmin)
               </ul>
               {user ? (
                 <Link className="hidden sm:block" to="/courses">
-                  <button className=" button-30 px-5 btn-sm  ">
-                    Enroll
-                  </button>
+                  <button className=" button-30 px-5 btn-sm  ">Enroll</button>
                 </Link>
               ) : (
                 <Link
@@ -742,29 +739,29 @@ console.log(isAdmin)
                   </span>
                 </Link>
               )}
-                <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
-                  <p
-                    onClick={() => setLanguage("bn")}
-                    className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
-                      language == "bn"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#ffffff] text-black"
-                    }`}
-                  >
-                    বাংলা
-                  </p>
-                  <p
-                    onClick={() => setLanguage("en")}
-                    className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
-                      language == "en"
-                        ? "bg-[#ED1B24] text-white"
-                        : "bg-[#fbf9f9] text-black"
-                    }`}
-                  >
-                    Eng
-                  </p>
-                </button>
-                {user ? (
+              <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+                <p
+                  onClick={() => setLanguage("bn")}
+                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                    language == "bn"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#ffffff] text-black"
+                  }`}
+                >
+                  বাংলা
+                </p>
+                <p
+                  onClick={() => setLanguage("en")}
+                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                    language == "en"
+                      ? "bg-[#ED1B24] text-white"
+                      : "bg-[#fbf9f9] text-black"
+                  }`}
+                >
+                  Eng
+                </p>
+              </button>
+              {user ? (
                 <div>
                   <div
                     className=" dropdown dropdown-hover "
@@ -854,10 +851,6 @@ console.log(isAdmin)
               ) : (
                 ""
               )}
-
-          
-              
-            
             </div>
             {scrollNav && (
               <div className="lg:hidden ">

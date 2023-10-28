@@ -60,72 +60,62 @@ const FreeEnroll = () => {
   };
   if (!userinfo) return <Loader />;
   return (
-    <div className="flex justify-evenly h-[70vh] items-center">
-      <div className="section h-fit w-2/5 text-xl p-14">
-        <h1 className="font-bold my-4">Your Information:</h1>
 
-        <div className="space-y-2 ">
-          <p>
-            <span className="font-semibold">Name:</span> {userinfo.displayName}
-          </p>
-          <hr />
-          <p>
-            <span className="font-semibold">Email :</span> {userinfo.email}
-          </p>
-          <hr />
-          <p>
-            <span className="font-semibold">Phone:</span>{" "}
-            {userinfo.phone ? userinfo.phone : "null"}
-          </p>
-
-          <p>
-            If you want to update your Information{" "}
-            <Link to="/dashboard/my-profile" className="text-blue-600">
-              Click Here
-            </Link>
-          </p>
-        </div>
-      </div>
-      <div className="flex section">
-        <div className=" p-12 text-xl space-y-3">
-          <h1 className="font-bold my-4">Course Details</h1>
-          <p className="font-semibold">{title}</p>
-          <p className="">Free Course</p>
-          <div className="flex items-center gap-3">
-           
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-                className="checkbox checkbox-sm checkbox-error "
-              />
-               <Link
-              to="/terms&conditions"
-              className="flex items-center gap-3 text-sm"
-            >
-              Accept All Terms and Conditions
-            </Link>
-            <br />
-          </div>
-          <Link
-            onClick={handleSubmit}
-            disabled={!isChecked}
-            state={title}
-            to="/complete-enroll"
-            className="btn-add"
-          >
-            Complete Enrollment
-          </Link>
-        </div>
-        <div className="w-42 flex items-center ">
-          <Lottie
-            className="select-none pointer-events-none no-select unselectable w-full"
-            animationData={free}
-            loop={true}
-          />
-        </div>
-      </div>
+    <div className="section mx-auto my-5 md:my-10 md:w-2/5 w-11/12 text-xl md:p-14">
+    <h1 className="font-bold text-2xl my-4">Your Information:</h1>
+  
+    <div className="space-y-4">
+      <p className="font-semibold">
+        Name: <span className="text-primary">{userinfo.displayName}</span>
+      </p>
+      <hr className="border-t border-gray-300" />
+      <p className="font-semibold">
+        Email: <span className="text-primary">{userinfo.email}</span>
+      </p>
+      <hr className="border-t border-gray-300" />
+      <p className="font-semibold">
+        Phone:{" "}
+        {userinfo.phone ? (
+          <span className="text-primary">{userinfo.phone}</span>
+        ) : (
+          <span className="text-gray-400">null</span>
+        )}
+      </p>
+      <p>
+        If you want to update your Information{" "}
+        <Link to="/dashboard/my-profile" className="text-blue-600">
+          Click Here
+        </Link>
+      </p>
     </div>
+    {/* </div> */}
+    <div className=" py-5 text-xl space-y-3">
+      <h1 className="font-bold text-2xl my-4">Course Details</h1>
+      <p className="font-semibold">{title}</p>
+      <p>Free Course</p>
+      <div className="flex items-center gap-3">
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          className="h-5 w-5 text-primary"
+        />
+        <Link to="/terms&conditions" className="text-primary">
+          Accept All Terms and Conditions
+        </Link>
+      </div>
+      <Link
+        onClick={handleSubmit}
+        disabled={!isChecked}
+        state={title}
+        to="/complete-enroll"
+        className={`btn-add ${!isChecked && "opacity-50 cursor-not-allowed"}`}
+      >
+        Complete Enrollment
+      </Link>
+    </div>
+  </div>
+  
   );
 };
 

@@ -147,7 +147,7 @@ const AiConsultanProfile = () => {
                 {recentWorks?.map((r) => (
                   <div key={r} className="flex items-center gap-2 ">
                     <LuNewspaper />
-                    <li className="text-xl font-medium ">{r}</li>
+                    <Link to={r?.link} target="_blank" className="text-xl font-medium ">{r?.work}</Link>
                   </div>
                 ))}
               </ul>

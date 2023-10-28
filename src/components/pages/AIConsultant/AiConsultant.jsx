@@ -177,8 +177,8 @@ const AiConsultant = () => {
                 ? "ক্যাটাগরি নির্বাচন করুণ"
                 : "Search Your Consultant"}
             </h3>
-            <div className="border p-2 flex justify-evenly">
-              <label htmlFor="daySelect" className="mr-2">
+            <div className="border p-2 flex justify-between md:justify-evenly ">
+              <label htmlFor="daySelect" className="mr-2 text-left">
                 Select Day:
               </label>
               <select
@@ -193,7 +193,7 @@ const AiConsultant = () => {
                 ))}
               </select>
             </div>
-            <div className="border p-2 flex justify-evenly">
+            <div className="border p-2 flex justify-between md:justify-evenly">
               <label htmlFor="workingWithSelect" className="mr-2">
                 Select Working With:
               </label>
@@ -232,8 +232,8 @@ const AiConsultant = () => {
                   state={c}
                   className="flex items-center p-2    "
                 >
-                  <div className="lg:flex section w-full mx-auto gap-2 relative">
-                    <div className="w-4/6 my-5 md:my-3 ">
+                  <div className="lg:flex section w-full mx-auto gap-2  relative">
+                    <div className="w-4/6  my-5 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (
                           <span className="bg-primary text-white rounded-full px-2 absolute top-2 left-4">
@@ -249,7 +249,7 @@ const AiConsultant = () => {
                       </h2>
                       <p className="mb-5">{c.designation}</p>
                       <h2 className="text-[17px] font-bold">Availability</h2>
-                      <p className="text-[#515151]/90 flex gap-3 mt-1 mb-2">
+                      <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1 mb-2">
                         {c?.selectedDays?.map((d) => (
                           <p className="flex items-center gap-1" key={d}>
                             <FaRegDotCircle /> {d}
@@ -257,7 +257,7 @@ const AiConsultant = () => {
                         ))}
                       </p>
                       <h2 className="text-[17px] font-bold">Works With</h2>
-                      <p className="text-[#515151]/90 flex gap-3 mt-1">
+                      <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1">
                         {c?.workingWith?.map((d) => (
                           <p className="flex items-center gap-1" key={d}>
                             {" "}

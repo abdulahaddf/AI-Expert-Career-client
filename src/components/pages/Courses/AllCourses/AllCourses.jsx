@@ -173,7 +173,7 @@ const AllCourses = () => {
 
         {/* Course categories */}
        <div className="">
-          <h1 className="text-xl text-center font-semibold mb-5">{language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Free Courses"}</h1>
+          <h1 className="text-xl text-center font-semibold mb-5">{language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Course Categories"}</h1>
        <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
           {categories?.map((categoryItem) => (
             <Link

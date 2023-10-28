@@ -287,7 +287,11 @@ const Expertise = ({ consultant }) => {
                   />
                 )}
               />
+              
             </div>
+
+
+
             <div className="flex justify-center">
               <button
                 type="submit"
@@ -304,3 +308,7 @@ const Expertise = ({ consultant }) => {
 };
 
 export default Expertise;
+
+
+
+

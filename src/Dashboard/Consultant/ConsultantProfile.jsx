@@ -227,7 +227,7 @@ const ConsultantProfile = () => {
                 {userinfo?.recentWorks ? (
                   <>
                     {userinfo?.recentWorks.map((r) => (
-                      <p key={r}>{r}</p>
+                      <p key={r}>{r?.work ? r?.work : "null"}</p>
                     ))}
                   </>
                 ) : (

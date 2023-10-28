@@ -13,7 +13,7 @@ const EditConsultantProfile = () => {
   const [userinfo, isLoading, refetch] = UseUser();
   const [summary, setSummary] = useState("");
   const editor = useRef(null);
-  console.log(summary)
+  // console.log(summary)
 
   const daysOfWeek = [
     "Saturday",
@@ -79,6 +79,12 @@ const EditConsultantProfile = () => {
     name: "qualification",
   });
 
+
+
+
+
+  
+
   const onSubmit = (data) => {
     console.log("Form Data:", data);
     const {
@@ -121,6 +127,7 @@ const EditConsultantProfile = () => {
       linkedin,
       twitter,
     };
+    console.log(profile);
     axios
       .patch(
         `https://ai-server-sooty.vercel.app/consultantinfoupdate/?email=${userinfo?.email}`,
@@ -132,6 +139,7 @@ const EditConsultantProfile = () => {
           toast.success("Profile updated successfully");
           // refetch();
         } else if (res.data.modifiedCount === 0 || res.data.matchedCount > 1) {
+          console.log(res)
           toast.error("Profile is not updated");
         }
       })
@@ -307,40 +315,56 @@ const EditConsultantProfile = () => {
             </div>
 
             <div className="">
-              <label className="block text-sm font-semibold text-gray-800">
-                Recent Works
-              </label>
-              {recentWorks?.map((field, index) => (
-                <div key={field.id}>
-                  <Controller
-                    name={`recentWorks[${index}]`}
-                    control={control}
-                    defaultValue={field.value}
-                    render={({ field }) => (
-                      <input
-                        {...field}
-                        type="text"
-                        className="block w-full px-4 py-2 mt-2 border rounded-lg"
-                      />
-                    )}
-                  />
-                  <button
-                    type="button"
-                    className=" m-2"
-                    onClick={() => removeRecentWork(index)}
-                  >
-                    <CiSquareRemove className="text-2xl" />
-                  </button>
-                </div>
-              ))}
-              <button
-                type="button"
-                className="btn-black m-2"
-                onClick={() => appendRecentWork("")}
-              >
-                Add Recent Work
-              </button>
-            </div>
+        <label className="block text-sm font-semibold text-gray-800">
+          Recent Works
+        </label>
+        {recentWorks?.map((field, index) => (
+          <div key={field.id}>
+            <Controller
+              name={`recentWorks[${index}].work`}
+              control={control}
+              defaultValue={field.work}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="text"
+                  className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  placeholder="Work"
+                />
+              )}
+            />
+            <Controller
+              name={`recentWorks[${index}].link`}
+              control={control}
+              defaultValue={field.link}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="text"
+                  className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  placeholder="Link"
+                />
+              )}
+            />
+            <button
+              type="button"
+              className="m-2"
+              onClick={() => removeRecentWork(index)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+        <button
+          type="button"
+          className="btn-black m-2"
+          onClick={() => appendRecentWork({ work: '', link: '' })}
+        >
+          Add Recent Work
+        </button>
+      </div>
+
+
             <div className="">
               <label className="block text-sm font-semibold text-gray-800">
                 Successes
