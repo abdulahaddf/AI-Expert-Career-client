@@ -3,7 +3,7 @@ import profile from "../../../assets/AiConsultant/Ellipse 46.png";
 import { BsFillStarFill } from "react-icons/bs";
 import Expertise from "./Expertise";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 import Loader from "../../common/loader/Loader";
@@ -18,12 +18,23 @@ import {
 } from "react-share";
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 import CopyURLButton from "./CopyUrlButton";
+import { useState } from "react";
 
 const AiConsultanProfile = () => {
+  const id = useParams();
+  console.log(id);
   const { language } = useContext(MyContext);
-  const location = useLocation();
-  const consultant = location.state;
+  const [consultant, setCon] = useState([])
+  const [loading, setIsLoading]= useState(true)
   console.log(consultant);
+  useEffect(() => {
+    fetch(`https://ai-server-sooty.vercel.app/user/${id.id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCon(data);
+        setIsLoading(false);
+      });
+  }, [id]);
   const {
     displayName,
     email,
@@ -54,7 +65,7 @@ const AiConsultanProfile = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  if (!consultant && !workingWith) return <Loader />;
+  if (loading && consultant && !workingWith) return <Loader />;
   return (
     <div className=" md:w-4/5 mx-auto my-7">
       <div className="py-2  px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">

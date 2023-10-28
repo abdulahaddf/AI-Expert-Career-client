@@ -228,7 +228,7 @@ const AiConsultant = () => {
               {paginatedCon.map((c, i) => (
                 <Link
                   key={i}
-                  to={"/ai-consultant-profile"}
+                  to={`/ai-consultant-profile/${c._id}`}
                   state={c}
                   className="flex items-center p-2    "
                 >

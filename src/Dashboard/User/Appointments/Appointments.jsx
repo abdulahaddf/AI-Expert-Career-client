@@ -116,8 +116,7 @@ const Appointments = () => {
                     Payment Info
                   </button>
                   <Link
-                    to={"/ai-consultant-profile"}
-                    state={a?.consultant}
+                    to={`/ai-consultant-profile/${a.cId}`}
                     className="btn-black"
                     onClick={() => document.getElementById(a._id).showModal()}
                   >

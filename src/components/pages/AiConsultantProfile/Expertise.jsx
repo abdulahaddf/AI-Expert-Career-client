@@ -61,7 +61,7 @@ const Expertise = ({ consultant }) => {
         cName,
         cMail,
         cPhone,
-        consultant,
+        cId : consultant._id,
         request: "pending",
         confirmation: "pending",
       };
