@@ -3,10 +3,10 @@
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaCommentAlt, FaThumbsUp } from 'react-icons/fa';
 import { AiFillEye } from 'react-icons/ai';
+import axios from 'axios';
 
 
 const BlogCard = ({ blog }) => {
-
 
   const formatViewCount = (view) => {
     if (view >= 1000000) {
@@ -16,7 +16,13 @@ const BlogCard = ({ blog }) => {
     }
     return view.toString();
   };
-
+  const incrementViewCount = async () => {
+    try {
+      await axios.put(`https://ai-server-sooty.vercel.app/increment-view-count/${blog._id}`);
+    } catch (error) {
+      console.error('Error incrementing view count:', error);
+    }
+  };
 
   // console.log(blog);
   return (
@@ -41,7 +47,7 @@ const BlogCard = ({ blog }) => {
           <div>
            
               <Link  to={`/single-blog/${blog._id}`}>
-                <button className="btn-black">
+                <button className="btn-black" onClick={incrementViewCount}>
                  <FaArrowRight/> Read More
                 </button>
               </Link>
