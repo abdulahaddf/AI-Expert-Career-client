@@ -42,7 +42,7 @@ const IndividualBlog = () => {
   const location = useLocation();
   console.log(currentURL);
   // console.log(id);
-  // console.log(blog);
+  console.log(blog);
   const allComments = blog?.comments?.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -268,9 +268,9 @@ const IndividualBlog = () => {
     fetchRandomBlogs();
   }, [blog]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, []);
 
   if (!blog) return <Loader />;
   return (
@@ -282,15 +282,15 @@ const IndividualBlog = () => {
         </div> */}
 
         <div className="col-span-4 lg:mt-0 mt-8 ">
-          <div>
             <h2 className="font-bold text-3xl">{blog.blogName}</h2>
-            <p>{moment(blog.createdAt).format("MMMM Do YYYY")}</p>
+          <div className="flex gap-4 text-black/50">
+            <p>{moment(blog.createdAt).format("MMMM Do YYYY, h:mm a")}</p>
             <p>
               <span className="text-[#ED1B24] font-bold">{blog.category}</span>{" "}
               ||
-              <span> {blog.subcategory}</span>
+              <span className="text-black"> {blog.subcategory}</span>
             </p>
-            <p className="text-blue-400">{blog.selectedTags} </p>
+            <p className="">{blog.min ? <p>{blog.min} min read</p> : "2 min read"}  </p>
           </div>
           <div className="p-2 ">
             <figure className="flex justify-center">
@@ -319,6 +319,13 @@ const IndividualBlog = () => {
               ></p>
             )}
           </div>
+
+
+          <div>
+            <p><span className="text-xl font-semibold">Tags: </span>{blog?.selectedTags?.map((a,i) => <span key={i} className="border px-3 py-[2px] rounded-full mr-5">{a}</span>)}</p>
+          </div>
+
+
           <div className="mt-[40px] flex justify-between items-center">
             <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
               <div className="flex items-center gap-4">
@@ -383,6 +390,7 @@ const IndividualBlog = () => {
               </TwitterShareButton>
             </div>
           </div>
+         
           {/* Comment section */}
           {user ? (
             <div className="pt-[32px] ">
