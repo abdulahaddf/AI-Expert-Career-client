@@ -15,7 +15,7 @@ const AdminRoute = ({ children }) => {
     const isAdmin = userinfo?.role === "admin" || userinfo?.role === "super admin";
     const location = useLocation();
 
-    if(loading ){
+    if(loading && !userinfo && isAdmin) {
         return <Loader></Loader>
     }
 

@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import JoditEditor from "jodit-react";
+import { Link } from "react-router-dom";
+import Loader from "../../../components/common/loader/Loader";
 const ControlAppointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,6 +89,19 @@ const ControlAppointments = () => {
     }
   };
 
+
+  
+  
+    const editorStyle = {
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+      minHeight: '200px',
+      padding: '10px',
+      // zIndex: 10000,
+    };
+
+
+  if(!appointments) return <Loader/>;
   return (
     <div>
       <h1 className="text-3xl text-center my-5">Control Appointments</h1>
@@ -245,7 +260,7 @@ const ControlAppointments = () => {
                       </button>
                     </form>
 
-                    <div>
+                    <div className="">
                       <div className=" p-2  text-left">
                         <h2 className="text-2xl font-semibold my-5 text-center">
                           Sending Mail
@@ -278,20 +293,17 @@ const ControlAppointments = () => {
                             className="w-full p-2 border rounded "
                           />
                         </div>
-                        <div className="mb-4">
+                        <div  className="mb-4 ">
                           <p className="font-semibold pb-1">Mail body</p>
-                          {/* <textarea
-                            placeholder="Message"
-                            value={message}
-                            onChange={(e) => setMessage(e.target.value)}
-                            className="w-full p-2 border rounded "
-                          /> */}
+                         
 
                           <JoditEditor
                             id="message"
                             ref={editor}
-                            tabIndex={1}
+                            value={message}
+                            // tabIndex={-1}
                             onChange={(s) => setMessage(s)}
+                            style={editorStyle}
                           />
                         </div>
                         <div className="text-center">
