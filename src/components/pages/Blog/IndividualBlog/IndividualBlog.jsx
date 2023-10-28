@@ -406,7 +406,7 @@ const IndividualBlog = () => {
                   placeholder={
                     language == "bn" ? "কমেন্ট করুন" : "Add a comment"
                   }
-                  className="border-none w-full bg-[#eefaf993] text-lg font-bold p-2"
+                  className=" w-full border text-lg font-bold p-2"
                   onChange={(e) => setComment(e.target.value)}
                 />
               </div>
