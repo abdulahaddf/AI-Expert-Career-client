@@ -68,6 +68,7 @@ const Blog = () => {
       }
     };
 
+    
     const sortedAndFilteredData = getSortedData(
       filteredProducts,
       sortingOption
