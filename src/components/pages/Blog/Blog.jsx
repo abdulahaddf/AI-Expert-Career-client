@@ -120,27 +120,13 @@ const Blog = () => {
 
       {/* Blogs */}
       <div className=" py-5">
-        <div className="flex justify-end">
-          <div className=" mb-[33px] flex justify-evenly  items-center space-x-6">
-            <div className="lg:hidden text-2xl">
-              <BiDotsHorizontalRounded />
-            </div>
-            <select
-              onChange={getFilter}
-              className="w-40 py-2 px-2  bg-white  text-xl  font-bold border"
-            >
-              <option defaultChecked>All</option>
-              <option value="Trends">Trends</option>
-              <option value="Most Liked">Most Liked</option>
-            </select>
-          </div>
-        </div>
+
 
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">
           {/* Hide this section on small devices */}
           <div className="hidden md:block">
             <div className="flex flex-col justify-between items-center h-full">
-              <h2 className="font-bold text-[20px] pb-5">
+              <h2 className="font-bold text-2xl pb-5">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
               <div className="flex flex-col justify-between h-full">
@@ -164,6 +150,21 @@ const Blog = () => {
             </div>
           </div>
           <div className="col-span-4">
+          <div className="flex justify-end">
+          <div className=" mb-[33px] flex justify-evenly  items-center space-x-6">
+            <div className="lg:hidden text-2xl">
+              <BiDotsHorizontalRounded />
+            </div>
+            <select
+              onChange={getFilter}
+              className="w-40 py-2 px-2  bg-white  text-xl  font-bold border"
+            >
+              <option defaultChecked>All</option>
+              <option value="Trends">Trends</option>
+              <option value="Most Liked">Most Liked</option>
+            </select>
+          </div>
+        </div>
             <div className="">
               {paginatedBlogs.length > 0 && paginatedBlogs ? (
                 <div className="grid  md:grid-cols-2  lg:grid-cols-3 gap-5 justify-evenly">
