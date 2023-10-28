@@ -20,7 +20,7 @@ import Footer from "../../common/footer/Footer";
 import { MyContext } from "../../../Context/Context";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { FaBloggerB, FaPercentage, FaUserEdit, FaUsersCog } from "react-icons/fa";
-import { MdAllInbox, MdManageSearch, MdVideoCameraFront } from "react-icons/md";
+import { MdAllInbox, MdManageSearch, MdReviews, MdVideoCameraFront } from "react-icons/md";
 import { CiDiscount1, CiMail } from "react-icons/ci";
 import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
@@ -243,6 +243,22 @@ const DashboardLayout = () => {
                           : "text-red-600"}mb-[4px] mr-2 `}
                     />
                     {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Promo Codes"}
+                  </NavLink>
+                <NavLink
+                    to={"/dashboard/add-reviews"}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                    }
+                  >
+                    <MdReviews
+                      className={`${({ isActive }) =>
+                        isActive
+                          ? "text-white"
+                          : "text-red-600"}mb-[4px] mr-2 `}
+                    />
+                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Reviews"}
                   </NavLink>
                 <NavLink
                     to={"/dashboard/newsletter"}

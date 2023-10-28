@@ -268,9 +268,9 @@ const IndividualBlog = () => {
     fetchRandomBlogs();
   }, [blog]);
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   if (!blog) return <Loader />;
   return (

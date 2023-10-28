@@ -67,6 +67,7 @@ import AdminRoute from "./AdminRoute";
 import TermsAndConditions from "../common/Terms&Conditions/TermsAndConditions";
 import NewsletterMail from "../../Dashboard/Admin/NewsletterMail/NewsletterMail";
 import SendMail from "../../Dashboard/Admin/Appointments/SendMail";
+import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
 
 export const router = createBrowserRouter([
   {
@@ -365,8 +366,8 @@ export const router = createBrowserRouter([
         element: <AdminRoute><NewsletterMail /></AdminRoute>,
       },
       {
-        path: "/dashboard/send-mail",
-        element: <AdminRoute><SendMail /></AdminRoute>,
+        path: "/dashboard/add-reviews",
+        element: <AdminRoute><AddReviews /></AdminRoute>,
       },
     ],
   },

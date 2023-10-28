@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 
 const categories = [
+  "Featured",
   "Machine learning",
   "Data science",
   "Data analysis",
@@ -65,7 +66,7 @@ const HomeBlogsSection = () => {
                   key={index}
                   className="rounded-xl bg-white p-3 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                 >
-                  <div className="pt-3 grid grid-cols-2 gap-x-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-10">
+                  <div className="pt-3 grid grid-cols-2 gap-x-2 xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
 
                   {blogs
                     .filter((blog) => blog.category === category)
