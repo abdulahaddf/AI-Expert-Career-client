@@ -41,26 +41,29 @@ const HomeBlogsSection = () => {
             : "Blogs"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
-      <div className="11/12 mx-auto px-2 my-10 sm:px-0">
+      <div className=" mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex flex-wrap lg:flex-nowrap space-x-2 space-y-1 md:space-x-5 rounded-lg md:rounded-lg  text-black p-3 md:p-1 border">
-            {categories.map((category) => (
-              <Tab
-                key={category}
-                className={({ selected }) => (
-                  `lg:w-full rounded-lg py-2.5 text-sm font-medium md:leading-5 text-black
-                  ring-white/60  focus:outline-none  px-2
-                  ${
-                    selected
-                      ? "bg-black shadow text-white"
-                      : "text-black hover:bg-black hover:text-white"
-                  }`
-                )}
-              >
-                {category}
-              </Tab>
-            ))}
-          </Tab.List>
+        <Tab.List className="flex flex-nowrap overflow-x-scroll  lg:flex-nowrap space-x-1 space-y-1 md:space-y-0   md:space-x-3 rounded-lg md:rounded-lg text-black p-3 md:p-1 border whitespace-nowrap" >
+  {categories.map((category) => (
+    <Tab
+      key={category}
+      className={({ selected }) => (
+        `rounded-lg py-2.5 text-sm  text-black
+        ring-white/60 focus:outline-none font-semibold  ;
+        ${
+          selected
+            ? "bg-black shadow text-white px-5 w-full"
+            : "text-black hover:bg-black px-5 w-full hover:text-white"
+        }`
+      )}
+    >
+      {category}
+    </Tab>
+  ))}
+</Tab.List>
+
+
+
           <Tab.Panels className="mt-2">
             {isLoading ? (
               <p>Loading...</p>

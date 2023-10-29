@@ -25,20 +25,20 @@ const HomeCourseSection = () => {
       </h2>
       <h3 className="text-center">We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh</h3>
      
-      <div className=" mx-auto px-2 py-16 sm:px-0">
+      <div className=" mx-auto px-2 py-5 md:py-16 sm:px-0">
         <Tab.Group>
-       <div className="flex justify-between">
-       <Tab.List className="flex space-x-5 rounded-lg border text-black p-1 w-3/4">
+       <div className="md:flex justify-between">
+       <Tab.List className="flex md:space-x-5 rounded-lg border text-black p-1 md:w-3/4 whitespace-nowrap overflow-x-auto">
             {categories.map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) =>
                   `w-full rounded-lg py-2.5 text-sm  leading-5 text-black
-                  ring-white/60  focus:outline-none font-semibold
+                  ring-white/60  focus:outline-none font-semibold mr-2
                   ${
                     selected
-                      ? "bg-black shadow text-white"
-                      : "text-black hover:bg-black hover:text-white"
+                      ? "bg-black shadow text-white px-2"
+                      : "text-black hover:bg-black hover:text-white px-2"
                   }`
                 }
               >
@@ -46,7 +46,7 @@ const HomeCourseSection = () => {
               </Tab>
             ))}
           </Tab.List>
-          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black">Vew All Courses</Link>
+          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black flex justify-center mt-5">Vew All Courses</Link>
        </div>
           <Tab.Panels className="mt-2">
             {isLoading ? (
