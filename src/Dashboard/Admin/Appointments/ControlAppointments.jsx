@@ -277,10 +277,10 @@ const ControlAppointments = () => {
                         ""
                       )}
                       {a.fileLink ? (
-                        <p>
+                        <Link to={a.fileLink} target="_blank">
                           <span className="font-semibold">Attached File:</span>{" "}
                           {a.fileLink}
-                        </p>
+                        </Link>
                       ) : (
                         ""
                       )}
