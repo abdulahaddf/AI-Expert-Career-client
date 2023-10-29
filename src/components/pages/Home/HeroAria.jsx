@@ -12,8 +12,8 @@ const HeroAria = () => {
   return (
     <div className=" bg-[#fff] mb-[40px]  ">
       <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div className="flex">
-          <div className="lg:text-start w-1/2 flex flex-col  justify-center pl-7">
+        <div className="md:flex">
+          <div className="lg:text-start md:w-1/2 flex flex-col  justify-center pl-7">
             <h3 className="text-[16px] lg:text-[20px] xl:text-[14px] 2xl:text-[16px] font-[700] mb-[16px] text-[#ED1B24] lg:text-start">
               {language == "bn"
                 ? "সেরা অনলাইন ভিডিও কোর্স পছন্দ করুন"
@@ -37,9 +37,9 @@ const HeroAria = () => {
                 ? "  ক্যারিয়ার গড়ুন আর্টিফিশিয়াল ইন্টেলিজেন্স এক্সপার্ট হয়ে এ আই এক্সপার্ট ক্যারিয়ারের সাথে।"
                 : "We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh."}
             </h4>
-            <div className="flex flex-col md:flex-row  justify-start w-3/5 md:w-full md:items-center gap-8 mt-6">
+            <div className="flex  justify-start md:w-full md:items-center gap-2 md:gap-8 mt-6">
               <Link
-                className="btn-black btn-md px-8 text-lg bg-black text-white flex items-center"
+                className="btn-black btn-md md:px-8 text-lg bg-black text-white flex items-center"
                 to="/ai-consultant"
               >
              Get Started <BsArrowRightShort/> 
@@ -53,7 +53,7 @@ const HeroAria = () => {
 
             </div>
           </div>
-          <div className="mt-8 sm:mt-0 flex justify-end w-1/2">
+          <div className="mt-8 sm:mt-0 flex justify-end md:w-1/2">
       
             <img src={banner} alt=""  />
           </div>
