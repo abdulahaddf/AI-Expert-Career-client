@@ -42,7 +42,7 @@ const HomeCourseSection = () => {
                   ${
                     selected
                       ? "bg-white shadow text-black"
-                      : "text-black hover:bg-white/[0.12] hover:text-white"
+                      : "text-black hover:bg-white hover:text-primary"
                   }`
                 }
               >

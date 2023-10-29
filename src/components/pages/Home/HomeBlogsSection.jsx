@@ -43,14 +43,14 @@ const HomeBlogsSection = () => {
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
       <div className="11/12 mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex space-x-2 overflow-x-auto md:space-x-5  rounded-full bg-blue-900/20 text-black p-1">
+          <Tab.List className="flex flex-wrap lg:flex-nowrap space-x-2 space-y-1 md:space-x-5 rounded-lg md:rounded-full bg-blue-900/20 text-black p-3 md:p-1">
             {categories.map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) => (
-                  `w-full rounded-full py-2.5 text-sm font-medium leading-5 text-black
-                  ring-white/60  focus:outline-none 
-                  ${selected ? 'bg-white shadow text-black' : 'text-black hover:bg-white/[0.12] hover:text-white'}`
+                  `lg:w-full rounded-full py-2.5 text-sm font-medium md:leading-5 text-black
+                  ring-white/60  focus:outline-none  border border-white
+                  ${selected ? 'bg-white shadow text-black px-3' : 'text-black px-3 hover:bg-white hover:text-primary'}`
                 )}
               >
                 {category}
