@@ -43,14 +43,18 @@ const HomeBlogsSection = () => {
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
       <div className="11/12 mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex flex-wrap lg:flex-nowrap space-x-2 space-y-1 md:space-x-5 rounded-lg md:rounded-full bg-blue-900/20 text-black p-3 md:p-1">
+          <Tab.List className="flex flex-wrap lg:flex-nowrap space-x-2 space-y-1 md:space-x-5 rounded-lg md:rounded-lg  text-black p-3 md:p-1 border">
             {categories.map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) => (
-                  `lg:w-full rounded-full py-2.5 text-sm font-medium md:leading-5 text-black
-                  ring-white/60  focus:outline-none  border border-white
-                  ${selected ? 'bg-white shadow text-black px-3' : 'text-black px-3 hover:bg-white hover:text-primary'}`
+                  `lg:w-full rounded-lg py-2.5 text-sm font-medium md:leading-5 text-black
+                  ring-white/60  focus:outline-none  px-2
+                  ${
+                    selected
+                      ? "bg-black shadow text-white"
+                      : "text-black hover:bg-black hover:text-white"
+                  }`
                 )}
               >
                 {category}
@@ -70,7 +74,7 @@ const HomeBlogsSection = () => {
 
                   {blogs
                     .filter((blog) => blog.category === category)
-                    .slice(0, 4) // Display the first four blogs in this category
+                    .slice(0, 8) // Display the first four blogs in this category
                     .map((filteredBlog, idx) => (
                       <BlogCard key={filteredBlog._id} blog={filteredBlog} />
                       ))}

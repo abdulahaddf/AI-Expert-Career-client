@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import WatchVideo from "../../../assets/Videoplayer.svg";
 import banner from "../../../../src/assets/banner/banner.png"
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
-import { BsArrowRightShort, BsArrowUpRightCircle, BsBoxArrowUpRight } from "react-icons/bs";
-import { FaArrowPointer } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+import { BsArrowRightShort } from "react-icons/bs";
 
 
 const HeroAria = () => {
@@ -15,7 +13,7 @@ const HeroAria = () => {
     <div className=" bg-[#fff] mb-[40px]  ">
       <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="flex">
-          <div className="lg:text-start w-1/2 flex flex-col  justify-center">
+          <div className="lg:text-start w-1/2 flex flex-col  justify-center pl-7">
             <h3 className="text-[16px] lg:text-[20px] xl:text-[14px] 2xl:text-[16px] font-[700] mb-[16px] text-[#ED1B24] lg:text-start">
               {language == "bn"
                 ? "সেরা অনলাইন ভিডিও কোর্স পছন্দ করুন"

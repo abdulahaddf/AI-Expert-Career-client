@@ -8,15 +8,9 @@ import useCourses from "../../../hooks/UseCourses";
 import CourseCard from "../Courses/CourseCard";
 
 const categories = [
-  "Machine learning",
-  "Data science",
-  "Data analysis",
-  "Computer vision",
-  "Deep learning",
-  "Prompt Engineering",
-  "Artificial Intelligence",
-  "NLP",
-  "IoT",
+  "Free",
+"Fundamental",
+"Job Requirement Based"
 ];
 
 const HomeCourseSection = () => {
@@ -25,31 +19,35 @@ const HomeCourseSection = () => {
 
 
   return (
-    <div>
+    <div className="my-20">
       <h2 className="text-[30px] font-bold text-center">
-        {language == "bn" ? "কোর্স সমূহ" : "Courses"}
+        {language == "bn" ? "কোর্স সমূহ" : "Choose Your AI Journey"}
       </h2>
-      <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
-      <div className="11/12 mx-auto px-2 py-16 sm:px-0">
+      <h3 className="text-center">We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh</h3>
+     
+      <div className=" mx-auto px-2 py-16 sm:px-0">
         <Tab.Group>
-          <Tab.List className="flex space-x-5 rounded-full bg-blue-900/20 text-black p-1">
+       <div className="flex justify-between">
+       <Tab.List className="flex space-x-5 rounded-lg border text-black p-1 w-3/4">
             {categories.map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) =>
-                  `w-full rounded-full py-2.5 text-sm font-medium leading-5 text-black
-                  ring-white/60  focus:outline-none
+                  `w-full rounded-lg py-2.5 text-sm  leading-5 text-black
+                  ring-white/60  focus:outline-none font-semibold
                   ${
                     selected
-                      ? "bg-white shadow text-black"
-                      : "text-black hover:bg-white hover:text-primary"
+                      ? "bg-black shadow text-white"
+                      : "text-black hover:bg-black hover:text-white"
                   }`
                 }
               >
-                {category}
+                {category} Courses
               </Tab>
             ))}
           </Tab.List>
+          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black">Vew All Courses</Link>
+       </div>
           <Tab.Panels className="mt-2">
             {isLoading ? (
               <p>Loading...</p>
@@ -61,7 +59,7 @@ const HomeCourseSection = () => {
                 >
                   <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
                     {courses
-                      .filter((blog) => blog.category === category)
+                      .filter((blog) => blog.mainCategory === category)
                       .slice(0, 4) // Display the first four courses in this category
                       .map((filteredCourse, idx) => (
                         <CourseCard key={idx} course={filteredCourse}></CourseCard>
