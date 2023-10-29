@@ -20,8 +20,8 @@ const Home = () => {
     <>
       <div className="bg-red-400"></div>
       <HeroAria />
-      <div className="lg:mt-[580px] mt-[870px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
-        <HomeSearch />
+      <div className=" px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
+        {/* <HomeSearch /> */}
         <HomeAbout />
         <HomeCourseSection />
         <HomeHeading />

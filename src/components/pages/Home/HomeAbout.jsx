@@ -88,7 +88,7 @@ const HomeAbout = () => {
     },
   ];
   return (
-    <div className="mt-[30px] mb-[35px]">
+    <div className="mt- mb-[35px]">
       <h3 className="text-center font-bold lg:text-[30px] text-xl ">
         {language === "bn"
           ? "কি কি সুবিধা পাবেন আমাদের থেকে ?"

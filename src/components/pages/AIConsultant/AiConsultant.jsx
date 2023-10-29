@@ -18,7 +18,7 @@ const AiConsultant = () => {
   const [selectedWorkingWith, setSelectedWorkingWith] = useState("All");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 8;
 
   //
   useEffect(() => {

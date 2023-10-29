@@ -27,14 +27,14 @@ const BlogCard = ({ blog }) => {
   // console.log(blog);
   return (
     <div  className="section w-full flex flex-col justify-between  p-2">
-     
-        <div className='space-y-4 flex flex-col justify-center items-center '>
-     
-        <img
-          className="w-[268px] h-[170px] rounded-lg mb-2"
+      <img
+          className="w-[268px] h-[170px] mx-auto rounded-lg"
           src={blog.imageURL}
           alt="cover"
         />
+        <div className='space-y-4 flex flex-col justify-center items-center '>
+     
+       
       
         <Link to={`/single-blog/${blog._id}`}>
           <h2 className="font-bold text-[16px]">{blog.blogName}</h2>

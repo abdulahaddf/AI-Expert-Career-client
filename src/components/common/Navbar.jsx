@@ -124,18 +124,22 @@ const Navbar = () => {
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
         <div className="py-1 px-4 relative   mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-20 lg:px-28 2xl:px-8">
-          <div className="relative flex items-center justify-between font-bold">
-            {
-              <Link to="/" className="flex justify-center items-center gap-2">
+          <div className="relative flex items-center justify-between  font-bold">
+            
+  <div className="  flex items-center">
+  <div>
+  <Link to="/" className="flex justify-center items-center gap-2">
                 <img
                   className="select-none pointer-events-none no-select "
                   src={Logo}
                   alt=""
                 />
               </Link>
-            }
+  </div>
+            
 
             <SearchBox userinfo={userinfo}/>
+  </div>
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">

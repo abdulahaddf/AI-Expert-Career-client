@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import useCourses from "../../../hooks/UseCourses";
 import UseUsers from "../../../hooks/useUsers";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const SearchBox = () => {
   const { language } = useContext(MyContext);
@@ -77,10 +78,10 @@ const SearchBox = () => {
   }, [search, courses, userinfo]);
 
   return (
-    <div className="hidden md:block absolute top-2 left-40">
-      <div className="flex items-center mr-32">
+    <div className="hidden md:block relative top-0 left-10">
+      <div className="flex items-center relative">
         <input
-          className="px-4 bg-white text-xs rounded-full w-[250px] h-[41px] relative border-black/25 border-2"
+          className="px-5 pl-10  bg-white text-sm font-thin rounded-full w-[350px] mx-auto h-[41px] relative border-black/25 border-2"
           placeholder={
             language === "bn"
               ? "পছন্দের কোর্সগুলো খুজুন"
@@ -90,16 +91,18 @@ const SearchBox = () => {
           name="search"
           onChange={(e) => setSearch(e.target.value)}
         />
+        <AiOutlineSearch className="absolute left-4 text-black/50"/>
       </div>
       {
   (CourseData.length > 0 || consultantData.length > 0) && (
-    <section className="relative bg-white border p-3 shadow-lg flex justify-evenly">
-      <div className="h-96 p-3 overflow-y-auto">
+    <section className="absolute w-[50vw] mx-auto top-[60px] bg-white border p-3 shadow-lg flex justify-between">
+      <div className="h-96 w-1/2 p-3 overflow-y-auto border-r-2 border-black/10">
         {CourseData.length > 0 ? (
           <div>
-            <p className="mb-2">{CourseData.length} results found</p>
+            {/* <p className="mb-2">{CourseData.length} results found</p> */}
+            <p className="mb-2">{CourseData.length == 1 ? <>{CourseData.length} course found</> : <>{CourseData.length} courses found</>} </p>
             {CourseData?.map((course) => (
-              <div className="flex gap-2 my-3" key={course.id}>
+              <div className="flex items-start gap-2 my-4" key={course.id}>
                 <img className="h-12 w-12 rounded-full" src={course.insImage} alt={course.title} />
                 <div>
                   <h3 className="">{course.title}</h3>
@@ -112,12 +115,12 @@ const SearchBox = () => {
           <p>No Courses Found</p>
         )}
       </div>
-      <div className="h-96 p-3 overflow-y-auto">
+      <div className="h-96 w-1/2 p-3 overflow-y-auto">
         {consultantData.length > 0 ? (
           <div className="h-fit p-3 px-5 overflow-y-auto">
-            <p className="mb-2">{consultantData.length} results found</p>
+            <p className="mb-2">{consultantData.length == 1 ? <>{consultantData.length} consultant found</> : <>{consultantData.length} consultants found</>} </p>
             {consultantData?.map((c) => (
-              <div className="flex gap-2 my-3" key={c.id}>
+              <div className="flex gap-2 my-4" key={c.id}>
                 <img className="h-12 w-12 rounded-full" src={c.photoURL} alt="Instructor" />
                 <div>
                   <h3 className="">{c.displayName}</h3>
