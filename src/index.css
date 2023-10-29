@@ -88,6 +88,9 @@
   .section {
     @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
   } 
+  .navOptions {
+    @apply btn bg-[#fefefe]  btn-sm normal-case ps-5 pe-0 rounded-3xl hover:no-underline hover:text-white hover:bg-primary;
+  } 
   
 }
 

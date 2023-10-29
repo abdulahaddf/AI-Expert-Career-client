@@ -45,7 +45,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-     
+
       <li>
         <NavLink
           to="/blog"
@@ -105,11 +105,8 @@ const Navbar = () => {
       </li>
 
       <li>
-        <ul className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg">
-       
-        </ul>
+        <ul className="box absolute bg-[#f8d1d1] w-[200px] rounded-lg"></ul>
       </li>
-     
     </>
   );
 
@@ -138,21 +135,14 @@ const Navbar = () => {
               </Link>
             }
 
-
-<SearchBox/>
-
-
-
-
-
+            <SearchBox />
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
                 <div className={"flex items-center"}>{menuItem}</div>
-
               </ul>
               {user ? (
-               ""
+                ""
               ) : (
                 <Link
                   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
@@ -222,81 +212,81 @@ const Navbar = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-32
-                  rounded-box   text-left h-96"
+                      className="dropdown-menu  z-20  shadow-md  absolute right-0 w-32
+                  rounded-box   text-left mt-2"
                     >
                       <li className="">
                         {user ? (
                           isAdmin ? (
-                            <li>
-                              <li className=" mt-3">
+                            <li className="flex flex-col space-y-2  p-1  ">
+                             
                                 <Link
                                   to="/dashboard/my-profile"
-                                  className="justify-between hover:no-underline ml-2 hover:text-primary"
+                                  className="navOptions ml-0"
                                 >
                                   My Profile
                                 </Link>
-                              </li>
-                              <li>
+                            
+                           
                                 <Link
                                   to="/dashboard/my-profile"
-                                  className=" hover:no-underline hover:text-primary ml-2"
+                                  className="navOptions"
                                 >
                                   Dashboard
                                 </Link>
-                              </li>
-                              <li>
+                            
                                 <Link
                                   to="/dashboard/manage-users"
-                                  className=" hover:no-underline hover:text-primary ml-2"
+                                  className=" navOptions"
                                 >
                                   Manage Users
                                 </Link>
-                              </li>
+                             
+                              <Link
+                                className="navOptions"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </Link>
+                            </li>
+                          ) : userinfo?.role === "consultant" ? (
+                            <li className="flex flex-col h-fit space-y-2  p-1 ">
+                              <Link
+                                to="/dashboard/consultant-profile"
+                                className="navOptions"
+                              >
+                                My Profile
+                              </Link>
                               <li
-                                className=" hover:text-primary  hover:no-underline ml-2"
+                                className="navOptions "
                                 onClick={logOut}
                               >
                                 Logout
                               </li>
                             </li>
-                          ) : userinfo?.role === "consultant" ?                       
-                          <li className=" mt-3">
-                          <Link
-                            to="/dashboard/consultant-profile"
-                            className="justify-between hover:no-underline ml-2 hover:text-primary"
-                          >
-                            My Profile
-                          </Link>
-                          <li
-                                className=" hover:text-primary  hover:no-underline ml-2"
-                                onClick={logOut}
+                          ) : (
+                            <li className="flex flex-col h-fit space-y-2  p-1 ">
+                              <Link
+                                to="/dashboard/my-profile"
+                                className="navOptions"
                               >
-                                Logout
-                              </li>
-                        </li> : (
-                            <li className="flex flex-col h-80  pb-5 ">
-                                <Link
-                                  to="/dashboard/my-profile"
-                                  className="justify-between hover:no-underline ml-2 hover:text-primary"
-                                >
-                                  My Profile
-                                </Link>
-                                <Link
-                                  to="/dashboard/my-courses"
-                                  className="justify-between hover:no-underline ml-2 hover:text-primary"
-                                >
-                                  My Courses
-                                </Link>
+                                My Profile
+                              </Link>
+                              <Link
+                                to="/dashboard/my-courses"
+                                className="navOptions"
+                              >
+                                My Courses
+                              </Link>
                               <Link
                                 to="/dashboard/my-appointments"
-                                className="hover:no-underline hover:text-primary ml-2"
+                                className="navOptions"
                               >
                                 Appointments
                               </Link>
 
                               <li
-                                className=" hover:text-primary  hover:no-underline ml-2"
+                                className="navOptions"
                                 onClick={logOut}
                               >
                                 Logout
@@ -373,20 +363,7 @@ const Navbar = () => {
                       <nav>
                         <ul className="space-y-4">
                           {menuItem}
-                          <li>
-                            <NavLink
-                              to="/cart"
-                              className={({ isActive, isPending }) =>
-                                isActive
-                                  ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 "
-                                  : isPending
-                                  ? "pending"
-                                  : "px-3"
-                              }
-                            >
-                              Cart
-                            </NavLink>
-                          </li>
+                         
                           {user ? (
                             <div>
                               <div
@@ -528,7 +505,6 @@ const Navbar = () => {
         </div>
       </div>
       {/* Scroll nav starts from here */}
-     
     </>
   );
 };
