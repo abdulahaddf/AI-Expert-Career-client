@@ -27,7 +27,7 @@ const IndividualCourse = () => {
     fetch(`https://ai-server-sooty.vercel.app/singlecourse/${id}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
-  }, [id, course]);
+  }, [id]);
 
  
 
@@ -108,8 +108,8 @@ const IndividualCourse = () => {
               : "Who Are Suitable For This Course:"}
           </h3>
           <div className="section grid md:grid-cols-2 text-lg">
-            {eligibleUsers?.map((eli) => (
-              <div key={eli}>
+            {eligibleUsers?.map((eli,i) => (
+              <div key={i}>
                 <p className="flex items-center gap-3 my-3 ">
                   <FaHandPointRight className="text-primary text-lg" /> {eli}
                 </p>
@@ -127,8 +127,8 @@ const IndividualCourse = () => {
               : "Course Requirements:"}
           </h3>
           <div className="section grid md:grid-cols-2">
-            {preRequisites?.map((pre) => (
-              <div key={pre}>
+            {preRequisites?.map((pre,i) => (
+              <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
                   <FaHandPointRight className="text-primary text-lg" /> {pre}
                 </p>
@@ -143,8 +143,8 @@ const IndividualCourse = () => {
             {language == "bn" ? "কোর্সের লক্ষ্য:" : "Course Goals:"}
           </h3>
           <div className="section grid md:grid-cols-2 text-lg">
-            {goals?.map((goal) => (
-              <div key={goal}>
+            {goals?.map((goal, i) => (
+              <div key={i}>
                 <p className="flex items-center gap-3 my-3">
                   <FaHandPointRight className="text-primary text-lg" /> {goal}
                 </p>
@@ -162,8 +162,8 @@ const IndividualCourse = () => {
           </h3>
 
           <div className="bg-white p-4 rounded-lg">
-            {modules?.map((module) => (
-              <div key={module}>
+            {modules?.map((module, i) => (
+              <div key={i}>
                 <details className="group [&_summary::-webkit-details-marker]:hidden rounded-xl p-2 bg-white ">
                   <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-xl bg-slate-100 p-3 text-gray-900">
                     <h2 className="font-bold cursor-pointer">{module.title}</h2>
@@ -183,10 +183,10 @@ const IndividualCourse = () => {
                     </svg>
                   </summary>
                   <p className="mt-4 px-4 leading-relaxed text-gray-700 ">
-                    {module.contents.map((c) => (
+                    {module.contents.map((c,i) => (
                       <div
                         className="flex items-center justify-between"
-                        key={c}
+                        key={i}
                       >
                         <p className="flex items-center gap-3 my-3 cursor-pointer text-lg font-semibold">
                           <MdOutlineVideoLibrary /> {c.title}
@@ -235,8 +235,8 @@ const IndividualCourse = () => {
           </h3>
           <div>
             <div className="space-y-2 ">
-              {faqItems?.map((faq) => (
-                <div key={faq}>
+              {faqItems?.map((faq,i) => (
+                <div key={i}>
                   <details className="group border-s-4 border-black bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden rounded-lg">
                     <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                       <h2 className="text-lg font-bold text-gray-900">
@@ -281,8 +281,8 @@ const IndividualCourse = () => {
               : "Main Features:"}
           </h3>
           <div>
-            {features?.map((feature) => (
-              <div key={feature}>
+            {features?.map((feature, i) => (
+              <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
                   <FaHandPointRight className="text-primary text-lg" />{" "}
                   {feature}

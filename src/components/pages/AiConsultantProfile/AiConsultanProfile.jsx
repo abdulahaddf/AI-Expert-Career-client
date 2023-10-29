@@ -135,7 +135,7 @@ const AiConsultanProfile = () => {
           <div className="col-span-8 lg:col-span-5 ">
             <div>
               <h2 className="text-2xl font-bold">
-                {language == "bn" ? "কন্সাল্টেন্টের বিবরণ" : "About"}
+                {language == "bn" ? "কর্মজীবনের সারাংশ" : "Career Summary"}
               </h2>
               
               <p className="section text-lg ml-2 mt-2" dangerouslySetInnerHTML={{ __html: summary }}></p>

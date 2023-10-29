@@ -135,7 +135,7 @@ const Navbar = () => {
               </Link>
             }
 
-            <SearchBox />
+            <SearchBox userinfo={userinfo}/>
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">

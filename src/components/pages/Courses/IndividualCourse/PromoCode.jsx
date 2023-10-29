@@ -16,7 +16,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
       .then((response) => response.json())
       .then((data) => setPromo(data));
   }, []);
-  console.log(promo);
+  // console.log(promo);
   const applyPromoCode = () => {
     const matchingPromo = promo.find((p) => p.promo === appliedPromo);
 
