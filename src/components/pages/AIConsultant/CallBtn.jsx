@@ -12,7 +12,7 @@ const CallBtn = () => {
     <div>
       <button
         onClick={handleCall}
-        className="btn-add flex items-center gap-2"
+        className="btn btn-ghost btn-outline normal-case border-primary text-primary hover:border-primary  hover:shadow-lg hover:bg-primary btn-md md:px-8 text-lg"
       >
       <BsFillTelephoneFill/>  Call for Free Consultancy
       </button>

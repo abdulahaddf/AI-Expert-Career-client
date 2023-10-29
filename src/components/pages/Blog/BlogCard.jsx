@@ -40,7 +40,8 @@ const BlogCard = ({ blog }) => {
           <h2 className="font-bold text-[16px]">{blog.blogName}</h2>
         </Link>
         
-        <div className="" dangerouslySetInnerHTML={{ __html: blog.description.length > 150 ? blog.description.substring(0, 100) + ' ...' : blog.description }}></div>
+        <div className="" dangerouslySetInnerHTML={{ __html: blog.description.length > 100 ? blog.description.substring(0, 80) + ' ...' : blog.description }}>
+        </div>
         </div>
 
         <div className="flex justify-between items-end mt-2">

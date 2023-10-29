@@ -31,7 +31,7 @@ const Home = () => {
         {/* <HomeHeading /> */}
       <HomeBlogsSection/>
         <HomeTestimonial />
-        <HomeEvent />
+        {/* <HomeEvent /> */}
         <HomePartnership />
       </div>
     </>

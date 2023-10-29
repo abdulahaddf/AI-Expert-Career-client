@@ -98,13 +98,14 @@ const FreeEnroll = () => {
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckboxChange}
-          className="h-5 w-5 text-primary"
+          className=" mr-2 checkbox checkbox-md items-center"
         />
-        <Link to="/terms&conditions" className="text-primary">
-          Accept All Terms and Conditions
+        <Link to="/terms&conditions" className="">
+          Accept All <span className="underline font-semibold">Terms and Conditions</span> 
         </Link>
       </div>
-      <Link
+<div className="pt-5">
+<Link
         onClick={handleSubmit}
         disabled={!isChecked}
         state={title}
@@ -113,6 +114,7 @@ const FreeEnroll = () => {
       >
         Complete Enrollment
       </Link>
+</div>
     </div>
   </div>
   

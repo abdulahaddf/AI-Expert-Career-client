@@ -175,7 +175,7 @@ const AllCourses = () => {
         </div>
 
         {/* Course categories */}
-       <div className="w-3/5 mx-auto">
+       <div className="md:w-3/5 mx-auto">
           <h1 className="text-3xl text-center font-semibold mb-5">{language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Course Categories"}</h1>
        <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
           {categories?.map((categoryItem) => (
@@ -216,7 +216,7 @@ const AllCourses = () => {
           </div>
 
           <div className="flex justify-center my-10">
-            <Link state={courses} to="/allCourses/Free" className="btn-see">
+            <Link state={courses} to="/allCourses/Free" className="btn-view">
               {language == "bn" ? "আরো দেখুন" : "See More"}
             </Link>
           </div>
@@ -244,7 +244,7 @@ const AllCourses = () => {
             <Link
               state={courses}
               to="/allCourses/Fundamental"
-              className="btn-see"
+              className="btn-view"
             >
               {language == "bn" ? "আরো দেখুন" : "See More"}
             </Link>
@@ -272,7 +272,7 @@ const AllCourses = () => {
             <Link
               state={courses}
               to="/allCourses/Job Requirement Based"
-              className="btn-see"
+              className="btn-view"
             >
               {language == "bn" ? "আরো দেখুন" : "See More"}
             </Link>

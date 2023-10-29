@@ -34,13 +34,12 @@ const HomeBlogsSection = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="text-[30px] font-bold text-center">
-          {language == "bn"
-            ? "ব্লগ"
-            : "Blogs"}
-        </h2>
-        <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
+    <div className="my-20">
+         <h2 className="text-[30px] font-bold text-center">
+        {language == "bn" ? "ব্লগ সমূহ" : "Read Your Opportunities"}
+      </h2>
+      <h3 className="text-center">We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh</h3>
+        {/* <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " /> */}
       <div className=" mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
         <Tab.List className="flex flex-nowrap overflow-x-scroll  lg:flex-nowrap space-x-1 space-y-1 md:space-y-0   md:space-x-3 rounded-lg md:rounded-lg text-black p-3 md:p-1 border whitespace-nowrap" >

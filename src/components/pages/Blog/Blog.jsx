@@ -186,7 +186,7 @@ const Blog = () => {
               className={`px-4 py-2 rounded-md mx-2 ${
                 currentPage === 1
                   ? "bg-slate-300 text-gray-500 cursor-not-allowed"
-                  : "bg-[#ea5050] text-white hover:bg-primary"
+                  : "bg-black text-white"
               }`}
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
@@ -200,7 +200,7 @@ const Blog = () => {
                 onClick={() => handlePageChange(index + 1)}
                 className={`${
                   currentPage === index + 1
-                    ? "bg-[#ea5050] text-white"
+                    ? "bg-black text-white"
                     : "bg-slate-200 hover:bg-gray-300 text-gray-700"
                 } px-3 py-1 mx-1 rounded-md cursor-pointer`}
               >
@@ -212,7 +212,7 @@ const Blog = () => {
               className={`px-4 py-2 rounded-md mx-2 ${
                 currentPage === totalPages
                   ? "bg-slate-300 text-gray-500 cursor-not-allowed"
-                  : "bg-[#ea5050] text-white hover:bg-primary"
+                  : "bg-black text-white"
               }`}
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}

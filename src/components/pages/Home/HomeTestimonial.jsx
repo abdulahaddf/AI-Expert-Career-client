@@ -35,15 +35,13 @@ const HomeTestimonial = () => {
         {" "}
         {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Our Testimonial"}
       </h3>
-      <center>
-        <img src={line} alt="" />
-      </center>
+     
       <div className="w-[90%] mx-auto">
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
           autoplay={{
-            delay: 2500,
+            delay: 1000,
             disableOnInteraction: false,
           }}
           loop={true}
