@@ -33,7 +33,7 @@ const HomeCourseSection = () => {
               <Tab
                 key={category}
                 className={({ selected }) =>
-                  `w-full rounded-lg py-2.5 text-sm  leading-5 text-black
+                  `w-full rounded-lg py-2 text-sm  leading-5 text-black
                   ring-white/60  focus:outline-none font-semibold mr-2
                   ${
                     selected
@@ -46,7 +46,7 @@ const HomeCourseSection = () => {
               </Tab>
             ))}
           </Tab.List>
-          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black flex justify-center mt-5">Vew All Courses</Link>
+          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black flex justify-center mt-5 md:mt-0">Vew All Courses</Link>
        </div>
           <Tab.Panels className="mt-2">
             {isLoading ? (
