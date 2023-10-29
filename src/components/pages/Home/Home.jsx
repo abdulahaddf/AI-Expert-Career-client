@@ -12,6 +12,7 @@ import HomeBlogs from "./HomeBlog";
 import HomeBlogsSection from "./HomeBlogsSection";
 import HomeCourseSection from "./HomeCourseSection";
 import Roadmap from "./Sections/Roadmap";
+import HomeConsultantSection from "./Sections/HomeConsultantsection";
 
 const Home = () => {
   useEffect(() => {
@@ -26,8 +27,8 @@ const Home = () => {
         <HomeAbout />
         <HomeCourseSection />
         <Roadmap/>
-        <HomeHeading />
-        {/* <HomeBlogs /> */}
+        <HomeConsultantSection/>
+        {/* <HomeHeading /> */}
       <HomeBlogsSection/>
         <HomeTestimonial />
         <HomeEvent />

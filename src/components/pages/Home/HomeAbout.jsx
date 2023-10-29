@@ -55,9 +55,9 @@ const HomeAbout = () => {
    
   ];
   return (
-    <div className="my-10 flex justify-between  p-3">
-<div className="w-5/6 flex flex-col  justify-center ">
-  <h4 className="text-primary">About Us</h4>
+    <div className="my-20 bg-slate-100 py-20 px-6 rounded-md flex justify-between">
+<div className="w-5/6 flex flex-col  justify-center mx-auto ml-6 ">
+  <h4 className="text-primary pb-3">About Us</h4>
 <h3 className=" font-bold lg:text-[36px] text-xl leading-10">
         {language === "bn"
           ? "কি কি সুবিধা পাবেন আমাদের থেকে ?"
@@ -73,7 +73,7 @@ const HomeAbout = () => {
         {aboutCard.map(({ id, img, headline, info, headlineBn, infoBn }) => (
           <div
             key={id}
-            className="px-3 border-[0.5px] cursor-pointer border-gray-50 shadow hover:shadow-lg  bg-[#ffffff0a] flex gap-5 p-2 "
+            className="px-3 border-[0.5px] cursor-pointer  border-gray-50 shadow hover:shadow-lg  bg-white rounded-lg flex gap-5 p-2 "
           >
             <figure>
               <img className=" w-[150px] " src={img} alt="" />
