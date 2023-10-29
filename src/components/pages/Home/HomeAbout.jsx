@@ -55,10 +55,10 @@ const HomeAbout = () => {
    
   ];
   return (
-    <div className="my-10 flex justify-between ">
+    <div className="my-10 flex justify-between  p-3">
 <div className="w-5/6 flex flex-col  justify-center ">
   <h4 className="text-primary">About Us</h4>
-<h3 className=" font-bold lg:text-[30px] text-xl leading-10">
+<h3 className=" font-bold lg:text-[36px] text-xl leading-10">
         {language === "bn"
           ? "কি কি সুবিধা পাবেন আমাদের থেকে ?"
           : <p>Transform your Career through <span className="text-primary">Learning</span> </p>}

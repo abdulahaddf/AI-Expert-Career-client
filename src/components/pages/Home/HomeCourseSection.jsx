@@ -57,7 +57,7 @@ const HomeCourseSection = () => {
                   key={index}
                   className="rounded-full bg-white p-3 focus:outline-none "
                 >
-                  <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
+                  <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] mb-10">
                     {courses
                       .filter((blog) => blog.mainCategory === category)
                       .slice(0, 4) // Display the first four courses in this category
@@ -67,7 +67,7 @@ const HomeCourseSection = () => {
                   </div>
                   <Link
                     to="/courses"
-                    className="btn-black flex justify-center w-fit mx-auto btn-md"
+                    className="btn-view w-fit flex justify-center  mx-auto "
                   >
                     View More
                   </Link>

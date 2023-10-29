@@ -45,7 +45,7 @@ const HeroAria = () => {
              Get Started <BsArrowRightShort/> 
               </Link>
               <Link
-                className="btn-black btn-md px-8 text-lg"
+                className="btn-view"
                 to="/courses"
               >
               View Courses <FaTelegramPlane />
