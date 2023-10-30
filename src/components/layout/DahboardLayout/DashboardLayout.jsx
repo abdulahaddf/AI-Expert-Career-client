@@ -55,7 +55,7 @@ const DashboardLayout = () => {
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className="mb-10 pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
+          className="mb-10 md:pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
         >
           <div className="flex  space-x-0 lg:space-x-[18px]">
             <div
@@ -300,7 +300,7 @@ const DashboardLayout = () => {
                     {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
                   </NavLink></ul> :      
               // User Routes starts from Here
-              <ul className="w-full py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">
+              <ul className="w-full mt-7 py-5 md:py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">
                   {/* <NavLink
                     to={"/dashboard/user-dashboard"}
                     className={({ isActive }) =>
@@ -423,7 +423,7 @@ const DashboardLayout = () => {
                   
                 </ul>
                }
-                <div className=" flex justify-center pb-2  items-center cursor-pointer lg:bg-[#ED1B24]/20">
+                <div className=" flex justify-center pb-2  items-center cursor-pointer bg-[#ED1B24]/20">
                   <img
                     src={logoutLogo}
                     alt=""
