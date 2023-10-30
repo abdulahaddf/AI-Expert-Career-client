@@ -8,10 +8,12 @@ import useTitle from "../../../hooks/useTitle";
 
 
 const HeroAria = () => {
+    const gradientColor =
+    "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
   const { language } = useContext(MyContext);
   useTitle("Home");
   return (
-    <div className=" bg-[#fff] mb-[40px]  ">
+    <div className=" bg-[#fff] mb-[40px]  " style={{ background: gradientColor }}>
       <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="md:flex">
           <div className="lg:text-start md:w-1/2 flex flex-col  justify-center pl-7">

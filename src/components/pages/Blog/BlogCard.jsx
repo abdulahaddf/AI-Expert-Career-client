@@ -27,11 +27,13 @@ const BlogCard = ({ blog }) => {
   // console.log(blog);
   return (
     <div  className="section w-full flex flex-col justify-between  p-2">
-      <img
-          className="w-[268px] h-[170px] mx-auto rounded-lg"
+     <figure className='rounded-lg'>
+     <img
+          className="md:max-h-52 pb-3 mx-auto rounded-lg"
           src={blog.imageURL}
           alt="cover"
         />
+     </figure>
         <div className='space-y-4 flex flex-col justify-center items-center '>
      
        

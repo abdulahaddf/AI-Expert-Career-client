@@ -322,7 +322,7 @@ const IndividualBlog = () => {
 
 
           <div>
-            <p><span className="text-xl font-semibold">Tags: </span>{blog?.selectedTags?.map((a,i) => <span key={i} className="border px-3 py-[2px] rounded-full mr-5">{a}</span>)}</p>
+            <p className="flex gap-3 flex-wrap cursor-pointer"><span className="text-xl font-semibold ">Tags: </span>{blog?.selectedTags?.map((a,i) => <span key={i} className="border px-3 py-[2px] rounded-full">{a}</span>)}</p>
           </div>
 
 
