@@ -19,7 +19,7 @@ const HomeCourseSection = () => {
 
 
   return (
-    <div className="my-20">
+    <div className="mt-5 md:mt-20 mb-10">
       <h2 className="text-[30px] font-bold text-center">
         {language == "bn" ? "কোর্স সমূহ" : "Choose Your AI Journey"}
       </h2>

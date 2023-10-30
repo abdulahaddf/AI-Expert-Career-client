@@ -461,22 +461,7 @@ const Navbar = () => {
                                             Logout
                                           </li>
                                         </li>
-                                      ) : (
-                                        <li className="flex flex-col ml-3 pb-5 ">
-                                          <Link
-                                            to="/dashboard/my-profile"
-                                            className="hover:no-underline hover:text-primary ml-3"
-                                          >
-                                            Dashboard
-                                          </Link>
-                                          <li
-                                            className="hover:text-primary  hover:no-underline ml-3"
-                                            onClick={logOut}
-                                          >
-                                            Logout
-                                          </li>
-                                        </li>
-                                      )
+                                      ) : ""
                                     ) : (
                                       ""
                                     )}
@@ -501,6 +486,7 @@ const Navbar = () => {
                               </span>
                             </Link>
                           </li>
+                          
                           <center>
                             <li>
                               <button className="rounded-full mt-2 lg:mt-0  border-2 border-[#ED1B24] flex justify-between items-center bg-[#fefefe] overflow-hidden ">

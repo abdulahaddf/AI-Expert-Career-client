@@ -3,7 +3,7 @@ import roadmapImage from "../../../../assets/banner/roadmap.png";
 
 const Roadmap = () => {
   return (
-    <div className="relative">
+    <div className="relative md:mb-10 py-10 md:py-0">
       <img className="md:w-11/12 mx-auto " src={roadmapImage} alt="" />
       <div className="absolute top-0 md:top-5 md:w-2/5 w-4/6 mx-auto md:space-y-4 md:ml-10">
         <h1 className="md:text-3xl font-semibold">
