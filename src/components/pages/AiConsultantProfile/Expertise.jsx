@@ -61,7 +61,7 @@ const Expertise = ({ consultant }) => {
         cName,
         cMail,
         cPhone,
-        cId : consultant._id,
+        cId: consultant._id,
         request: "pending",
         confirmation: "pending",
       };
@@ -230,6 +230,7 @@ const Expertise = ({ consultant }) => {
                   <select
                     {...field}
                     className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
+                    defaultValue="Career Consulting"
                   >
                     <option value="Career Consulting">Career Consulting</option>
                     <option value="Project">Project</option>
@@ -287,10 +288,7 @@ const Expertise = ({ consultant }) => {
                   />
                 )}
               />
-              
             </div>
-
-
 
             <div className="flex justify-center">
               <button
@@ -308,7 +306,3 @@ const Expertise = ({ consultant }) => {
 };
 
 export default Expertise;
-
-
-
-

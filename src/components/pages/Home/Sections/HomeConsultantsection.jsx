@@ -66,7 +66,7 @@ if(loading && consultants) return <Loader/>;
                   state={c}
                   className="flex items-center p-2    "
                 >
-                  <div className="lg:flex section md:w-11/12 mx-auto gap-2  relative my-5">
+                  <div className="lg:flex section w-full md:w-11/12 mx-auto gap-2  relative my-5">
                     <div className="w-4/6  my-5 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (

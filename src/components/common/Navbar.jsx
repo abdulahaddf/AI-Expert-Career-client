@@ -20,7 +20,7 @@ const Navbar = () => {
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
   const isAdmin = userinfo?.role === "admin";
-  console.log(isAdmin);
+  // console.log(isAdmin);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -311,7 +311,7 @@ const Navbar = () => {
                 ""
               )}
             </div>
-            {!scrollNav && (
+     
               <div className="lg:hidden ">
                 <button
                   aria-label="Open Menu"
@@ -519,7 +519,7 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-            )}
+        
           </div>
         </div>
       </div>
