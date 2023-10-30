@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const CourseCart = ({ courseData, userId }) => {
-  const { course, progress, _id } = courseData;
+  const { course, _id } = courseData;
 
   return (
-    <div className="flex section w-fit p-5 ">
+    <div className="flex section w-96 p-5 ">
       <img src={course?.cover} alt="" className="mr-4 w-32 h-20" />
       <div className="md:space-y-3 space-y-1">
         <h3 className="font-bold">{course.title}</h3>
-        <p className="text-sm text-black/70 font-bold">{course.instructor}</p>
+        {/* <p className="text-sm text-black/70 font-bold">{course.instructor}</p> */}
 
         {/* <div className="w-full bg-[#D9D9D9] h-4 rounded-full mb-1"> */}
           {/* <div

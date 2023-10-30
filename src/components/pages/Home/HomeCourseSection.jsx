@@ -46,7 +46,7 @@ const HomeCourseSection = () => {
               </Tab>
             ))}
           </Tab.List>
-          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black/25 normal-case  hover:shadow-lg hover:bg-black flex justify-center mt-5 md:mt-0">Vew All Courses</Link>
+          <Link to="/courses" className="btn btn-md btn-ghost btn-outline border-black normal-case  hover:shadow-lg hover:bg-black hover:text-white flex justify-center mt-5 md:mt-0">Vew All Courses</Link>
        </div>
           <Tab.Panels className="mt-2">
             {isLoading ? (
@@ -55,7 +55,7 @@ const HomeCourseSection = () => {
               categories.map((category, index) => (
                 <Tab.Panel
                   key={index}
-                  className="rounded-full bg-white p-3 focus:outline-none "
+                  className="rounded-full bg-white md:p-3 focus:outline-none "
                 >
                   <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] mb-10">
                     {courses

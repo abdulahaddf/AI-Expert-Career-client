@@ -143,6 +143,7 @@ const Navbar = () => {
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
+             
                 <div className={"flex items-center"}>{menuItem}</div>
               </ul>
               {user ? (
@@ -269,7 +270,7 @@ const Navbar = () => {
                               </li>
                             </li>
                           ) : (
-                            <li className="flex flex-col h-fit space-y-2  p-1 ">
+                            <li className="flex flex-col justify-center items-center h-fit space-y-2  p-1 ">
                               <Link
                                 to="/dashboard/my-profile"
                                 className="navOptions"
@@ -345,6 +346,9 @@ const Navbar = () => {
                             <img className="bg-white" src={Logo} alt="" />
                           </NavLink>
                         </div>
+                        <div className="my-2 absolute">
+                          <SearchBox userinfo={userinfo}/>
+                          </div>
                         <div>
                           <button
                             aria-label="Close Menu"
@@ -365,7 +369,9 @@ const Navbar = () => {
                         </div>
                       </div>
                       <nav>
+                         
                         <ul className="space-y-4">
+                          
                           {menuItem}
                          
                           {user ? (

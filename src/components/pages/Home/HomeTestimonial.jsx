@@ -2,14 +2,11 @@ import line from "../../../assets/line.svg";
 import TestImg from "../../../assets/test.svg";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
-// import required modules
-import { FreeMode, Pagination } from "swiper";
+
 import { BsQuote } from "react-icons/bs";
 import { MyContext } from "../../../Context/Context";
 import { useContext } from "react";
@@ -36,18 +33,17 @@ const HomeTestimonial = () => {
         {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Our Testimonial"}
       </h3>
      
-      <div className="w-[90%] mx-auto">
+      <div className=" mx-auto">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          // slidesPerView={3}
+          // spaceBetween={30}
           autoplay={{
-            delay: 1000,
-            disableOnInteraction: false,
+            delay: 1500,
+            disableOnInteraction: true,
           }}
           loop={true}
-          freeMode={true}
           breakpoints={{
-            140: {
+            440: {
               slidesPerView: 1,
               spaceBetween: 20,
             },
@@ -67,12 +63,12 @@ const HomeTestimonial = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[FreeMode, Pagination]}
-          className="w-[95%] mx-auto"
+          modules={[Pagination, Autoplay]}
+          className="mySwiper "
         >
           {feedback?.map(({ _id, name, imageURL, designation, feedback }) => (
             <SwiperSlide key={_id} className=" pb-16">
-              <div className="p-10 bg-[#fff] shadow-xl rounded-[20px] text-center mt-[120px] relative">
+              <div className="p-10 bg-[#fff] shadow-md md:shadow-xl rounded-[20px] text-center mt-[120px] relative">
                 <span className="absolute left-[16px] top-[-15px]">
                   <BsQuote className="text-black text-4xl" />
                 </span>

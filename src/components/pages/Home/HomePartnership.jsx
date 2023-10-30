@@ -9,23 +9,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import Marquee from "react-fast-marquee";
 
 const HomePartnership = () => {
   const { language } = useContext(MyContext);
   return (
-    <div className="mt-[80px] mb-[135px] relative">
+    <div className="my-10 md:my-20 ">
       <h3 className="text-center font-bold text-[30px]">
         {" "}
         {language === "bn" ? "আমাদের পার্টনারসমূহ" : "Our Partners"}
       </h3>
       <center>
-        <img
-          src={line}
-          alt=""
-          className="select-none  pointer-events-none no-select unselectable"
-        />
+
       </center>
       <div className="md:flex hidden items-center justify-center flex-wrap gap-6 mt-[40px]">
+      <Marquee speed={100}>
         <img
           src={intel}
           alt=""
@@ -56,6 +54,7 @@ const HomePartnership = () => {
           alt=""
           className="select-none pointer-events-none no-select unselectable"
         />
+        </Marquee>
       </div>
       <Swiper
         autoplay={{

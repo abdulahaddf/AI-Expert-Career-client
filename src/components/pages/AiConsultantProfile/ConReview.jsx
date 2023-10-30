@@ -35,11 +35,9 @@ const ConReview = ({ cMail }) => {
     <div className="mt-[80px] mb-[35px] relative">
       <h3 className="text-center font-bold text-[30px]">
         {" "}
-        {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Our Testimonial"}
+        {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Feedbacks"}
       </h3>
-      <center>
-        <img src={line} alt="" />
-      </center>
+    
       <div className="w-[90%] mx-auto">
         <Swiper
           slidesPerView={3}

@@ -7,7 +7,7 @@ const Context = ({ children }) => {
   const [eventData, setEventData] = useState({});
   const [addToCart, setAddToCart] = useState([]);
   // const [user, setUser] = useState(false);
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'bn');
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'en');
 
 
 

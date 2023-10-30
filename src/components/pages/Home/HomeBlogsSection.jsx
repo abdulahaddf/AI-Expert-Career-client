@@ -70,7 +70,7 @@ const HomeBlogsSection = () => {
               categories.map((category, index) => (
                 <Tab.Panel
                   key={index}
-                  className="rounded-full bg-white p-3 "
+                  className="rounded-full bg-white md:p-3 "
                 >
                   <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
 

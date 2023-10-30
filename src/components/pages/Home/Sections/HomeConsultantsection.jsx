@@ -26,11 +26,11 @@ const HomeConsultantSection = () => {
 
 if(loading && consultants) return <Loader/>;
     return (
-        <div className="my-20 bg-slate-100 py-20 px-6 rounded-md">
+        <div className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md">
         <div className="md:grid items-stretch md:mt-0 mt-4 grid-cols-2 gap-3">
-          <div className="flex flex-col justify-center ml-6">
+          <div className="flex flex-col justify-center px-4 md:ml-6">
             <h1 className="text-primary pb-3">AI Consultancy</h1>
-            <h1 className=" font-bold text-4xl">
+            <h1 className=" font-bold text-2xl md:text-4xl">
               {language === "bn"
                 ? "কর্পোরেট বা ক্যারিয়ার কনসালটেন্টের মাধ্যমে নিশ্চিত করুণ আপনার সঠিক জার্নিটা!"
                 : <p>One Stop Solution in Your <br /> <span className="text-primary">AI Career Problems</span> </p>}
@@ -42,7 +42,7 @@ if(loading && consultants) return <Loader/>;
             </p>
             <div className="mt-5">
           <Link to="/ai-consultant">
-            <button className="btn-view">
+            <button className="btn-view w-full md:w-fit">
              <BiSupport/> Go for Free Consultancy 
             </button>
           </Link>
@@ -66,7 +66,7 @@ if(loading && consultants) return <Loader/>;
                   state={c}
                   className="flex items-center p-2    "
                 >
-                  <div className="lg:flex section w-11/12 mx-auto gap-2  relative my-5">
+                  <div className="lg:flex section md:w-11/12 mx-auto gap-2  relative my-5">
                     <div className="w-4/6  my-5 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (

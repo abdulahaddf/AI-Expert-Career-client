@@ -83,10 +83,10 @@
     @apply border-black border-2 hover:shadow-lg hover:bg-black hover:text-white py-[1px] duration-300 px-2 rounded-lg font-semibold;
   } */
   .btn-black {
-    @apply btn btn-sm btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black ;
+    @apply btn btn-sm btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:text-white;
   }
   .btn-view {
-    @apply btn btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black btn-md md:px-8 text-lg;
+    @apply btn btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-8 text-lg;
   }
   .section {
     @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
@@ -127,12 +127,13 @@
 
   ::-webkit-scrollbar {
     width: 0px; 
-    height: 0px; 
-    background: transparent; 
+    height: 3px; 
+    background: scroll; 
     }
     
     ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background: #afafaf;
+    border-radius: 80px;
     }
   
   

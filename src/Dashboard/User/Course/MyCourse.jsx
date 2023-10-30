@@ -28,16 +28,16 @@ const MyCourse = () => {
 
   if (loading && !courses) return <Loader />;
   return (
-    <div className="lg:h-screen mb-12 w-4/5 mx-auto">
+    <div className=" mb-12 md:w-4/5 mx-auto">
       {courses ? (
-        <div className="w-4/5 mx-auto">
+        <div className="md:w-4/5 mx-auto">
           <h3 className=" font-bold text-center text-2xl">
             {" "}
             {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}{" "}
           </h3>
           <>
             {courses.length > 0 ? (
-              <div className="grid  lg:grid-cols-2 mt-[30px] gap-5 2xl:gap-x-0 mx-auto">
+              <div className="grid mt-[30px] gap-5 2xl:gap-x-0 mx-auto">
                 {courses?.map((course, i) => (
                   <CourseCart
                     key={i}
@@ -47,14 +47,14 @@ const MyCourse = () => {
                 ))}
               </div>
             ) : (
-              <p className="my-10 text-3xl font-semibold text-center">
+              <p className="my-20 text-3xl font-semibold text-center">
                 You did not enrolled in any Course
               </p>
             )}
           </>
         </div>
       ) : (
-        <p className="my-10 text-3xl font-semibold text-center">
+        <p className="my-20 text-3xl font-semibold text-center">
           You have not purchased any course yet
         </p>
       )}
