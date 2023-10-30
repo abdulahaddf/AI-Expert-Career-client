@@ -10,6 +10,7 @@ import Loader from "../../common/loader/Loader";
 import FeaturedBlogs from "./FeaturedBlogs";
 import { Link } from "react-router-dom";
 import NewsLetter from "./NewsLetter";
+import useTitle from "../../../hooks/useTitle";
 
 const categories = [
   "Machine learning",
@@ -106,6 +107,10 @@ const Blog = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+
+
+
+  useTitle("Blogs");
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

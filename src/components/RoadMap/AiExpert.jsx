@@ -6,12 +6,14 @@ import fundamentalsSvg from "./Group 640.svg";
 import pythonSvg from "../../assets/roadmap_svg/pythonProgramming.svg";
 import exploratorySvg from "../../assets/roadmap_svg/Exploratory Data Analysis.svg";
 import { useEffect } from "react";
+import useTitle from "../../hooks/useTitle";
 
 const AiExpert = () => {
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  useTitle("Ai Roadmap");
   return (
     <>
       <div className="mt-20 mb-28">

@@ -15,7 +15,7 @@ const HomeCourseSection = () => {
   const { language } = useContext(MyContext);
   const [courses, isLoading] = useCourses();
   const { category } = useParams(); // Get the selected category from the URL
-
+if(isLoading) return <Loader/>;
   return (
     <div className="mt-5 md:mt-20 mb-10">
       <h2 className="text-[30px] font-bold text-center">

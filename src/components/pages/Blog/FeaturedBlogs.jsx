@@ -9,6 +9,8 @@ import { FaUpRightFromSquare} from "react-icons/fa6";
 
 const FeaturedBlogs = ({featuredBlogs}) => {
     console.log(featuredBlogs)
+
+    
     return (
         <div>
              <Swiper

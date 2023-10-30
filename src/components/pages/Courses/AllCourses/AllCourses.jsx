@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useTitle from "../../../../hooks/useTitle";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
@@ -87,7 +88,7 @@ const AllCourses = () => {
 
 
 
-
+useTitle("All Courses");
 
  // scrollTo
  useEffect(() => {

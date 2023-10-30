@@ -4,11 +4,12 @@ import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 import { FaTelegramPlane } from "react-icons/fa";
 import { BsArrowRightShort } from "react-icons/bs";
+import useTitle from "../../../hooks/useTitle";
 
 
 const HeroAria = () => {
   const { language } = useContext(MyContext);
-
+  useTitle("Home");
   return (
     <div className=" bg-[#fff] mb-[40px]  ">
       <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

@@ -25,6 +25,7 @@ import { CiDiscount1, CiMail } from "react-icons/ci";
 import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
 import { FiLogOut } from "react-icons/fi";
+import useTitle from "../../../hooks/useTitle";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const {user, logOut } = useContext(AuthContext);
@@ -37,7 +38,7 @@ const DashboardLayout = () => {
  
 
 
-
+  useTitle("Dashboard");
   return (
     <div className="">
       <Navbar />

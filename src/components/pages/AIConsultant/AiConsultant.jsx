@@ -8,6 +8,7 @@ import Loader from "../../common/loader/Loader";
 import moment from "moment";
 import { FaRegDotCircle } from "react-icons/fa";
 import { SiSocketdotio } from "react-icons/si";
+import useTitle from "../../../hooks/useTitle";
 const AiConsultant = () => {
   const { language } = useContext(MyContext);
   const [users, loading] = UseUsers();
@@ -146,6 +147,8 @@ const AiConsultant = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+
+  useTitle("Consultants");
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
