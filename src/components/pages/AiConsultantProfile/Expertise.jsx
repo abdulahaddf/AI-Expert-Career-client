@@ -142,10 +142,10 @@ const Expertise = ({ consultant }) => {
         </div>
         <div>
           <label htmlFor="email" className="text-xl font-semibold">
-            Email
+            Email*
           </label>
           <input
-            {...register("email")}
+            {...register("email", { required: true })}
             type="email"
             placeholder="Enter your email address"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
@@ -153,7 +153,7 @@ const Expertise = ({ consultant }) => {
         </div>
         <div>
           <label htmlFor="phone" className="text-xl font-semibold">
-            Phone number
+            Phone number*
           </label>
           <input
             {...register("phone", { required: true })}
@@ -164,7 +164,7 @@ const Expertise = ({ consultant }) => {
         </div>
         <div>
           <label htmlFor="appointDate" className="text-xl font-semibold">
-            Appointment date
+            Appointment date*
           </label>
           <input
             {...register("appointDate", { required: true })}
@@ -175,7 +175,7 @@ const Expertise = ({ consultant }) => {
         </div>
         <div>
           <label htmlFor="appointTime" className="text-xl font-semibold">
-            Appointment time
+            Appointment time*
           </label>
           <input
             {...register("appointTime", { required: true })}
@@ -186,7 +186,7 @@ const Expertise = ({ consultant }) => {
         </div>
         <div>
           <label htmlFor="problemType" className="text-xl font-semibold">
-            Type of Problem
+            Type of Problem*
           </label>
           <select
             {...register("problemType", { required: true })}
