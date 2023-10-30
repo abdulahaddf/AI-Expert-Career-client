@@ -222,16 +222,16 @@ const Appointments = () => {
                           type="checkbox"
                           checked={isChecked}
                           onChange={handleCheckboxChange}
-                          className="checkbox checkbox-sm checkbox-error "
+                          className="checkbox checkbox-xs md:checkbox-sm checkbox-error "
                         />
-                        <Link
-                          to="/terms&conditions"
-                          className="flex items-center gap-3 text-sm"
-                        >
-                          {language == "bn"
-                            ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
-                            : "Accept All Terms and Conditions"}
-                        </Link>
+          <Link
+            to="/terms&conditions"
+            className="flex items-center gap-3 text-sm"
+          >
+            {language == "bn"
+              ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
+              : <p>Accept All <span className="underline font-semibold">Terms and Conditions</span></p>}
+          </Link>
                       </div>
                     </div>
                     <button

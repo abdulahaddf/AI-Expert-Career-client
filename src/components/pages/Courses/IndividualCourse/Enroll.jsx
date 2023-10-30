@@ -83,8 +83,8 @@ const Enroll = () => {
   }, []);
   if (!userinfo) return <Loader />;
   return (
-    <div className="flex justify-evenly h-[100vh] my-10">
-      <div className="section h-fit w-2/5 text-xl p-14">
+    <div className="md:flex justify-evenly md:h-[100vh] my-10 px-3 md:px-0">
+      <div className="section h-fit md:w-2/5 text-xl p-14">
         <h1 className="font-bold my-4 text-3xl">User Information:</h1>
 
         <div className="space-y-2 ">
@@ -109,7 +109,7 @@ const Enroll = () => {
           </p>
         </div>
       </div>
-      <div className="section w-2/5 h-fit p-5 text-xl space-y-3">
+      <div className="section md:w-2/5 h-fit p-5 text-xl space-y-3 my-5 mb-10">
         <h1 className="font-bold my-4 text-3xl">Payment Process</h1>
         <p className="font-semibold">Course Name: {title}</p>
 
@@ -219,7 +219,7 @@ const Enroll = () => {
             type="checkbox"
             checked={isChecked}
             onChange={handleCheckboxChange}
-            className="checkbox checkbox-sm checkbox-error "
+            className="checkbox checkbox-xs md:checkbox-sm checkbox-error "
           />
           <Link
             to="/terms&conditions"
@@ -227,7 +227,7 @@ const Enroll = () => {
           >
             {language == "bn"
               ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
-              : "Accept All Terms and Conditions"}
+              : <p >Accept All <span className="underline font-semibold">Terms and Conditions</span></p>}
           </Link>
           <br />
         </div>

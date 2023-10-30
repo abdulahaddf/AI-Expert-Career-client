@@ -226,7 +226,7 @@ const IndividualCourse = () => {
         </div>
 
         {/* FAQ Section */}
-        <div>
+        <div className="my-5 md:my-0">
           <h3 className="text-2xl font-bold my-3">
             {" "}
             {language == "bn"
@@ -271,7 +271,7 @@ const IndividualCourse = () => {
       </section>
 
       {/* right Side Contents */}
-      <section className="">
+      <section className="my-5 md:my-0">
         {/* Features */}
         <div className="section w-96 text-sm ">
           <h3 className="text-xl font-bold my-3">

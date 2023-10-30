@@ -1,12 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import UseUser from "../../../../hooks/useUser";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Loader from "../../../common/loader/Loader";
 import { toast } from "react-toastify";
 import Lottie from "lottie-react";
 import free from "../../../../assets/aiload/free.json";
+import { MyContext } from "../../../../Context/Context";
 
 const FreeEnroll = () => {
+  const { language } = useContext(MyContext);
   const [userinfo] = UseUser();
   const location = useLocation();
   const { _id, title, course } = location.state;
@@ -100,9 +102,14 @@ const FreeEnroll = () => {
           onChange={handleCheckboxChange}
           className=" mr-2 checkbox checkbox-md items-center"
         />
-        <Link to="/terms&conditions" className="">
-          Accept All <span className="underline font-semibold">Terms and Conditions</span> 
-        </Link>
+          <Link
+            to="/terms&conditions"
+            className="flex items-center gap-3 text-sm"
+          >
+            {language == "bn"
+              ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
+              : <p>Accept All <span className="underline font-semibold">Terms and Conditions</span></p>}
+          </Link>
       </div>
 <div className="pt-5">
 <Link

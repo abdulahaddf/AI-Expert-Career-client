@@ -97,9 +97,9 @@ useTitle("All Courses");
 
   if (isLoading && !banner && !courses) return <Loader />;
   return (
-    <div className="w-4/5 mx-auto">
+    <div className="md:w-4/5 px-3 md:px-0 mx-auto">
       {/* Banner */}
-      <div className="my-10 w-11/12 flex flex-col gap-5 lg:flex-row mx-auto">
+      <div className="my-10 md:w-11/12 flex flex-col gap-5 lg:flex-row mx-auto">
         {/* Dynamic banners and titles */}
         <div className="border-[1px] border-black/25 lg:w-1/2 mx-auto rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
           <h1 className="text-2xl text-center">{banner?.title}</h1>
