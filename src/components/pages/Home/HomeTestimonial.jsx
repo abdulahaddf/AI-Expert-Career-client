@@ -12,6 +12,7 @@ import { MyContext } from "../../../Context/Context";
 import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import Loader from "../../common/loader/Loader";
 
 const HomeTestimonial = () => {
   const { language } = useContext(MyContext);
@@ -25,7 +26,7 @@ const HomeTestimonial = () => {
         // setIsLoading(false);
       });
   }, []);
-
+  if(!feedback) return <Loader/>
   return (
     <div className="mt-[80px] mb-[35px] relative">
       <h3 className="text-center font-bold text-[30px]">
@@ -52,7 +53,7 @@ const HomeTestimonial = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 3,
               spaceBetween: 40,
             },
             1024: {

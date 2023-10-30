@@ -4,6 +4,7 @@ import BlogCard from "../Blog/BlogCard";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
+import Loader from "../../common/loader/Loader";
 
 const categories = [
   "Featured",
@@ -32,7 +33,7 @@ const HomeBlogsSection = () => {
         setIsLoading(false);
       });
   }, []);
-
+if (isLoading) return <Loader/>
   return (
     <div className="my-20">
          <h2 className="text-[30px] font-bold text-center">
