@@ -217,12 +217,12 @@ const Navbar = () => {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-menu  z-20  shadow-md  absolute right-0 w-32
+                      className="dropdown-menu bg-white z-20  shadow-md  absolute right-0 w-32
                   rounded-box   text-left mt-2"
                     >
                       <li className="">
                         {user ? (
-                          isAdmin ? (
+                          isAdmin || userinfo?.role === "super admin" ? (
                             <li className="flex flex-col space-y-2  p-1  ">
                              
                                 <Link
@@ -244,7 +244,7 @@ const Navbar = () => {
                                   to="/dashboard/manage-users"
                                   className=" navOptions"
                                 >
-                                  Manage Users
+                                  User Control
                                 </Link>
                              
                               <Link
@@ -255,7 +255,7 @@ const Navbar = () => {
                               </Link>
                             </li>
                           ) : userinfo?.role === "consultant" ? (
-                            <li className="flex flex-col h-fit space-y-2  p-1 ">
+                            <li className="flex flex-col justify-center items-center h-fit space-y-4 mt-10  p-1 ">
                               <Link
                                 to="/dashboard/consultant-profile"
                                 className="navOptions"
@@ -407,27 +407,50 @@ const Navbar = () => {
                                     </span>
                                   </div>
                                 </label>
+
+
+
+
+                                {/* For hamburger menu */}
                                 <ul
                                   tabIndex={0}
-                                  className="dropdown-menu  z-20  p-2 shadow-md bg-[#F1D8E5] absolute w-48
+                                  className="dropdown-menu bg-white  z-20  p-2 shadow-md  absolute w-48
                   rounded-box  md:w-40 lg:w-36 "
                                 >
-                                  <li className="ml-3 mt-3">
-                                    <Link
-                                      to="/dashboard/my-profile"
-                                      className="justify-between hover:no-underline  hover:text-primary"
-                                    >
-                                      My Profile
-                                      <span className=""></span>
-                                    </Link>
-                                  </li>
+                                   <li className="flex flex-col justify-center items-center h-fit space-y-2   ">
+                              <Link
+                                to="/dashboard/my-profile"
+                                className="navOptions"
+                              >
+                                My Profile
+                              </Link>
+                              <Link
+                                to="/dashboard/my-courses"
+                                className="navOptions"
+                              >
+                                My Courses
+                              </Link>
+                              <Link
+                                to="/dashboard/my-appointments"
+                                className="navOptions"
+                              >
+                                Appointments
+                              </Link>
+
+                              <li
+                                className="navOptions"
+                                onClick={logOut}
+                              >
+                                Logout
+                              </li>
+                            </li>
                                   <li>
                                     {user ? (
                                       isAdmin ? (
                                         <li>
                                           <Link
                                             to="/dashboard/my-profile"
-                                            className="hover:no-underline hover:text-primary ml-3"
+                                            className="navOptions"
                                           >
                                             Dashboard
                                           </Link>

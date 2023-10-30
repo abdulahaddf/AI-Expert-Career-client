@@ -92,7 +92,7 @@
     @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
   } 
   .navOptions {
-    @apply btn bg-[#fefefe]  btn-sm normal-case ps-5 pe-0 rounded-3xl hover:no-underline hover:text-white hover:bg-primary;
+    @apply btn bg-[#fefefe] w-full  btn-sm normal-case  rounded-xl hover:no-underline hover:text-white hover:bg-primary;
   } 
   
 }
@@ -125,22 +125,22 @@
   -webkit-overflow-scrolling: touch;
 
 
-  ::-webkit-scrollbar {
-    width: 0px; 
-    height: 3px; 
-    background: scroll; 
-    }
-    
-    ::-webkit-scrollbar-thumb {
-    background: #afafaf;
-    border-radius: 80px;
-    }
+
   
   
 }
 
 
-
+::-webkit-scrollbar {
+  width: 0px; 
+  height: 3px; 
+  background: scroll; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background: #afafaf;
+  border-radius: 80px;
+  }
 
 
 

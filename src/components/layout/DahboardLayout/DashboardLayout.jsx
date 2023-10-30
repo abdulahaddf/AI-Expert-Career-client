@@ -24,6 +24,7 @@ import { MdAllInbox, MdManageSearch, MdReviews, MdVideoCameraFront } from "react
 import { CiDiscount1, CiMail } from "react-icons/ci";
 import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
+import { FiLogOut } from "react-icons/fi";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const {user, logOut } = useContext(AuthContext);
@@ -55,13 +56,13 @@ const DashboardLayout = () => {
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className="mb-10 md:pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8"
+          className="mb-10 md:pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8 "
         >
-          <div className="flex  space-x-0 lg:space-x-[18px]">
+          <div className="flex  space-x-0 lg:space-x-[18px] ">
             <div
               className={`${
                 isOpen
-                  ? "pt-[3rem] translate-x-0 opacity-95 "
+                  ? " translate-x-0 opacity-95 "
                   : "opacity-0 -translate-x-full "
               }  h-fit lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
             >
@@ -419,20 +420,16 @@ const DashboardLayout = () => {
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
                   </NavLink> */}
 
-
-                  
-                </ul>
-               }
-                <div className=" flex justify-center pb-2  items-center cursor-pointer bg-[#ED1B24]/20">
-                  <img
-                    src={logoutLogo}
-                    alt=""
-                    className="mr-2.5 h-4 w-4 mb-1.5"
-                  />
-                  <button className="font-bold" onClick={logOut}>
+<div className=" flex justify-center  items-center cursor-pointer gap-2 " onClick={logOut}>
+                 <FiLogOut/>
+                  <button className="font-bold " >
                     {language === "bn" ? "লগ আউট" : "Logout"}
                   </button>
                 </div>
+                  
+                </ul>
+               }
+                
 
 
 
