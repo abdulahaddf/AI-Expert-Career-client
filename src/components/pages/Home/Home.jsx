@@ -15,6 +15,8 @@ import Roadmap from "./Sections/Roadmap";
 import HomeConsultantSection from "./Sections/HomeConsultantsection";
 import { Link } from "react-router-dom";
 import { AiFillUpCircle } from "react-icons/ai";
+import { GoMoveToTop} from "react-icons/go";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const Home = () => {
   const [scrollNav, setScrollNav] = useState(false);
@@ -36,7 +38,10 @@ const Home = () => {
       window.removeEventListener("scroll", scrollEffect);
     };
   }, []);
-  
+   // scrollTo
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <>
      
@@ -53,11 +58,12 @@ const Home = () => {
         {/* <HomeEvent /> */}
         <HomePartnership />
       </div>
+
       <div
-  className={`transform ${scrollNav ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-1000 fixed right-1 bottom-1`}
+  className={`transform ${scrollNav ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-1000 fixed right-1 bottom-2 z-50  rounded-full`}
 >
   <div
-    className={`text-4xl md:text-5xl z-40 tooltip tooltip-left shadow-lg rounded-full ${scrollNav ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
+    className={` md:tooltip tooltip-left  duration-200 ${scrollNav ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
     data-tip="scroll to top"
   >
     {scrollNav && (
@@ -68,7 +74,7 @@ const Home = () => {
         offset={-150}
         duration={500}
       >
-        <AiFillUpCircle />
+        <FaArrowCircleUp className=" font-semibold rounded-full shadow-xl text-2xl md:text-2xl md:w-8 md:h-8 text-black"/>
       </Link>
     )}
   </div>
