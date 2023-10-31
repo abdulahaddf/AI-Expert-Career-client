@@ -3,6 +3,7 @@ import { MyContext } from "../../../Context/Context";
 import useCourses from "../../../hooks/UseCourses";
 import UseUsers from "../../../hooks/useUsers";
 import { AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const SearchBox = () => {
   const { language } = useContext(MyContext);
@@ -110,7 +111,7 @@ const SearchBox = () => {
                   )}{" "}
                 </p>
                 {CourseData?.map((course) => (
-                  <div className="flex items-start gap-2 my-4" key={course.id}>
+                  <Link to={`/individualCourse/${course._id}`} className="flex items-start gap-2 my-4" key={course._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={course.insImage}
@@ -122,7 +123,7 @@ const SearchBox = () => {
                         Instructor: {course.instructor}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (
@@ -140,7 +141,7 @@ const SearchBox = () => {
                   )}{" "}
                 </p>
                 {consultantData?.map((c) => (
-                  <div className="flex gap-2 my-4" key={c.id}>
+                  <Link to={`/ai-consultant-profile/${c._id}`} className="flex gap-2 my-4" key={c._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={c.photoURL}
@@ -152,7 +153,7 @@ const SearchBox = () => {
                         {c?.designation ? c?.designation : ""}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (

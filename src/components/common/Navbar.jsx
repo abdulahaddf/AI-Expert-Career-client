@@ -12,6 +12,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 import UseUser from "../../hooks/useUser";
 import HomeSearch from "../pages/Home/HomeSearch";
 import SearchBox from "./SearchBox/SearchBox";
+import SearchMobile from "./SearchBox/SearchMobile";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -339,7 +340,7 @@ const Navbar = () => {
                           </NavLink>
                         </div>
                         <div className="my-2 absolute">
-                          <SearchBox userinfo={userinfo}/>
+                        
                           </div>
                         <div>
                           <button
@@ -358,128 +359,31 @@ const Navbar = () => {
                               />
                             </svg>
                           </button>
+                          
                         </div>
                       </div>
+                          <SearchMobile userinfo={userinfo}/>
                       <nav>
                          
                         <ul className="space-y-4">
                           
                           {menuItem}
                          
-                          {user ? (
-                            <div>
-                              <div
-                                className=" dropdown dropdown-hover "
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                              >
-                                <label
-                                  tabIndex={0}
-                                  className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
-                                >
-                                  {" "}
-                                  <div className="flex items-center hover:text-primary">
-                                    <img
-                                      className="w-[60px] h-[60px] rounded-full"
-                                      src={
-                                        user?.photoURL ||
-                                        "https://i.ibb.co/sg6hmZ7/user.png"
-                                      }
-                                      alt="user"
-                                    />
-
-                                    <span className="text-xl ">
-                                      <RiArrowDownSLine
-                                        className={`${
-                                          isHovered
-                                            ? "transform rotate-180 "
-                                            : ""
-                                        } transition-transform duration-300 inline-block `}
-                                      ></RiArrowDownSLine>
-                                    </span>
-                                  </div>
-                                </label>
-
-
-
-
-                                {/* For hamburger menu */}
-                                <ul
-                                  tabIndex={0}
-                                  className="dropdown-menu bg-white  z-20  p-2 shadow-md  absolute w-48
-                  rounded-box  md:w-40 lg:w-36 "
-                                >
-                                   <li className="flex flex-col justify-center items-center h-fit space-y-2   ">
-                              <Link
-                                to="/dashboard/my-profile"
-                                className="navOptions"
-                              >
-                                My Profile
-                              </Link>
-                              <Link
-                                to="/dashboard/my-courses"
-                                className="navOptions"
-                              >
-                                My Courses
-                              </Link>
-                              <Link
-                                to="/dashboard/my-appointments"
-                                className="navOptions"
-                              >
-                                Appointments
-                              </Link>
-
-                              <li
-                                className="navOptions"
-                                onClick={logOut}
-                              >
-                                Logout
-                              </li>
-                            </li>
-                                  <li>
-                                    {user ? (
-                                      isAdmin ? (
-                                        <li>
-                                          <Link
-                                            to="/dashboard/my-profile"
-                                            className="navOptions"
-                                          >
-                                            Dashboard
-                                          </Link>
-                                          <li
-                                            className="hover:text-primary  hover:no-underline ml-3"
-                                            onClick={logOut}
-                                          >
-                                            Logout
-                                          </li>
-                                        </li>
-                                      ) : ""
-                                    ) : (
-                                      ""
-                                    )}
-                                  </li>
-
-                                  <li></li>
-                                </ul>
-                              </div>
-                            </div>
-                          ) : (
-                            ""
-                          )}
-                          <li className="text-center">
+                        <div className="flex items-center justify-evenly">
+                        <div>
                             <Link
                               className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                               to="/signup"
                             >
                               <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 
-                              <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-black">
+                              <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
                                 Join us
                               </span>
                             </Link>
-                          </li>
+                          </div>
                           
-                          <center>
+                          <div>
                             <li>
                               <button className="rounded-full mt-2 lg:mt-0  border-2 border-[#ED1B24] flex justify-between items-center bg-[#fefefe] overflow-hidden ">
                                 <p
@@ -504,7 +408,12 @@ const Navbar = () => {
                                 </p>
                               </button>
                             </li>
-                          </center>
+                          </div>
+                        </div>
+
+
+                          
+                        
                         </ul>
                       </nav>
                     </div>

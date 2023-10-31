@@ -3,6 +3,7 @@ import { MyContext } from "../../../Context/Context";
 import useCourses from "../../../hooks/UseCourses";
 import UseUsers from "../../../hooks/useUsers";
 import { AiOutlineSearch } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const SearchMobile = () => {
   const { language } = useContext(MyContext);
@@ -81,7 +82,7 @@ const SearchMobile = () => {
   }, [search, courses, userinfo]);
 
   return (
-    <div className="">
+    <div className="my-4">
       <div className="flex items-center relative">
         <input
           className="px-5 pl-10  bg-white text-sm font-thin rounded-full w-[350px] mx-auto h-[41px] relative border-black/25 border-2"
@@ -97,8 +98,8 @@ const SearchMobile = () => {
         <AiOutlineSearch className="absolute left-4 text-black/50" />
       </div>
       {(CourseData.length > 0 || consultantData.length > 0) && (
-        <section className="absolute w-[50vw] mx-auto top-[60px] bg-white border p-3 shadow-lg flex justify-between">
-          <div className="h-96 w-1/2 p-3 overflow-y-auto border-r-2 border-black/10">
+        <section className=" mt-1 z-40 mx-auto  bg-white border p-3 shadow-lg flex justify-between">
+          <div className="h-96 w-1/2 p-1 overflow-y-auto border-r-2 border-black/10">
             {CourseData.length > 0 ? (
               <div>
                 {/* <p className="mb-2">{CourseData.length} results found</p> */}
@@ -110,7 +111,7 @@ const SearchMobile = () => {
                   )}{" "}
                 </p>
                 {CourseData?.map((course) => (
-                  <div className="flex items-start gap-2 my-4" key={course.id}>
+                  <Link to={`/individualCourse/${course._id}`} className="flex flex-col items-start gap-2 my-4" key={course._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={course.insImage}
@@ -122,14 +123,14 @@ const SearchMobile = () => {
                         Instructor: {course.instructor}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (
               <p>No Courses Found</p>
             )}
           </div>
-          <div className="h-96 w-1/2 p-3 overflow-y-auto">
+          <div className="h-96 w-1/2 p-1 overflow-y-auto">
             {consultantData.length > 0 ? (
               <div className="h-fit p-3 px-5 overflow-y-auto">
                 <p className="mb-2">
@@ -140,7 +141,7 @@ const SearchMobile = () => {
                   )}{" "}
                 </p>
                 {consultantData?.map((c) => (
-                  <div className="flex gap-2 my-4" key={c.id}>
+                  <Link to={`/ai-consultant-profile/${c._id}`} className="flex flex-col gap-2 my-4" key={c._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={c.photoURL}
@@ -148,11 +149,11 @@ const SearchMobile = () => {
                     />
                     <div>
                       <h3 className="">{c.displayName}</h3>
-                      <p className="font-thin">
+                      <p className="font-thin text-sm ">
                         {c?.designation ? c?.designation : ""}
                       </p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (
