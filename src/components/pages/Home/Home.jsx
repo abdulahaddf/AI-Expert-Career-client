@@ -53,10 +53,14 @@ const Home = () => {
         {/* <HomeEvent /> */}
         <HomePartnership />
       </div>
- 
-      <div className={`transform ${scrollNav ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-1000 fixed right-1 bottom-1`}>
-  {scrollNav && (
-    <div className="fixed right-1 bottom-1 text-4xl md:text-6xl z-40 tooltip tooltip-left" data-tip="scroll to top">
+      <div
+  className={`transform ${scrollNav ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-1000 fixed right-1 bottom-1`}
+>
+  <div
+    className={`text-4xl md:text-5xl z-40 tooltip tooltip-left shadow-lg rounded-full ${scrollNav ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
+    data-tip="scroll to top"
+  >
+    {scrollNav && (
       <Link
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         spy={true}
@@ -66,9 +70,10 @@ const Home = () => {
       >
         <AiFillUpCircle />
       </Link>
-    </div>
-  )}
+    )}
+  </div>
 </div>
+
   
  
     </>

@@ -55,7 +55,7 @@ const HomeAbout = () => {
    
   ];
   return (
-    <div id="about" name='about' className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md md:flex justify-between">
+    <div name='about' className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md md:flex justify-between">
 <div className="md:w-5/6 flex flex-col  justify-center mx-auto ml-6 ">
   <h4 className="text-primary pb-3">About Us</h4>
 <h3 className=" font-bold lg:text-[36px] text-xl leading-10">
