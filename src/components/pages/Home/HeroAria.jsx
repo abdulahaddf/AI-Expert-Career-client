@@ -5,6 +5,7 @@ import { MyContext } from "../../../Context/Context";
 import { FaTelegramPlane } from "react-icons/fa";
 import { BsArrowRightShort } from "react-icons/bs";
 import useTitle from "../../../hooks/useTitle";
+import { AiOutlineDownCircle } from "react-icons/ai";
 
 
 const HeroAria = () => {
@@ -64,6 +65,14 @@ const HeroAria = () => {
       </div>
 
 
+
+
+
+
+
+      <Link className="text-3xl text-center flex justify-center text-[#ccdbee]"  href="#about" spy={true} smooth={true} offset={-110} duration={500}>
+        <AiOutlineDownCircle></AiOutlineDownCircle>
+      </Link>
     </div>
   );
 };

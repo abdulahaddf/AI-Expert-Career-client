@@ -110,15 +110,7 @@ const Navbar = () => {
     </>
   );
 
-  const [scrollNav, setScrollNav] = useState(false);
-  const scrollEffect = () => {
-    if (window.scrollY >= 50) {
-      setScrollNav(true);
-    } else {
-      setScrollNav(false);
-    }
-  };
-  window.addEventListener("scroll", scrollEffect);
+ 
 
   return (
     <>

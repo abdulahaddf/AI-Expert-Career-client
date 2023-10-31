@@ -4,7 +4,7 @@ import useCourses from "../../../hooks/UseCourses";
 import UseUsers from "../../../hooks/useUsers";
 import { AiOutlineSearch } from "react-icons/ai";
 
-const SearchBox = () => {
+const SearchMobile = () => {
   const { language } = useContext(MyContext);
   const [userinfo] = UseUsers();
   const [courses] = useCourses();
@@ -81,7 +81,7 @@ const SearchBox = () => {
   }, [search, courses, userinfo]);
 
   return (
-    <div className="hidden md:block relative top-0 left-10">
+    <div className="">
       <div className="flex items-center relative">
         <input
           className="px-5 pl-10  bg-white text-sm font-thin rounded-full w-[350px] mx-auto h-[41px] relative border-black/25 border-2"
@@ -165,4 +165,4 @@ const SearchBox = () => {
   );
 };
 
-export default SearchBox;
+export default SearchMobile;

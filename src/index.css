@@ -132,7 +132,7 @@
 
 
 ::-webkit-scrollbar {
-  width: 0px; 
+  width: 10px; 
   height: 3px; 
   background: scroll; 
   }
@@ -969,4 +969,3 @@ tr:nth-child(odd) {
     align-items: center;
     justify-content: center;
 }
-
