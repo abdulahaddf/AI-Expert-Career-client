@@ -119,34 +119,30 @@ const Navbar = () => {
     </>
   );
 
- 
-  useEffect(()=>{
+  useEffect(() => {
     setIsOpen(true);
-  },[isMenuOpen])
+  }, [isMenuOpen]);
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
         <div className="py-1 px-4 relative   mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-20 lg:px-28 2xl:px-8">
           <div className="relative flex items-center justify-between  font-bold">
-            
-  <div className="  flex items-center">
-  <div>
-  <Link to="/" className="flex justify-center items-center gap-2">
-                <img
-                  className="select-none pointer-events-none no-select "
-                  src={Logo}
-                  alt=""
-                />
-              </Link>
-  </div>
-            
+            <div className="  flex items-center">
+              <div>
+                <Link to="/" className="flex justify-center items-center gap-2">
+                  <img
+                    className="select-none pointer-events-none no-select "
+                    src={Logo}
+                    alt=""
+                  />
+                </Link>
+              </div>
 
-            <SearchBox userinfo={userinfo}/>
-  </div>
+              <SearchBox userinfo={userinfo} />
+            </div>
 
             <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
-             
                 <div className={"flex items-center"}>{menuItem}</div>
               </ul>
               {user ? (
@@ -227,33 +223,28 @@ const Navbar = () => {
                         {user ? (
                           isAdmin || userinfo?.role === "super admin" ? (
                             <li className="flex flex-col space-y-2  p-1  ">
-                             
-                                <Link
-                                  to="/dashboard/my-profile"
-                                  className="navOptions ml-0"
-                                >
-                                  My Profile
-                                </Link>
-                            
-                           
-                                <Link
-                                  to="/dashboard/my-profile"
-                                  className="navOptions"
-                                >
-                                  Dashboard
-                                </Link>
-                            
-                                <Link
-                                  to="/dashboard/manage-users"
-                                  className=" navOptions"
-                                >
-                                  User Control
-                                </Link>
-                             
                               <Link
-                                className="navOptions"
-                                onClick={logOut}
+                                to="/dashboard/my-profile"
+                                className="navOptions ml-0"
                               >
+                                My Profile
+                              </Link>
+
+                              <Link
+                                to="/dashboard/my-profile"
+                                className="navOptions"
+                              >
+                                Dashboard
+                              </Link>
+
+                              <Link
+                                to="/dashboard/manage-users"
+                                className=" navOptions"
+                              >
+                                User Control
+                              </Link>
+
+                              <Link className="navOptions" onClick={logOut}>
                                 Logout
                               </Link>
                             </li>
@@ -265,10 +256,7 @@ const Navbar = () => {
                               >
                                 My Profile
                               </Link>
-                              <li
-                                className="navOptions "
-                                onClick={logOut}
-                              >
+                              <li className="navOptions " onClick={logOut}>
                                 Logout
                               </li>
                             </li>
@@ -293,10 +281,7 @@ const Navbar = () => {
                                 Appointments
                               </Link>
 
-                              <li
-                                className="navOptions"
-                                onClick={logOut}
-                              >
+                              <li className="navOptions" onClick={logOut}>
                                 Logout
                               </li>
                             </li>
@@ -314,75 +299,77 @@ const Navbar = () => {
                 ""
               )}
             </div>
-     
-             
-                <div className="lg:hidden ">
-                <button
-                  aria-label="Open Menu"
-                  title="Open Menu"
-                  className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-                  onClick={() => setIsMenuOpen(true)}
+
+            <div className="lg:hidden ">
+              <button
+                aria-label="Open Menu"
+                title="Open Menu"
+                className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+                onClick={() => setIsMenuOpen(true)}
+              >
+                <svg
+                  onClick={() => setIsOpen(true)}
+                  className="w-5 text-gray-600"
+                  viewBox="0 0 24 24"
                 >
-                  <svg onClick={() => setIsOpen(true)} className="w-5 text-gray-600" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                    />
-                  </svg>
-                </button>
-                {isMenuOpen && isOpen && (
-                  <div className="absolute  top-0 left-0 w-full z-50">
-                    <div className="p-5 bg-white border rounded shadow-sm">
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <NavLink
-                            to="/"
-                            onClick={() => setIsOpen(false)}
-                            className="flex justify-center items-center gap-2"
-                          >
-                            <img className="bg-white" src={Logo} alt="" />
-                          </NavLink>
-                        </div>
-                        <div className="my-2 absolute">
-                        
-                          </div>
-                        <div>
-                          <button
-                            aria-label="Close Menu"
-                            title="Close Menu"
-                            className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            <svg
-                              className="w-5 text-gray-600"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                fill="currentColor"
-                                d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
-                              />
-                            </svg>
-                          </button>
-                          
-                        </div>
+                  <path
+                    fill="currentColor"
+                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                  />
+                  <path
+                    fill="currentColor"
+                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                  />
+                </svg>
+              </button>
+              {isMenuOpen && isOpen && (
+                <div className="absolute  top-0 left-0 w-full z-50">
+                  <div className="p-5 bg-white border rounded shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <NavLink
+                          to="/"
+                          onClick={() => setIsOpen(false)}
+                          className="flex justify-center items-center gap-2"
+                        >
+                          <img className="bg-white" src={Logo} alt="" />
+                        </NavLink>
                       </div>
-                          <SearchMobile userinfo={userinfo} isOpen={isOpen} setIsOpen={setIsOpen}/>
-                      <nav>
-                         
-                        <ul className="space-y-4">
-                          
-                          {menuItem}
-                         
+                      <div className="my-2 absolute"></div>
+                      <div>
+                        <button
+                          aria-label="Close Menu"
+                          title="Close Menu"
+                          className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <svg
+                            className="w-5 text-gray-600"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <SearchMobile
+                      userinfo={userinfo}
+                      isOpen={isOpen}
+                      setIsOpen={setIsOpen}
+                    />
+                    <nav>
+                      <ul className="space-y-4">
+                        {menuItem}
+
                         <div className="flex items-center justify-evenly">
-                        <div>
+                          <div>
                             <Link
                               className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                               to="/signup"
@@ -394,7 +381,7 @@ const Navbar = () => {
                               </span>
                             </Link>
                           </div>
-                          
+
                           <div>
                             <li>
                               <button className="rounded-full mt-2 lg:mt-0  border-2 border-[#ED1B24] flex justify-between items-center bg-[#fefefe] overflow-hidden ">
@@ -422,18 +409,12 @@ const Navbar = () => {
                             </li>
                           </div>
                         </div>
-
-
-                          
-                        
-                        </ul>
-                      </nav>
-                    </div>
+                      </ul>
+                    </nav>
                   </div>
-                )}
-              </div> 
-              
-        
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
