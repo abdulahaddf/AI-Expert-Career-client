@@ -13,15 +13,18 @@ import UseUser from "../../hooks/useUser";
 import HomeSearch from "../pages/Home/HomeSearch";
 import SearchBox from "./SearchBox/SearchBox";
 import SearchMobile from "./SearchBox/SearchMobile";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
+  const [isOpen, setIsOpen] = useState(true);
+  console.log(isOpen);
+
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
   const isAdmin = userinfo?.role === "admin";
-  // console.log(isAdmin);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -35,6 +38,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/home"
+          onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150"
@@ -50,6 +54,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/blog"
+          onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -65,6 +70,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/roadmap"
+          onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -79,6 +85,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/courses"
+          onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -93,6 +100,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/ai-consultant"
+          onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
               ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
@@ -112,7 +120,9 @@ const Navbar = () => {
   );
 
  
-
+  useEffect(()=>{
+    setIsOpen(true);
+  },[isMenuOpen])
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
@@ -305,14 +315,15 @@ const Navbar = () => {
               )}
             </div>
      
-              <div className="lg:hidden ">
+             
+                <div className="lg:hidden ">
                 <button
                   aria-label="Open Menu"
                   title="Open Menu"
                   className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
                   onClick={() => setIsMenuOpen(true)}
                 >
-                  <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                  <svg onClick={() => setIsOpen(true)} className="w-5 text-gray-600" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
                       d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
@@ -327,13 +338,14 @@ const Navbar = () => {
                     />
                   </svg>
                 </button>
-                {isMenuOpen && (
+                {isMenuOpen && isOpen && (
                   <div className="absolute  top-0 left-0 w-full z-50">
                     <div className="p-5 bg-white border rounded shadow-sm">
                       <div className="flex items-center justify-between mb-4">
                         <div>
                           <NavLink
                             to="/"
+                            onClick={() => setIsOpen(false)}
                             className="flex justify-center items-center gap-2"
                           >
                             <img className="bg-white" src={Logo} alt="" />
@@ -419,7 +431,8 @@ const Navbar = () => {
                     </div>
                   </div>
                 )}
-              </div>
+              </div> 
+              
         
           </div>
         </div>
