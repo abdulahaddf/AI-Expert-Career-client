@@ -15,7 +15,7 @@ const SearchBox = () => {
   const [consultantData, setConsultantData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
-console.log(isOpen)
+// console.log(isOpen)
   const stripHTMLTags = (html) => {
     if (!html) return "";
     const tempElement = document.createElement("div");

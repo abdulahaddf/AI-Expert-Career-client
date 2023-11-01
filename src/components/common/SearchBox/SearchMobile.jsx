@@ -14,6 +14,8 @@ const SearchMobile = () => {
   const [CourseData, setCoursesData] = useState([]);
   const [consultantData, setConsultantData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
 
   const stripHTMLTags = (html) => {
     if (!html) return "";
@@ -80,7 +82,9 @@ const SearchMobile = () => {
 
     setIsLoading(false);
   }, [search, courses, userinfo]);
-
+  useEffect(()=>{
+    setIsOpen(true);
+  },[search])
   return (
     <div className="my-4">
       <div className="flex items-center relative">
@@ -97,7 +101,8 @@ const SearchMobile = () => {
         />
         <AiOutlineSearch className="absolute left-4 text-black/50" />
       </div>
-      {(CourseData.length > 0 || consultantData.length > 0) && (
+    {
+      isOpen ? <>  {(CourseData.length > 0 || consultantData.length > 0) && (
         <section className=" mt-1 z-40 mx-auto  bg-white border p-3 shadow-lg flex justify-between">
           <div className="h-96 w-1/2 p-1 overflow-y-auto border-r-2 border-black/10">
             {CourseData.length > 0 ? (
@@ -111,7 +116,7 @@ const SearchMobile = () => {
                   )}{" "}
                 </p>
                 {CourseData?.map((course) => (
-                  <Link to={`/individualCourse/${course._id}`} className="flex flex-col items-start gap-2 my-4" key={course._id}>
+                  <Link to={`/individualCourse/${course._id}`} onClick={() => setIsOpen(false)} className="flex flex-col items-start gap-2 my-4" key={course._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={course.insImage}
@@ -141,7 +146,7 @@ const SearchMobile = () => {
                   )}{" "}
                 </p>
                 {consultantData?.map((c) => (
-                  <Link to={`/ai-consultant-profile/${c._id}`} className="flex flex-col gap-2 my-4" key={c._id}>
+                  <Link to={`/ai-consultant-profile/${c._id}`} onClick={() => setIsOpen(false)} className="flex flex-col gap-2 my-4" key={c._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={c.photoURL}
@@ -161,7 +166,8 @@ const SearchMobile = () => {
             )}
           </div>
         </section>
-      )}
+      )}</> : ""
+    }
     </div>
   );
 };
