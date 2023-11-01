@@ -374,7 +374,7 @@ const Navbar = () => {
                           
                         </div>
                       </div>
-                          <SearchMobile userinfo={userinfo}/>
+                          <SearchMobile userinfo={userinfo} isOpen={isOpen} setIsOpen={setIsOpen}/>
                       <nav>
                          
                         <ul className="space-y-4">

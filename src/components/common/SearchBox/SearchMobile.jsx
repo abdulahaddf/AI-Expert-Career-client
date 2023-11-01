@@ -5,7 +5,7 @@ import UseUsers from "../../../hooks/useUsers";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const SearchMobile = () => {
+const SearchMobile = ({isOpen, setIsOpen}) => {
   const { language } = useContext(MyContext);
   const [userinfo] = UseUsers();
   const [courses] = useCourses();
@@ -14,7 +14,7 @@ const SearchMobile = () => {
   const [CourseData, setCoursesData] = useState([]);
   const [consultantData, setConsultantData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  // const [isOpen, setIsOpen] = useState(true);
 
 
   const stripHTMLTags = (html) => {
