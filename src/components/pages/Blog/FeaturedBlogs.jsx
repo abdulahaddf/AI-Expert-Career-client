@@ -23,7 +23,7 @@ const FeaturedBlogs = ({featuredBlogs}) => {
         className="mySwiper mt-[-80px]"
       >
         {featuredBlogs?.map((b, i) => (
-          <SwiperSlide key={i} className="bg-[#de858500] pb-10">
+          <SwiperSlide key={i} className="bg-[#de858500] pb-10 ">
             <div className="mt-[80px] mb-[35px] relative">
               <div className="grid lg:grid-cols-2 items-center gap-4 mt-[100px]">
               <div>

@@ -11,6 +11,8 @@ import FeaturedBlogs from "./FeaturedBlogs";
 import { Link } from "react-router-dom";
 import NewsLetter from "./NewsLetter";
 import useTitle from "../../../hooks/useTitle";
+import { BsFillFilterCircleFill } from "react-icons/bs";
+import { GoFilter } from "react-icons/go";
 
 const categories = [
   "Machine learning",
@@ -155,11 +157,50 @@ const Blog = () => {
             </div>
           </div>
           <div className="col-span-4">
-          <div className="flex justify-end">
-          <div className=" mb-[33px] flex justify-evenly  items-center space-x-6">
-            <div className="lg:hidden text-2xl">
+          <div className="flex justify-between items-center md:justify-end my-10">
+            {/* <div className="lg:hidden"><button className="border-black border-[1px] rounded-lg hover:bg-black hover:text-white px-2 py-[6.5px] font-semibold flex items-center gap-2"><GoFilter/> Filter</button></div> */}
+
+
+
+            {/* <div className="drawer">
+  <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content">
+ 
+    <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label>
+  </div> 
+  <div className="drawer-side">
+    <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+    <ul className="menu p-4 w-80 h-fit bg-base-200 text-base-content z-40 ">
+    
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+      <li><a>Sidebar Item 1</a></li>
+      <li><a>Sidebar Item 2</a></li>
+        <li><a>Sidebar Item 1</a></li>
+        <li><a>Sidebar Item 2</a></li>
+      
+    </ul>
+  </div>
+</div> */}
+
+
+
+
+
+
+
+
+
+          <div className=" md:mb-[33px] flex justify-evenly  items-center space-x-6">
+            {/* <div className="lg:hidden text-2xl">
               <BiDotsHorizontalRounded />
-            </div>
+            </div> */}
             <select
               onChange={getFilter}
               className="w-40 py-2 px-2  bg-white  text-xl  font-bold border"
