@@ -8,9 +8,9 @@ const CategoryCard = ({
   handleCheckboxChange,
 }) => {
   return (
-    <div className="text-[20px] font-bold flex items-center ">
+    <div className="text-[16px] md:text-[20px] md:font-bold flex items-center ">
       <input
-        className='mr-2 checkbox checkbox-md items-center'
+        className='mr-2 checkbox checkbox-xs md:checkbox-md items-center'
         value={category}
         id={`flexCheckDefault-${index}`}
         checked={selectedCheckboxes.includes(category)}

@@ -131,13 +131,13 @@ const Blog = () => {
 
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">
           {/* Hide this section on small devices */}
-          <div className="hidden md:block">
+          <div className="">
             <div className="flex flex-col justify-between items-center h-full">
-              <h2 className="font-bold text-2xl pb-5">
+              <h2 className="font-bold text-2xl pb-2 md:pb-5">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
-              <div className="flex flex-col justify-between h-full">
-                <div className="space-y-1 ">
+              <div className="flex flex-col-reverse md:flex-col justify-between h-full ">
+                <div className="space-y-1 grid grid-cols-2 md:grid-cols-1 gap-x-5 ">
                   {categories?.map((category, index) => (
                     <CategoryCard
                       key={index}
@@ -147,17 +147,19 @@ const Blog = () => {
                     />
                   ))}
                 </div>
-                <div className="section bg-black h-96 flex flex-col justify-center">
+               <div className="hidden md:block">
+               <div className="section bg-black md:h-96 flex flex-col justify-center">
                   <h2 className="text-xl font-semibold text-white">
                     Are you Want to Know The Proper Roadmap of Al Journey?
                   </h2>
                   <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/roadmap">Let&apos;s Go</Link>
                 </div>
+               </div>
               </div>
             </div>
           </div>
           <div className="col-span-4">
-          <div className="flex justify-between items-center md:justify-end my-10">
+          <div className="flex justify-center items-center md:justify-end my-5 md:mb-5">
             {/* <div className="lg:hidden"><button className="border-black border-[1px] rounded-lg hover:bg-black hover:text-white px-2 py-[6.5px] font-semibold flex items-center gap-2"><GoFilter/> Filter</button></div> */}
 
 
@@ -197,7 +199,7 @@ const Blog = () => {
 
 
 
-          <div className=" md:mb-[33px] flex justify-evenly  items-center space-x-6">
+          <div className=" flex justify-center md:justify-evenly  items-center">
             {/* <div className="lg:hidden text-2xl">
               <BiDotsHorizontalRounded />
             </div> */}

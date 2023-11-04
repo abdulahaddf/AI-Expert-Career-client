@@ -1,8 +1,3 @@
-import line from "../../../assets/line.svg";
-import intel from "../../../assets/Intel.svg";
-import disnep from "../../../assets/disnep.svg";
-import amazon from "../../../assets/amazon.svg";
-import microsoft from "../../../assets/microsoft.svg";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { Swiper, SwiperSlide } from "swiper/react";
