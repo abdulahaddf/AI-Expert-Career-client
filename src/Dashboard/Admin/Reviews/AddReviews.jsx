@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import Swal from "sweetalert2";
 import AddConReview from "./AddConReview";
+import AddPartner from "./AddPartner";
 
 const AddReviews = () => {
   const [image, setImage] = useState(null);
@@ -82,7 +83,7 @@ const AddReviews = () => {
   };
 
   return (
-    <div className="flex justify-around ">
+    <div className="md:flex justify-around ">
       <AddConReview />
       <div>
         <h1 className="text-2xl font-bold text-center mb-4">
@@ -122,7 +123,7 @@ const AddReviews = () => {
               type="file"
               id="image"
               className="w-80 input 
-              file-input file-input-bordered  text-black file-input-error"
+              file-input file-input-bordered  text-black "
               onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
@@ -136,11 +137,13 @@ const AddReviews = () => {
               className="w-80 border border-gray-300 rounded-xl px-3 py-2"
             ></textarea>
           </div>
-          <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
+          <button type="submit" className="btn-view">
             Submit
           </button>
         </form>
       </div>
+
+      <AddPartner/>
     </div>
   );
 };

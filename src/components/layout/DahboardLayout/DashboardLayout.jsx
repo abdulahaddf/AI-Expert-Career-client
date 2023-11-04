@@ -79,7 +79,7 @@ const DashboardLayout = () => {
                {
                 isAdmin || userinfo?.role === "super admin" ? 
                 // Admin Dashboard link starts from here
-                <ul className="w-full h-full md:px-4 flex  flex-col">
+                <ul className="w-full py-5 md:py-5 md:px-4 flex  flex-col  bg-[#ED1B24]/20">
                
 
               

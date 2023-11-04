@@ -128,7 +128,7 @@ const AddConReview = () => {
             type="file"
             id="image"
             className="w-80 input 
-              file-input file-input-bordered  text-black file-input-error"
+              file-input file-input-bordered  text-black "
             onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
@@ -142,7 +142,7 @@ const AddConReview = () => {
             className="w-80 border border-gray-300 rounded-xl px-3 py-2"
           ></textarea>
         </div>
-        <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
+        <button type="submit" className="btn-view">
           Submit
         </button>
       </form>
