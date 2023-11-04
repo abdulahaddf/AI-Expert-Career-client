@@ -7,9 +7,12 @@ import { MdDelete } from "react-icons/md";
 import { AiFillDelete } from "react-icons/ai";
 import { useState } from "react";
 import { useEffect } from "react";
+import UseUser from "../../../hooks/useUser";
 
 const ManageUser = () => {
   const [users, loading, refetch] = UseUsers();
+  const [userinfo] = UseUser();
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -112,7 +115,7 @@ const ManageUser = () => {
   const endIndex = startIndex + itemsPerPage;
 
   // Slice the sorted and filtered data for pagination
-  const paginatedData = users.slice(startIndex, endIndex);
+  const paginatedUsers = users.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -145,7 +148,7 @@ const ManageUser = () => {
             </tr>
           </thead>
           <tbody>
-            {paginatedData.map((user, index) => (
+            {paginatedUsers?.filter(user => user.role !== "super admin" && userinfo.email)?.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>

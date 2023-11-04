@@ -42,7 +42,7 @@ const IndividualBlog = () => {
   const location = useLocation();
   console.log(currentURL);
   // console.log(id);
-  // console.log(blog);
+  console.log(blog);
   const allComments = blog?.comments?.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -271,7 +271,6 @@ const IndividualBlog = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
   if (!blog) return <Loader />;
   return (
     <section className="md:px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
@@ -283,8 +282,9 @@ const IndividualBlog = () => {
 
         <div className="col-span-4 lg:mt-0 mt-8 ">
             <h2 className="font-bold text-3xl">{blog.blogName}</h2>
-          <div className="flex flex-col md:flex-row md:gap-4 text-black/50">
-            <p>{moment(blog.createdAt).format("MMMM Do YYYY, h:mm a")}</p>
+          <div className="flex flex-col md:flex-row md:gap-8 text-black/50">
+            <p>{moment(blog.createAt).format("MMMM Do YYYY, h:mm a")}</p>
+            
             <p>
               <span className="text-[#ED1B24] font-bold">{blog.category}</span>{" "}
               ||

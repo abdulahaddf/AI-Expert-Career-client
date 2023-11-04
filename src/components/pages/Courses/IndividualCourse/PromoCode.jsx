@@ -62,7 +62,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
               applyPromoCode();
               // Update the state or perform any other actions if needed
             }}
-            className="button-30 btn-sm"
+            className="btn-view btn-sm"
           >
             Apply
           </button>
@@ -79,7 +79,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
           <Link
             to="/enroll"
             state={{ course, payable, discountAmount, courseFee }}
-            className="button-30"
+            className="btn-view"
           >
             Enroll Now
           </Link>

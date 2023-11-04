@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import Logo from "../../assets/ai expert career logo 4.svg";
+// import Logo from "../../assets/ai expert career logo 4.svg";
+import Logo from "/img/logo.png";
 import LogoSm from "../../../public/img/Logosm.png";
 import Cart from "../../assets/CartFigma.svg";
 import "./Navbar.css";
@@ -131,7 +132,7 @@ const Navbar = () => {
               <div>
                 <Link to="/" className="flex justify-center items-center gap-2">
                   <img
-                    className="select-none pointer-events-none no-select "
+                    className="select-none pointer-events-none no-select w-24 md:w-32 md:p-2"
                     src={Logo}
                     alt=""
                   />
@@ -195,9 +196,9 @@ const Navbar = () => {
                       className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
                     >
                       {" "}
-                      <div className="flex items-center hover:text-primary">
+                      <div className="flex items-center hover:text-primary pl-36 md:pl-0">
                         <img
-                          className="w-[60px] h-[60px] rounded-full"
+                          className="w-12 h-12  md:w-14 md:h-14 rounded-full"
                           src={
                             userinfo?.photoURL ||
                             "https://i.ibb.co/sg6hmZ7/user.png"
@@ -336,7 +337,7 @@ const Navbar = () => {
                           onClick={() => setIsOpen(false)}
                           className="flex justify-center items-center gap-2"
                         >
-                          <img className="bg-white" src={Logo} alt="" />
+                          <img className="bg-white w-20"  src={Logo} alt="" />
                         </NavLink>
                       </div>
                       <div className="my-2 absolute"></div>
