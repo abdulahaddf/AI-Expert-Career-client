@@ -194,7 +194,7 @@ const AddBlog = () => {
               required
               id="image"
               className="w-80 input 
-              file-input file-input-bordered  text-black file-input-error"
+              file-input file-input-bordered  text-black "
               onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
@@ -343,7 +343,7 @@ const AddBlog = () => {
           </div>
         <button
           type="submit"
-          className="px-[32px] my-btn py-[9px] bg-[#ED1B24] rounded-md shadow-lg"
+          className="btn-black"
         >
           Submit
         </button>

@@ -4,11 +4,15 @@ import { useContext } from "react";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Context/AuthProvider";
+import { useLocation } from "react-router-dom";
 
 
 const ResetForm = () => {
   const { auth, sendPasswordResetEmail } = useContext(AuthContext);
   const { handleSubmit, register } = useForm();
+  const location = useLocation();
+  const email = location.state;
+  console.log(email);
 
   const handleReset = (data) => {
     const email = data.email;
@@ -56,6 +60,7 @@ const ResetForm = () => {
               Enter Your Email
             </label>
             <input
+            value={email}
               type="email"
               id="email"
               {...register("email", { required: true })}

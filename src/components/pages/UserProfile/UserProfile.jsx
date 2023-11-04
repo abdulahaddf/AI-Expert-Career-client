@@ -151,7 +151,7 @@ const UserProfile = () => {
               </button>
 
               <div>
-                <Link className=" btn-add" to="/forget">
+                <Link state={userinfo?.email} className=" btn-add" to="/forget">
                   <BiReset /> Reset Your Password
                 </Link>
               </div>
