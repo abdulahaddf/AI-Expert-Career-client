@@ -27,9 +27,9 @@ const DriveLinkConverter = () => {
 
   return (
     <div className=" ">
-<button className="btn btn-outline btn-sm" onClick={()=>document.getElementById('my_modal_3').showModal()}>Drive Converter</button>
+<button className="btn btn-outline btn-sm" onClick={()=>document.getElementById('mym').showModal()}>Drive Converter</button>
 
-<dialog id="my_modal_3" className="modal">
+<dialog id="mym" className="modal">
   <div className="modal-box">
     <form method="dialog">
       {/* if there is a button in form, it will close the modal */}
@@ -46,8 +46,8 @@ const DriveLinkConverter = () => {
         onChange={(e) => setInputUrl(e.target.value)}
       />
       <button className='btn-add btn-sm px-1 ml-2 ' onClick={convertUrl}>Convert</button>
-      {convertedUrl && <div className='my-2'>
-        <strong>Converted URL:</strong>
+      {convertedUrl && <div className='my-2 font-normal text-sm'>
+        <p>Converted URL:</p>
         <p>
           {convertedUrl}
         </p>

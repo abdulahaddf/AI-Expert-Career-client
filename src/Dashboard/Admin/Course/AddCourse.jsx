@@ -279,7 +279,7 @@ const AddCourse = () => {
   return (
     <div className="container max-w-5xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-10 text-primary">
-        Publish a Course
+        Publish a Course   <DriveLinkConverter />
       </h1>
 
       <h1 className="text-2xl font-bold mb-4">Course Information:</h1>
@@ -451,7 +451,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={addNewFeature}
-              className="btn-add ml-3"
+              className="btn-black ml-3"
             >
               Add
             </button>
@@ -638,7 +638,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => faqRemove(index)}
-                  className="btn-add mt-2"
+                  className="btn-black mt-2"
                 >
                   <FiDelete />
                 </button>
@@ -647,7 +647,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={() => faqAppend({ question: "", answer: "" })}
-              className="btn-add"
+              className="btn-black"
             >
               <MdAdd /> Add FAQ
             </button>
@@ -667,7 +667,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => preRemove(index)}
-                  className="mt-2  btn-add"
+                  className="mt-2  btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -676,7 +676,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={() => preAppend("")}
-              className="btn-add"
+              className="btn-black"
             >
               <MdAdd /> Add pre requisites
             </button>
@@ -696,7 +696,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => eligibleRemove(index)}
-                  className="mt-2  btn-add"
+                  className="mt-2  btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -705,7 +705,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={() => eligibleAppend("")}
-              className="btn-add"
+              className="btn-black"
             >
               <MdAdd /> Add Eligible User
             </button>
@@ -725,7 +725,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => goalRemove(index)}
-                  className="mt-2  btn-add"
+                  className="mt-2  btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -734,7 +734,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={() => goalAppend("")}
-              className="btn-add"
+              className="btn-black"
             >
               <MdAdd /> Add Goal
             </button>
@@ -779,13 +779,13 @@ const AddCourse = () => {
               <button
                 type="button"
                 onClick={addNewCollaborator}
-                className="btn-add ml-3"
+                className="btn-black ml-3"
               >
                 Add
               </button>
             </div>
           </div>
-          <DriveLinkConverter />
+         
         </div>
 
         {/* Adding module */}
@@ -793,7 +793,7 @@ const AddCourse = () => {
           <p className="block font-semibold mb-1 text-2xl">Design Course</p>
           <button
             type="button"
-            className="btn-add my-2 font-semibold text-xl"
+            className="btn-black my-2 font-semibold text-xl"
             onClick={addModule}
           >
             + Add Module
@@ -834,21 +834,21 @@ const AddCourse = () => {
               <div className="flex flex-wrap items-center space-x-2">
                 <button
                   type="button"
-                  className="btn-add my-2"
+                  className="btn-black my-2"
                   onClick={() => addContentWithType(moduleIndex, "content")}
                 >
                   + Add Content
                 </button>
                 <button
                   type="button"
-                  className="btn-add my-2"
+                  className="btn-black my-2"
                   onClick={() => addContentWithType(moduleIndex, "quiz")}
                 >
                   + Add Quiz
                 </button>
                 <button
                   type="button"
-                  className="btn-add my-2"
+                  className="btn-black my-2"
                   onClick={() => addContentWithType(moduleIndex, "assignment")}
                 >
                   + Add Assignment
@@ -913,7 +913,7 @@ const AddCourse = () => {
           ))}
         </div>
 
-        <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
+        <button type="submit" className="btn-black">
           {isLoading ? (
             <p className="flex items-center gap-2 text-white">
               Uploading{" "}

@@ -42,7 +42,7 @@ const IndividualBlog = () => {
   const location = useLocation();
   console.log(currentURL);
   // console.log(id);
-  console.log(blog);
+  // console.log(blog);
   const allComments = blog?.comments?.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );

@@ -191,6 +191,7 @@ const AddBlog = () => {
             </label>
             <input
               type="file"
+              required
               id="image"
               className="w-80 input 
               file-input file-input-bordered  text-black file-input-error"
