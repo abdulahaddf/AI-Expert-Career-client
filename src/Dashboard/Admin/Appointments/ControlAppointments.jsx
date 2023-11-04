@@ -15,6 +15,8 @@ const ControlAppointments = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const editor = useRef(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
   console.log(message);
 
   // console.log(appointments)
@@ -139,6 +141,18 @@ const ControlAppointments = () => {
 
 
 
+  // Pagination
+  const totalPages = Math.ceil(appointments.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Slice the sorted and filtered data for pagination
+  const paginatedAppointments = appointments.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
 
 
@@ -153,7 +167,9 @@ const ControlAppointments = () => {
     padding: "10px",
     // zIndex: 10000,
   };
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
   if (!appointments) return <Loader />;
   return (
     <div>
@@ -174,7 +190,7 @@ const ControlAppointments = () => {
             </tr>
           </thead>
           <tbody>
-            {appointments?.map((a, index) => (
+            {paginatedAppointments?.map((a, index) => (
               <tr key={a._id}>
                 <th>{index + 1}</th>
                 <td>{a.cName}</td>
@@ -375,6 +391,46 @@ const ControlAppointments = () => {
           </tbody>
         </table>
       </div>
+       {/* pagination */}
+       <div className="flex justify-center mt-8">
+            <button
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === 1
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white"
+              }`}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`${
+                  currentPage === index + 1
+                    ? "bg-black text-white"
+                    : "bg-slate-200 hover:bg-gray-300 text-gray-700"
+                } px-3 py-1 mx-1 rounded-md cursor-pointer`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === totalPages
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white"
+              }`}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
     </div>
   );
 };

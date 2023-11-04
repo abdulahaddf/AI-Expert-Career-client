@@ -266,6 +266,8 @@ const Blog = () => {
               Next
             </button>
           </div>
+
+          
         </div>
       </div>
       <div className="md:my-10">

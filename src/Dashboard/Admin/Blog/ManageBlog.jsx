@@ -7,6 +7,10 @@ import Loader from "../../../components/common/loader/Loader";
 const ManageBlog = () => {
   const [blogs, setblogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+
   useEffect(() => {
     fetch(" https://ai-server-sooty.vercel.app/blogs")
       .then((response) => response.json())
@@ -38,6 +42,26 @@ const ManageBlog = () => {
     });
   };
 
+
+
+  // Pagination
+  const totalPages = Math.ceil(blogs.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Slice the sorted and filtered data for pagination
+  const paginatedBlogs = blogs.slice(startIndex, endIndex);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
   if (isLoading) return <Loader />;
   return (
     <div>
@@ -55,7 +79,7 @@ const ManageBlog = () => {
             </tr>
           </thead>
           <tbody>
-            {blogs.map((blogs, index) => (
+            {paginatedBlogs.map((blogs, index) => (
               <tr key={blogs._id}>
                 <th>{index + 1}</th>
                 <td>{blogs.blogName}</td>
@@ -86,6 +110,46 @@ const ManageBlog = () => {
           </tbody>
         </table>
       </div>
+       {/* pagination */}
+       <div className="flex justify-center mt-8">
+            <button
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === 1
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white"
+              }`}
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={`${
+                  currentPage === index + 1
+                    ? "bg-black text-white"
+                    : "bg-slate-200 hover:bg-gray-300 text-gray-700"
+                } px-3 py-1 mx-1 rounded-md cursor-pointer`}
+              >
+                {index + 1}
+              </button>
+            ))}
+
+            <button
+              className={`px-4 py-2 rounded-md mx-2 ${
+                currentPage === totalPages
+                  ? "bg-slate-300 text-gray-500 cursor-not-allowed"
+                  : "bg-black text-white"
+              }`}
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
     </div>
   );
 };
