@@ -271,7 +271,7 @@ const AiConsultant = () => {
                     </div>
                     <div className="flex flex-col justify-between text-center  ">
                       <img
-                        className="w-32 md:w-36 h-32 md:h-36 rounded-full mx-auto mb-2"
+                        className="w-36 h-36 rounded-full mx-auto mb-2"
                         src={c.photoURL}
                         alt=""
                       />

@@ -71,7 +71,7 @@ const AiConsultanProfile = () => {
     <div className=" md:w-4/5 mx-auto my-7">
       <div className="py-2  px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
         <div className="md:flex border shadow-sm p-3 lg:w-4/5 mx-auto">
-          <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="w-2/3 mx-auto md:w-1/2 flex justify-center items-center">
             <img
               src={photoURL}
               alt="photo"
@@ -101,17 +101,17 @@ const AiConsultanProfile = () => {
                </div>
                 <div className="flex lg:justify-center items-center gap-3 mr-10">
                   <Link to={facebook} target="_blank">
-                    <div className=" text-3xl text-primary cursor-pointer">
+                    <div className=" text-3xl  cursor-pointer">
                       <BsFacebook />
                     </div>
                   </Link>
                   <Link to={linkedin} target="_blank">
-                    <div className=" text-3xl text-primary  cursor-pointer">
+                    <div className=" text-3xl   cursor-pointer">
                       <BsLinkedin />
                     </div>
                   </Link>
                   <Link to={twitter} target="_blank">
-                    <div className="text-3xl text-primary cursor-pointer">
+                    <div className="text-3xl  cursor-pointer">
                       <BsTwitter />
                     </div>
                   </Link>

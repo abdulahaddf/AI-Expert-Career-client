@@ -274,7 +274,7 @@ const IndividualBlog = () => {
 
   if (!blog) return <Loader />;
   return (
-    <section className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
+    <section className="md:px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
       <div className="w-11/12 md:w-4/5 mx-auto">
         {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
         {/* <div className="lg:border-r-2 border-[#00000057] p-1">
@@ -283,7 +283,7 @@ const IndividualBlog = () => {
 
         <div className="col-span-4 lg:mt-0 mt-8 ">
             <h2 className="font-bold text-3xl">{blog.blogName}</h2>
-          <div className="flex gap-4 text-black/50">
+          <div className="flex flex-col md:flex-row md:gap-4 text-black/50">
             <p>{moment(blog.createdAt).format("MMMM Do YYYY, h:mm a")}</p>
             <p>
               <span className="text-[#ED1B24] font-bold">{blog.category}</span>{" "}
@@ -406,7 +406,7 @@ const IndividualBlog = () => {
                   placeholder={
                     language == "bn" ? "কমেন্ট করুন" : "Add a comment"
                   }
-                  className=" w-full border text-lg font-bold p-2"
+                  className=" w-full border text-lg  p-2"
                   onChange={(e) => setComment(e.target.value)}
                 />
               </div>
