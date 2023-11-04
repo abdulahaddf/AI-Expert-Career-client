@@ -75,19 +75,19 @@ const AiConsultanProfile = () => {
             <img
               src={photoURL}
               alt="photo"
-              className="border w-72  rounded-full p-2 border-dashed border-[#FF0944]"
+              className="border w-48 md:w-72  rounded-full p-2 border-dashed border-[#FF0944]"
             />
           </div>
 
-          <div className="w-full md:w-1/2 mt-[30px] md:mt-0 flex items-center ">
-            <div className="space-y-1">
-              <h1 className="font-bold text-2xl">{displayName}</h1>
+          <div className="w-full md:w-1/2 mt-[10px] md:mt-0 flex items-center ">
+            <div className="space-y-1 w-full">
+              <h1 className="font-bold text-2xl text-center md:text-left">{displayName}</h1>
 
-              <p className=" font-medium text-xl ">{designation}</p>
+              <p className=" font-medium text-xl text-center md:text-left">{designation}</p>
 
-              <p className="  font-medium">{description}</p>
+              <p className="  font-medium text-center md:text-left">{description}</p>
 
-              <div className="lg:flex items-center space-y-3 gap-10 pt-10">
+              <div className="lg:flex items-center place-content-between space-y-3 gap-10 pt-2 md:mt-10 md:pt-10 ">
                <div>
                <p className="">
                   {selectedDays?.includes(today) ? (
@@ -95,10 +95,11 @@ const AiConsultanProfile = () => {
                       Available
                     </span>
                   ) : (
-                    "ertegter"
+                    ""
                   )}
                 </p>
                </div>
+                <div className="flex justify-between">
                 <div className="flex lg:justify-center items-center gap-3 mr-10">
                   <Link to={facebook} target="_blank">
                     <div className=" text-3xl  cursor-pointer">
@@ -118,6 +119,7 @@ const AiConsultanProfile = () => {
                 </div>
 
                 <CopyURLButton text={"Share Profile"}/>
+                </div>
               </div>
               
               {/* <div className="flex items-center">

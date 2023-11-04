@@ -130,15 +130,12 @@ const Expertise = ({ consultant }) => {
 
 
 {/* Fixed button for mobile */}
-      <div className="bg-white rounded-lg w-full fixed bottom-0 p-2   z-10 md:hidden pr-8"> 
+      <div className="bg-white rounded-lg fixed bottom-0 p-2   z-10 md:hidden w-11/12 mx-auto"> 
   <button
   onClick={()=>document.getElementById('my_modal_5').showModal()}
   className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></button>
 </div>
 
-
-
-{/* <button className="btn" onClick={()=>document.getElementById('my_modal_5').showModal()}>open modal</button> */}
 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
   <form method="dialog">
@@ -261,17 +258,7 @@ const Expertise = ({ consultant }) => {
 </dialog>
 
 
-
-
-
-
-
-
-
-
-
-
-
+{/* For large device */}
       {hideButton && (
         <div className="mt-5 bg-[#FFFFFF]/30">
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 section">
