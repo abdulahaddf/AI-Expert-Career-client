@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Lottie from "lottie-react";
 import free from "../../../../assets/aiload/free.json";
 import { MyContext } from "../../../../Context/Context";
+import { useEffect } from "react";
 
 const FreeEnroll = () => {
   const { language } = useContext(MyContext);
@@ -60,6 +61,10 @@ const FreeEnroll = () => {
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+   // scrollTo
+   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   if (!userinfo) return <Loader />;
   return (
 

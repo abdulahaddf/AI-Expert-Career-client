@@ -1,12 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import Lottie from "lottie-react";
 import completed from "../../../../assets/aiload/completed.json";
+import { useEffect } from "react";
 
 const CompletePurchaseCourse = () => {
     const location = useLocation();
     const  title = location.state;
-    console.log(location)
-    
+    // console.log(location)
+     // scrollTo
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
     return (
         <div className="h-[80vh] flex  justify-center items-center">
             <div className="section w-[500px] h-[500px] flex flex-col mx-auto justify-center items-center  text-xl space-y-3">

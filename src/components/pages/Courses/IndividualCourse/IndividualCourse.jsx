@@ -388,11 +388,14 @@ const IndividualCourse = () => {
       </section>
 
     </section>
-    <div className="bg-white w-full fixed bottom-0 pb-2 border   z-10 hidden "> 
+    <div className="bg-white w-full fixed bottom-0 pb-2 border   z-10 md:hidden "> 
     <p className="text-2xl text-left pl-3 font-semibold py-1">৳ {courseFee ? courseFee : "Free"}</p>
     <div className="flex justify-center">
 
-  <Link className=" btn-view-red bg-white w-11/12 ">Enroll Now <IoIosArrowForward/></Link>
+  <Link
+   to="/enroll"
+   state={{ course, discountAmount, courseFee }}
+  className=" btn-view-red bg-white w-11/12 ">Enroll Now <IoIosArrowForward/></Link>
     </div>
 </div>
    </div>

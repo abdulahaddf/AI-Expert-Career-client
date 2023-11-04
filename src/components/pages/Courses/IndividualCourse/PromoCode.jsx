@@ -75,7 +75,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
             ৳ {payable ? payable : discountAmount}{" "}
           </span>{" "}
         </p>
-        <div className="text-center">
+        <div className="text-center hidden md:block">
           <Link
             to="/enroll"
             state={{ course, payable, discountAmount, courseFee }}

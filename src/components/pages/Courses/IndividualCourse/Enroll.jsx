@@ -115,7 +115,9 @@ const Enroll = () => {
 
         <div>
           <section className="text-slate-900 font-semibold my-5 p-1  space-y-4 ">
-            <p className=" flex justify-between border-b-2">
+
+      <div className="hidden md:block space-y-4">
+      <p className=" flex justify-between border-b-2">
               <span className="text-xl">
                 {" "}
                 {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
@@ -128,13 +130,26 @@ const Enroll = () => {
             </p>
             <div className="flex items-center gap-3 justify-center"> </div>
 
-            {/* TODO _________ change the final amount by fetching the dis count */}
+            
             <p className=" text-xl flex justify-between border-b-2">
               {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
               <span className="font-normal">
                 ৳ {payable ? payable : discountAmount}{" "}
               </span>{" "}
             </p>
+      </div>
+
+      <div className="md:hidden">
+      <PromoCode
+                    discountAmount={discountAmount}
+                    courseFee={courseFee}
+                    discount={discount}
+                    course={course}
+                  />
+      </div>
+
+
+
             {language == "bn" ? (
               <>
                 <p className="text-sm font-normal">
