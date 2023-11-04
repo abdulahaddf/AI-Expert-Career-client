@@ -12,6 +12,7 @@ import "video-react/dist/video-react.css";
 import ReactPlayer from "react-player";
 import PromoCode from "./PromoCode";
 import { FaHandPointRight } from "react-icons/fa";
+import {  IoIosArrowForward } from "react-icons/io";
 
 
 
@@ -64,18 +65,19 @@ const IndividualCourse = () => {
   // const discountAmount = (discount / 100) * courseFee;
   const discountAmount = courseFee * (1 - discount / 100);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, []);
 
   if (!title) return <Loader />;
   return (
-    <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
+   <div className="">
+     <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
         <h1 className="text-2xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
-        <div className="w-96 h-fit  md:w-[538px] lg:w-[768px]">
+        <div className=" px-2 h-fit  md:w-[538px] lg:w-[768px] mx-auto">
           {coverVideo ? (
            
               <ReactPlayer  width="100%"
@@ -87,6 +89,37 @@ const IndividualCourse = () => {
           )}
         </div>
 
+
+        <div className="md:hidden">
+{courseType === "paid" && (
+          <>
+            <CountDown startDate={startDate} endDate={endDate} />
+            <div className="section flex justify-between ">
+              <div className="">
+                <h3 className="text-md font-semibold my-3">
+                  {" "}
+                  {language == "bn" ? "ভর্তি শেষ:" : "Admission will end on:"}
+                </h3>
+                <p>{moment(endDate).format("MMMM Do YYYY")}</p>
+              </div>
+              <p className="border-[1px] border-black/25" />
+              <div className="">
+                <h3 className="text-sm font-semibold my-3">
+                  {" "}
+                  {language == "bn"
+                    ? "কোর্স শুরু হবে:"
+                    : "Course will start on:"}
+                </h3>
+                <p>{moment(courseDate).format("LL")}</p>
+              </div>
+            </div>
+          </>
+        )}
+</div>
+
+
+
+
         {/* description */}
 
         <div>
@@ -94,7 +127,7 @@ const IndividualCourse = () => {
             {" "}
             {language == "bn" ? "কোর্স বিবরণ:" : "Course Details:"}
           </h3>
-          <div className="section">
+          <div className="section bg-slate-100">
             <p dangerouslySetInnerHTML={{ __html: description }}></p>
           </div>
         </div>
@@ -126,7 +159,7 @@ const IndividualCourse = () => {
               ? "কোর্সের প্রয়োজনীয়তা:"
               : "Course Requirements:"}
           </h3>
-          <div className="section grid md:grid-cols-2">
+          <div className="section bg-slate-50 grid md:grid-cols-2">
             {preRequisites?.map((pre,i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
@@ -289,9 +322,11 @@ const IndividualCourse = () => {
                 </p>
               </div>
             ))}
+          </div> 
           </div>
-          <div className=" border-t-[1px] py-2">
-            <div className="course-details text-base mt-5">
+
+          <div className=" mt-10 sticky top-20  hidden md:block">
+            <div className="course-details text-base mt-5 section">
               {/* paid course enrollment */}
               {courseType === "paid" ? (
                 <>
@@ -310,19 +345,15 @@ const IndividualCourse = () => {
                   <Link
                     state={{ _id, title, course }}
                     to="/free-course"
-                    className="button-30"
+                    className="button-view-red"
                   >
                     Enroll Now
                   </Link>
                 </>
               )}
             </div>
-          </div>
-        </div>
-
-        {/* Course count down */}
-
-        {courseType === "paid" && (
+            <div className=" ">
+{courseType === "paid" && (
           <>
             <CountDown startDate={startDate} endDate={endDate} />
             <div className="section flex justify-between ">
@@ -346,8 +377,25 @@ const IndividualCourse = () => {
             </div>
           </>
         )}
+</div>
+          </div>
+        
+
+        {/* Course count down */}
+
+
+       
       </section>
+
     </section>
+    <div className="bg-white w-full fixed bottom-0 pb-2 border   z-10 hidden "> 
+    <p className="text-2xl text-left pl-3 font-semibold py-1">৳ {courseFee ? courseFee : "Free"}</p>
+    <div className="flex justify-center">
+
+  <Link className=" btn-view-red bg-white w-11/12 ">Enroll Now <IoIosArrowForward/></Link>
+    </div>
+</div>
+   </div>
   );
 };
 

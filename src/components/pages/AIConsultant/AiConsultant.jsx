@@ -236,7 +236,7 @@ const AiConsultant = () => {
                   className="flex items-center p-2    "
                 >
                   <div className="flex flex-col-reverse md:flex-row section w-full mx-auto gap-2  relative">
-                    <div className="w-4/6  my-5 md:my-3 ">
+                    <div className="md:w-4/6  my-2 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (
                           <span className="bg-primary text-white rounded-full px-2 absolute top-2 left-4">
@@ -247,10 +247,10 @@ const AiConsultant = () => {
                         )}
                       </p>
 
-                      <h2 className="text-[22px] font-bold my-2">
+                      <h2 className="text-[22px] text-center md:text-left font-bold md:my-2">
                         {c.displayName}
                       </h2>
-                      <p className="mb-5">{c.designation}</p>
+                      <p className="mb-5 text-center md:text-left">{c.designation}</p>
                       <h2 className="text-[17px] font-bold">Availability</h2>
                       <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1 mb-2">
                         {c?.selectedDays?.map((d) => (
@@ -268,6 +268,8 @@ const AiConsultant = () => {
                           </p>
                         ))}
                       </p>
+
+                      <button className="btn-black w-full  mt-4 md:hidden">View Profile</button>
                     </div>
                     <div className="flex flex-col justify-between text-center  ">
                       <img
@@ -276,7 +278,7 @@ const AiConsultant = () => {
                         alt=""
                       />
 
-                      <button className="btn-black">View Profile</button>
+                      <button className="btn-black hidden md:block">View Profile</button>
                     </div>
                   </div>
                 </Link>

@@ -88,6 +88,9 @@
   .btn-view {
     @apply btn btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-8 text-lg;
   }
+  .btn-view-red {
+    @apply btn btn-ghost btn-outline normal-case border-primary text-primary  hover:shadow-lg hover:bg-primary hover:text-white hover:border-primary btn-md md:px-8 text-lg ;
+  }
   .section {
     @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
   } 
