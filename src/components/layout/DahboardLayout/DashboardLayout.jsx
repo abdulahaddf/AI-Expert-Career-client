@@ -65,7 +65,7 @@ const DashboardLayout = () => {
                 isOpen
                   ? " translate-x-0 opacity-95 "
                   : "opacity-0 -translate-x-full "
-              }  h-fit lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 md:px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
+              }  h-fit  bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 md:px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -302,7 +302,7 @@ const DashboardLayout = () => {
                     {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
                   </NavLink></ul> :      
               // User Routes starts from Here
-              <ul className="w-full mt-7 py-10 md:py-24 md:px-4 flex h-[100vh]  flex-col bg-[#ED1B24]/20 ">
+              <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20 ">
               
 
                   <NavLink
@@ -406,7 +406,7 @@ const DashboardLayout = () => {
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
                   </NavLink> */}
 
-<div className=" flex justify-center  items-center cursor-pointer gap-2 " onClick={logOut}>
+<div className=" flex items-center ml-5 cursor-pointer gap-2" onClick={logOut}>
                  <FiLogOut/>
                   <button className="font-bold " >
                     {language === "bn" ? "লগ আউট" : "Logout"}
