@@ -151,7 +151,7 @@ const EditConsultantProfile = () => {
     <div>
       <div className="container mx-auto p-4">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-2 gap-8 space-y-4">
+          <div className="grid md:grid-cols-2 gap-8 space-y-4">
             <div className="">
               <label
                 htmlFor="displayName"

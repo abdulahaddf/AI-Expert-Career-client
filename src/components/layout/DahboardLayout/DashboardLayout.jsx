@@ -284,7 +284,7 @@ const DashboardLayout = () => {
                 
               </ul> : userinfo?.role === "consultant" ? 
               // Consultant Dashboard link starts from here
-              <ul className="w-full py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">  
+              <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20">  
               <NavLink
                     to={"/dashboard/consultant-profile"}
                     className={({ isActive }) =>
