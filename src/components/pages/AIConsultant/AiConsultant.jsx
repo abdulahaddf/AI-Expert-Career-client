@@ -55,11 +55,11 @@ const AiConsultant = () => {
       });
 
       // Check if the search text is found in recentWorks array
-      c?.recentWorks?.forEach((work) => {
-        if (work && work.toLowerCase().includes(search.toLowerCase())) {
-          recentWorksMatch = true;
-        }
-      });
+      // c?.recentWorks?.forEach((work) => {
+      //   if (work && work.toLowerCase().includes(search.toLowerCase())) {
+      //     recentWorksMatch = true;
+      //   }
+      // });
 
       // Check if the search text is found in selectedDays array
       c?.selectedDays?.forEach((day) => {
@@ -235,7 +235,7 @@ const AiConsultant = () => {
                   state={c}
                   className="flex items-center p-2    "
                 >
-                  <div className="lg:flex section w-full mx-auto gap-2  relative">
+                  <div className="flex flex-col-reverse md:flex-row section w-full mx-auto gap-2  relative">
                     <div className="w-4/6  my-5 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (
@@ -271,7 +271,7 @@ const AiConsultant = () => {
                     </div>
                     <div className="flex flex-col justify-between text-center  ">
                       <img
-                        className="w-36 h-36 rounded-full mx-auto mb-2"
+                        className="w-32 md:w-36 h-32 md:h-36 rounded-full mx-auto mb-2"
                         src={c.photoURL}
                         alt=""
                       />
