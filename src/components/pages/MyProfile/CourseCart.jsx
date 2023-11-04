@@ -6,7 +6,7 @@ const CourseCart = ({ courseData, userId }) => {
   const { course, _id } = courseData;
 
   return (
-    <div className="flex section w-96 mx-auto p-5 ">
+    <div className="flex section w-11/12 md:w-96 mx-auto p-5">
       <img src={course?.cover} alt="" className="mr-4 w-32 h-20" />
       <div className="md:space-y-3 space-y-1">
         <h3 className="font-bold">{course.title}</h3>

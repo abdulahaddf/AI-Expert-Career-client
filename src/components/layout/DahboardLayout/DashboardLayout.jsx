@@ -57,7 +57,7 @@ const DashboardLayout = () => {
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className="mb-10 md:pt-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8 "
+          className="mb-10 md:pt-10 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8 "
         >
           <div className="flex  space-x-0 lg:space-x-[18px] ">
             <div
@@ -65,7 +65,7 @@ const DashboardLayout = () => {
                 isOpen
                   ? " translate-x-0 opacity-95 "
                   : "opacity-0 -translate-x-full "
-              }  h-fit lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
+              }  h-fit lg:bg-[#ED1B24]/20 bg-white fixed top-0 lg:w-72 md:w-72 inset-x-0 z-20 w-72 md:px-6 py-4 transition-all duration-300 ease-in-out lg:mt-0 lg:p-0 lg:top-0 lg:relative  lg:opacity-100 lg:translate-x-0 lg:flex  `}
             >
               <button
                 onClick={() => setIsOpen(false)}
@@ -302,23 +302,8 @@ const DashboardLayout = () => {
                     {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
                   </NavLink></ul> :      
               // User Routes starts from Here
-              <ul className="w-full mt-7 py-5 md:py-[30px] md:px-4 flex  flex-col bg-[#ED1B24]/20">
-                  {/* <NavLink
-                    to={"/dashboard/user-dashboard"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsGrid
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "ড্যাশবোর্ড" : "Dashboard"}
-                  </NavLink> */}
+              <ul className="w-full mt-7 py-10 md:py-24 md:px-4 flex h-[100vh]  flex-col bg-[#ED1B24]/20 ">
+              
 
                   <NavLink
                     to={"/dashboard/my-profile"}

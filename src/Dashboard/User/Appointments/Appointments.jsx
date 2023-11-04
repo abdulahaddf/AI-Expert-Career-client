@@ -77,7 +77,7 @@ const Appointments = () => {
       <h1 className="font-bold text-center text-2xl">My Appointments</h1>
       <>
         {appointments.length > 0 ? (
-          <div className="my-10 grid md:grid-cols-2 gap-5 md:w-2/3 mx-auto">
+          <div className="my-10 grid md:grid-cols-2 gap-5 w-11/12 md:w-2/3 mx-auto">
             {" "}
             {appointments.map((a, i) => (
               <div
