@@ -137,7 +137,7 @@ const Blog = () => {
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
               <div className="flex flex-col-reverse md:flex-col justify-between h-full ">
-                <div className="space-y-1 grid grid-cols-2 md:grid-cols-1 gap-x-5 ">
+                <div className="space-y-1 grid grid-cols-2 border p-2 rounded-lg md:grid-cols-1 gap-x-3 ">
                   {categories?.map((category, index) => (
                     <CategoryCard
                       key={index}

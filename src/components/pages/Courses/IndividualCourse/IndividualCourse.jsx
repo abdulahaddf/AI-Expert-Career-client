@@ -65,9 +65,9 @@ const IndividualCourse = () => {
   // const discountAmount = (discount / 100) * courseFee;
   const discountAmount = courseFee * (1 - discount / 100);
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   if (!title) return <Loader />;
   return (
@@ -75,12 +75,12 @@ const IndividualCourse = () => {
      <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
-        <h1 className="text-2xl font-bold">{title}</h1>
+        <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
         <div className=" px-2 h-fit  md:w-[538px] lg:w-[768px] mx-auto">
           {coverVideo ? (
            
-              <ReactPlayer  width="100%"
+              <ReactPlayer height="50vh"  width="100%"
                url={coverVideo} />
           
               
@@ -94,7 +94,7 @@ const IndividualCourse = () => {
 {courseType === "paid" && (
           <>
             <CountDown startDate={startDate} endDate={endDate} />
-            <div className="section flex justify-between ">
+            <div className="section flex justify-between">
               <div className="">
                 <h3 className="text-md font-semibold my-3">
                   {" "}
@@ -123,7 +123,7 @@ const IndividualCourse = () => {
         {/* description */}
 
         <div>
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn" ? "কোর্স বিবরণ:" : "Course Details:"}
           </h3>
@@ -134,7 +134,7 @@ const IndividualCourse = () => {
 
         {/* who can do the course */}
         <div>
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
               ? "কারা এই কোর্সের জন্য উপযুক্ত:"
@@ -153,7 +153,7 @@ const IndividualCourse = () => {
 
         {/* preRequisites */}
         <div>
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
               ? "কোর্সের প্রয়োজনীয়তা:"
@@ -171,7 +171,7 @@ const IndividualCourse = () => {
         </div>
         {/* Course Goals */}
         <div>
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn" ? "কোর্সের লক্ষ্য:" : "Course Goals:"}
           </h3>
@@ -187,7 +187,7 @@ const IndividualCourse = () => {
         </div>
         {/* Course Curriculum */}
         <div className="">
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
               ? "কোর্সের পরিপূর্ণ কারিকুলাম:"
@@ -237,7 +237,7 @@ const IndividualCourse = () => {
 
         {/* Course Instructor */}
         <div>
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
               ? "আপনি যার কাছ থেকে শিখবেন:"
@@ -260,7 +260,7 @@ const IndividualCourse = () => {
 
         {/* FAQ Section */}
         <div className="my-5 md:my-0">
-          <h3 className="text-2xl font-bold my-3">
+          <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
               ? "সচরাচর প্রশ্নগুলোর উত্তর:"
@@ -389,7 +389,7 @@ const IndividualCourse = () => {
 
     </section>
     <div className="bg-white w-full fixed bottom-0 pb-2 border   z-10 md:hidden "> 
-    <p className="text-2xl text-left pl-3 font-semibold py-1">৳ {courseFee ? courseFee : "Free"}</p>
+    <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">৳ {courseFee ? courseFee : "Free"}</p>
     <div className="flex justify-center">
 
   <Link

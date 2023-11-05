@@ -70,7 +70,7 @@ const CountDown = ({startDate,endDate }) => {
 
 
     return (
-        <div className="section my-10">
+        <div className="section my-10 ">
 <div>
 {coming ? <h3 className="text-xl font-bold my-3">  {language == "bn"
             ? "ভর্তি শুরু হবে:"
@@ -79,7 +79,7 @@ const CountDown = ({startDate,endDate }) => {
             : "Admission is yet to be completed:"}</h3>}
 
 </div>
-<div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+<div className="grid grid-flow-col justify-evenly md:gap-5 text-center auto-cols-max">
   <div className="flex flex-col p-2 bg-primary rounded-box text-white">
     <span className="countdown font-mono text-5xl">
       <span style={{"--value": countdown.days}}></span>
