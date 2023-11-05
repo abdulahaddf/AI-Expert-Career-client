@@ -11,6 +11,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
   const [appliedPromo, setAppliedPromo] = useState("");
   const [payable, setPayable] = useState("");
   const [promoUpdate, setUpdate] = useState("");
+  console.log(discount)
   useEffect(() => {
     fetch("https://ai-server-sooty.vercel.app/promo")
       .then((response) => response.json())
@@ -42,9 +43,9 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
             {" "}
             {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
           </span>{" "}
-          <span className="line-through text-gray-500 mx-2 text-md">
+          {discount ? <span className="line-through text-gray-500 mx-2 text-md">
             ৳ {courseFee}
-          </span>{" "}
+          </span> : ""}
           <span className="text-xl">৳{discountAmount}</span>
           {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
         </p>

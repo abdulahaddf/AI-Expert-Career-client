@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useForm, Controller } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { FaRegDotCircle } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
 const Expertise = ({ consultant }) => {
+  const [isVisible, setIsVisible] = useState(true);
   const {
     displayName: cName,
     email: cMail,
@@ -98,6 +99,27 @@ const Expertise = ({ consultant }) => {
     }
   };
 
+  // hide on footer
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const last400Pixels = documentHeight - viewportHeight - 1560;
+
+      if (scrollPosition > last400Pixels) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div >
       <h3 className="font-semibold text-2xl">Availability</h3>
@@ -129,12 +151,16 @@ const Expertise = ({ consultant }) => {
       </div>
 
 
-{/* Fixed button for mobile */}
+{/* Fixed button for mobile */}\
+{
+        isVisible &&
       <div className="bg-white rounded-lg fixed bottom-0 p-2   z-10 md:hidden w-11/12 mx-auto"> 
-  <button
-  onClick={()=>document.getElementById('my_modal_5').showModal()}
-  className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></button>
+      <button
+        onClick={()=>document.getElementById('my_modal_5').showModal()}
+        className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></button>
 </div>
+      }
+ 
 
 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">

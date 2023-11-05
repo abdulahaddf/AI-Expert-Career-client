@@ -335,7 +335,7 @@ const IndividualCourse = () => {
       {/* right Side Contents */}
       <section className="my-5 md:my-0">
         {/* Features */}
-        <div className="section  text-sm ">
+        <div className="section md:w-96 text-sm ">
           <h3 className="text-xl font-bold my-3">
             {" "}
             {language == "bn"
