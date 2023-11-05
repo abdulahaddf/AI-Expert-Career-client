@@ -371,19 +371,21 @@ const Navbar = () => {
                         {menuItem}
 
                         <div className="flex items-center justify-evenly">
-                          <div>
-                            <Link
-                            onClick={() => setIsOpen(false)}
-                              className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
-                              to="/signup"
-                            >
-                              <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
+                         {
+                          user ? "" :  <div>
+                          <Link
+                          onClick={() => setIsOpen(false)}
+                            className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
+                            to="/signup"
+                          >
+                            <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 
-                              <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
-                                Join us
-                              </span>
-                            </Link>
-                          </div>
+                            <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
+                              Join us
+                            </span>
+                          </Link>
+                        </div>
+                         }
 
                           <div>
                             <li>
