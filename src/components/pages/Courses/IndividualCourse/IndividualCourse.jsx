@@ -21,6 +21,7 @@ const IndividualCourse = () => {
   const {  language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
   const { id } = useParams();
+  const [isVisible, setIsVisible] = useState(true);
   console.log(course);
 
   //fetching data for individual course
@@ -62,16 +63,44 @@ const IndividualCourse = () => {
     eligibleUsers,
   } = course;
   // console.log(coverVideo)
-  // const discountAmount = (discount / 100) * courseFee;
+ 
   const discountAmount = courseFee * (1 - discount / 100);
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, []);
+  
+  
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const last400Pixels = documentHeight - viewportHeight - 1500;
+
+      if (scrollPosition > last400Pixels) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
+  
+
+
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+  
   if (!title) return <Loader />;
   return (
-   <div className="w-full relative">
+   <div className="w-full">
      <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
@@ -390,18 +419,20 @@ const IndividualCourse = () => {
     </section>
 
 
-    <div className=" absolute bottom-0 md:hidden">
-  <div className="fixed bottom-20 w-[100vw] bg-white border shadow-lg z-0 pb-2 ">
-    <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">
-      ৳ {courseFee ? courseFee : "Free"}
-    </p>
-    <div className="flex justify-center">
-      <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
-        Enroll Now <IoIosArrowForward/>
-      </Link>
+    <div className=" md:hidden">
+      {isVisible && (
+        <div className="fixed bottom-0 left-0 w-full max-h-[80vh] bg-white border shadow-lg z-10 overflow-y-auto">
+          <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">
+            ৳ {courseFee ? courseFee : "Free"}
+          </p>
+          <div className="flex justify-center">
+            <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
+              Enroll Now <IoIosArrowForward/>
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-</div>
 
    </div>
   );
