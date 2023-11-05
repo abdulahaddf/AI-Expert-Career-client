@@ -13,7 +13,7 @@ const Roadmap = () => {
           We are the first ever Artificial Intelligence based Ed-tech and
           Consultancy Service Platform in Bangladesh.
         </p>
-        <Link className="btn-black btn-sm md:btn-md md:btn-view">View All Roadmap</Link>
+        <Link to='/ai-consultant' className="btn-black btn-sm md:btn-md md:btn-view">View All Roadmap</Link>
       </div>
     </div>
   );

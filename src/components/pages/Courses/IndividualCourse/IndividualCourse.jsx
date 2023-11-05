@@ -65,17 +65,17 @@ const IndividualCourse = () => {
   // const discountAmount = (discount / 100) * courseFee;
   const discountAmount = courseFee * (1 - discount / 100);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }, []);
 
   if (!title) return <Loader />;
   return (
-   <div className="">
+   <div className="w-full relative">
      <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
-        <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
+        <h1 className="text-2xl md:text-2xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
         <div className=" px-2 h-fit  md:w-[538px] lg:w-[768px] mx-auto">
           {coverVideo ? (
@@ -306,7 +306,7 @@ const IndividualCourse = () => {
       {/* right Side Contents */}
       <section className="my-5 md:my-0">
         {/* Features */}
-        <div className="section w-96 text-sm ">
+        <div className="section  text-sm ">
           <h3 className="text-xl font-bold my-3">
             {" "}
             {language == "bn"
@@ -388,16 +388,21 @@ const IndividualCourse = () => {
       </section>
 
     </section>
-    <div className="bg-white w-full fixed bottom-0 pb-2 border   z-10 md:hidden "> 
-    <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">৳ {courseFee ? courseFee : "Free"}</p>
-    <div className="flex justify-center">
 
-  <Link
-   to="/enroll"
-   state={{ course, discountAmount, courseFee }}
-  className=" btn-view-red bg-white w-11/12 ">Enroll Now <IoIosArrowForward/></Link>
+
+    <div className=" absolute bottom-0 md:hidden">
+  <div className="fixed bottom-20 w-[100vw] bg-white border shadow-lg z-0 pb-2 ">
+    <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">
+      ৳ {courseFee ? courseFee : "Free"}
+    </p>
+    <div className="flex justify-center">
+      <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
+        Enroll Now <IoIosArrowForward/>
+      </Link>
     </div>
+  </div>
 </div>
+
    </div>
   );
 };

@@ -65,7 +65,7 @@ const AiConsultanProfile = () => {
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [id]);
   if (loading && consultant && !workingWith) return <Loader />;
   return (
     <div className=" md:w-4/5 mx-auto my-7">
