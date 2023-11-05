@@ -142,14 +142,15 @@ const Navbar = () => {
               <SearchBox userinfo={userinfo} />
             </div>
 
-            <div className="lg:flex md:hidden justify-between items-center gap-5">
               <ul className="items-center hidden font-[700] lg:flex">
                 <div className={"flex items-center"}>{menuItem}</div>
               </ul>
+            <div className="flex  justify-between items-center gap-5">
               {user ? (
                 ""
               ) : (
                 <Link
+                onClick={() => setIsOpen(false)}
                   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                   to="/signup"
                 >
@@ -185,7 +186,7 @@ const Navbar = () => {
               </button>
 
               {user ? (
-                <div>
+                <div className="">
                   <div
                     className=" dropdown dropdown-hover "
                     onMouseEnter={handleMouseEnter}
@@ -372,6 +373,7 @@ const Navbar = () => {
                         <div className="flex items-center justify-evenly">
                           <div>
                             <Link
+                            onClick={() => setIsOpen(false)}
                               className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                               to="/signup"
                             >
