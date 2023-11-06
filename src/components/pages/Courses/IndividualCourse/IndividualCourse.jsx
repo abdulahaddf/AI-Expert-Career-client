@@ -374,7 +374,7 @@ const IndividualCourse = () => {
                   <Link
                     state={{ _id, title, course }}
                     to="/free-course"
-                    className="button-view-red"
+                    className="btn-view-red"
                   >
                     Enroll Now
                   </Link>

@@ -122,9 +122,9 @@ const Enroll = () => {
                 {" "}
                 {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
               </span>{" "}
-              <span className="line-through text-gray-500 mx-2 text-md">
-                ৳ {courseFee}
-              </span>{" "}
+              {discount ? <span className="line-through text-gray-500 mx-2 text-md">
+            ৳ {courseFee}
+          </span> : ""}
               <span className="text-xl">৳{discountAmount}</span>
               {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
             </p>

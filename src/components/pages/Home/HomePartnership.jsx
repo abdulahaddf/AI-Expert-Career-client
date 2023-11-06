@@ -14,7 +14,7 @@ const HomePartnership = () => {
     fetch("https://ai-server-sooty.vercel.app/partner")
       .then((response) => response.json())
       .then((data) => setPartner(data));
-  }, [partners]);
+  }, []);
   // console.log(partners)
   return (
     <div className="my-10 md:my-20 ">
