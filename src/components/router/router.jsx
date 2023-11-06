@@ -161,11 +161,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/enroll",
-        element: <PrivateRoute><Enroll /></PrivateRoute> ,
+        element: <Enroll />,
       },
       {
         path: "/free-course",
-        element: <PrivateRoute><FreeEnroll /></PrivateRoute>,
+        element: <FreeEnroll />,
       },
       {
         path: "/complete-enroll",

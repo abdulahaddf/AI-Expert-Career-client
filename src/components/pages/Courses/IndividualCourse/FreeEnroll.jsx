@@ -67,7 +67,11 @@ const FreeEnroll = () => {
   }, []);
   if (!userinfo) return <Loader />;
   return (
-
+    <>
+    {
+      userinfo.message ? <div className="section">
+      <Link to='/signup' className="h-[80vh] flex justify-center items-center text-3xl">Please Login First</Link>
+    </div> :
     <div className="section mx-auto my-5 md:my-10 md:w-2/5 w-11/12 text-xl md:p-14">
     <h1 className="font-bold text-2xl my-4">Your Information:</h1>
   
@@ -128,7 +132,8 @@ const FreeEnroll = () => {
       </Link>
 </div>
     </div>
-  </div>
+  </div>}
+  </>
   
   );
 };

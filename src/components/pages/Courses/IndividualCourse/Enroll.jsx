@@ -15,7 +15,7 @@ const Enroll = () => {
     location.state;
   const { _id, title } = course;
   const [userinfo] = UseUser();
-
+  console.log(userinfo);
   const [isChecked, setIsChecked] = useState(false);
   const [tId, setTid] = useState("");
   const [number, setNumber] = useState("");
@@ -83,17 +83,25 @@ const Enroll = () => {
   }, []);
   if (!userinfo) return <Loader />;
   return (
+    <>
+    {
+      userinfo.message ? <div className="section">
+      <Link to='/signup' className="h-[80vh] flex justify-center items-center text-3xl">Please Login First</Link>
+    </div> : 
+   
     <div className="md:flex justify-evenly md:h-[100vh] my-10 px-3 md:px-0">
       <div className="section h-fit md:w-2/5 text-xl p-14">
         <h1 className="font-bold my-4 text-3xl">User Information:</h1>
 
         <div className="space-y-2 ">
           <p>
-            <span className="font-semibold">Name:</span> {userinfo.displayName}
+            <span className="font-semibold">Name:</span>{" "}
+            {userinfo.displayName ? userinfo.displayName : "null"}
           </p>
           <hr />
           <p>
-            <span className="font-semibold">Email :</span> {userinfo.email}
+            <span className="font-semibold">Email :</span>{" "}
+            {userinfo.email ? userinfo.email : "null"}
           </p>
           <hr />
           <p>
@@ -109,46 +117,47 @@ const Enroll = () => {
           </p>
         </div>
       </div>
+
       <div className="section md:w-2/5 h-fit p-5 text-xl space-y-3 my-5 mb-10">
         <h1 className="font-bold my-4 text-3xl">Payment Process</h1>
         <p className="font-semibold">Course Name: {title}</p>
 
         <div>
           <section className="text-slate-900 font-semibold my-5 p-1  space-y-4 ">
+            <div className="hidden md:block space-y-4">
+              <p className=" flex justify-between border-b-2">
+                <span className="text-xl">
+                  {" "}
+                  {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
+                </span>{" "}
+                {discount ? (
+                  <span className="line-through text-gray-500 mx-2 text-md">
+                    ৳ {courseFee}
+                  </span>
+                ) : (
+                  ""
+                )}
+                <span className="text-xl">৳{discountAmount}</span>
+                {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
+              </p>
+              <div className="flex items-center gap-3 justify-center"> </div>
 
-      <div className="hidden md:block space-y-4">
-      <p className=" flex justify-between border-b-2">
-              <span className="text-xl">
-                {" "}
-                {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
-              </span>{" "}
-              {discount ? <span className="line-through text-gray-500 mx-2 text-md">
-            ৳ {courseFee}
-          </span> : ""}
-              <span className="text-xl">৳{discountAmount}</span>
-              {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
-            </p>
-            <div className="flex items-center gap-3 justify-center"> </div>
+              <p className=" text-xl flex justify-between border-b-2">
+                {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
+                <span className="font-normal">
+                  ৳ {payable ? payable : discountAmount}{" "}
+                </span>{" "}
+              </p>
+            </div>
 
-            
-            <p className=" text-xl flex justify-between border-b-2">
-              {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
-              <span className="font-normal">
-                ৳ {payable ? payable : discountAmount}{" "}
-              </span>{" "}
-            </p>
-      </div>
-
-      <div className="md:hidden">
-      <PromoCode
-                    discountAmount={discountAmount}
-                    courseFee={courseFee}
-                    discount={discount}
-                    course={course}
-                  />
-      </div>
-
-
+            <div className="md:hidden">
+              <PromoCode
+                discountAmount={discountAmount}
+                courseFee={courseFee}
+                discount={discount}
+                course={course}
+              />
+            </div>
 
             {language == "bn" ? (
               <>
@@ -240,9 +249,16 @@ const Enroll = () => {
             to="/terms&conditions"
             className="flex items-center gap-3 text-sm"
           >
-            {language == "bn"
-              ? "সমস্ত শর্তাবলীর সাথে রাজী হোন"
-              : <p >Accept All <span className="underline font-semibold">Terms and Conditions</span></p>}
+            {language == "bn" ? (
+              "সমস্ত শর্তাবলীর সাথে রাজী হোন"
+            ) : (
+              <p>
+                Accept All{" "}
+                <span className="underline font-semibold">
+                  Terms and Conditions
+                </span>
+              </p>
+            )}
           </Link>
           <br />
         </div>
@@ -257,6 +273,8 @@ const Enroll = () => {
         </Link>
       </div>
     </div>
+            }
+            </>
   );
 };
 
