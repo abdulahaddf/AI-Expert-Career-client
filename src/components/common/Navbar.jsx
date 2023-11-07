@@ -291,7 +291,6 @@ const Navbar = () => {
                           ""
                         )}
                       </li>
-
                       <li></li>
                     </ul>
                   </div>
