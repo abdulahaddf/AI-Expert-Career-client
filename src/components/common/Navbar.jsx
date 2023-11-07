@@ -219,8 +219,7 @@ const Navbar = () => {
                     <ul
                       tabIndex={0}
                       className="dropdown-menu bg-white z-20  shadow-md  absolute right-0 w-32
-                  rounded-box   text-left mt-2"
-                    >
+                  rounded-box   text-left mt-2">
                       <li className="">
                         {user ? (
                           isAdmin || userinfo?.role === "super admin" ? (
