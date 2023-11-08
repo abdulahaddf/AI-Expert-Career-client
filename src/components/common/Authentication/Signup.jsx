@@ -9,6 +9,10 @@ import { useForm } from "react-hook-form";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import google from "../../../assets/social/google.png"
+import facebook from "../../../assets/social/facebook.png"
+import Lottie from "lottie-react";
+import animationData from "../../../assets/animation/reg.json";
 
 const Signup = () => {
   const {
@@ -24,7 +28,8 @@ const Signup = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
+  const gradientColor =
+  "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
   const {
     register,
     handleSubmit,
@@ -166,12 +171,12 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="mt-[80px] mb-[40px] ">
-        <div className="py-6 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
-          <div className="grid lg:grid-cols-12 ">
-            <div className="px-[40px] lg:px-[70px] py-[40px] lg:py-[100px] bg-white lg:col-span-7 z-10">
+      <div className=" " style={{ background: gradientColor }}>
+        <div className="py-6 px-4 w-11/12 mx-auto  md:px-24 lg:px-20 ">
+          <div className="md:flex justify-evenly">
+            <div className="p-5  lg:px-[70px] lg:col-span-5 z-10 glass">
               <div className="relative">
-                <h2 className="text-[27px] font-bold mb-[45px]">
+                <h2 className="text-[27px] font-bold text-center">
                   {language === "bn"
                     ? "নতুন একাউন্ট ফর্ম"
                     : "Create an Account"}
@@ -227,7 +232,7 @@ const Signup = () => {
                   />
                   <input
                     type="password"
-                    className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[40px] px-2 py-3"
+                    className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-7 px-2 py-3"
                     name="password"
                     placeholder={
                       language === "bn" ? "পাসওয়ার্ড" : "Enter your password"
@@ -251,7 +256,7 @@ const Signup = () => {
                   )}
                   <button
                     type="submit"
-                    className="group relative   shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] w-full py-[14px] bg-[#ED1B24] "
+                    className="group relative  hover:shadow-lg  rounded overflow-hidden border border-[#ED1B24] w-full py-[10px] bg-[#ED1B24] "
                   >
                     <span className="absolute inset-y-0 left-0 w-[2px]  bg-white transition-all group-hover:w-full"></span>
 
@@ -260,73 +265,60 @@ const Signup = () => {
                     </span>
                   </button>
                 </form>
-              </div>
-            </div>
-            <div className="px-10 py-14 bg-[#FFD8D8] lg:col-span-5 relative">
-              <div className="lg:absolute top-[50%] left-[50%] lg:transform lg:-translate-x-[50%] lg:-translate-y-[50%]">
-                <h2 className="text-[27px] font-bold mb-6 text-center">
-                  {language === "bn"
-                    ? "একাউন্ট আছে ?"
-                    : " Already create an account"}
-                </h2>
-               <section className="w-[300px] mx-auto flex flex-col justify-center items-center">
-               <div className="">
-                  <Link
-                    className="group relative   shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] px-[60px] py-[14px] bg-[#ED1B24]"
-                    to="/login"
-                  >
-                    <span className="absolute inset-y-0 left-0 w-[2px]  bg-white transition-all group-hover:w-full"></span>
 
-                    <span className="relative text-sm font-medium text-white transition-colors  group-hover:text-red-600">
-                      {language === "bn" ? "সাইন ইন" : " Sign In"}
-                    </span>
-                  </Link>
-                </div>
-                {/* join with google button  */}
-                <div className="mt-10  mx-auto text-center">
-                  <button
-                    onClick={handleGoogleSignIn}
-                    className="px-[36px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
-                  >
-                    <img
-                      className=" w-[20px] h-[20px]"
-                      src="/src/assets/register/Google Logo.png"
-                      alt="google_logo"
-                    />
-                    Continue with Google
-                  </button>
+
+               
+              </div>
+             {/* join with google button  */}
+             <div className="mt-10  mx-auto text-center bg-white rounded-lg">
+                <button
+              onClick={handleGoogleSignIn}
+              type="button"
+              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+            >
+              <img className="h-8 w-8" src={google} alt="" />
+              <span className="ml-2">Sign up with Google</span>
+            </button>
                 </div>
                 {/* join with facebook button  */}
-                <div className="mt-5  mx-auto text-center">
-                  <button
-                    onClick={handlefbSignIn}
-                    className="px-[20px] py-[10px] bg-[#1877F2] rounded-md text-white shadow-lg flex items-center"
-                  >
-                    <img
-                      className="mr-2 w-[20px] h-[20px] "
-                      src="/src/assets/register/facebook_logo.png"
-                      alt="facebook_logo"
-                    />
-                    Continue with Facebook
-                  </button>
+                <div className="mt-5  mx-auto text-center bg-white rounded-lg">
+                <button
+              onClick={handlefbSignIn}
+              type="button"
+              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+            >
+              <img className="h-9 w-9 ml-5" src={facebook} alt="" />
+              <span className="ml-2">Sign up with Facebook</span>
+            </button>
                 </div>
-               </section>
-                {/* join with linkedin button  */}
-                {/* <div className="mt-5 w-[16rem] mx-auto text-center">
-                  <Link
-                    to=""
-                    className="px-[20px] py-[10px] bg-white rounded-md text-black shadow-lg flex items-center"
-                  >
-                    <img
-                      className="mr-2 w-[20px] h-[20px]"
-                      src="/src/assets/register/linkedinLogo.png"
-                      alt="linkedin_logo"
-                    />
-                    Continue with Linkedin
-                  </Link>
-                </div> */}
-              </div>
+            <p
+            className= "mt-8 text-md font-normal text-center text-gray-700"
+       
+          >
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-lg text-primary  hover:underline hover:text-primary"
+            >
+              Sign In Here
+            </Link>
+          </p>
             </div>
+            <div className="">
+
+            <Lottie
+          className="select-none pointer-events-none no-select unselectable w-full"
+          animationData={animationData}
+          loop={true}
+          />
+          </div>
+
+
+
+
+
+            
+           
           </div>
         </div>
       </div>

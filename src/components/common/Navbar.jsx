@@ -152,7 +152,7 @@ const Navbar = () => {
                 <Link
                 onClick={() => setIsOpen(false)}
                   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
-                  to="/signup"
+                  to="/login"
                 >
                   <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 
@@ -374,7 +374,7 @@ const Navbar = () => {
                           <Link
                           onClick={() => setIsOpen(false)}
                             className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
-                            to="/signup"
+                            to="/login"
                           >
                             <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 

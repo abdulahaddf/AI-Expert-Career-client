@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import UseUser from "../../../../hooks/useUser";
 import { useContext, useState } from "react";
 import Loader from "../../../common/loader/Loader";
@@ -8,13 +8,16 @@ import free from "../../../../assets/aiload/free.json";
 import { MyContext } from "../../../../Context/Context";
 import { useEffect } from "react";
 
+
 const FreeEnroll = () => {
   const { language } = useContext(MyContext);
   const [userinfo] = UseUser();
   const location = useLocation();
+  console.log(location)
   const { _id, title, course } = location.state;
   const [isChecked, setIsChecked] = useState(false);
-
+  const navigate = useNavigate();
+ 
   const handleSubmit = async () => {
     try {
       // Prepare course enroll Data
@@ -65,13 +68,24 @@ const FreeEnroll = () => {
    useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  if (!userinfo) return <Loader />;
+  // if (userinfo.message) return <Loader />;
+
+
+
+  useEffect(() => {
+    if (userinfo.message) {
+      // Show a toast message
+      toast.error("You need to log in first");
+      
+      // Navigate to the /login page
+      // navigate('/login');
+      navigate('/login', { state: { from: location } });
+      // <Navigate to="/login" state={{from: location}} replace></Navigate>
+    }
+  }, []);
+
   return (
-    <>
-    {
-      userinfo.message ? <div className="section">
-      <Link to='/signup' className="h-[80vh] flex justify-center items-center text-3xl">Please Login First</Link>
-    </div> :
+   
     <div className="section mx-auto my-5 md:my-10 md:w-2/5 w-11/12 text-xl md:p-14">
     <h1 className="font-bold text-2xl my-4">Your Information:</h1>
   
@@ -132,8 +146,7 @@ const FreeEnroll = () => {
       </Link>
 </div>
     </div>
-  </div>}
-  </>
+  </div>
   
   );
 };
