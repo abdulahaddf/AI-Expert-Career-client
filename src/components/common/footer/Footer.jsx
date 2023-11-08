@@ -1,12 +1,68 @@
 import { Link } from "react-router-dom";
-import Logo from "./ai expert career logo red white.svg";
+import Logo from "/img/logowhite.png";
 
 import footerBG from "./ai expert career icon white.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../../../Context/Context";
+import Swal from "sweetalert2";
+import { BsMailbox, BsTelegram } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Footer = () => {
   const { language } = useContext(MyContext);
+  const [mail, setMail] = useState("");
+  const [error, setError] = useState(null);
+console.log(mail);
+console.log(error)
+  const validateEmail = (email) => {
+    // Basic email validation using a regular expression
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  };
+
+  const handleSubmit = async (e) => {
+    console.log(e)
+    e.preventDefault();
+
+    if (!validateEmail(mail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setError(null); // Clear any previous errors
+
+    try {
+      const response = await fetch(
+        "https://ai-server-sooty.vercel.app/newsletter",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: mail }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+
+      const data = await response.json();
+
+      if (data.insertedId) {
+        // setMail("")
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "You've Subscribed successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (error) {
+      setError("An error occurred while subscribing. Please try again later.");
+    }
+  };
   return (
     <div className="bg-[#000000] ">
       <div className="pt-20 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8 relative">
@@ -14,7 +70,7 @@ const Footer = () => {
           <div className="col-span-2 2xl:p-4 pr-">
             <Link to="/" className="">
               <img
-                className="select-none pointer-events-none no-select unselectable"
+                className="select-none pointer-events-none no-select unselectable mx-auto md:mx-px w-36 md:w-64"
                 src={Logo}
                 alt=""
               />
@@ -25,20 +81,20 @@ const Footer = () => {
               the potential to revolutionize various indusstries in Bangladesh.
             </h4>
             <div className="flex justify-center lg:justify-start items-center gap-4 ">
-              <a
+              <Link
+                to="https://www.facebook.com/aiexpertcareer"
                 target="_blank"
-                href="www.facebook.com"
-                className="rounded-full border-red-600 border border-dashed p-0.5"
+                className="rounded-full  border border-dashed p-0.5"
               >
                 <img
                   className="w-12"
                   src="https://www.svgrepo.com/show/452196/facebook-1.svg"
                   alt=""
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 target="_blank"
-                href="www.facebook.com"
+                to="https://www.instagram.com/ai_expert_career/"
                 className="rounded-full border border-dashed p-0.5"
               >
                 <img
@@ -46,10 +102,10 @@ const Footer = () => {
                   src={"https://www.svgrepo.com/show/452231/instagram.svg"}
                   alt=""
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 target="_blank"
-                href="www.facebook.com"
+                to="https://www.linkedin.com/company/aiexpertcareer/"
                 className="rounded-full border border-dashed p-0.5"
               >
                 <img
@@ -57,10 +113,10 @@ const Footer = () => {
                   src="https://www.svgrepo.com/show/452051/linkedin.svg"
                   alt=""
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 target="_blank"
-                href="www.facebook.com"
+                to="https://wa.me/+8801995536898"
                 className="rounded-full border border-dashed p-0.5"
               >
                 <img
@@ -68,10 +124,10 @@ const Footer = () => {
                   src="https://www.svgrepo.com/show/354560/whatsapp.svg"
                   alt=""
                 />
-              </a>
-              <a
+              </Link>
+              <Link
                 target="_blank"
-                href="www.facebook.com"
+                to="https://www.youtube.com/@aiexpertcareer"
                 className="rounded-full border border-dashed p-0.5"
               >
                 <img
@@ -79,7 +135,7 @@ const Footer = () => {
                   src="https://www.svgrepo.com/show/452138/youtube.svg"
                   alt=""
                 />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="space-y-[30px]">
@@ -93,39 +149,33 @@ const Footer = () => {
                   >
                     {language !== "bn"
                       ? "Terms & Conditions"
-                      : "প্রজেক্ট ও প্রডাক্টস"}
+                      : "শর্তাবলী"}
                   </Link>
                 </p>
                 <p>
-                  <a
-                    href="https://forum.solana.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/courses"
                   >
-                    {language !== "bn"
-                      ? "Project & Products"
-                      : "প্রজেক্ট ও প্রডাক্টস"}
-                  </a>
+                    {language == "bn" ? "কোর্স সমূূহ" : "Courses"}
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/ai-consultant"
                   >
-                    {language == "bn" ? "ফ্রি কোর্স" : "Free Course"}
-                  </a>
+                    {language == "bn"
+                      ? "কনসালট্যান্ট"
+                      : " Consultants"}
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/blog"
                   >
                     {language == "bn"
                       ? "ব্লগ ও রিসোর্সেস"
                       : "Blogs And Resources"}
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <a
@@ -136,17 +186,7 @@ const Footer = () => {
                     {language == "bn" ? "আমাদের সম্পর্কে " : " About Us"}
                   </a>
                 </p>
-                <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {language == "bn"
-                      ? "কনসালট্যান্ট হিসেবে যুক্ত হতে চান?"
-                      : "Contract with a as a Consultant"}
-                  </a>
-                </p>
+              
                 <p>
                   <a
                     href="https://discord.com/invite/kBbATFA7PW"
@@ -258,33 +298,53 @@ const Footer = () => {
                   ? "এ আই সম্পর্কিত আপডেট থাকতে সাবস্ক্রাইব করুন"
                   : "  Subscribe to our newsletter Enter your email Subscribe"}
               </h2>
-              <form className="flex flex-col items-center w-full mb-4 md:flex-row ">
-                <input
-                  placeholder={
-                    language == "bn"
-                      ? "ইমেইল এড্রেস প্রদান করুন"
-                      : "Enter your email"
-                  }
-                  required=""
-                  type="text"
-                  className="flex-grow bg-black w-full h-12 px-4 mb-3 transition duration-200 border-2 border-[#ED1B24] shadow-sm rounded-l-md appearance-none md:mb-0 focus:border-[#ED1B24] focus:outline-none focus:shadow-outline"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition rounded-r-md duration-200 shadow-md md:w-auto bg-[#ED1B24] focus:shadow-outline focus:outline-none"
-                >
-                  {language == "bn" ? "সাবস্ক্রাইভ" : " Subscribe"}
-                </button>
-              </form>
+   
+
+
+
+
+<div className="">
+            <div className=" flex items-center bg-white rounded-lg pl-2 border w-fit">
+              {/* <img src={email} alt="" /> */}
+                  <AiOutlineMail className="text-primary text-xl"/>
+              <div>
+                <form>
+                  <input
+                    type="email"
+                    placeholder={language === "bn" ? "ই-মেইল" : "Email"}
+                    value={mail}
+                    onChange={(e) => setMail(e.target.value)}
+                    className="outline-none  w-full p-3 border-none text-black"
+                  />
+                  {/* <button type="submit">Subscribe</button> */}
+                </form>
+              </div>
+
+              <button
+                onClick={handleSubmit}
+                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition rounded-r-md duration-200 shadow-md md:w-auto bg-[#ED1B24] focus:shadow-outline focus:outline-none"
+              > <BsTelegram className="pr-1"/>
+                {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
+              </button>
+            </div>
+            <div>{error && <p className="error-message">{error}</p>}</div>
+          </div>
+
+
+
+
+
+
             </div>
           </div>
         </div>
         <div>
           <p className="mt-20 lg:text-[18px] font-bold text-white">
             {language == "bn"
-              ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2020"
-              : "All Right researved by Ai Expert Career - 2020"}
+              ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2023"
+              : "All Right researved by Ai Expert Career - 2023"}
           </p>
+          <Link to="https://abdulahad-df.netlify.app" target="_blank" className="text-white ">Developed by <span className="font-bold underline hover:text-primary">AHAD</span></Link>
         </div>
         <img
           className="absolute bottom-0 right-0 w-72 z-50"
