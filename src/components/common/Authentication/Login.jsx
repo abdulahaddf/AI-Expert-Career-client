@@ -51,7 +51,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        navigate(from, { replace: true });
+        navigate(from, { state: location.state.from.state });
 
         toast.info("Successfully Signed In", {
           icon: <AiFillCheckCircle className="text-xl text-primary" />,
@@ -96,7 +96,7 @@ const Login = () => {
             toast.info("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });
-            navigate(from, { replace: true });
+            navigate(from, { state: location.state.from.state, });
           });
       })
 
@@ -130,7 +130,7 @@ const Login = () => {
             toast.info("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });
-            navigate(from, { replace: true });
+            navigate(from, { state: location.state.from.state });
           });
       })
 

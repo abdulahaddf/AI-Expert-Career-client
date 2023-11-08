@@ -421,7 +421,7 @@ const IndividualBlog = () => {
             </div>
           ) : (
            <div className="flex justify-center">
-             <Link state={location} to="/login" className="my-10 text-center text-3xl cursor-pointer text-primary">
+             <Link state={{from : location}} to="/login" className="my-10 text-center text-3xl cursor-pointer text-primary">
               Login to Comment Here
             </Link>
            </div>

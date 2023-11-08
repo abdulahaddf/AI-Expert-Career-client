@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 // import Logo from "../../assets/ai expert career logo 4.svg";
 import Logo from "/img/logo.png";
@@ -25,6 +25,9 @@ const Navbar = () => {
 
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
+  const location = useLocation();
+ 
+  
   const isAdmin = userinfo?.role === "admin";
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -153,6 +156,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                   to="/login"
+                  state={{ from: location }}
                 >
                   <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 
@@ -375,6 +379,7 @@ const Navbar = () => {
                           onClick={() => setIsOpen(false)}
                             className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
                             to="/login"
+                            state={{ from: location }}
                           >
                             <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 

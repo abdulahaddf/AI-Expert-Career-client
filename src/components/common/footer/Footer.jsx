@@ -12,8 +12,8 @@ const Footer = () => {
   const { language } = useContext(MyContext);
   const [mail, setMail] = useState("");
   const [error, setError] = useState(null);
-console.log(mail);
-console.log(error)
+// console.log(mail);
+// console.log(error)
   const validateEmail = (email) => {
     // Basic email validation using a regular expression
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

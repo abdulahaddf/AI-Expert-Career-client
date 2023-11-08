@@ -74,15 +74,11 @@ const FreeEnroll = () => {
 
   useEffect(() => {
     if (userinfo.message) {
-      // Show a toast message
       toast.error("You need to log in first");
-      
-      // Navigate to the /login page
-      // navigate('/login');
+     
       navigate('/login', { state: { from: location } });
-      // <Navigate to="/login" state={{from: location}} replace></Navigate>
     }
-  }, []);
+  }, [location]);
 
   return (
    

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import UseUser from "../../../../hooks/useUser";
 import { toast } from "react-toastify";
 import Loader from "../../../common/loader/Loader";
@@ -15,7 +15,8 @@ const Enroll = () => {
     location.state;
   const { _id, title } = course;
   const [userinfo] = UseUser();
-  console.log(userinfo);
+  // console.log(userinfo);
+  const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [tId, setTid] = useState("");
   const [number, setNumber] = useState("");
@@ -81,13 +82,16 @@ const Enroll = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  if (!userinfo) return <Loader />;
+  // if (!userinfo) return <Loader />;
+  useEffect(() => {
+    if (userinfo.message) {
+      toast.error("You need to log in first");
+     
+      navigate('/login', { state: { from: location } });
+    }
+  }, [location]);
   return (
-    <>
-    {
-      userinfo.message ? <div className="section">
-      <Link to='/signup' className="h-[80vh] flex justify-center items-center text-3xl">Please Login First</Link>
-    </div> : 
+    
    
     <div className="md:flex justify-evenly md:h-[100vh] my-10 px-3 md:px-0">
       <div className="section h-fit md:w-2/5 text-xl p-14">
@@ -273,8 +277,7 @@ const Enroll = () => {
         </Link>
       </div>
     </div>
-            }
-            </>
+            
   );
 };
 
