@@ -277,20 +277,25 @@ const handleForm = (data) => {
                     })}
                   />
                  
-                  <input
-                  
-                    type="number"
-                    className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
-                    name="phone"
-                    placeholder={
-                      language === "bn"
-                        ? "আপনার মোবাইল নম্বর"
-                        : "Enter your phone number (optional)"
-                    }
-                    {...register("phone", {
-                      required: "Phone number is required",
-                    })}
-                  />
+                 <input
+  type="tel"
+  required
+  className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
+  name="phone"
+  placeholder={
+    language === "bn"
+      ? "আপনার মোবাইল নম্বর"
+      : "Enter your phone number"
+  }
+  {...register("phone", {
+    required: "Phone number is required",
+    pattern: {
+      value: /^01\d{9}$/,
+      message: "Please enter a valid phone number",
+    },
+  })}
+/>
+
 
 
                 <div className="relative">
@@ -361,14 +366,17 @@ const handleForm = (data) => {
                   )}
 
                 </div>
+            
                   
-{
+{ errors.phone ?   <p className="text-red-500 text-sm">{errors.phone.message}</p> :
   errors.password ?<> {errors.password  && (
-    <span className="error">{errors.password.message}</span>
+    <span className="text-red-500 text-sm">{errors.password.message}</span>
     )}</> :  <>{passwordMatchError && (
-      <span className="error">Passwords do not match</span>
+      <span className="text-red-500 text-sm">Passwords do not match</span>
       )}</>
 }
+
+
                   
                     
 
@@ -379,7 +387,7 @@ const handleForm = (data) => {
 
                   <button
                     type="submit"
-                    className="btn-view w-full "
+                    className="btn-view w-full mt-2"
                   >
                       {language === "bn" ? "সাবমিট" : "Sign Up "}
                    
