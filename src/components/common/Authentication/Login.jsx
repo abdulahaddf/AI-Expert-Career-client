@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
 import loginBG from "../../../assets/LoginBg.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -14,7 +15,7 @@ import google from "../../../assets/social/google.png"
 import facebook from "../../../assets/social/facebook.png"
 import animationData from "../../../assets/animation/login.json";
 const Login = () => {
-  const { signIn, signInGoogle, signInFB, setLoading } =
+  const { signIn, signInGoogle, signInFB, setLoading,logOut } =
     useContext(AuthContext);
   const { language } = useContext(MyContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -43,33 +44,92 @@ const Login = () => {
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
   console.log(location);
+  console.log(from);
 
-  const handleForm = (data) => {
-    const { email, password } = data;
 
-    signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        navigate(from, { state: location.state.from.state });
+
+
+ const handleForm = (data) => {
+  const { email, password } = data;
+
+  signIn(email, password)
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log("User info:", loggedUser);
+
+      // Check if the user's email is verified
+      if (loggedUser.emailVerified) {
+        if (from ) {
+          // Navigate to the specified route if 'from' and its nested properties are not null
+          navigate(from,  { state: location.state.from.state });
+        } else {
+          // Navigate to the default route if 'from' is null
+          navigate("/");
+        }
 
         toast.info("Successfully Signed In", {
           icon: <AiFillCheckCircle className="text-xl text-primary" />,
         });
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (
-          errorCode === "auth/user-not-found" ||
-          errorCode === "auth/wrong-password"
-        ) {
-          toast.error("Invalid email or password");
-        } else {
-          toast(errorMessage.slice(10, 61));
-        }
-      });
-  };
+      } else {
+        logOut();
+        toast.error("Please verify your email before signing in.");
+      }
+    })
+    .catch((error) => {
+      console.error("Sign-in error:", error);
+
+      const errorCode = error.code;
+      if (
+        errorCode === "auth/user-not-found" ||
+        errorCode === "auth/wrong-password"
+      ) {
+        toast.error("Invalid email or password");
+      } else {
+        toast.error("Invalid email or password");
+      }
+    });
+};
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  // const handleForm = (data) => {
+  //   const { email, password } = data;
+
+  //   signIn(email, password)
+  //     .then((result) => {
+  //       console.log(result)
+  //       const loggedUser = result.user;
+  //       console.log(loggedUser);
+  //       navigate(from, { state: location.state.from.state });
+
+  //       toast.info("Successfully Signed In", {
+  //         icon: <AiFillCheckCircle className="text-xl text-primary" />,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       if (
+  //         errorCode === "auth/user-not-found" ||
+  //         errorCode === "auth/wrong-password"
+  //       ) {
+  //         toast.error("Invalid email or password");
+  //       } else {
+  //         toast.error("Invalid email or password");
+  //       }
+  //     });
+  // };
 
   // Handle google signin
   const handleGoogleSignIn = () => {
@@ -143,18 +203,18 @@ const Login = () => {
   return (
     <div>
       <div className=" " style={{ background: gradientColor }}>
-        <div className="py-6 px-4 w-11/12 mx-auto  md:px-24 lg:px-20 ">
+        <div className="py-6  w-11/12 mx-auto  md:px-20 ">
           <div className="md:flex justify-evenly ">
             <div className="p-5 md:pt-20 md:w-1/2 z-10 glass">
               <div className="relative">
                 <h2 className="text-[27px] font-bold text-center md:mb-[45px]">
                   {language === "bn" ? "লগইন একাউন্ট" : "Login"}
                 </h2>
-                <img
-                  className="absolute right-0 top-[50%] transform -translate-y-[50%] -z-10"
-                  src={loginBG}
-                  alt=""
-                />
+                  {/* <img
+                    className="absolute right-0 top-[50%] transform -translate-y-[50%] -z-10"
+                    src={loginBG}
+                    alt=""
+                  /> */}
                 <form
                   action=""
                   className=""
@@ -175,7 +235,8 @@ const Login = () => {
                       },
                     })}
                   />
-                  <input
+                 <div className="relative">
+                 <input
                     type={showPassword ? "text" : "password"}
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[40px] px-2 py-3"
                     name="password"
@@ -192,15 +253,16 @@ const Login = () => {
                   />
                   {showPassword ? (
                     <FaEyeSlash
-                      className="absolute right-3 top-1/2 mt-5 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute right-3 bottom-9 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
                       onClick={() => setShowPassword(false)}
                     />
                   ) : (
                     <FaEye
-                      className="absolute right-3 top-1/2 mt-5  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute right-3 bottom-9  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
                       onClick={() => setShowPassword(true)}
                     />
                   )}
+                 </div>
                   <div className="flex justify-between">
                     <div>
                       {errors.password && (
@@ -254,6 +316,7 @@ const Login = () => {
             Don't have an account?{" "}
             <Link
               to="/signup"
+              // state ={{from : location.state}}
               className="font-medium text-lg text-primary  hover:underline hover:text-primary"
             >
               Sign Up Here

@@ -1,6 +1,6 @@
 import loginBG from "../../../assets/LoginBg.svg";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { sendEmailVerification } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { sendEmailVerification, sendSignInLinkToEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useContext } from "react";
@@ -13,6 +13,7 @@ import google from "../../../assets/social/google.png"
 import facebook from "../../../assets/social/facebook.png"
 import Lottie from "lottie-react";
 import animationData from "../../../assets/animation/reg.json";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
 const Signup = () => {
   const {
@@ -22,8 +23,16 @@ const Signup = () => {
     profileUpdate,
     setLoading,
     logOut,
+    auth,
   } = useContext(AuthContext);
   const { language } = useContext(MyContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [reshowPassword, setreShowPassword] = useState(false);
+  const [passwordMatchError, setPasswordMatchError] = useState(false);
+// console.log(passwordMatchError)
+
+
+
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -38,67 +47,115 @@ const Signup = () => {
   } = useForm();
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
+  const from = "/";
+// console.log(location)
 
-  const handleForm = (data) => {
-    const { email, name, password } = data;
 
-    createUser(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        console.log(result);
-        logOut();
-        reset();
-        navigate(from, { replace: true });
-        sendVerificationEmail(loggedUser);
-        profileUpdate({ displayName: name }).then(() => {
-          const saveUser = {
-            displayName: data.name,
-            email: data.email,
-            phone: data.phone,
-            role: "user",
-          };
-          fetch("https://ai-server-sooty.vercel.app/users", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(saveUser),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              // if (data.insertedId) {
-              //   reset();
-              //   Swal.fire({
-              //     position: "top-end",
-              //     icon: "success",
-              //     title: "Registered successfully. Please verify and login",
-              //     showConfirmButton: false,
-              //     timer: 2000,
-              //   });
-              //   // navigate(from, { replace: true });
-              // }
-            });
+const actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be in the authorized domains list in the Firebase Console.
+  url: 'https://ai-expertcareer.netlify.app/login',
+  // This must be true.
+  handleCodeInApp: true,
+  // dynamicLinkDomain: 'example.page.link'
+};
+
+// const handleForm = (data) => {
+//   const { email, name, password } = data;
+//   console.log(data.repassword)
+//   if (data.password !== data.repassword) {
+//     setPasswordMatchError(true);
+//   } else {
+//     setPasswordMatchError(false);
+
+//     if (!passwordMatchError) {
+      
+//       sendSignInLinkToEmail(auth, email, actionCodeSettings)
+//       .then(() => {
+//         // The link was successfully sent. Inform the user.
+//         // Save the email locally so you don't need to ask the user for it again
+//         // if they open the link on the same device.
+//         window.localStorage.setItem('emailForSignIn', email);
+//         // ...
+//       })
+//       .catch((error) => {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         // ...
+//       });
+     
+  
+// }
+// }}
+
+
+
+
+
+
+
+
+const handleForm = (data) => {
+  const { email, name, password } = data;
+  console.log(data.repassword)
+  if (data.password !== data.repassword) {
+    setPasswordMatchError(true);
+  } else {
+    setPasswordMatchError(false);
+
+    if (!passwordMatchError) {
+      createUser(email, password)
+        .then((result) => {
+          const loggedUser = result.user;
+          console.log(result);
+          sendEmailVerification(loggedUser);
+          logOut();
+          reset();
+          navigate("/login");
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Please check your mail and verify to proceed",
+            showConfirmButton: true,
+            // timer: 1500
+          });
+          profileUpdate({ displayName: name }).then(() => {
+            const saveUser = {
+              displayName: data.name,
+              email: data.email,
+              phone: data.phone,
+              role: "user",
+            };                                                           
+            fetch("https://ai-server-sooty.vercel.app/users", {   
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                  // navigate("/login");
+                  reset();
+                  
+                }
+              });
+          });
+        })
+        .catch((err) => {
+          if (err.code === "auth/email-already-in-use") {
+            toast.error("Email is already in use. Please use a different email.");
+          } else {
+            toast.error("An error occurred. Please try again later.");
+          }
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const sendVerificationEmail = (user) => {
-    sendEmailVerification(user).then((result) => {
-      console.log(result);
-      Swal.fire({
-        position: "center",
-        icon: "warning",
-        title: "Please check your mail and verify to proceed",
-        showConfirmButton: true,
-        // timer: 1500
-      });
-    });
-  };
+    }
+  }
+};
+
+
 
   // Handle google signin
   const handleGoogleSignIn = () => {
@@ -125,7 +182,7 @@ const Signup = () => {
             toast("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });
-            navigate(from, { replace: true });
+            navigate("/");
           });
       })
 
@@ -159,7 +216,7 @@ const Signup = () => {
             toast.info("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });
-            navigate(from, { replace: true });
+            navigate("/");
           });
       })
 
@@ -172,7 +229,7 @@ const Signup = () => {
   return (
     <div>
       <div className=" " style={{ background: gradientColor }}>
-        <div className="py-6 px-4 w-11/12 mx-auto  md:px-24 lg:px-20 ">
+        <div className="py-6 w-11/12 mx-auto  md:px-20 ">
           <div className="md:flex justify-evenly">
             <div className="p-5  lg:px-[70px] lg:col-span-5 z-10 glass">
               <div className="relative">
@@ -181,17 +238,30 @@ const Signup = () => {
                     ? "নতুন একাউন্ট ফর্ম"
                     : "Create an Account"}
                 </h2>
-                <img
+                {/* <img
                   className="absolute right-0 top-[50%] transform  -translate-y-[50%]  -z-10"
                   src={loginBG}
                   alt="loginBG"
-                />
+                /> */}
                 <form
                   action=""
                   className=""
                   onSubmit={handleSubmit(handleForm)}
                 >
+                   <input
+                  required
+                    type="text"
+                    className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
+                    name="name"
+                    placeholder={
+                      language === "bn" ? "আপনার নাম" : "Enter your name"
+                    }
+                    {...register("name", {
+                      required: "Name is required",
+                    })}
+                  />
                   <input
+                  required
                     type="email"
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
                     name="email"
@@ -206,32 +276,27 @@ const Signup = () => {
                       },
                     })}
                   />
+                 
                   <input
-                    type="text"
-                    className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
-                    name="name"
-                    placeholder={
-                      language === "bn" ? "আপনার নাম" : "Enter your name"
-                    }
-                    {...register("name", {
-                      required: "Name is required",
-                    })}
-                  />
-                  <input
+                  
                     type="number"
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-[35px] px-2 py-3"
                     name="phone"
                     placeholder={
                       language === "bn"
                         ? "আপনার মোবাইল নম্বর"
-                        : "Enter your phone number"
+                        : "Enter your phone number (optional)"
                     }
                     {...register("phone", {
                       required: "Phone number is required",
                     })}
                   />
-                  <input
-                    type="password"
+
+
+                <div className="relative">
+                <input
+                  required
+                    type={showPassword ? "text" : "password"}
                     className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-7 px-2 py-3"
                     name="password"
                     placeholder={
@@ -251,9 +316,67 @@ const Signup = () => {
                       },
                     })}
                   />
-                  {errors.password && (
-                    <span className="error">{errors.password.message}</span>
+                  {showPassword ? (
+                    <FaEyeSlash
+                      className="absolute right-3 bottom-7 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      onClick={() => setShowPassword(false)}
+                    />
+                  ) : (
+                    <FaEye
+                      className="absolute right-3 bottom-7  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      onClick={() => setShowPassword(true)}
+                    />
                   )}
+                </div>
+                 
+
+
+
+                  {/* Retype pass */}
+                <div className="relative">
+                <input
+        type={reshowPassword ? "text" : "password"}
+        className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-7 px-2 py-3"
+        name="repassword"
+        placeholder="Confirm your password"
+        {...register("repassword", {
+          required: "Password is required",
+          minLength: {
+            value: 6,
+            message: "Password must be at least 6 characters long",
+          },
+          // Add your password pattern validation here
+        })}
+      />
+                  {reshowPassword ? (
+                    <FaEyeSlash
+                      className="absolute right-3 bottom-7 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      onClick={() => setreShowPassword(false)}
+                    />
+                  ) : (
+                    <FaEye
+                      className="absolute right-3 bottom-7  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      onClick={() => setreShowPassword(true)}
+                    />
+                  )}
+
+                </div>
+                  
+{
+  errors.password ?<> {errors.password  && (
+    <span className="error">{errors.password.message}</span>
+    )}</> :  <>{passwordMatchError && (
+      <span className="error">Passwords do not match</span>
+      )}</>
+}
+                  
+                    
+
+                    
+                   
+                     
+
+
                   <button
                     type="submit"
                     className="group relative  hover:shadow-lg  rounded overflow-hidden border border-[#ED1B24] w-full py-[10px] bg-[#ED1B24] "

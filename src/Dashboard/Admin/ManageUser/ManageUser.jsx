@@ -148,7 +148,7 @@ const ManageUser = () => {
             </tr>
           </thead>
           <tbody>
-            {paginatedUsers?.filter(user => user.role !== "super admin" && userinfo.email)?.map((user, index) => (
+            {paginatedUsers?.filter(user => user.role !== "super admin" && userinfo.email !== user.email)?.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>

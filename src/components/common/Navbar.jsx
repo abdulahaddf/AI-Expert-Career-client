@@ -129,7 +129,7 @@ const Navbar = () => {
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
-        <div className="py-1 px-4 relative   mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-20 lg:px-28 2xl:px-8">
+        <div className="py-1 px-4 relative   mx-auto max-w-full">
           <div className="relative flex items-center justify-between  font-bold">
             <div className="  flex items-center">
               <div>
@@ -145,7 +145,7 @@ const Navbar = () => {
               <SearchBox userinfo={userinfo} />
             </div>
 
-              <ul className="items-center hidden font-[700] lg:flex">
+              <ul className="items-center hidden font-[700] xl:flex">
                 <div className={"flex items-center"}>{menuItem}</div>
               </ul>
             <div className="flex  justify-between items-center gap-5">
@@ -304,7 +304,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <div className="lg:hidden ">
+            <div className="xl:hidden ">
               <button
                 aria-label="Open Menu"
                 title="Open Menu"

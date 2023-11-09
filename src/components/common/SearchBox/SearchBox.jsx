@@ -88,7 +88,7 @@ useEffect(()=>{
   setIsOpen(true);
 },[search])
   return (
-    <div className="hidden lg:block relative top-0 left-10">
+    <div className="hidden xl:block relative top-0 left-10">
       <div className="flex items-center relative">
         <input
           className="px-5 pl-10  bg-white text-sm font-thin rounded-full w-[350px] mx-auto h-[41px] relative border-black/25 border-2"

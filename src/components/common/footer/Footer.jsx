@@ -306,7 +306,7 @@ const Footer = () => {
 <div className="">
             <div className=" flex items-center bg-white rounded-lg pl-2 border w-fit">
               {/* <img src={email} alt="" /> */}
-                  <AiOutlineMail className="text-primary text-xl"/>
+                  <AiOutlineMail className="text-primary w-10 md:w-16"/>
               <div>
                 <form>
                   <input
@@ -344,7 +344,7 @@ const Footer = () => {
               ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2023"
               : "All Right researved by Ai Expert Career - 2023"}
           </p>
-          <Link to="https://abdulahad-df.netlify.app" target="_blank" className="text-white ">Developed by <span className="font-bold underline hover:text-primary">AHAD</span></Link>
+          <p className="text-white ">Developed by <Link to="https://abdulahad-df.netlify.app" target="_blank" className="font-bold underline hover:text-primary">AHAD</Link></p>
         </div>
         <img
           className="absolute bottom-0 right-0 w-72 z-50"
