@@ -30,7 +30,7 @@ const MyCourse = () => {
   return (
     <div className=" mb-12 md:w-4/5 mx-auto">
       {courses ? (
-        <div className="md:w-4/5 mx-auto">
+        <div className="md:w-4/5 mx-auto px-6">
           <h3 className=" font-bold text-center text-2xl">
             {" "}
             {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}{" "}

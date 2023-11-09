@@ -248,7 +248,7 @@ const Appointments = () => {
             ))}
           </div>
         ) : (
-          <p className="my-10 text-3xl font-semibold text-center">
+          <p className="my-10 text-3xl font-semibold text-center px-6">
             {" "}
             You Don't have any appointments yet
           </p>

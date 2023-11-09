@@ -59,7 +59,7 @@ const Login = () => {
 
       // Check if the user's email is verified
       if (loggedUser.emailVerified) {
-        if (from ) {
+        if (location.state) {
           // Navigate to the specified route if 'from' and its nested properties are not null
           navigate(from,  { state: location.state.from.state });
         } else {
