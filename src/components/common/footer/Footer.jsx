@@ -344,10 +344,10 @@ const Footer = () => {
               ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2023"
               : "All Right researved by Ai Expert Career - 2023"}
           </p>
-          <p className="text-white ">Developed by <Link to="https://abdulahad-df.netlify.app" target="_blank" className="font-bold underline hover:text-primary">AHAD</Link></p>
+          <Link to="https://abdulahad-df.netlify.app" target="_blank" className="text-white z-50">Developed by <span className="font-bold underline hover:text-primary">AHAD</span></Link>
         </div>
         <img
-          className="absolute bottom-0 right-0 w-72 z-50"
+          className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "
           src={footerBG}
           alt=""
         />

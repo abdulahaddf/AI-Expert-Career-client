@@ -45,7 +45,7 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
-              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150"
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[30px] after:h-[2px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-2px] text-[#ED1B24] px-3 py-0.5 hover:text-[#ED1B24] duration-150  rounded-full"
               : isPending
               ? "pending"
               : "px-3 hover:text-[#ED1B24] duration-150"
@@ -61,7 +61,7 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
-              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[30px] after:h-[2px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-2px] text-[#ED1B24] px-3 py-0.5 hover:text-[#ED1B24] duration-150  rounded-full"
               : isPending
               ? "pending"
               : "px-3 hover:text-[#ED1B24] duration-150"
@@ -71,13 +71,13 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
+      {/* <li>
         <NavLink
           to="/roadmap"
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
-              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[30px] after:h-[2px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-2px] text-[#ED1B24] px-3 py-0.5 hover:text-[#ED1B24] duration-150  rounded-full"
               : isPending
               ? "pending"
               : "px-3 hover:text-[#ED1B24] duration-150"
@@ -85,14 +85,14 @@ const Navbar = () => {
         >
           AI Roadmap
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to="/courses"
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
-              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[30px] after:h-[2px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-2px] text-[#ED1B24] px-3 py-0.5 hover:text-[#ED1B24] duration-150  rounded-full"
               : isPending
               ? "pending"
               : "px-3 hover:text-[#ED1B24] duration-150"
@@ -107,7 +107,7 @@ const Navbar = () => {
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
-              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[20px] after:h-[5px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-8px] text-[#ED1B24] px-3 py-2 hover:text-[#ED1B24] duration-150 "
+              ? "relative after:absolute after:bg-[#ED1B24] after:text-black after:w-[30px] after:h-[2px] after:rounded after:right-0 after:mx-auto after:left-0 after:bottom-[-2px] text-[#ED1B24] px-3 py-0.5 hover:text-[#ED1B24] duration-150  rounded-full"
               : isPending
               ? "pending"
               : "px-3 hover:text-[#ED1B24] duration-150"
@@ -156,7 +156,7 @@ const Navbar = () => {
 
                 <Link
                 onClick={() => setIsOpen(false)}
-                  className="btn-view btn-md "
+                  className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-4 text-md text-lg hidden md:flex"
                   to="/login"
                   state={{ from: location }}
                 >
@@ -387,10 +387,10 @@ const Navbar = () => {
 
                         <div className="flex items-center justify-evenly">
                          {
-                          user ? "" :  <div>
+                          user ? "" :  <div className="pt-3">
                           <Link
                           onClick={() => setIsOpen(false)}
-                            className="btn-view"
+                            className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md "
                             to="/login"
                             state={{ from: location }}
                           >

@@ -29,7 +29,7 @@ const BlogCard = ({ blog }) => {
     <div  className="section w-full flex flex-col justify-between  p-2">
      <figure className='rounded-lg'>
      <img
-          className="md:max-h-52 pb-3 mx-auto rounded-lg"
+          className="w-fit  pb-3 mx-auto rounded-lg object-cover"
           src={blog.imageURL}
           alt="cover"
         />

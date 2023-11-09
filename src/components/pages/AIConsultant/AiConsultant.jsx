@@ -190,7 +190,7 @@ const AiConsultant = () => {
                 value={selectedDay}
               >
                 {daysOfWeek.map((day, index) => (
-                  <option key={index} value={day}>
+                  <option key={index} value={day} className="bg-white">
                     {day}
                   </option>
                 ))}
@@ -207,7 +207,7 @@ const AiConsultant = () => {
                 value={selectedWorkingWith}
               >
                 {workingWithOptions.map((workingWith, index) => (
-                  <option key={index} value={workingWith}>
+                  <option key={index} value={workingWith} className="bg-white">
                     {workingWith}
                   </option>
                 ))}

@@ -72,11 +72,12 @@ const AiConsultanProfile = () => {
       <div className="py-2  px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
         <div className="md:flex border shadow-sm p-3 lg:w-4/5 mx-auto">
           <div className="w-2/3 mx-auto md:w-1/2 flex justify-center items-center">
-            <img
-              src={photoURL}
-              alt="photo"
-              className="border w-48 md:w-72  rounded-full p-2 border-dashed border-[#FF0944]"
-            />
+          <img
+  src={photoURL}
+  alt="photo"
+  className="border h-48 w-48 md:w-72 md:h-72 rounded-full p-2 border-dashed border-[#FF0944] object-cover"
+/>
+
           </div>
 
           <div className="w-full md:w-1/2 mt-[10px] md:mt-0 flex items-center ">

@@ -211,7 +211,7 @@ const location = useLocation();
           <input
             {...register("email", { required: true })}
             type="email"
-            value={user.email}
+            value={user?.email}
             placeholder="Enter your email address"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
           />
@@ -330,8 +330,8 @@ const location = useLocation();
           </label>
           <input
             {...register("email", { required: true })}
-            value={user.email}
-            defaultValue={user.email}
+            value={user?.email}
+            defaultValue={user?.email}
             type="email"
             placeholder="Enter your email address"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
