@@ -33,6 +33,7 @@ const IndividualBlog = () => {
   const [like, setLike] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const [blog, setBlog] = useState([]);
+  const [userReaction, setUserReaction] = useState(null);
   const [cmnt, setComment] = useState("");
   const { id } = useParams();
   const [randomBlogs, setRandomBlogs] = useState([]);
@@ -40,7 +41,7 @@ const IndividualBlog = () => {
   const [reload, setReload] = useState(false);
   const currentURL = window.location.href;
   const location = useLocation();
-  console.log(currentURL);
+  // console.log(currentURL);
   // console.log(id);
   console.log(blog);
   const allComments = blog?.comments?.sort(
@@ -56,7 +57,7 @@ const IndividualBlog = () => {
     fetch(`https://ai-server-sooty.vercel.app/singleblogs/${id}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id, like, reload]);
+  }, [id, userReaction, reload]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
@@ -67,6 +68,18 @@ const IndividualBlog = () => {
       .then((response) => response.json())
       .then((data) => setBlogs(data));
   }, []);
+
+  useEffect(() => {
+    if (user && blog.likes) {
+      const userLike = blog.likes.find((like) => like.email === user.email);
+      if (userLike) {
+        setUserReaction(userLike.status); // Set user's reaction based on their like/dislike status
+      }
+    }
+  }, [blog]);
+
+
+
 
   // handling the comment
   const handleComment = () => {
@@ -113,118 +126,194 @@ const IndividualBlog = () => {
       });
   };
 
-  //handling like system
-  const handleLike = () => {
-    //user cant like the blog untill the user is logged in
-    if (!user?.email) {
-      toast.error("Please login first");
+  // //handling like system
+  // const handleLike = () => {
+  //   //user cant like the blog untill the user is logged in
+  //   if (!user?.email) {
+  //     toast.error("Please login first");
+  //     return;
+  //   }
+  //   // Create the likes object with likes and userinfo
+  //   const data = {
+  //     status: "liked",
+  //     email: user?.email,
+  //     blogId: id,
+  //     date: new Date(),
+  //   };
+
+  //   // Send a PATCH request to update the likes in your MongoDB database
+  //   fetch(`https://ai-server-sooty.vercel.app/like/${blog._id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       console.log(responseData);
+  //       if (responseData.error) {
+  //         toast.error("You've given a react already");
+  //         return;
+  //       }
+  //       if (responseData) {
+  //         toast.success("The Blog is liked", {
+  //           toastId: blog._id.toString(),
+  //         });
+  //         setLike(!like);
+  //       } else {
+  //         // Handle the case where the likes wasn't added successfully
+  //         toast.error("Something went wrong");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       // Handle any network or other errors that may occur during the request
+  //       console.error("Error:", error);
+  //       Swal.fire({
+  //         title: "Error!",
+  //         text: "Something went wrong. Please try again later.",
+  //         icon: "error",
+  //         confirmButtonText: "Ok",
+  //       });
+  //     });
+  // };
+
+  // //handling dislike system
+  // const handleDisLike = () => {
+  //   //user cant like the blog untill the user is logged in
+  //   if (!user?.email) {
+  //     toast.error("Please login first");
+  //     return;
+  //   }
+  //   // Create the likes object with likes and userinfo
+  //   const data = {
+  //     status: "disliked",
+  //     email: user?.email,
+  //     blogId: id,
+  //     date: new Date(),
+  //   };
+
+  //   // Send a PATCH request to update the likes in your MongoDB database
+  //   fetch(`https://ai-server-sooty.vercel.app/like/${blog._id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((responseData) => {
+  //       console.log(responseData);
+  //       if (responseData.error) {
+  //         toast.error("You've given a react already");
+  //         return;
+  //       }
+  //       if (responseData) {
+  //         toast.success("The Blog is disliked", {
+  //           toastId: blog._id.toString(),
+  //         });
+  //         setLike(!like);
+  //       } else {
+  //         // Handle the case where the likes wasn't added successfully
+  //         toast.error("Something went wrong");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       // Handle any network or other errors that may occur during the request
+  //       console.error("Error:", error);
+  //       Swal.fire({
+  //         title: "Error!",
+  //         text: "Something went wrong. Please try again later.",
+  //         icon: "error",
+  //         confirmButtonText: "Ok",
+  //       });
+  //     });
+  // };
+
+  // // Making sure the user will be able to like or dislike only one time
+  // const filterLiked = blog?.likes?.find((like) => like?.email === user?.email);
+  // const filterDisLiked = blog?.dislikes?.find(
+  //   (dislike) => dislike?.email === user?.email
+  // );
+
+
+
+  // const handleAlreadyReacted = () => {
+  //   toast.error("You've given a react already");
+  // };
+
+
+
+
+ 
+  
+
+console.log(userReaction)
+
+  const handleLikeClick = async () => {
+    if (userReaction === 'liked') {
+      setUserReaction('liked'); // Unset the like if already liked
+      // await handleDislikeOrLike('disliked');
+    } else {
+      setUserReaction('liked'); // Set the like
+       handleDislikeOrLike('liked');
+    }
+  };
+
+  const handleDislikeClick = async () => {
+    if (userReaction === 'disliked') {
+      setUserReaction('disliked'); // Unset the dislike if already disliked
+      // await handleDislikeOrLike('disliked');
+    } else {
+      setUserReaction('disliked'); // Set the dislike
+       handleDislikeOrLike('disliked');
+    }
+  };
+
+  const handleDislikeOrLike = async (status) => {
+    console.log(status);
+    if (!user || !user.email) {
+      console.error('User is not logged in');
       return;
     }
-    // Create the likes object with likes and userinfo
-    const data = {
-      status: "liked",
-      email: user?.email,
-      blogId: id,
-      date: new Date(),
-    };
-
-    // Send a PATCH request to update the likes in your MongoDB database
-    fetch(`https://ai-server-sooty.vercel.app/like/${blog._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((responseData) => {
-        console.log(responseData);
-        if (responseData.error) {
-          toast.error("You've given a react already");
-          return;
-        }
-        if (responseData) {
-          toast.success("The Blog is liked", {
-            toastId: blog._id.toString(),
-          });
-          setLike(!like);
-        } else {
-          // Handle the case where the likes wasn't added successfully
-          toast.error("Something went wrong");
-        }
-      })
-      .catch((error) => {
-        // Handle any network or other errors that may occur during the request
-        console.error("Error:", error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong. Please try again later.",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
+  
+    try {
+      const response = await fetch(`http://localhost:5000/like/${blog._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: user.email, status }),
       });
-  };
-
-  //handling dislike system
-  const handleDisLike = () => {
-    //user cant like the blog untill the user is logged in
-    if (!user?.email) {
-      toast.error("Please login first");
-      return;
+  
+      if (response.ok) {
+        // setUserReaction(status); // Update the user's reaction immediately
+        // Handle success, e.g., update UI
+        toast.success("reacted successfully")
+      } else {
+        // Handle errors
+        console.error('Error updating like/dislike');
+      }
+    } catch (error) {
+      // Handle network or other errors
+      console.error('Network or other error:', error);
     }
-    // Create the likes object with likes and userinfo
-    const data = {
-      status: "disliked",
-      email: user?.email,
-      blogId: id,
-      date: new Date(),
-    };
-
-    // Send a PATCH request to update the likes in your MongoDB database
-    fetch(`https://ai-server-sooty.vercel.app/dislike/${blog._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((responseData) => {
-        console.log(responseData);
-        if (responseData.error) {
-          toast.error("You've given a react already");
-          return;
-        }
-        if (responseData) {
-          toast.success("The Blog is disliked", {
-            toastId: blog._id.toString(),
-          });
-          setLike(!like);
-        } else {
-          // Handle the case where the likes wasn't added successfully
-          toast.error("Something went wrong");
-        }
-      })
-      .catch((error) => {
-        // Handle any network or other errors that may occur during the request
-        console.error("Error:", error);
-        Swal.fire({
-          title: "Error!",
-          text: "Something went wrong. Please try again later.",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
-      });
   };
+  
 
-  // Making sure the user will be able to like or dislike only one time
-  const filterLiked = blog?.likes?.find((like) => like?.email === user?.email);
-  const filterDisLiked = blog?.dislikes?.find(
-    (dislike) => dislike?.email === user?.email
-  );
-  const handleAlreadyReacted = () => {
-    toast.error("You've given a react already");
-  };
+  const likeCount = blog.likes
+  ? blog.likes
+      .map((like) => like.status)
+      .reduce((count, status) => (status === 'liked' ? count + 1 : count), 0)
+  : 0;
+
+const dislikeCount = blog.likes
+  ? blog.likes
+      .map((like) => like.status)
+      .reduce((count, status) => (status === 'disliked' ? count + 1 : count), 0)
+  : 0;
+
+console.log(likeCount)
 
   // // Filter the random blogs for recommendation
   //   const filtered = blogs?.filter((bl) => bl?.category === blog?.category && bl?._id !== blog?._id)
@@ -327,50 +416,26 @@ const IndividualBlog = () => {
 
 
           <div className="mt-[40px] flex justify-between items-center">
-            <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[45px] py-4 justify-center rounded-[40px]">
-              <div className="flex items-center gap-4">
-                <span className="text-white">{blog?.likes?.length} </span>
-                {/* filtering from backend if the user liked the blog or not */}
+            <div className="flex items-center gap-x-[25px] bg-[#FF0944] w-[175px] h-[35px] py-4 justify-center rounded-[40px]">
+             <div className="flex gap-5">
+      <div className="flex items-center">
+        <span className="text-white">{likeCount ? likeCount : 0}</span>
+        <button onClick={handleLikeClick} className="text-2xl text-center text-white">
+          {userReaction === 'liked' ? <><AiFillLike/></> : <BiLike/>}
+        </button>
+      </div>
 
-                {filterDisLiked ? (
-                  <BiLike
-                    onClick={() => handleAlreadyReacted()}
-                    className="text-2xl text-center text-white"
-                  />
-                ) : filterLiked ? (
-                  <AiFillLike
-                    onClick={() => handleAlreadyReacted()}
-                    className="text-2xl text-center text-white"
-                  />
-                ) : (
-                  <BiLike
-                    onClick={() => handleLike()}
-                    className="text-2xl text-center text-white"
-                  />
-                )}
-              </div>
+      <div className="flex ">
+        <button onClick={handleDislikeClick} className="text-2xl text-center text-white">
+          {userReaction === 'disliked' ? <AiFillDislike/> : <BiDislike/>}
+        </button>
+        <span className="text-white">{dislikeCount ? dislikeCount : 0}</span>
+      </div>
+    </div>
 
-              {/* filtering from backend if the user disliked the blog or not */}
-              <div className="flex gap-4">
-                {filterLiked ? (
-                  <BiDislike
-                    onClick={() => handleAlreadyReacted()}
-                    className="text-2xl text-center text-white"
-                  />
-                ) : filterDisLiked ? (
-                  <AiFillDislike
-                    onClick={() => handleAlreadyReacted()}
-                    className="text-2xl text-center text-white"
-                  />
-                ) : (
-                  <BiDislike
-                    onClick={() => handleDisLike()}
-                    className="text-2xl text-center text-white"
-                  />
-                )}
 
-                <span className="text-white">{blog?.dislikes?.length} </span>
-              </div>
+
+
             </div>
             <div className="flex justify-center items-center gap-2">
               <FacebookShareButton url={currentURL}>

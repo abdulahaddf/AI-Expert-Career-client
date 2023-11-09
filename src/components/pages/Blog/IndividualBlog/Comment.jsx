@@ -11,7 +11,7 @@ import { FaAngleDown } from 'react-icons/fa';
 import moment from "moment";
 
 const Comment = ({ cmt }) => {
-  console.log(cmt);
+  // console.log(cmt);
   // const [open, setOpen] = useState(false)
   return (
     <div className="">
