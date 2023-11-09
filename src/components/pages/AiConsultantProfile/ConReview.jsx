@@ -28,9 +28,9 @@ const ConReview = ({ cMail }) => {
         // setIsLoading(false);
       });
   }, []);
-  console.log(cMail);
+  // console.log(cMail);
   const filtered = feedback.filter((f) => f.email === cMail);
-  console.log(filtered);
+  // console.log(filtered);
   return (
     <div className="mt-[80px] mb-[35px] relative">
       <h3 className="text-center font-bold text-[30px]">

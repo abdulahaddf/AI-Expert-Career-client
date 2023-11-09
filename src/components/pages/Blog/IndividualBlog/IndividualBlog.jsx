@@ -362,7 +362,7 @@ useEffect(() => {
             user ? <div className="pt-[32px] ">
             <div className="flex justify-center items-center gap-x-[10px] ">
               <img
-                src={userinfo?.photoURL}
+                src={userinfo?.photoURL || "https://i.ibb.co/sg6hmZ7/user.png"}
                 alt=""
                 className="w-12 h-12 rounded-full"
               />

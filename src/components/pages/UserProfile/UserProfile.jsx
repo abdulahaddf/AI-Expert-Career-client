@@ -108,12 +108,12 @@ const UserProfile = () => {
   if (isLoading) return <Loader />;
   return (
     <div className="mb-10">
-      <div className="md:grid grid-cols-4 bg-[rgba(236,218,219,0.2)]">
-        <div className="flex justify-center">
-          <div className=" bg-[#ed1b2600] p-6">
+      <div className="md:flex bg-[rgba(236,218,219,0.2)]">
+        <div className="flex justify-center lg:w-1/3">
+          <div className=" bg-[#ed1b2600] p-6 ">
             <figure className="flex justify-center">
               <img
-                src={userinfo?.photoURL}
+                src={userinfo?.photoURL || "https://i.ibb.co/sg6hmZ7/user.png"}
                 className="w-[160px] h-[160px] mt-10 rounded-full"
                 alt=""
               />
@@ -197,7 +197,7 @@ const UserProfile = () => {
           </div>
         </div>
 
-        <div className="col-span-3 p-3">
+        <div className="lg:w-2/3 p-3 px-6">
           <div className="md:grid grid-cols-2 mt-2 gap-8">
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="name">

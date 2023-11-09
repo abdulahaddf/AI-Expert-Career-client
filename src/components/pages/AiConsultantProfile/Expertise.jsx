@@ -3,13 +3,17 @@ import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import { useForm, Controller } from "react-hook-form";
 import { toast } from "react-toastify";
-import UseUser from "../../../hooks/useUser";
 import { SiSocketdotio } from "react-icons/si";
 import { FaRegDotCircle } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+import UseUser from "../../../hooks/useUser";
+import { AuthContext } from "../../../Context/AuthProvider";
+import { Link, useLocation } from "react-router-dom";
 
 const Expertise = ({ consultant }) => {
+  const { user } = useContext(AuthContext);
   const [isVisible, setIsVisible] = useState(true);
+ console.log(user ? user : "nai")
   const {
     displayName: cName,
     email: cMail,
@@ -26,16 +30,16 @@ const Expertise = ({ consultant }) => {
     workingWith,
     selectedDays,
   } = consultant;
-  // const [userinfo] = UseUser();
+
   const { language } = useContext(MyContext);
   const [hideButton, setHideButton] = useState(false);
-  // const { control, handleSubmit, reset } = useForm({
-  //   defaultValues: { email: userinfo?.email },
-  //   problemType: "Career Consulting", 
-  // });
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register, reset } = useForm({
+    defaultValues :{
+      email : user?.email
+    }
+  });
+const location = useLocation();
 
-  // console.log(conMail);
 
   const onSubmit = async (data) => {
     const {
@@ -142,12 +146,21 @@ const Expertise = ({ consultant }) => {
       </div>
 
       <div className="flex justify-center md:mt-12 ">
-        <button
-          onClick={() => setHideButton(true)}
+       {
+        user ?  <button
+        onClick={() => setHideButton(true)}
+        className=" py-2 px-5 bg-[#ED1B24] rounded-[5px] text-white font-semibold hidden md:block"
+      >
+        {language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"}
+      </button> :  <Link
+          to="/login"
+          state={{from : location}}
+          onClick={() => toast.error("Please Login first")}
           className=" py-2 px-5 bg-[#ED1B24] rounded-[5px] text-white font-semibold hidden md:block"
         >
           {language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"}
-        </button>
+        </Link>
+       }
       </div>
 
 
@@ -155,9 +168,20 @@ const Expertise = ({ consultant }) => {
 {
         isVisible &&
       <div className="bg-white rounded-lg fixed bottom-0 p-2   z-10 md:hidden w-11/12 mx-auto"> 
-      <button
+      {
+        user ? 
+        
+        <button
         onClick={()=>document.getElementById('my_modal_5').showModal()}
-        className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></button>
+        className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></button> : 
+
+        <Link
+        to="/login"
+          state={{from : location}}
+          onClick={() => toast.error("Please Login first")}
+        className=" btn-view-red w-full ">{language == "bn" ? "এপয়েন্টমেন্ট বুক করুন" : "Book Your Appointment"} <IoIosArrowForward/></Link>
+      }
+      
 </div>
       }
  
@@ -187,6 +211,7 @@ const Expertise = ({ consultant }) => {
           <input
             {...register("email", { required: true })}
             type="email"
+            value={user.email}
             placeholder="Enter your email address"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
           />
@@ -305,6 +330,8 @@ const Expertise = ({ consultant }) => {
           </label>
           <input
             {...register("email", { required: true })}
+            value={user.email}
+            defaultValue={user.email}
             type="email"
             placeholder="Enter your email address"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"
