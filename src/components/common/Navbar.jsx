@@ -152,18 +152,31 @@ const Navbar = () => {
               {user ? (
                 ""
               ) : (
+
+
                 <Link
                 onClick={() => setIsOpen(false)}
-                  className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
+                  className="btn-view btn-md "
                   to="/login"
                   state={{ from: location }}
                 >
-                  <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
-
-                  <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
+                  
                     Join us
-                  </span>
+                 
                 </Link>
+
+                // <Link
+                // onClick={() => setIsOpen(false)}
+                //   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
+                //   to="/login"
+                //   state={{ from: location }}
+                // >
+                //   <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
+
+                //   <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
+                //     Join us
+                //   </span>
+                // </Link>
               )}
 
               <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
@@ -377,15 +390,13 @@ const Navbar = () => {
                           user ? "" :  <div>
                           <Link
                           onClick={() => setIsOpen(false)}
-                            className="group relative inline-bloc shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
+                            className="btn-view"
                             to="/login"
                             state={{ from: location }}
                           >
-                            <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
-
-                            <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
+                            
                               Join us
-                            </span>
+                           
                           </Link>
                         </div>
                          }

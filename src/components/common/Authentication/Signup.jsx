@@ -379,13 +379,10 @@ const handleForm = (data) => {
 
                   <button
                     type="submit"
-                    className="group relative  hover:shadow-lg  rounded overflow-hidden border border-[#ED1B24] w-full py-[10px] bg-[#ED1B24] "
+                    className="btn-view w-full "
                   >
-                    <span className="absolute inset-y-0 left-0 w-[2px]  bg-white transition-all group-hover:w-full"></span>
-
-                    <span className="relative text-sm font-medium text-white transition-colors  group-hover:text-red-600">
                       {language === "bn" ? "সাবমিট" : "Sign Up "}
-                    </span>
+                   
                   </button>
                 </form>
 

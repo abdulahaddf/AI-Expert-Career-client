@@ -278,12 +278,11 @@ const Login = () => {
                   </div>
                   <button
                     type="submit"
-                    className="group relative shadow-lg shadow-gray-600 rounded overflow-hidden border border-[#ED1B24] w-full py-[14px] bg-[#ED1B24] outline-none"
+                    className="btn-view w-full mt-2"
                   >
-                    <span className="absolute inset-y-0 left-0 w-[2px]  bg-white transition-all group-hover:w-full"></span>
-                    <span className="relative text-sm font-medium text-white transition-colors  group-hover:text-red-600">
+                    
                       {language === "bn" ? "লগইন" : "Login"}
-                    </span>
+                    
                   </button>
                 </form>
               </div>
