@@ -373,6 +373,7 @@ const EditCourse = () => {
     <div className="container max-w-4xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">
         Update Course : {course.title}
+        <DriveLinkConverter/>
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="flex flex-wrap justify-between">
@@ -875,7 +876,7 @@ const EditCourse = () => {
               </button>
             </div>
           </div>
-          <DriveLinkConverter />
+       
         </div>
 
         {/* Adding module */}
