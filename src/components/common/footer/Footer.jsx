@@ -12,8 +12,8 @@ const Footer = () => {
   const { language } = useContext(MyContext);
   const [mail, setMail] = useState("");
   const [error, setError] = useState(null);
-// console.log(mail);
-// console.log(error)
+  // console.log(mail);
+  // console.log(error)
   const validateEmail = (email) => {
     // Basic email validation using a regular expression
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log(e)
+    console.log(e);
     e.preventDefault();
 
     if (!validateEmail(mail)) {
@@ -145,33 +145,22 @@ const Footer = () => {
               </h2>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p>
-                  <Link to="/terms&conditions"
-                  >
-                    {language !== "bn"
-                      ? "Terms & Conditions"
-                      : "শর্তাবলী"}
+                  <Link to="/terms&conditions">
+                    {language !== "bn" ? "Terms & Conditions" : "শর্তাবলী"}
                   </Link>
                 </p>
                 <p>
-                  <Link
-                    to="/courses"
-                  >
+                  <Link to="/courses">
                     {language == "bn" ? "কোর্স সমূূহ" : "Courses"}
                   </Link>
                 </p>
                 <p>
-                  <Link
-                    to="/ai-consultant"
-                  >
-                    {language == "bn"
-                      ? "কনসালট্যান্ট"
-                      : " Consultants"}
+                  <Link to="/ai-consultant">
+                    {language == "bn" ? "কনসালট্যান্ট" : " Consultants"}
                   </Link>
                 </p>
                 <p>
-                  <Link
-                    to="/blog"
-                  >
+                  <Link to="/blogs">
                     {language == "bn"
                       ? "ব্লগ ও রিসোর্সেস"
                       : "Blogs And Resources"}
@@ -186,7 +175,7 @@ const Footer = () => {
                     {language == "bn" ? "আমাদের সম্পর্কে " : " About Us"}
                   </a>
                 </p>
-              
+
                 <p>
                   <a
                     href="https://discord.com/invite/kBbATFA7PW"
@@ -298,39 +287,35 @@ const Footer = () => {
                   ? "এ আই সম্পর্কিত আপডেট থাকতে সাবস্ক্রাইব করুন"
                   : "  Subscribe to our newsletter Enter your email Subscribe"}
               </h2>
-   
 
+              <div className="">
+                <div className=" flex items-center bg-white rounded-lg pl-2 border w-fit">
+                  {/* <img src={email} alt="" /> */}
+                  <AiOutlineMail className="text-primary w-10 md:w-16" />
+                  <div>
+                    <form>
+                      <input
+                        type="email"
+                        placeholder={language === "bn" ? "ই-মেইল" : "Email"}
+                        value={mail}
+                        onChange={(e) => setMail(e.target.value)}
+                        className="outline-none  w-full p-3 border-none text-black"
+                      />
+                      {/* <button type="submit">Subscribe</button> */}
+                    </form>
+                  </div>
 
-
-
-<div className="">
-            <div className=" flex items-center bg-white rounded-lg pl-2 border w-fit">
-              {/* <img src={email} alt="" /> */}
-                  <AiOutlineMail className="text-primary w-10 md:w-16"/>
-              <div>
-                <form>
-                  <input
-                    type="email"
-                    placeholder={language === "bn" ? "ই-মেইল" : "Email"}
-                    value={mail}
-                    onChange={(e) => setMail(e.target.value)}
-                    className="outline-none  w-full p-3 border-none text-black"
-                  />
-                  {/* <button type="submit">Subscribe</button> */}
-                </form>
+                  <button
+                    onClick={handleSubmit}
+                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition rounded-r-md duration-200 shadow-md md:w-auto bg-[#ED1B24] focus:shadow-outline focus:outline-none"
+                  >
+                    {" "}
+                    <BsTelegram className="pr-1" />
+                    {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
+                  </button>
+                </div>
+                <div>{error && <p className="error-message">{error}</p>}</div>
               </div>
-
-              <button
-                onClick={handleSubmit}
-                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition rounded-r-md duration-200 shadow-md md:w-auto bg-[#ED1B24] focus:shadow-outline focus:outline-none"
-              > <BsTelegram className="pr-1"/>
-                {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
-              </button>
-            </div>
-            <div>{error && <p className="error-message">{error}</p>}</div>
-          </div>
-
-
             </div>
           </div>
         </div>
@@ -340,7 +325,14 @@ const Footer = () => {
               ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2023"
               : "All Right researved by Ai Expert Career - 2023"}
           </p>
-          <Link to="https://abdulahad-df.netlify.app" target="_blank" className="text-white z-50">Developed by <span className="font-bold underline hover:text-primary">AHAD</span></Link>
+          <Link
+            to="https://abdulahad-df.netlify.app"
+            target="_blank"
+            className="text-white z-50"
+          >
+            Developed by{" "}
+            <span className="font-bold underline hover:text-primary">AHAD</span>
+          </Link>
         </div>
         <img
           className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "

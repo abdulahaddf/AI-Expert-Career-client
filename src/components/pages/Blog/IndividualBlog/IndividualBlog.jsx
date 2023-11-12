@@ -34,7 +34,7 @@ const IndividualBlog = () => {
   const [blog, setBlog] = useState([]);
   const [userReaction, setUserReaction] = useState(null);
   const [cmnt, setComment] = useState("");
-  const { id } = useParams();
+  const { name } = useParams();
   const [randomBlogs, setRandomBlogs] = useState([]);
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
@@ -52,11 +52,12 @@ const IndividualBlog = () => {
     ? allComments
     : allComments?.slice(0, 5);
   //fetching data for individual blog
+  console.log(name)
   useEffect(() => {
-    fetch(`https://ai-server-sooty.vercel.app/singleblogs/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/singleblog/${name}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  }, [id, userReaction, reload]);
+  }, [name, userReaction, reload]);
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
@@ -312,7 +313,7 @@ useEffect(() => {
 
 
           <div>
-            <p className="flex gap-3 flex-wrap cursor-pointer"><span className="text-xl font-semibold ">Tags: </span>{blog?.selectedTags?.map((a,i) => <span key={i} className="border px-3 py-[2px] rounded-full">{a}</span>)}</p>
+            <p className="flex gap-3 flex-wrap cursor-pointer mt-5"><span className="text-xl font-semibold ">Tags: </span>{blog?.selectedTags?.map((a,i) => <span key={i} className="border px-3 py-[2px] rounded-full">{a}</span>)}</p>
           </div>
 
 

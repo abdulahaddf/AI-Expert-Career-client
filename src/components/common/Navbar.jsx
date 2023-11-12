@@ -26,8 +26,7 @@ const Navbar = () => {
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
- 
-  
+
   const isAdmin = userinfo?.role === "admin";
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -57,7 +56,7 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/blog"
+          to="/blogs"
           onClick={() => setIsOpen(false)}
           className={({ isActive, isPending }) =>
             isActive
@@ -145,24 +144,20 @@ const Navbar = () => {
               <SearchBox userinfo={userinfo} />
             </div>
 
-              <ul className="items-center hidden font-[700] xl:flex">
-                <div className={"flex items-center"}>{menuItem}</div>
-              </ul>
+            <ul className="items-center hidden font-[700] xl:flex">
+              <div className={"flex items-center"}>{menuItem}</div>
+            </ul>
             <div className="flex  justify-between items-center gap-5">
               {user ? (
                 ""
               ) : (
-
-
                 <Link
-                onClick={() => setIsOpen(false)}
+                  onClick={() => setIsOpen(false)}
                   className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-4 text-md text-lg hidden md:flex"
                   to="/login"
                   state={{ from: location }}
                 >
-                  
-                    Join us
-                 
+                  Join us
                 </Link>
 
                 // <Link
@@ -236,7 +231,8 @@ const Navbar = () => {
                     <ul
                       tabIndex={0}
                       className="dropdown-menu bg-white z-20  shadow-md  absolute right-0 w-32
-                  rounded-box   text-left mt-2">
+                  rounded-box   text-left mt-2"
+                    >
                       <li className="">
                         {user ? (
                           isAdmin || userinfo?.role === "super admin" ? (
@@ -248,12 +244,12 @@ const Navbar = () => {
                                 Dashboard
                               </Link>
                               <Link
-                                to="/dashboard/my-profile"
+                                to="/dashboard/add-blog"
                                 className="navOptions ml-0"
                               >
                                 Add Blog
                               </Link>
-                             
+
                               <Link
                                 to="/dashboard/manage-users"
                                 className=" navOptions"
@@ -352,7 +348,7 @@ const Navbar = () => {
                           onClick={() => setIsOpen(false)}
                           className="flex justify-center items-center gap-2"
                         >
-                          <img className="bg-white w-20"  src={Logo} alt="" />
+                          <img className="bg-white w-20" src={Logo} alt="" />
                         </NavLink>
                       </div>
                       <div className="my-2 absolute"></div>
@@ -385,20 +381,20 @@ const Navbar = () => {
                         {menuItem}
 
                         <div className="flex items-center justify-evenly">
-                         {
-                          user ? "" :  <div className="pt-3">
-                          <Link
-                          onClick={() => setIsOpen(false)}
-                            className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md "
-                            to="/login"
-                            state={{ from: location }}
-                          >
-                            
-                              Join us
-                           
-                          </Link>
-                        </div>
-                         }
+                          {user ? (
+                            ""
+                          ) : (
+                            <div className="pt-3">
+                              <Link
+                                onClick={() => setIsOpen(false)}
+                                className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md "
+                                to="/login"
+                                state={{ from: location }}
+                              >
+                                Join us
+                              </Link>
+                            </div>
+                          )}
 
                           <div>
                             <li>

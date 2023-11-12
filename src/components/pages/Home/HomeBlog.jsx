@@ -121,26 +121,6 @@ const HomeBlogs = () => {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const { language } = useContext(MyContext);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   useEffect(() => {
     setActiveButton("Blog");
     setActiveSection("Case Studies");
@@ -449,7 +429,7 @@ const HomeBlogs = () => {
       )}
 
       <center>
-        <Link to={activeButton === "Case Studies" ? `/case-study` : "/blog"}>
+        <Link to={activeButton === "Case Studies" ? `/case-study` : "/blogs"}>
           <button className="px-[32px] py-[8px] bg-red-300 hover:bg-red-500 my-btn rounded-md text-white text-[19px] font-bold shadow-lg mt-[30px]">
             {language === "bn" ? "আরো পড়ুন" : "Read More"}
           </button>

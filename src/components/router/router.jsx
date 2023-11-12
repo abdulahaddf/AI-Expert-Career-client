@@ -172,12 +172,12 @@ export const router = createBrowserRouter([
         element: <CompletePurchaseCourse />,
       },
       {
-        path: "/blog",
+        path: "/blogs",
         element: <Blog></Blog>,
       },
 
       {
-        path: "/single-blog/:id",
+        path: "/blog/:name",
         element: <IndividualBlog></IndividualBlog>,
       },
       {
@@ -267,7 +267,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element:<PrivateRoute><UserDashboard /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <UserDashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/user-dashboard",
@@ -275,15 +279,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/my-courses",
-        element:<PrivateRoute><MyCourse /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <MyCourse />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-appointments",
-        element:<PrivateRoute> <Appointments /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Appointments />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/my-profile",
-        element:<PrivateRoute> <UserProfile /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/purchase-history",
@@ -295,7 +313,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/profile",
-        element: <PrivateRoute><UserProfile /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/purchase_history",
@@ -311,47 +333,92 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/add-blog",
-        element:<AdminRoute><AddBlog /></AdminRoute> ,
+        element: (
+          <AdminRoute>
+            <AddBlog />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-blog",
-        element: <AdminRoute> <ManageBlog /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageBlog />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/edit-blog/:id",
-        element: <AdminRoute><EditBlog /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <EditBlog />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-users",
-        element:  <AdminRoute><ManageUser /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ManageUser />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/add-course",
-        element: <AdminRoute><AddCourse /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddCourse />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manage-courses",
-        element: <AdminRoute><ManageCourses /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ManageCourses />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/edit-course/:id",
-        element: <AdminRoute><EditCourse /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <EditCourse />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/promo",
-        element:<AdminRoute><AddPromo /></AdminRoute> ,
+        element: (
+          <AdminRoute>
+            <AddPromo />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/control-enrollments",
-        element: <AdminRoute><ControlEnrollments /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ControlEnrollments />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/course-banner",
-        element: <AdminRoute><AddCourseBanner /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddCourseBanner />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/consultant-profile",
-        element: <PrivateRoute><ConsultantProfile /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ConsultantProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/edit-consultant-profile",
@@ -359,15 +426,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/control-appointments",
-        element: <AdminRoute><ControlAppointments /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ControlAppointments />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/newsletter",
-        element: <AdminRoute><NewsletterMail /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <NewsletterMail />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/add-reviews",
-        element: <AdminRoute><AddReviews /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddReviews />
+          </AdminRoute>
+        ),
       },
     ],
   },

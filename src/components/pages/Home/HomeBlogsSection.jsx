@@ -33,36 +33,37 @@ const HomeBlogsSection = () => {
         setIsLoading(false);
       });
   }, []);
-if (isLoading) return <Loader/>
+  if (isLoading) return <Loader />;
   return (
     <div className="my-20">
-         <h2 className="text-[30px] font-bold text-center">
+      <h2 className="text-[30px] font-bold text-center">
         {language == "bn" ? "ব্লগ সমূহ" : "Read Your Opportunities"}
       </h2>
-      <h3 className="text-center">We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh</h3>
-        {/* <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " /> */}
+      <h3 className="text-center">
+        We are the first ever Artificial Intelligence based Ed-tech and
+        Consultancy Service Platform in Bangladesh
+      </h3>
+      {/* <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " /> */}
       <div className=" mx-auto px-2 my-10 sm:px-0">
         <Tab.Group>
-        <Tab.List className="flex flex-nowrap overflow-x-scroll  lg:flex-nowrap space-x-1 space-y-1 md:space-y-0   md:space-x-3 rounded-lg md:rounded-lg text-black p-3 md:p-1 border whitespace-nowrap" >
-  {categories.map((category) => (
-    <Tab
-      key={category}
-      className={({ selected }) => (
-        `rounded-lg py-2.5 text-sm  text-black
+          <Tab.List className="flex flex-nowrap overflow-x-scroll  lg:flex-nowrap space-x-1 space-y-1 md:space-y-0   md:space-x-3 rounded-lg md:rounded-lg text-black p-3 md:p-1 border whitespace-nowrap">
+            {categories.map((category) => (
+              <Tab
+                key={category}
+                className={({ selected }) =>
+                  `rounded-lg py-2.5 text-sm  text-black
         ring-white/60 focus:outline-none font-semibold  ;
         ${
           selected
             ? "bg-black shadow text-white px-5 w-full"
             : "text-black hover:bg-black px-5 w-full hover:text-white"
         }`
-      )}
-    >
-      {category}
-    </Tab>
-  ))}
-</Tab.List>
-
-
+                }
+              >
+                {category}
+              </Tab>
+            ))}
+          </Tab.List>
 
           <Tab.Panels className="mt-2">
             {isLoading ? (
@@ -74,16 +75,19 @@ if (isLoading) return <Loader/>
                   className="rounded-full bg-white md:p-3 "
                 >
                   <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
-
-                  {blogs
-                    .filter((blog) => blog.category === category)
-                    .slice(0, 8) // Display the first four blogs in this category
-                    .map((filteredBlog, idx) => (
-                      <BlogCard key={filteredBlog._id} blog={filteredBlog} />
+                    {blogs
+                      .filter((blog) => blog.category === category)
+                      .slice(0, 8) // Display the first four blogs in this category
+                      .map((filteredBlog, idx) => (
+                        <BlogCard key={filteredBlog._id} blog={filteredBlog} />
                       ))}
-                      </div>
-                  <Link to="/blog" className="btn-black flex justify-center w-fit mx-auto btn-md">View More</Link>
-                      
+                  </div>
+                  <Link
+                    to="/blogs"
+                    className="btn-black flex justify-center w-fit mx-auto btn-md"
+                  >
+                    View More
+                  </Link>
                 </Tab.Panel>
               ))
             )}
