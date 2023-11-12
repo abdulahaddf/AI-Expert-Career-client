@@ -6,7 +6,7 @@ import Loader from "../../../components/common/loader/Loader";
 const ControlEnrollments = () => {
   const [enrolled, setEnrolled] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [status, setStatus] = useState("");
+  const [disabledAcceptButtons, setDisabledAcceptButtons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   console.log(enrolled);
@@ -17,8 +17,16 @@ const ControlEnrollments = () => {
     setIsLoading(false);
   }, []);
 
+
+  const disableAcceptButton = (id) => {
+    setDisabledAcceptButtons((prevDisabled) => [...prevDisabled, id]);
+  };
+
+
+
+
   const handleApprove = (id) => {
-    setStatus("approved");
+   
     console.log("approved");
     const data = {
       status: "approved",
@@ -93,11 +101,14 @@ const ControlEnrollments = () => {
                 <td className="text-center">{c.amount ? c.amount : "Free"}</td>
                 <td className="text-center">{c.tId ? c.tId : "Free"}</td>
                 <td className="text-center">{c.sender ? c.sender : "Free"}</td>
-                <td className="text-center">{status || c.status}</td>
+                <td className="text-center">{disabledAcceptButtons.includes(c._id) ? "approved" : c.status}</td>
                 <td className="text-center">
                   <button
-                    disabled={status || c.status === "approved"}
-                    onClick={() => handleApprove(c._id)}
+                    disabled={disabledAcceptButtons.includes(c._id) || c.status === "approved"}
+                    onClick={() =>{
+                      handleApprove(c._id);
+                      disableAcceptButton(c._id);
+                    } }
                     className="btn btn-success btn-xs normal-case text-white mx-1"
                   >
                     Approve

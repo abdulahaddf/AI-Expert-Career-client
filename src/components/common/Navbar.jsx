@@ -243,18 +243,17 @@ const Navbar = () => {
                             <li className="flex flex-col space-y-2  p-1  ">
                               <Link
                                 to="/dashboard/my-profile"
-                                className="navOptions ml-0"
-                              >
-                                My Profile
-                              </Link>
-
-                              <Link
-                                to="/dashboard/my-profile"
                                 className="navOptions"
                               >
                                 Dashboard
                               </Link>
-
+                              <Link
+                                to="/dashboard/my-profile"
+                                className="navOptions ml-0"
+                              >
+                                Add Blog
+                              </Link>
+                             
                               <Link
                                 to="/dashboard/manage-users"
                                 className=" navOptions"

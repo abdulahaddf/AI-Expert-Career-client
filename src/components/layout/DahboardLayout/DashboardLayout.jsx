@@ -10,7 +10,11 @@ import {
   BsImage,
   BsLaptopFill,
 } from "react-icons/bs";
-import { AiFillMail, AiOutlineHeart, AiOutlineVideoCameraAdd } from "react-icons/ai";
+import {
+  AiFillMail,
+  AiOutlineHeart,
+  AiOutlineVideoCameraAdd,
+} from "react-icons/ai";
 import { VscVerified } from "react-icons/vsc";
 import { TbFileReport } from "react-icons/tb";
 import logoutLogo from "../../../assets/Dashboard/Vector.png";
@@ -19,8 +23,18 @@ import { NavLink } from "react-router-dom";
 import Footer from "../../common/footer/Footer";
 import { MyContext } from "../../../Context/Context";
 import { AuthContext } from "../../../Context/AuthProvider";
-import { FaBloggerB, FaPercentage, FaUserEdit, FaUsersCog } from "react-icons/fa";
-import { MdAllInbox, MdManageSearch, MdReviews, MdVideoCameraFront } from "react-icons/md";
+import {
+  FaBloggerB,
+  FaPercentage,
+  FaUserEdit,
+  FaUsersCog,
+} from "react-icons/fa";
+import {
+  MdAllInbox,
+  MdManageSearch,
+  MdReviews,
+  MdVideoCameraFront,
+} from "react-icons/md";
 import { CiDiscount1, CiMail } from "react-icons/ci";
 import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
@@ -28,21 +42,21 @@ import { FiLogOut } from "react-icons/fi";
 import useTitle from "../../../hooks/useTitle";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
-  const {user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [userinfo] = UseUser();
   const isAdmin = userinfo?.role === "admin";
-  console.log(isAdmin)
+  console.log(isAdmin);
   // const gradientColor =
   //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
- 
-
 
   useTitle("Dashboard");
   return (
     <div className="">
       <Navbar />
-      <div className="" >      {/* style={{ background: gradientColor }} */} 
+      <div className="">
+        {" "}
+        {/* style={{ background: gradientColor }} */}
         {
           <button
             onClick={() => setIsOpen(true)}
@@ -53,7 +67,6 @@ const DashboardLayout = () => {
             <BsChevronRight />
           </button>
         }
-
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
@@ -76,286 +89,294 @@ const DashboardLayout = () => {
                 <BsChevronLeft />
               </button>
               <div>
-               {
-                isAdmin || userinfo?.role === "super admin" ? 
-                // Admin Dashboard link starts from here
-                <ul className="w-full py-5 md:py-5 md:px-4 flex  flex-col  bg-[#ED1B24]/20">
-               
+                {isAdmin || userinfo?.role === "super admin" ? (
+                  // Admin Dashboard link starts from here
+                  <ul className="w-full py-5 md:py-5 md:px-4 flex  flex-col  bg-[#ED1B24]/20">
+                    <NavLink
+                      to={"/dashboard/my-profile"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsPerson
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/manage-users"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <FaUsersCog
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "পরিচালনা করুন" : "Manage Users"}
+                    </NavLink>
 
-              
-                <NavLink
-                  to={"/dashboard/my-profile"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <BsPerson
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
-                </NavLink>
-                <NavLink
-                  to={"/dashboard/manage-users"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <FaUsersCog
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "পরিচালনা করুন" : "Manage Users"}
-                </NavLink>
+                    <NavLink
+                      to={"/dashboard/add-blog"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <FaBloggerB
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "ব্লগ যোগ করুন" : "Add Blog"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/manage-blog"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <MdManageSearch
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "ব্লগ পরিচালনা করুন" : "Manage Blog"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/add-course"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <AiOutlineVideoCameraAdd
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "কোর্স যোগ করুন" : "Publish Course"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/manage-courses"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsLaptopFill
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Manage courses"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/control-enrollments"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <MdVideoCameraFront
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Control Enrollments"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/control-appointments"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <FaUserEdit
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Control Appointments"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/course-banner"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsImage
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Course banner"}
+                    </NavLink>
 
-                <NavLink
-                  to={"/dashboard/add-blog"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <FaBloggerB
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "ব্লগ যোগ করুন" : "Add Blog"}
-                </NavLink>
-                <NavLink
-                  to={"/dashboard/manage-blog"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <MdManageSearch
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "ব্লগ পরিচালনা করুন" : "Manage Blog"}
-                </NavLink>
-                <NavLink
-                  to={"/dashboard/add-course"}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                      : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                  }
-                >
-                  <AiOutlineVideoCameraAdd
-                    className={`${({ isActive }) =>
-                      isActive
-                        ? "text-white"
-                        : "text-red-600"}mb-[4px] mr-2 `}
-                  />
-                  {language === "bn" ? "কোর্স যোগ করুন" : "Publish Course"}
-                </NavLink>
-                <NavLink
-                    to={"/dashboard/manage-courses"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsLaptopFill
-                      className={`${({ isActive }) =>
+                    <NavLink
+                      to={"/dashboard/promo"}
+                      className={({ isActive }) =>
                         isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Manage courses"}
-                  </NavLink>
-                <NavLink
-                    to={"/dashboard/control-enrollments"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <MdVideoCameraFront
-                      className={`${({ isActive }) =>
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <FaPercentage
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white "
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Add Promo Codes"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/add-reviews"}
+                      className={({ isActive }) =>
                         isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Control Enrollments"}
-                  </NavLink>
-                <NavLink
-                    to={"/dashboard/control-appointments"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <FaUserEdit
-                      className={`${({ isActive }) =>
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <MdReviews
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Add Reviews"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/newsletter"}
+                      className={({ isActive }) =>
                         isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Control Appointments"}
-                  </NavLink>
-                <NavLink
-                    to={"/dashboard/course-banner"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsImage
-                      className={`${({ isActive }) =>
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <AiFillMail
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "কোর্স পরিচালনা করুন"
+                        : "Newsletter mails"}
+                    </NavLink>
+                  </ul>
+                ) : userinfo?.role === "consultant" ? (
+                  // Consultant Dashboard link starts from here
+                  <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20">
+                    <NavLink
+                      to={"/dashboard/consultant-profile"}
+                      className={({ isActive }) =>
                         isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Course banner"}
-                  </NavLink>
+                          ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsPerson
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                    </NavLink>
+                  </ul>
+                ) : (
+                  // User Routes starts from Here
+                  <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20 ">
+                    <NavLink
+                      to={"/dashboard/my-profile"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsPerson
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
+                    </NavLink>
 
+                    <NavLink
+                      to={"/dashboard/my-courses"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsLaptop
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/my-appointments"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <BsLaptop
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "আমার কোর্স সমূূহ"
+                        : "My Appointments"}
+                    </NavLink>
 
-                <NavLink
-                    to={"/dashboard/promo"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <FaPercentage
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white "
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Promo Codes"}
-                  </NavLink>
-                <NavLink
-                    to={"/dashboard/add-reviews"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <MdReviews
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Add Reviews"}
-                  </NavLink>
-                <NavLink
-                    to={"/dashboard/newsletter"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <AiFillMail
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "কোর্স পরিচালনা করুন" : "Newsletter mails"}
-                  </NavLink>
-
-              
-
-                
-              </ul> : userinfo?.role === "consultant" ? 
-              // Consultant Dashboard link starts from here
-              <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20">  
-              <NavLink
-                    to={"/dashboard/consultant-profile"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsPerson
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
-                  </NavLink></ul> :      
-              // User Routes starts from Here
-              <ul className="w-full py-20 md:py-24 md:px-4 flex h-[100vh]  flex-col  bg-[#ED1B24]/20 ">
-              
-
-                  <NavLink
-                    to={"/dashboard/my-profile"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsPerson
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "আমার প্রোফাইল" : "My Profile"}
-                  </NavLink>
-
-                  <NavLink
-                    to={"/dashboard/my-courses"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsLaptop
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}
-                  </NavLink>
-                  <NavLink
-                    to={"/dashboard/my-appointments"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <BsLaptop
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "আমার কোর্স সমূূহ" : "My Appointments"}
-                  </NavLink>
-
-                  {/* <NavLink
+                    {/* <NavLink
                     to={"/dashboard/wishlist"}
                     className={({ isActive }) =>
                       isActive
@@ -406,24 +427,18 @@ const DashboardLayout = () => {
                     {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
                   </NavLink> */}
 
-<div className=" flex items-center ml-5 cursor-pointer gap-2" onClick={logOut}>
-                 <FiLogOut/>
-                  <button className="font-bold " >
-                    {language === "bn" ? "লগ আউট" : "Logout"}
-                  </button>
-                </div>
-                  
-                </ul>
-               }
-                
-
-
-
+                    <div
+                      className=" flex items-center ml-5 cursor-pointer gap-2"
+                      onClick={logOut}
+                    >
+                      <FiLogOut />
+                      <button className="font-bold ">
+                        {language === "bn" ? "লগ আউট" : "Logout"}
+                      </button>
+                    </div>
+                  </ul>
+                )}
               </div>
-
-
-
-
             </div>
             <div className="w-full">
               <Outlet />
