@@ -91,6 +91,9 @@ const Blog = () => {
     }
   };
 
+
+
+  
   const getFilter = (event) => {
     const filters = event.target.value;
     setSortingOption(filters);

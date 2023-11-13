@@ -50,7 +50,7 @@ const Footer = () => {
       const data = await response.json();
 
       if (data.insertedId) {
-        // setMail("")
+        setMail("")
         Swal.fire({
           position: "top-end",
           icon: "success",
