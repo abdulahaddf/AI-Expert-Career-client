@@ -153,11 +153,11 @@ const Navbar = () => {
               ) : (
                 <Link
                   onClick={() => setIsOpen(false)}
-                  className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-4 text-md text-lg hidden md:flex"
+                  className=" bg-white  normal-case border-black border-[1px] rounded-lg h-[42px]  hover:shadow-lg hover:bg-black hover:text-white py-2 md:px-4  hidden md:flex items-center justify-center"
                   to="/login"
                   state={{ from: location }}
                 >
-                  Join us
+                  {language === "bn" ? "লগ ইন" : "Sign In"}
                 </Link>
 
                 // <Link
@@ -169,15 +169,15 @@ const Navbar = () => {
                 //   <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
 
                 //   <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
-                //     Join us
+                //     Sign In
                 //   </span>
                 // </Link>
               )}
 
-              <button className="rounded-full hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+              <button className="rounded-lg hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden h-[42px]">
                 <p
                   onClick={() => setLanguage("bn")}
-                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black ${
                     language == "bn"
                       ? "bg-[#ED1B24] text-white"
                       : "bg-[#ffffff] text-black"
@@ -187,7 +187,7 @@ const Navbar = () => {
                 </p>
                 <p
                   onClick={() => setLanguage("en")}
-                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black ${
                     language == "en"
                       ? "bg-[#ED1B24] text-white"
                       : "bg-[#fbf9f9] text-black"
@@ -384,24 +384,24 @@ const Navbar = () => {
                           {user ? (
                             ""
                           ) : (
-                            <div className="pt-3">
+                            <div className="">
                               <Link
                                 onClick={() => setIsOpen(false)}
-                                className="btn btn-ghost btn-outline normal-case shadow-md  hover:shadow-lg hover:bg-black hover:text-white btn-md "
+                                className="bg-white  normal-case border-black border-[1px] rounded-lg h-[36px]  hover:shadow-lg hover:bg-black hover:text-white py-2 px-4  items-center justify-center "
                                 to="/login"
                                 state={{ from: location }}
                               >
-                                Join us
+                                {language === "bn" ? "লগ ইন" : "Sign In"}
                               </Link>
                             </div>
                           )}
 
                           <div>
                             <li>
-                              <button className="rounded-full mt-2 lg:mt-0  border-2 border-[#ED1B24] flex justify-between items-center bg-[#fefefe] overflow-hidden ">
+                              <button className="rounded-lg h-[36px] border-2 border-[#ED1B24] flex justify-between items-center bg-[#fefefe] overflow-hidden ">
                                 <p
                                   onClick={() => setLanguage("bn")}
-                                  className={`px-5 py-[8px] rounded-l-full hover:bg-gray-300 hover:text-black ${
+                                  className={`px-3 py-[8px]  hover:bg-gray-300 hover:text-black ${
                                     language == "bn"
                                       ? "bg-[#ED1B24] text-white"
                                       : "bg-[#ffffff] text-black"
@@ -411,7 +411,7 @@ const Navbar = () => {
                                 </p>
                                 <p
                                   onClick={() => setLanguage("en")}
-                                  className={`px-5 py-[8px] hover:bg-gray-300 hover:text-black rounded-r-full ${
+                                  className={`px-3 py-[8px] hover:bg-gray-300 hover:text-black  ${
                                     language == "en"
                                       ? "bg-[#ED1B24] text-white"
                                       : "bg-[#fbf9f9] text-black"

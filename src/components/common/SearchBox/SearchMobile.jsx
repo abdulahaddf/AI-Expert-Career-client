@@ -92,8 +92,8 @@ const SearchMobile = ({isOpen, setIsOpen}) => {
           className="px-5 pl-10  bg-white text-sm font-thin rounded-full w-[350px] mx-auto h-[41px] relative border-black/25 border-2"
           placeholder={
             language === "bn"
-              ? "পছন্দের কোর্সগুলো খুজুন"
-              : "Search your favorite courses"
+              ? "ক্যারিয়ার কনসালটেন্ট / কোর্সগুলো খুঁজুন"
+              : "Search your career consultants or courses"
           }
           type="search"
           name="search"

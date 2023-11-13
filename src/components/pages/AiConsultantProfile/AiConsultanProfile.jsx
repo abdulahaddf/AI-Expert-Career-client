@@ -88,7 +88,7 @@ const AiConsultanProfile = () => {
 
               <p className="  font-medium text-center md:text-left">{description}</p>
 
-              <div className="lg:flex items-center place-content-between space-y-3 gap-10 pt-2 md:mt-10 md:pt-10 ">
+              <div className="lg:flex items-center place-content-between space-y-3  pt-2 md:mt-10 md:pt-10 ">
                <div>
                <p className="">
                   {selectedDays?.includes(today) ? (
@@ -101,22 +101,28 @@ const AiConsultanProfile = () => {
                 </p>
                </div>
                 <div className="flex justify-between">
-                <div className="flex lg:justify-center items-center gap-3 mr-10">
-                  <Link to={facebook} target="_blank">
-                    <div className=" text-3xl  cursor-pointer">
-                      <BsFacebook />
-                    </div>
-                  </Link>
-                  <Link to={linkedin} target="_blank">
-                    <div className=" text-3xl   cursor-pointer">
+                <div className="flex lg:justify-center items-center gap-3 mr-2">
+                 {
+                  facebook ?  <Link to={facebook} target="_blank">
+                  <div className=" text-2xl  cursor-pointer">
+                    <BsFacebook />
+                  </div>
+                </Link> : ""
+                 }
+                  {
+                    linkedin ? <Link to={linkedin} target="_blank">
+                    <div className=" text-2xl   cursor-pointer">
                       <BsLinkedin />
                     </div>
-                  </Link>
-                  <Link to={twitter} target="_blank">
-                    <div className="text-3xl  cursor-pointer">
+                  </Link> : ""
+                  }
+                  {
+                    twitter ? <Link to={twitter} target="_blank">
+                    <div className="text-2xl  cursor-pointer">
                       <BsTwitter />
                     </div>
-                  </Link>
+                  </Link> : ""
+                  }
                 </div>
 
                 <CopyURLButton text={"Share Profile"}/>

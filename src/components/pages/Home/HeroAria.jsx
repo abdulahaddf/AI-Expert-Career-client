@@ -49,7 +49,7 @@ const HeroAria = () => {
             </h4>
             <div className="flex  justify-start md:w-full md:items-center gap-2 md:gap-8 mt-6">
               <Link
-                className="btn-black btn-md md:px-8 text-lg bg-black text-white flex items-center"
+                className="btn-black btn-md md:px-8 text-lg bg-black text-white flex items-center border-2 border-black"
                 to="/ai-consultant"
               >
              Get Started <BsArrowRightShort/> 

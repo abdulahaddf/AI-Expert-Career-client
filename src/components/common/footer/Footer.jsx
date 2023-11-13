@@ -65,12 +65,12 @@ const Footer = () => {
   };
   return (
     <div className="bg-[#000000] ">
-      <div className="pt-20 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 text-white text-center sm:text-start ">
-          <div className="col-span-2 2xl:p-4 pr-">
+      <div className="pt-20 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-20 text-white text-center sm:text-start ">
+          <div className="col-span-2 2xl:p-4 ">
             <Link to="/" className="">
               <img
-                className="select-none pointer-events-none no-select unselectable mx-auto md:mx-px w-36 md:w-64"
+                className="select-none pointer-events-none no-select unselectable mx-auto md:mx-px w-36 md:w-48"
                 src={Logo}
                 alt=""
               />
@@ -84,7 +84,7 @@ const Footer = () => {
               <Link
                 to="https://www.facebook.com/aiexpertcareer"
                 target="_blank"
-                className="rounded-full  border border-dashed p-0.5"
+                className="rounded-full  w-10 p-0.5"
               >
                 <img
                   className="w-12"
@@ -95,7 +95,7 @@ const Footer = () => {
               <Link
                 target="_blank"
                 to="https://www.instagram.com/ai_expert_career/"
-                className="rounded-full border border-dashed p-0.5"
+                className="rounded-full w-10 p-0.5"
               >
                 <img
                   className="w-12"
@@ -106,7 +106,7 @@ const Footer = () => {
               <Link
                 target="_blank"
                 to="https://www.linkedin.com/company/aiexpertcareer/"
-                className="rounded-full border border-dashed p-0.5"
+                className="rounded-full w-10 p-0.5"
               >
                 <img
                   className="w-12"
@@ -117,7 +117,7 @@ const Footer = () => {
               <Link
                 target="_blank"
                 to="https://wa.me/+8801995536898"
-                className="rounded-full border border-dashed p-0.5"
+                className="rounded-full w-8 p-0.5"
               >
                 <img
                   className="w-12"
@@ -128,7 +128,7 @@ const Footer = () => {
               <Link
                 target="_blank"
                 to="https://www.youtube.com/@aiexpertcareer"
-                className="rounded-full border border-dashed p-0.5"
+                className="rounded-full w-10 p-0.5"
               >
                 <img
                   className="w-12"
@@ -285,11 +285,11 @@ const Footer = () => {
               <h2 className="text-[22px] font-bold text-[#ED1B24] mb-3">
                 {language == "bn"
                   ? "এ আই সম্পর্কিত আপডেট থাকতে সাবস্ক্রাইব করুন"
-                  : "  Subscribe to our newsletter Enter your email Subscribe"}
+                  : "Subscribe to our newsletter "}
               </h2>
 
               <div className="">
-                <div className=" flex items-center bg-white rounded-lg pl-2 border w-fit">
+                <div className=" flex items-center bg-white rounded-lg border w-fit">
                   {/* <img src={email} alt="" /> */}
                   <AiOutlineMail className="text-primary w-10 md:w-16" />
                   <div>
@@ -299,7 +299,7 @@ const Footer = () => {
                         placeholder={language === "bn" ? "ই-মেইল" : "Email"}
                         value={mail}
                         onChange={(e) => setMail(e.target.value)}
-                        className="outline-none  w-full p-3 border-none text-black"
+                        className="outline-none  w-full border-none text-black"
                       />
                       {/* <button type="submit">Subscribe</button> */}
                     </form>
@@ -307,10 +307,9 @@ const Footer = () => {
 
                   <button
                     onClick={handleSubmit}
-                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition rounded-r-md duration-200 shadow-md md:w-auto bg-[#ED1B24] focus:shadow-outline focus:outline-none"
+                    className="z-20 inline-flex items-center justify-center rounded-lg h-12 text-lg w-32  bg-[#ED1B24] "
                   >
-                    {" "}
-                    <BsTelegram className="pr-1" />
+                   
                     {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
                   </button>
                 </div>
@@ -320,10 +319,8 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className="mt-20 lg:text-[18px] font-bold text-white">
-            {language == "bn"
-              ? "সর্বস্বত্ত সংরক্ষিত - Ai Expert Career - 2023"
-              : "All Right researved by Ai Expert Career - 2023"}
+          <p className="mt-20 lg:text-[18px] text-white">
+          Copyright &copy; 2023 AI Expert Career
           </p>
           <Link
             to="https://abdulahad-df.netlify.app"

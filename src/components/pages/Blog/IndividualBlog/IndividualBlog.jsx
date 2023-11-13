@@ -53,11 +53,33 @@ const IndividualBlog = () => {
     : allComments?.slice(0, 5);
   //fetching data for individual blog
   console.log(name)
+
   useEffect(() => {
-    fetch(`https://ai-server-sooty.vercel.app/singleblog/${name}`)
+    const encodedName = encodeURIComponent(name);
+    const decodedName = decodeURIComponent(name);
+  console.log(encodedName)
+  console.log(decodedName)
+    // Use history.pushState to update the URL without triggering a page reload
+    const newUrl = new URL(window.location.href);
+    newUrl.pathname = `/singleblog/${encodedName}`;
+    window.history.pushState({ path: newUrl.toString() }, '', newUrl.toString());
+  
+    // Fetch the data with the encoded name
+    fetch(`https://ai-server-sooty.vercel.app/blog/${encodedName}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
+  
+    // Ensure that if the component is unmounted, the URL is reset
+    return () => {
+      window.history.pushState({}, '', window.location.href);
+    };
   }, [name, userReaction, reload]);
+
+
+
+
+
+
 
   const handleShowMore = () => {
     setShowAllComments(!showAllComments);
@@ -284,7 +306,7 @@ useEffect(() => {
             <p className="">{blog.min ? <p>{blog.min} min read</p> : "2 min read"}  </p>
           </div>
           <div className="p-2 ">
-            <figure className="flex justify-center">
+            <figure className="flex justify-center pt-5">
               <img
                 src={blog?.imageURL}
                 alt="banner"

@@ -350,7 +350,6 @@ const handleForm = (data) => {
             value: 6,
             message: "Password must be at least 6 characters long",
           },
-          // Add your password pattern validation here
         })}
       />
                   {reshowPassword ? (

@@ -110,25 +110,26 @@ const AiConsultant = () => {
     setSelectedWorkingWith(selected);
     filterConsultants(selectedDay, selected);
   };
-
+console.log(consultants)
   const filterConsultants = (day, workingWith) => {
     if (day === "All" && workingWith === "All") {
       setFilteredCon(consultants);
     } else if (day === "All") {
       const filtered = consultants.filter((consultant) =>
-        consultant.workingWith.includes(workingWith)
+        consultant?.workingWith?.includes(workingWith)
       );
       setFilteredCon(filtered);
     } else if (workingWith === "All") {
       const filtered = consultants.filter((consultant) =>
-        consultant.selectedDays.includes(day)
+        consultant?.selectedDays?.includes(day)
       );
       setFilteredCon(filtered);
-    } else {
+    } 
+    else {
       const filtered = consultants.filter(
         (consultant) =>
-          consultant.selectedDays.includes(day) &&
-          consultant.workingWith.includes(workingWith)
+          consultant?.selectedDays.includes(day) &&
+          consultant?.workingWith?.includes(workingWith)
       );
       setFilteredCon(filtered);
     }
@@ -141,7 +142,7 @@ const AiConsultant = () => {
 
   // Slice the sorted and filtered data for pagination
   const paginatedCon = filteredCon.slice(startIndex, endIndex);
-
+console.log(filteredCon)
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -149,6 +150,7 @@ const AiConsultant = () => {
 
 
   useTitle("Consultants");
+
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

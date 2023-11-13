@@ -355,7 +355,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}
+                      {language === "bn" ? "কোর্স সমূূহ" : "My courses"}
                     </NavLink>
                     <NavLink
                       to={"/dashboard/my-appointments"}
@@ -372,8 +372,8 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "আমার কোর্স সমূূহ"
-                        : "My Appointments"}
+                        ? "কনসালটেন্ট"
+                        : "My Consultants"}
                     </NavLink>
 
                     {/* <NavLink
@@ -428,11 +428,11 @@ const DashboardLayout = () => {
                   </NavLink> */}
 
                     <div
-                      className=" flex items-center ml-5 cursor-pointer gap-2"
+                      className=" my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                       onClick={logOut}
                     >
                       <FiLogOut />
-                      <button className="font-bold ">
+                      <button className="font-bold pl-2">
                         {language === "bn" ? "লগ আউট" : "Logout"}
                       </button>
                     </div>

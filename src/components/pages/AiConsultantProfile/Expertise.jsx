@@ -164,7 +164,7 @@ const location = useLocation();
       </div>
 
 
-{/* Fixed button for mobile */}\
+{/* Fixed button for mobile */}
 {
         isVisible &&
       <div className="bg-white rounded-lg fixed bottom-0 p-2   z-10 md:hidden w-11/12 mx-auto"> 

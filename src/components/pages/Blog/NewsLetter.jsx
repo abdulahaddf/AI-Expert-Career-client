@@ -5,6 +5,7 @@ import { MyContext } from "../../../Context/Context";
 import { useState } from "react";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import { AiOutlineMail } from "react-icons/ai";
 
 const NewsLetter = () => {
   const { language } = useContext(MyContext);
@@ -68,32 +69,34 @@ const NewsLetter = () => {
           <h2 className="md:text-3xl lg:text-[35px] font-bold pb-3">
             {language == "bn"
               ? "এ আই এর সকল আপডেট নিউজ পেতে এখনই সাবস্ক্রাইব করুন"
-              : "Subscribe to our NEWSLETTER to get all the updates on AI"}
+              : "Subscribe to our NEWSLETTER"}
           </h2>
 
-          <div className="md:pt-14">
-            <div className=" flex bg-white rounded-lg pl-2 border w-fit">
-              <img src={email} alt="" />
-              <div>
-                <form>
-                  <input
-                    type="email"
-                    placeholder={language === "bn" ? "ই-মেইল" : "Email"}
-                    value={mail}
-                    onChange={(e) => setMail(e.target.value)}
-                    className="outline-none  w-full p-3 border-none"
-                  />
-                  {/* <button type="submit">Subscribe</button> */}
-                </form>
-              </div>
+          <div className="pt-5">
+          <div className=" flex items-center justify-between bg-white rounded-xl   w-full  border-2 border-primary">
+                  {/* <img src={email} alt="" /> */}
+                  <div className="rounded-lg">
+                    <form className="flex items-center ">
+                  <AiOutlineMail className="text-primary w-10 md:w-16" />
+                      <input
+                        type="email"
+                        placeholder={language === "bn" ? "ই-মেইল" : "Enter your email"}
+                        value={mail}
+                        onChange={(e) => setMail(e.target.value)}
+                        className="outline-none   border-none text-black"
+                      />
+                      {/* <button type="submit">Subscribe</button> */}
+                    </form>
+                  </div>
 
-              <button
-                onClick={handleSubmit}
-                className="bg-[#FF0944] text-white w-[171px] rounded-[5px]"
-              >
-                {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
-              </button>
-            </div>
+                  <button
+                    onClick={handleSubmit}
+                    className="inline-flex items-center justify-center rounded-lg h-12 text-lg w-32  bg-[#ED1B24] text-white"
+                  >
+                   
+                    {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
+                  </button>
+                </div>
             <div>{error && <p className="error-message">{error}</p>}</div>
           </div>
         </div>

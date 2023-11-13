@@ -33,7 +33,7 @@ const MyCourse = () => {
         <div className="md:w-4/5 mx-auto px-6">
           <h3 className=" font-bold text-center text-2xl">
             {" "}
-            {language === "bn" ? "আমার কোর্স সমূূহ" : "My courses"}{" "}
+            {language === "bn" ? "কোর্স সমূূহ" : "My courses"}{" "}
           </h3>
           <>
             {courses.length > 0 ? (

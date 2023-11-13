@@ -27,10 +27,7 @@ const Login = () => {
 
 
 
-  // scrollTo
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+ 
 
   const {
     register,
@@ -200,6 +197,11 @@ const Login = () => {
       });
   };
 
+  
+ // scrollTo
+ useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, []);
   return (
     <div>
       <div className=" " style={{ background: gradientColor }}>

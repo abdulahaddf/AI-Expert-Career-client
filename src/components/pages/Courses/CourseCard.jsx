@@ -16,8 +16,8 @@ const CourseCard = ({ course }) => {
         src={course?.cover}
         alt=""
       />
-      <h2 className="pt-[15px] text-[18px] font-bold ">{course.title}</h2>
-      <p className="text-[14px] text-[#818181]">{course.subtitle.slice(0,80)}...</p>
+      <h2 className="pt-[15px] text-[18px] font-bold ">{course?.title}</h2>
+      <p className="text-[14px] text-[#818181]">{course?.subtitle?.slice(0,70)}...</p>
 
       <div className="flex w-full justify-between items-center mt-6">
         <Link

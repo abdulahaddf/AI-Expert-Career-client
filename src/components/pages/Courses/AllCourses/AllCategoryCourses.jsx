@@ -11,7 +11,7 @@ const AllCategoryCourses = () => {
     (course) => course.category == category
   );
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 12;
   // console.log(filteredCourses);
 
 

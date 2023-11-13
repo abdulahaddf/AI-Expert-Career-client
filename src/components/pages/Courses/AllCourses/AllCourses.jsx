@@ -24,7 +24,7 @@ const AllCourses = () => {
   const jobBasedCourses = courses?.filter(
     (course) => course.mainCategory == "Job Requirement Based");
   const [banners, setBanners] = useState([]);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   const [openPicModalIndex, setPicOpenModalIndex] = useState("");
   useEffect(() => {
     fetch(" https://ai-server-sooty.vercel.app/banners")
@@ -144,16 +144,23 @@ useTitle("All Courses");
                 <input
                   type="text"
                   {...register("name", { required: true })}
-                  className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />
               </div>
               <div className="mb-2">
                 <p className="">Phone Number:</p>
                 <input
-                  type="number"
-                  {...register("phone", { required: true })}
-                  className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  type="tel"
+                  {...register("phone", {
+                    required: "Phone number is required",
+                    pattern: {
+                      value: /^01\d{9}$/,
+                      message: "Please enter a valid phone number",
+                    },
+                  })}
+                  
+                  className="block   mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />
               </div>
@@ -162,10 +169,11 @@ useTitle("All Courses");
                 <input
                   type="email"
                   {...register("email", { required: true })}
-                  className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
+                  className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
                   input file-input file-input-bordered w-full file-input-error"
                 />
               </div>
+              {errors.phone ?   <p className="text-red-500 text-sm">{errors.phone.message}</p> : ""}
               <div className="mt-6">
                 <button type="submit" className="btn-add">
                   Confirm
