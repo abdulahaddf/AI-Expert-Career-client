@@ -281,9 +281,10 @@ const AddCourse = () => {
 
   return (
     <div className="container max-w-5xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-10 text-primary">
-        Publish a Course   <DriveLinkConverter />
+      <h1 className="text-2xl font-bold  text-white bg-primary text-center py-2 rounded-lg">
+        Publish a Course  
       </h1>
+         <DriveLinkConverter />
 
       <h1 className="text-2xl font-bold mb-4">Course Information:</h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">

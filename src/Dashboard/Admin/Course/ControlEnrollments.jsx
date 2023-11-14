@@ -78,7 +78,7 @@ const ControlEnrollments = () => {
       <div className="">
         <table className="table table-zebra shadow-xl w-full  text-center overflow-x-auto">
           {/* head */}
-          <thead className="bg-secondary text-white text-xl text-center">
+          <thead className="bg-primary text-white text-xl text-center">
             <tr>
               <th>#</th>
               <th className="text-center">Course</th>

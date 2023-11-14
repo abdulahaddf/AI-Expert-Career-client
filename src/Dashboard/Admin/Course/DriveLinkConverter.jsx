@@ -26,7 +26,7 @@ const DriveLinkConverter = () => {
   };
 
   return (
-    <div className=" ">
+    <div className="my-2 ">
 <button className="btn btn-outline btn-sm" onClick={()=>document.getElementById('mym').showModal()}>Drive Converter</button>
 
 <dialog id="mym" className="modal">

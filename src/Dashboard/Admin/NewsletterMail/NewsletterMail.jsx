@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react";
-
+import Seminar from "./Seminar";
+import Subscribed from "./Subscribed";
+import BookedCourse from "./BookedCourse";
+const fetchData = async (url, setData) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    setData(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 const NewsletterMail = () => {
   const [mails, setMails] = useState([]);
   const [seminar, setSeminar] = useState([]);
+  const [bookedCourse, setBookedCourse] = useState([]);
   useEffect(() => {
-    fetch("https://ai-server-sooty.vercel.app/newsletters")
-      .then((response) => response.json())
-      .then((data) => setMails(data));
-  }, [mails]);
-  useEffect(() => {
-    fetch("https://ai-server-sooty.vercel.app/seminars")
-      .then((response) => response.json())
-      .then((data) => setSeminar(data));
-  }, [seminar]);
+    fetchData("https://ai-server-sooty.vercel.app/newsletters", setMails);
+    fetchData("https://ai-server-sooty.vercel.app/seminars", setSeminar);
+    fetchData("https://ai-server-sooty.vercel.app/bookedCourse", setBookedCourse);
+  }, []);
 
   //   const handleDelete = (promo) => {
   //     Swal.fire({
@@ -34,64 +41,19 @@ const NewsletterMail = () => {
   //               Swal.fire("Deleted!", "Your promo has been deleted.", "success");
   //             }
   //           });
-  //       }
+  //     `  }
   //     });
   //   };
   return (
     <div>
-      <div className="mt-5 mb-16">
-        <h1 className="text-3xl my-2 text-center">
-          Requested For Joining Seminar
-        </h1>
-        <div className="max-w-[414px] md:max-w-[768px] lg:max-w-full overflow-x-auto mx-auto">
-          <table className="table table-zebra shadow-xl w-full text-center rounded-md">
-            {/* head */}
-            <thead className="bg-primary text-white">
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {seminar?.map((s, index) => (
-                <tr key={s._id}>
-                  <th>{index + 1}</th>
-                  <td>{s.name}</td>
-                  <td>{s.phone}</td>
-                  <td>{s.email}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      {/* Seminar mails */}
-      <div>
-        <h1 className="text-3xl my-2 text-center">All Subscribed mails</h1>
-      
+     <Seminar seminar={seminar}/>
 
-        <div className="max-w-[414px] md:max-w-[768px] lg:max-w-full overflow-x-auto mx-auto">
-          <table className="table table-zebra shadow-xl w-full text-center rounded-md">
-            {/* head */}
-            <thead className="bg-primary text-white">
-              <tr>
-                <th>#</th>
-                <th>Emails</th>
-              </tr>
-            </thead>
-            <tbody>
-              {mails?.map((s, index) => (
-                <tr key={s._id}>
-                  <th>{index + 1}</th>
-                  <td>{s.email}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+    <BookedCourse bookedCourse={bookedCourse}/>
+
+      {/* Subscribed mails */}
+     <Subscribed mails={mails} />
+
+
       <section className="flex justify-evenly my-10">
 
       <div className="section w-fit mx-auto">
@@ -100,6 +62,16 @@ const NewsletterMail = () => {
           {mails?.map((mail) => (
             <li key={mail._id}>
               {mail.email}
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div className="section w-fit mx-auto">
+        <h1 className="text-xl text-center mb-5 font-semibold ">All Booked Course Mails</h1>
+        <ol className="space-y-3 ">
+          {bookedCourse?.map((mail) => (
+            <li key={mail._id}>
+               {mail.email}
             </li>
           ))}
         </ol>

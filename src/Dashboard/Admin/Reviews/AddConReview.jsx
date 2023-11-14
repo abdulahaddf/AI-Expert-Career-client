@@ -80,7 +80,7 @@ const AddConReview = () => {
   };
   return (
     <div>
-      <h1 className="text-2xl font-bold text-center mb-4">
+      <h1 className="text-2xl font-bold text-center mb-4 bg-primary text-white rounded-lg p-2">
         Add Consultant Review
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

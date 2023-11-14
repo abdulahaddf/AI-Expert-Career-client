@@ -136,7 +136,7 @@ const ManageUser = () => {
       <div className="overflow-x-auto">
         <table className="table table-zebra shadow-xl w-full text-center">
           {/* head */}
-          <thead className="bg-secondary text-white">
+          <thead className="bg-primary text-white">
             <tr>
               <th>#</th>
               <th className="text-center">Photo</th>
