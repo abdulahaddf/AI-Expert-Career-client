@@ -29,6 +29,7 @@ console.log(courseData)
           {
             courseData?.courseModel === 'live' ?
             <Link
+            disabled={courseData.status === "pending"}
             className="btn-add"
             to='/live-course'
             >
