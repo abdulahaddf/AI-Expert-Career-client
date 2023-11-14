@@ -122,7 +122,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "পরিচালনা করুন" : "Manage Users"}
+                      {language === "bn" ? "পরিচালনা করুন" : "User Control"}
                     </NavLink>
 
                     <NavLink
@@ -206,7 +206,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
+                        ? "এনরোলমেন্টস"
                         : "Control Enrollments"}
                     </NavLink>
                     <NavLink
@@ -224,7 +224,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
+                        ? "এপয়েন্টমেন্টেস"
                         : "Control Appointments"}
                     </NavLink>
                     <NavLink
@@ -242,7 +242,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
+                        ? "কোর্স ব্যানার"
                         : "Course banner"}
                     </NavLink>
 
@@ -261,7 +261,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
+                        ? "প্রোমো কোড"
                         : "Add Promo Codes"}
                     </NavLink>
                     <NavLink
@@ -279,7 +279,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
+                        ? "রিভিউ"
                         : "Add Reviews"}
                     </NavLink>
                     <NavLink
@@ -297,8 +297,8 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "কোর্স পরিচালনা করুন"
-                        : "Newsletter mails"}
+                        ? "মেইল সমূহ"
+                        : "All submitted mails"}
                     </NavLink>
                   </ul>
                 ) : userinfo?.role === "consultant" ? (
