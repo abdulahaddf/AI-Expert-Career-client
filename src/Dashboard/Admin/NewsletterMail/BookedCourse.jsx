@@ -10,12 +10,13 @@ const BookedCourse = ({bookedCourse}) => {
         <div className="max-w-[414px] md:max-w-[768px] lg:max-w-full overflow-x-auto mx-auto">
           <table className="table table-zebra shadow-xl w-full text-center rounded-md">
             {/* head */}
-            <thead className="bg-primary text-white">
+            <thead className="bg-primary text-white ">
               <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
+                <th>Course</th>
               </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@ const BookedCourse = ({bookedCourse}) => {
                   <td>{s.name}</td>
                   <td>{s.phone}</td>
                   <td>{s.email}</td>
+                  <td>{s.course}</td>
                 </tr>
               ))}
             </tbody>

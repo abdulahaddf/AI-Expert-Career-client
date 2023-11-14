@@ -13,6 +13,12 @@ const CourseCard = ({ course }) => {
   const onSubmit = async (data) => {
     console.log(data);
     if (data !== "null"){
+      const info = {
+        name: data.name,
+        phone: data.phone,
+        email: data.email,
+        course: course.title,
+      }
     try {
       // Send Data to API
       const apiResponse = await fetch(
@@ -22,7 +28,7 @@ const CourseCard = ({ course }) => {
           headers: {
             "content-type": "application/json",
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(info),
         }
       );
 
@@ -100,7 +106,8 @@ const CourseCard = ({ course }) => {
               </button>
 
               <div className="mb-2">
-                <h1 className="text-2xl text-center font-bold mb-3">Join Free seminar</h1>
+                <h1 className="text-2xl text-center  mb-3">Book Your Seat for the course : <br /> <span className="font-bold">
+                {course.title}</span> </h1>
                 <p className="">Your Name:</p>
                 <input
                   type="text"
