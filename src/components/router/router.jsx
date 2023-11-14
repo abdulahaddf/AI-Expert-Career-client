@@ -70,6 +70,7 @@ import SendMail from "../../Dashboard/Admin/Appointments/SendMail";
 import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
 import LiveCourse from "../../Dashboard/User/Course/LiveCourse";
 import SendNotifications from "../../Dashboard/Admin/Notification/SendNotifications";
+import Notifications from "../../Dashboard/User/Notifications/Notifications";
 
 export const router = createBrowserRouter([
   {
@@ -297,6 +298,24 @@ export const router = createBrowserRouter([
           <PrivateRoute>
             {" "}
             <Appointments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/my-appointments",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Appointments />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/notifications",
+        element: (
+          <PrivateRoute>
+            {" "}
+            <Notifications />
           </PrivateRoute>
         ),
       },

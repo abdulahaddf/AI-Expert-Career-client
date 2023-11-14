@@ -41,6 +41,8 @@ import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
 import { FiLogOut } from "react-icons/fi";
 import useTitle from "../../../hooks/useTitle";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import { FaHeadphonesSimple } from "react-icons/fa6";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
   const { user, logOut } = useContext(AuthContext);
@@ -384,7 +386,7 @@ const DashboardLayout = () => {
                           : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                       }
                     >
-                      <BsLaptop
+                      <FaHeadphonesSimple
                         className={`${({ isActive }) =>
                           isActive
                             ? "text-white"
@@ -393,6 +395,24 @@ const DashboardLayout = () => {
                       {language === "bn"
                         ? "কনসালটেন্ট"
                         : "My Consultants"}
+                    </NavLink>
+                    <NavLink
+                      to={"/dashboard/notifications"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <IoIosNotificationsOutline 
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn"
+                        ? "নটিফিকেশন"
+                        : "Notifications"}
                     </NavLink>
 
                     <div
