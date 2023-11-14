@@ -32,6 +32,7 @@ import {
 import {
   MdAllInbox,
   MdManageSearch,
+  MdOutlineNotificationAdd,
   MdReviews,
   MdVideoCameraFront,
 } from "react-icons/md";
@@ -283,6 +284,24 @@ const DashboardLayout = () => {
                         : "Add Reviews"}
                     </NavLink>
                     <NavLink
+                      to={"/dashboard/send-notifications"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <MdOutlineNotificationAdd
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 font-semibold`}
+                      />
+                      {language === "bn"
+                        ? "নটিফিকেশন"
+                        : "Send Notifications"}
+                    </NavLink>
+                    <NavLink
                       to={"/dashboard/newsletter"}
                       className={({ isActive }) =>
                         isActive
@@ -375,57 +394,6 @@ const DashboardLayout = () => {
                         ? "কনসালটেন্ট"
                         : "My Consultants"}
                     </NavLink>
-
-                    {/* <NavLink
-                    to={"/dashboard/wishlist"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <AiOutlineHeart
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "আমার উইশলিস্ট" : "My Wislist"}
-                  </NavLink>
-
-                  <NavLink
-                    to={"/dashboard/purchase-history"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex   rounded-[10px]"
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <TbFileReport
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "লেনদেন হিস্টোরি" : "Purchase History"}
-                  </NavLink>
-
-                  <NavLink
-                    to={"/dashboard/certification"}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "text-white bg-[#ED1B24] py-[10px] items-center w-[234px] pl-4  my-1 text-lg font-bold flex  rounded-[10px] "
-                        : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                    }
-                  >
-                    <VscVerified
-                      className={`${({ isActive }) =>
-                        isActive
-                          ? "text-white"
-                          : "text-red-600"}mb-[4px] mr-2 `}
-                    />
-                    {language === "bn" ? "সার্টিফিকেশন" : "Certification"}
-                  </NavLink> */}
 
                     <div
                       className=" my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"

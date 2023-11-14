@@ -69,6 +69,7 @@ import NewsletterMail from "../../Dashboard/Admin/NewsletterMail/NewsletterMail"
 import SendMail from "../../Dashboard/Admin/Appointments/SendMail";
 import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
 import LiveCourse from "../../Dashboard/User/Course/LiveCourse";
+import SendNotifications from "../../Dashboard/Admin/Notification/SendNotifications";
 
 export const router = createBrowserRouter([
   {
@@ -450,6 +451,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddReviews />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/send-notifications",
+        element: (
+          <AdminRoute>
+            <SendNotifications/>
           </AdminRoute>
         ),
       },
