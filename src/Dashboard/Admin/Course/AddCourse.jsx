@@ -17,6 +17,7 @@ const AddCourse = () => {
   const [newFeature, setNewFeature] = useState("");
   const [newCollaborator, setNewCollaborator] = useState("");
   const [courseType, setCourseType] = useState("free");
+  const [courseModel, setCourseModel] = useState("module");
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const editor = useRef(null);
@@ -113,6 +114,7 @@ const AddCourse = () => {
       subtitle,
       coverVideo,
       courseType,
+      courseModel,
       courseFee,
       discount,
       duration,
@@ -167,6 +169,7 @@ const AddCourse = () => {
           features: selectedFeatures,
           Collaborators: selectedCollaborators,
           courseType,
+          courseModel,
           courseFee,
           discount,
           duration,
@@ -379,10 +382,10 @@ const AddCourse = () => {
               Category:
             </label>
             <Controller
-              name="category" // This should match the "name" attribute
+              name="category"
               control={control}
-              rules={{ required: true }} // Add validation rules here
-              defaultValue="" // Set a default value if needed
+              rules={{ required: true }}
+              defaultValue="" 
               render={({ field }) => (
                 <select
                   {...field}
@@ -398,7 +401,7 @@ const AddCourse = () => {
                 </select>
               )}
             />
-            {/* Add error message or validation feedback if needed */}
+           
           </div>
           <div className="mb-4">
             <label htmlFor="duration" className="block font-semibold mb-1">
@@ -458,6 +461,35 @@ const AddCourse = () => {
           </div>
         </div>
 
+     <div className="flex gap-20">
+         {/* Course Model Dropdown */}
+         <div className="my-5">
+          <label className="block font-semibold mb-1">Course Model:</label>
+          <div className="flex items-center space-x-4">
+            <label className="flex items-center gap-2 text-lg ">
+              <input
+                type="radio"
+                {...register("courseModel", { required: true })}
+                value="module"
+                className="radio"
+                checked={courseModel === "module"}
+                onChange={() => setCourseModel("module")}
+              />
+              Module
+            </label>
+            <label className="flex items-center gap-2 text-lg">
+              <input
+                type="radio"
+                {...register("courseModel", { required: true })}
+                value="live"
+                className="radio "
+                checked={courseModel === "live"}
+                onChange={() => setCourseModel("live")}
+              />
+              Live
+            </label>
+          </div>
+        </div>
         {/* Course Type Dropdown */}
         <div className="my-5">
           <label className="block font-semibold mb-1">Course Type:</label>
@@ -486,6 +518,7 @@ const AddCourse = () => {
             </label>
           </div>
         </div>
+     </div>
 
         {/* Course Fee Input (conditionally rendered) */}
         {courseType === "paid" && (

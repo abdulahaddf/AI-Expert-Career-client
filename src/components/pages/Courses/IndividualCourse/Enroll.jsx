@@ -20,9 +20,10 @@ const Enroll = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [tId, setTid] = useState("");
   const [number, setNumber] = useState("");
-  console.log(tId, number);
-  // console.log(courseFee)
-
+  const [error, setError] = useState("");
+  // console.log(tId, number);
+  // console.log(error.length)
+console.log(course)
   const handleSubmit = async () => {
     try {
       // Prepare Enroll Data
@@ -38,6 +39,7 @@ const Enroll = () => {
         tId: tId,
         sender: number,
         amount: payable || discountAmount,
+        courseModel : course?.courseModel,
         status: "pending",
       };
 
@@ -72,10 +74,30 @@ const Enroll = () => {
     const id = event.target.value;
     setTid(id);
   };
-  const handleNumberChange = (event) => {
-    const num = event.target.value;
-    setNumber(num);
+
+
+
+
+  const isValidPhoneNumber = (input) => /^01\d{9}$/.test(input);
+
+  const handleNumberChange = (e) => {
+    const newNumber = e.target.value;
+
+    if (isValidPhoneNumber(newNumber) || newNumber === '') {
+      setNumber(newNumber);
+      setError("");
+    } else {
+      // Handle invalid input (e.g., show a message or prevent updating state)
+      setError('Please enter a valid number');
+    }
   };
+
+
+
+
+
+
+
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
@@ -232,7 +254,7 @@ const Enroll = () => {
             <label className="flex items-center gap-3 text-sm">
               <input
                 required
-                type="number"
+                type="tel"
                 onChange={handleNumberChange}
                 placeholder="Enter Sender Number"
                 className="input input-bordered input-sm w-full max-w-xs "
@@ -240,6 +262,7 @@ const Enroll = () => {
               Sender Number
             </label>
           </section>
+          <p className="text-sm text-primary">{error ? error : ""}</p>
         </div>
 
         <div className="flex items-center gap-3">
@@ -268,7 +291,7 @@ const Enroll = () => {
         </div>
         <Link
           onClick={handleSubmit}
-          disabled={!isChecked}
+          disabled={error.length > 0 || !isChecked}
           state={title}
           to="/complete-enroll"
           className="btn-add"

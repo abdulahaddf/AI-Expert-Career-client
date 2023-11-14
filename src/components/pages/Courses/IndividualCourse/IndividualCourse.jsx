@@ -114,7 +114,7 @@ const IndividualCourse = () => {
           
               
           ) : (
-            <img src={cover} alt="" className=" md:max-w-3xl" />
+            <img src={cover} alt="" className=" md:max-w-3xl mx-auto" />
           )}
         </div>
 

@@ -68,6 +68,7 @@ import TermsAndConditions from "../common/Terms&Conditions/TermsAndConditions";
 import NewsletterMail from "../../Dashboard/Admin/NewsletterMail/NewsletterMail";
 import SendMail from "../../Dashboard/Admin/Appointments/SendMail";
 import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
+import LiveCourse from "../../Dashboard/User/Course/LiveCourse";
 
 export const router = createBrowserRouter([
   {
@@ -212,6 +213,10 @@ export const router = createBrowserRouter([
       {
         path: "/my-course/:id",
         element: <CourseVideo />,
+      },
+      {
+        path: "/live-course",
+        element: <LiveCourse />,
       },
       {
         path: "/kit",

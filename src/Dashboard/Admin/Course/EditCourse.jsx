@@ -15,6 +15,7 @@ const EditCourse = () => {
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [newFeature, setNewFeature] = useState("");
   const [courseType, setCourseType] = useState("free");
+  const [courseModel, setCourseModel] = useState("module");
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
@@ -28,23 +29,24 @@ const EditCourse = () => {
 
   const { handleSubmit, register, reset, control, setValue } = useForm({
     defaultValues: {
-      title: course.title,
-      description: course.description,
-      category: course.category,
-      courseType: course.courseType,
-      courseFee: course.courseFee,
-      discount: course.discount,
-      duration: course.duration,
-      instructor: course.instructor,
-      insDesignation: course.insDesignation,
-      modules: course.modules,
-      startDate: course.startDate,
-      endDate: course.endDate,
-      courseDate: course.courseDate,
-      faqItems: course.faqItems,
-      goals: course.goals,
-      preRequisites: course.preRequisites,
-      eligibleUsers: course.eligibleUsers,
+      title: course?.title,
+      description: course?.description,
+      category: course?.category,
+      courseType: course?.courseType,
+      courseModel: course?.courseModel,
+      courseFee: course?.courseFee,
+      discount: course?.discount,
+      duration: course?.duration,
+      instructor: course?.instructor,
+      insDesignation: course?.insDesignation,
+      modules: course?.modules,
+      startDate: course?.startDate,
+      endDate: course?.endDate,
+      courseDate: course?.courseDate,
+      faqItems: course?.faqItems,
+      goals: course?.goals,
+      preRequisites: course?.preRequisites,
+      eligibleUsers: course?.eligibleUsers,
     },
   });
   useEffect(() => {
@@ -143,6 +145,7 @@ const EditCourse = () => {
       subtitle,
       coverVideo,
       courseType,
+      courseModel,
       courseFee,
       discount,
       duration,
@@ -192,6 +195,7 @@ const EditCourse = () => {
           subtitle,
           coverVideo,
           courseType,
+          courseModel,
           courseFee,
           discount,
           duration,
@@ -263,6 +267,7 @@ const EditCourse = () => {
           cover: course.cover,
           coverVideo,
           courseType,
+          courseModel,
           courseFee,
           discount,
           duration,
@@ -549,6 +554,37 @@ const EditCourse = () => {
           </div>
         </div>
 
+
+
+<div className="md:flex gap-20">
+  {/* Course Model */}
+  <div className="my-5">
+          <label className="block font-semibold mb-1">Course Model:</label>
+          <div className="flex items-center space-x-4">
+            <label className="flex items-center gap-2 text-lg ">
+              <input
+                type="radio"
+                {...register("courseModel", { required: true })}
+                value="module"
+                className="radio"
+                checked={courseModel === "module"}
+                onChange={() => setCourseModel("module")}
+              />
+              Module
+            </label>
+            <label className="flex items-center gap-2 text-lg">
+              <input
+                type="radio"
+                {...register("courseModel", { required: true })}
+                value="live"
+                className="radio "
+                checked={courseModel === "live"}
+                onChange={() => setCourseModel("live")}
+              />
+              Live
+            </label>
+          </div>
+        </div>
         {/* Course Type Dropdown */}
         <div className="my-5">
           <label className="block font-semibold mb-1">Course Type:</label>
@@ -577,6 +613,7 @@ const EditCourse = () => {
             </label>
           </div>
         </div>
+</div>
 
         {/* Course Fee Input (conditionally rendered) */}
         {courseType === "paid" && (
@@ -1004,7 +1041,7 @@ const EditCourse = () => {
           ))}
         </div>
 
-        <button type="submit" className="my-btn bg-primary btn-md rounded-lg">
+        <button type="submit" className="btn-see">
           {isLoading ? (
             <p className="flex items-center gap-2 text-white">
               Uploading{" "}
