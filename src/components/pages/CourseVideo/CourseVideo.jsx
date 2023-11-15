@@ -247,9 +247,9 @@ const CourseVideo = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="grid grid-cols-3 gap-x-4 mt-5 mb-20 px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-4">
+    <div className="grid grid-cols-3 gap-x-4 md:mt-5 mb-5 md:mb-20 px-2 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-4">
       {/* Sidebar with modules and contents */}
-      <div className="col-span-12 md:col-span-1 mt-5 md:mt-0">
+      <div className="col-span-12 md:col-span-1 mt-5 md:mt-0 order-last md:order-first">
         <div className="section">
           <h3 className="text-2xl font-bold">
             {language === "bn"
@@ -311,12 +311,12 @@ const CourseVideo = () => {
       </div>
 
       {/* Main content view */}
-      <div className="col-span-12 md:col-span-2 border-black/25 p-4 h-fit rounded-lg border-[1px]">
+      <div className="col-span-12 md:col-span-2 border-black/25 p-4 h-fit rounded-lg border-[1px] order-first md:order-last">
         <h3 className="text-[24px]  font-bold">{course.title}</h3>
         <div>
           <p>Progress: {progressPercentage.toFixed(2)}%</p>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="md:flex justify-between items-center space-y-4">
           <div className="w-2/3 bg-[#D9D9D9] h-4 rounded-full mb-1">
             <div
               className="bg-[#ED1B24] h-4 rounded-full"
@@ -403,10 +403,11 @@ const CourseVideo = () => {
             </button>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );
 };
 
 export default CourseVideo;
+
+

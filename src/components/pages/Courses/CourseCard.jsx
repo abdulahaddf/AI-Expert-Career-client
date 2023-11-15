@@ -106,7 +106,7 @@ const CourseCard = ({ course }) => {
               </button>
 
               <div className="mb-2">
-                <h1 className="text-2xl text-center  mb-3">Book Your Seat for the course : <br /> <span className="font-bold">
+                <h1 className="text-lg  mb-3">Book Your Seat for the course : <br /> <span className="font-bold text-2xl">
                 {course.title}</span> </h1>
                 <p className="">Your Name:</p>
                 <input

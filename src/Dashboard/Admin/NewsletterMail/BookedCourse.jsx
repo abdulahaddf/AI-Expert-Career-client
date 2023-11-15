@@ -5,7 +5,7 @@ const BookedCourse = ({bookedCourse}) => {
     return (
         <div className="mt-5 mb-16">
         <h1 className="text-3xl my-2 text-center">
-          Requested For Joining Seminar
+          Booked course
         </h1>
         <div className="max-w-[414px] md:max-w-[768px] lg:max-w-full overflow-x-auto mx-auto">
           <table className="table table-zebra shadow-xl w-full text-center rounded-md">

@@ -10,7 +10,7 @@ const Notifications = () => {
   }, []);
 
   return (
-    <div className="px-4 md:w-1/2 mx-auto">
+    <div className="px-4 md:w-1/2 mx-auto mb-10 ">
       <h1 className="font-bold text-center text-2xl">Notifications</h1>
       <section>
         {notifications?.map((n) => (
@@ -32,7 +32,7 @@ const Notifications = () => {
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
-                <h1 className="font-semibold flex items-center gap-2">
+                <h1 className="font-semibold flex items-center gap-2 text-xl md:text-2xl mb-5">
                   <AiFillNotification /> {n.title}
                 </h1>
                 <p dangerouslySetInnerHTML={{ __html: n.description }}></p>
