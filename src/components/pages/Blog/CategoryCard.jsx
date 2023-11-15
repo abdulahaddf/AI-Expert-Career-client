@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+
 
 const CategoryCard = ({
   category,
@@ -7,10 +7,25 @@ const CategoryCard = ({
   selectedCheckboxes,
   handleCheckboxChange,
 }) => {
+  const handleCategoryClick = (e) => {
+    if (e.target.type !== 'checkbox') {
+      e.preventDefault();
+      handleCheckboxChange({
+        target: {
+          value: category,
+          checked: !selectedCheckboxes.includes(category),
+        },
+      });
+    }
+  };
+
   return (
-    <div className="text-[16px] md:text-[20px] md:font-bold flex items-center ">
+    <div
+      className="text-[16px] md:text-[20px] md:font-bold flex items-center "
+      onClick={handleCategoryClick}
+    >
       <input
-        className='mr-2 checkbox checkbox-xs md:checkbox-md items-center'
+        className="mr-2 checkbox checkbox-xs md:checkbox-md items-center"
         value={category}
         id={`flexCheckDefault-${index}`}
         checked={selectedCheckboxes.includes(category)}
