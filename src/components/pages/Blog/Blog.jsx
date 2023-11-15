@@ -5,14 +5,11 @@ import CategoryCard from "./CategoryCard";
 import BlogCard from "./BlogCard";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
 import Loader from "../../common/loader/Loader";
 import FeaturedBlogs from "./FeaturedBlogs";
 import { Link } from "react-router-dom";
 import NewsLetter from "./NewsLetter";
 import useTitle from "../../../hooks/useTitle";
-import { BsFillFilterCircleFill } from "react-icons/bs";
-import { GoFilter } from "react-icons/go";
 
 const categories = [
   "Machine learning",

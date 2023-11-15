@@ -1,23 +1,14 @@
 import { useContext, useState } from "react";
-
 import Navbar from "../../common/Navbar";
 import {
   BsChevronRight,
   BsChevronLeft,
-  BsGrid,
   BsPerson,
   BsLaptop,
   BsImage,
   BsLaptopFill,
 } from "react-icons/bs";
-import {
-  AiFillMail,
-  AiOutlineHeart,
-  AiOutlineVideoCameraAdd,
-} from "react-icons/ai";
-import { VscVerified } from "react-icons/vsc";
-import { TbFileReport } from "react-icons/tb";
-import logoutLogo from "../../../assets/Dashboard/Vector.png";
+import { AiFillMail, AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { Outlet } from "react-router";
 import { NavLink } from "react-router-dom";
 import Footer from "../../common/footer/Footer";
@@ -30,30 +21,33 @@ import {
   FaUsersCog,
 } from "react-icons/fa";
 import {
-  MdAllInbox,
   MdManageSearch,
   MdOutlineNotificationAdd,
   MdReviews,
   MdVideoCameraFront,
 } from "react-icons/md";
-import { CiDiscount1, CiMail } from "react-icons/ci";
-import useAdmin from "../../../hooks/useAdmin";
 import UseUser from "../../../hooks/useUser";
 import { FiLogOut } from "react-icons/fi";
 import useTitle from "../../../hooks/useTitle";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoIosNotificationsOutline, IoMdNotificationsOutline } from "react-icons/io";
 import { FaHeadphonesSimple } from "react-icons/fa6";
+import { NotificationContext } from "../../../Context/NotificationProvider";
+import Loader from "../../common/loader/Loader";
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
+  const { unopenedCount } =
+    useContext(NotificationContext);
   const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [userinfo] = UseUser();
   const isAdmin = userinfo?.role === "admin";
-  console.log(isAdmin);
+ 
+  // console.log(isAdmin);
   // const gradientColor =
   //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
 
   useTitle("Dashboard");
+  if (!user) return <Loader />;
   return (
     <div className="">
       <Navbar />
@@ -244,9 +238,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "কোর্স ব্যানার"
-                        : "Course banner"}
+                      {language === "bn" ? "কোর্স ব্যানার" : "Course banner"}
                     </NavLink>
 
                     <NavLink
@@ -263,9 +255,7 @@ const DashboardLayout = () => {
                             ? "text-white "
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "প্রোমো কোড"
-                        : "Add Promo Codes"}
+                      {language === "bn" ? "প্রোমো কোড" : "Add Promo Codes"}
                     </NavLink>
                     <NavLink
                       to={"/dashboard/add-reviews"}
@@ -281,9 +271,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "রিভিউ"
-                        : "Add Reviews"}
+                      {language === "bn" ? "রিভিউ" : "Add Reviews"}
                     </NavLink>
                     <NavLink
                       to={"/dashboard/send-notifications"}
@@ -299,9 +287,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 font-semibold`}
                       />
-                      {language === "bn"
-                        ? "নটিফিকেশন"
-                        : "Send Notifications"}
+                      {language === "bn" ? "নটিফিকেশন" : "Send Notifications"}
                     </NavLink>
                     <NavLink
                       to={"/dashboard/newsletter"}
@@ -317,9 +303,7 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "মেইল সমূহ"
-                        : "All submitted mails"}
+                      {language === "bn" ? "মেইল সমূহ" : "All submitted mails"}
                     </NavLink>
                   </ul>
                 ) : userinfo?.role === "consultant" ? (
@@ -392,10 +376,9 @@ const DashboardLayout = () => {
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "কনসালটেন্ট"
-                        : "My Consultants"}
+                      {language === "bn" ? "কনসালটেন্ট" : "My Consultants"}
                     </NavLink>
+
                     <NavLink
                       to={"/dashboard/notifications"}
                       className={({ isActive }) =>
@@ -404,15 +387,16 @@ const DashboardLayout = () => {
                           : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
                       }
                     >
-                      <IoIosNotificationsOutline 
+                      <IoMdNotificationsOutline 
                         className={`${({ isActive }) =>
                           isActive
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn"
-                        ? "নটিফিকেশন"
-                        : "Notifications"}
+                      {language === "bn" ? "নটিফিকেশন" : "Notifications"}
+                      <div className="badge mb-2 ml-2">
+                        {unopenedCount}
+                      </div>
                     </NavLink>
 
                     <div

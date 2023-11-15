@@ -15,13 +15,17 @@ import HomeSearch from "../pages/Home/HomeSearch";
 import SearchBox from "./SearchBox/SearchBox";
 import SearchMobile from "./SearchBox/SearchMobile";
 import { useEffect } from "react";
+import { IoNotifications } from "react-icons/io5";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { NotificationContext } from "../../Context/NotificationProvider";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { unopenedCount } = useContext(NotificationContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { addToCart, setLanguage, language } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(true);
-  console.log(isOpen);
+  // console.log(isOpen);
 
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
@@ -147,9 +151,11 @@ const Navbar = () => {
             <ul className="items-center hidden font-[700] xl:flex">
               <div className={"flex items-center"}>{menuItem}</div>
             </ul>
-            <div className="flex  justify-between items-center gap-5">
+            <div className="flex  justify-between items-center gap-5 pl-32 md:pl-0">
               {user ? (
-                ""
+                <Link to='/dashboard/notifications' className="relative pl-2"><IoMdNotificationsOutline   className="text-2xl "/> <div className="bg-primary rounded-full p-0.5 px-[6px] text-[10px] text-white absolute -top-1.5 -right-2">
+                {unopenedCount}
+              </div></Link>
               ) : (
                 <Link
                   onClick={() => setIsOpen(false)}
@@ -160,18 +166,7 @@ const Navbar = () => {
                   {language === "bn" ? "লগ ইন" : "Sign In"}
                 </Link>
 
-                // <Link
-                // onClick={() => setIsOpen(false)}
-                //   className="group relative inline-bloc hidden md:flex shadow-inner shadow-[#] rounded overflow-hidden border border-[#ED1B24] px-8 py-2 focus:outline-none focus:ring"
-                //   to="/login"
-                //   state={{ from: location }}
-                // >
-                //   <span className="absolute inset-y-0 left-0 w-[2px] bg-[#ED1B24] transition-all group-hover:w-full"></span>
-
-                //   <span className="relative text-sm font-medium text-[#ED1B24] transition-colors group-hover:text-white">
-                //     Sign In
-                //   </span>
-                // </Link>
+              
               )}
 
               <button className="rounded-lg hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden h-[42px]">
@@ -209,9 +204,9 @@ const Navbar = () => {
                       className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
                     >
                       {" "}
-                      <div className="flex items-center hover:text-primary pl-36 md:pl-0">
+                      <div className="flex items-center hover:text-primary ">
                         <img
-                          className="w-12 h-12  md:w-14 md:h-14 rounded-full"
+                          className="w-12 h-12  md:w-14 md:h-14 rounded-full object-scale-down"
                           src={
                             userinfo?.photoURL ||
                             "https://i.ibb.co/sg6hmZ7/user.png"

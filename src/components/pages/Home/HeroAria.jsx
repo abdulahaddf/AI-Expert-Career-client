@@ -64,8 +64,8 @@ const HeroAria = () => {
             </div>
           </div>
           <div className="mt-8 sm:mt-0 flex justify-end md:w-1/2">
-      
-            <img src={banner} alt=""  /> 
+          {banner ?  <img src={banner} alt=""  /> : <div className="skeleton w-1/2"></div>}
+            
           </div>
         </div>
       </div>
