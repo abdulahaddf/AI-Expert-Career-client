@@ -213,14 +213,12 @@ const Navbar = () => {
                     >
                       {" "}
                       <div className="flex items-center hover:text-primary ">
-                        <img
-                          className="w-12 h-12  md:w-14 md:h-14 rounded-full object-scale-down"
-                          src={
-                            userinfo?.photoURL ||
-                            "https://i.ibb.co/sg6hmZ7/user.png"
-                          }
-                          alt="user"
-                        />
+                      <img
+  className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover "
+  src={userinfo?.photoURL || "https://i.ibb.co/sg6hmZ7/user.png"}
+  alt="user"
+/>
+
 
                         <span className="text-xl ">
                           <RiArrowDownSLine

@@ -153,7 +153,7 @@ const ManageUser = () => {
                 <th>{index + 1}</th>
                 <td>
                   <img
-                    className="w-16 rounded-full"
+                    className="w-16 h-16 rounded-full object-cover"
                     src={user.photoURL}
                     alt=""
                   />

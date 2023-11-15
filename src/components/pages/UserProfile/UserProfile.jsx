@@ -114,7 +114,7 @@ const UserProfile = () => {
             <figure className="flex justify-center">
               <img
                 src={userinfo?.photoURL || "https://i.ibb.co/sg6hmZ7/user.png"}
-                className="w-[160px] h-[160px] mt-10 rounded-full"
+                className="w-[160px] h-[160px] mt-10 rounded-full object-cover"
                 alt=""
               />
             </figure>
