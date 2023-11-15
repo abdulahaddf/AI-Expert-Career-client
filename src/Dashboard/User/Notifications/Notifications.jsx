@@ -9,9 +9,6 @@ const Notifications = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  console.log("notifications:", notifications);
-  console.log("newNotifications:", newNotifications);
-
   return (
     <div className="px-4 md:w-1/2 mx-auto">
       <h1 className="font-bold text-center text-2xl">Notifications</h1>

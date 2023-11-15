@@ -394,7 +394,7 @@ const DashboardLayout = () => {
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn" ? "নটিফিকেশন" : "Notifications"}
-                      <div className="badge mb-2 ml-2">
+                      <div className="badge  ml-2">
                         {unopenedCount}
                       </div>
                     </NavLink>

@@ -23,7 +23,7 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const { unopenedCount } = useContext(NotificationContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { addToCart, setLanguage, language } = useContext(MyContext);
+  const { setLanguage, language } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(true);
   // console.log(isOpen);
 
@@ -32,6 +32,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const isAdmin = userinfo?.role === "admin";
+  // console.log(isAdmin);
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -152,22 +153,29 @@ const Navbar = () => {
               <div className={"flex items-center"}>{menuItem}</div>
             </ul>
             <div className="flex  justify-between items-center gap-5 pl-32 md:pl-0">
-              {user ? (
-                <Link to='/dashboard/notifications' className="relative pl-2"><IoMdNotificationsOutline   className="text-2xl "/> <div className="bg-primary rounded-full p-0.5 px-[6px] text-[10px] text-white absolute -top-1.5 -right-2">
-                {unopenedCount}
-              </div></Link>
-              ) : (
-                <Link
-                  onClick={() => setIsOpen(false)}
-                  className=" bg-white  normal-case border-black border-[1px] rounded-lg h-[42px]  hover:shadow-lg hover:bg-black hover:text-white py-2 md:px-4  hidden md:flex items-center justify-center"
-                  to="/login"
-                  state={{ from: location }}
-                >
-                  {language === "bn" ? "লগ ইন" : "Sign In"}
-                </Link>
 
-              
-              )}
+           {user && !isAdmin && userinfo?.role !== "super admin" ? (
+  <Link to="/dashboard/notifications" className="relative pl-2">
+    <IoMdNotificationsOutline className="text-2xl" />
+    {unopenedCount > 0 && (
+      <div className="bg-primary rounded-full p-0.5 px-[6px] text-[10px] text-white absolute -top-1.5 -right-2">
+        {unopenedCount}
+      </div>
+    )}
+  </Link>
+) : (
+  !user && (
+    <Link
+      onClick={() => setIsOpen(false)}
+      className="bg-white normal-case border-black border-[1px] rounded-lg h-[42px] hover:shadow-lg hover:bg-black hover:text-white py-2 md:px-4 hidden md:flex items-center justify-center"
+      to="/login"
+      state={{ from: location }}
+    >
+      {language === "bn" ? "লগ ইন" : "Sign In"}
+    </Link>
+  )
+)}
+
 
               <button className="rounded-lg hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden h-[42px]">
                 <p
