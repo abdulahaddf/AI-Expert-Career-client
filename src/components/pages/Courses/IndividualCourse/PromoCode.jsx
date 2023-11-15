@@ -80,7 +80,7 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
           <Link
             to="/enroll"
             state={{ course, payable, discountAmount, courseFee }}
-            className="btn-view-red"
+            className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
           >
             Enroll Now
           </Link>

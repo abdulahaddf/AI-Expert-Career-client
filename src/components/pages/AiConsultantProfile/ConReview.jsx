@@ -94,7 +94,7 @@ const ConReview = ({ cMail }) => {
                       <h5 className="text-[18px] font-bold  mb-[15px]">
                         {designation}
                       </h5>
-                      <p className="text-sm">{feedback.slice(0, 90)}</p>
+                      <p className="text-sm">{feedback}</p>
                     </div>
                   </SwiperSlide>
                 )
