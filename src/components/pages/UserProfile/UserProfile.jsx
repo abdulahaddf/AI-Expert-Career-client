@@ -21,11 +21,23 @@ const UserProfile = () => {
   // const { displayName, email, photoURL, phone, address, city } = userinfo;
 
   const updateProfile = (data) => {
-    const { name, phone, address } = data;
+    const { name, phone, address,occupation,
+      position,
+      field,
+      job,
+      description,
+      social } = data;
+
     const profile = {
       displayName: name || userinfo?.displayName,
       address: address || userinfo?.address,
       phone: phone || userinfo?.phone,
+      occupation: occupation || userinfo?.occupation,
+      position: position || userinfo?.position,
+      field: field || userinfo?.field,
+      job: job || userinfo?.job,
+      description: description || userinfo?.description,
+      social: social || userinfo?.social,
     };
     axios
       .patch(
@@ -156,7 +168,7 @@ const UserProfile = () => {
                 </Link>
               </div>
             </div>
-
+{/* update profile pic modal */}
             <dialog id={`${userinfo.displayName}`} className="modal">
               <form
                 onSubmit={handleSubmit(updatePicture)}
@@ -203,19 +215,19 @@ const UserProfile = () => {
               <label className="text-[#707070] " htmlFor="name">
                 {language === "bn" ? "নাম" : "Name"}
               </label>
-              <p className="text-lg font-bold">{userinfo?.displayName}</p>
+              <p className="text-lg ">{userinfo?.displayName}</p>
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="email">
                 {language === "bn" ? "ইমেইল " : "Email"}
               </label>
-              <p className="text-lg font-bold">{userinfo?.email}</p>
+              <p className="text-lg ">{userinfo?.email}</p>
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="phone">
                 {language === "bn" ? "মোবাইল" : "Phone"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-lg ">
                 {userinfo?.phone ? (
                   userinfo?.phone
                 ) : (
@@ -227,7 +239,7 @@ const UserProfile = () => {
               <label className="text-[#707070] " htmlFor="address">
                 {language === "bn" ? "ঠিকানা" : "Address"}
               </label>
-              <p className="text-lg font-bold">
+              <p className="text-lg ">
                 {userinfo?.address ? (
                   userinfo?.address
                 ) : (
@@ -235,22 +247,90 @@ const UserProfile = () => {
                 )}
               </p>
             </div>
-            <div className="mt-8">
-              {/* <button
-                onClick={() => {
-                  const modalId = `${userinfo._id}`;
-                  const modal = document.getElementById(modalId);
-                  setOpenModalIndex(modal);
-                  if (modal) {
-                    // setTId(userinfo._id);
-                    modal.showModal();
-                  }
-                }}
-                className="btn-add"
-              >
-                Update Information
-              </button> */}
 
+
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="occupation">
+                {language === "bn" ? "পেশা" : "Occupation"}
+              </label>
+              <p className="text-lg ">
+                {userinfo?.occupation ? (
+                  userinfo?.occupation
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="position">
+                {language === "bn" ? "পজিশন" : "Position"}
+              </label>
+              <p className="text-lg ">
+                {userinfo?.position ? (
+                  userinfo?.position
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="field">
+                {language === "bn" ? "আপনি কোন ক্যারিয়ার ফিল্ডে আগ্রহী" : "Interested Career Field"}
+              </label>
+              <p className="text-lg ">
+                {userinfo?.field ? (
+                  userinfo?.field
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="description">
+                {language === "bn" ? "আপনি কোন টাইপের জব অনুসন্ধান করছেন" : "Which type of job you searching"}
+              </label>
+              <p className="text-lg ">
+                {userinfo?.job ? (
+                  userinfo?.job
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="description">
+                {language === "bn" ? "আপনার সম্পর্কে বিস্তারিত" : "Your Description"}
+              </label>
+              <p className="text-lg ">
+                {userinfo?.description ? (
+                  userinfo?.description
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+            <div className="mt-8">
+              <label className="text-[#707070] " htmlFor="social">
+                {language === "bn" ? "আপনার সোশাল মিডিয়া লিংক" : "Social Links"}
+              </label>
+              <p className="text-lg whitespace-nowrap">
+                {userinfo?.social ? (
+                  userinfo?.social
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
+
+
+
+
+
+
+
+            <div className="mt-8">
+        
+{/* Update information modal */}
               <dialog id={`${userinfo._id}`} className="modal">
                 <form
                   onSubmit={handleSubmit(updateProfile)}
@@ -271,12 +351,12 @@ const UserProfile = () => {
                   </button>
 
                   {/* {console.log(userinfo)} */}
-                  <h3 className="font-bold text-lg">{userinfo.displayName}</h3>
+                  {/* <h3 className="font-bold text-lg">{userinfo.displayName}</h3> */}
 
-                  <h3 className="text-3xl font-semibold text-center  uppercase">
+                  <h3 className="text-3xl font-semibold text-center  uppercase mb-5">
                     Update Profile{" "}
                   </h3>
-                  <div>
+                  <div className="grid md:grid-cols-2 space-x-5">
                     <div className="mb-2">
                       <label
                         htmlFor="name"
@@ -338,6 +418,115 @@ const UserProfile = () => {
                         className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
                       />
                     </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Phone Number
+                      </label>
+                      <input
+                        type="number"
+                        id="phone"
+                        defaultValue={userinfo?.phone}
+                        {...register("phone")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="occupation"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Occupation
+                      </label>
+                      <input
+                        type="text"
+                        id="occupation"
+                        defaultValue={userinfo?.occupation}
+                        {...register("occupation")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="position"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Position
+                      </label>
+                      <input
+                        type="text"
+                        id="position"
+                        defaultValue={userinfo?.position}
+                        {...register("position")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="field"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Interested Career Field
+                      </label>
+                      <input
+                        type="text"
+                        id="field"
+                        defaultValue={userinfo?.field}
+                        {...register("field")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="job"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                       Which type of job you searching
+                      </label>
+                      <input
+                        type="text"
+                        id="job"
+                        defaultValue={userinfo?.job}
+                        {...register("job")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="description"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                       Your Description
+                      </label>
+                      <input
+                        type="text"
+                        id="description"
+                        defaultValue={userinfo?.description}
+                        {...register("description")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+                    <div className="mb-2">
+                      <label
+                        htmlFor="social"
+                        className="block text-sm font-semibold text-gray-800"
+                      >
+                        Social Media Links
+                      </label>
+                      <input
+                        type="text"
+                        id="social"
+                        defaultValue={userinfo?.social}
+                        {...register("social")}
+                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+                    </div>
+
+
+
+
                   </div>
 
                   <button type="submit" className="btn-add">

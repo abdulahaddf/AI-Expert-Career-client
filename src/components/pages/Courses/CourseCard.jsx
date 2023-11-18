@@ -70,7 +70,7 @@ const CourseCard = ({ course }) => {
           className="btn-black"
         >
           {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
-        </Link> : <p className="btn-black">Coming Soon...</p>
+        </Link> : <p className=" font-semibold p-1 ">Coming Soon...</p>
         }
         {
           course?.description ? <p className="font-semibold">{ course.courseFee > 0 ?  <>TK {course.courseFee}</> : "Free"}</p> : 

@@ -1,5 +1,3 @@
-import blogBanner from "./Assests/blogbanner.png";
-import icon from "./Assests/RectangleIon.png";
 import { useContext, useState } from "react";
 import CategoryCard from "./CategoryCard";
 import BlogCard from "./BlogCard";
@@ -10,6 +8,7 @@ import FeaturedBlogs from "./FeaturedBlogs";
 import { Link } from "react-router-dom";
 import NewsLetter from "./NewsLetter";
 import useTitle from "../../../hooks/useTitle";
+import ReactGA from "react-ga4";
 
 const categories = [
   "Machine learning",
@@ -113,6 +112,7 @@ const Blog = () => {
 
 
   useTitle("Blogs");
+  ReactGA.send({ hitType: "pageview", page: "/blogs", title: "Blogs Page" });
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -152,7 +152,7 @@ const Blog = () => {
                   <h2 className="text-xl font-semibold text-white">
                     Are you Want to Know The Proper Roadmap of Al Journey?
                   </h2>
-                  <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/roadmap">Let&apos;s Go</Link>
+                  <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/ai-consultant">Let&apos;s Go</Link>
                 </div>
                </div>
               </div>

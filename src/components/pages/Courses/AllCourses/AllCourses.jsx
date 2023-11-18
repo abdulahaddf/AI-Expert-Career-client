@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import useTitle from "../../../../hooks/useTitle";
+import ReactGA from "react-ga4";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
@@ -89,7 +90,7 @@ const AllCourses = () => {
 
 
 useTitle("All Courses");
-
+ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
  // scrollTo
  useEffect(() => {
   window.scrollTo({ top: 0, behavior: "smooth" });

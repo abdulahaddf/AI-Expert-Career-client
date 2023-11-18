@@ -9,6 +9,11 @@ import { FaRegDotCircle } from "react-icons/fa";
 import { SiSocketdotio } from "react-icons/si";
 import useTitle from "../../../hooks/useTitle";
 import useConsultants from "../../../hooks/UseConsultants";
+import ReactGA from "react-ga4";
+import { AiOutlineSearch } from "react-icons/ai";
+
+
+
 const AiConsultant = () => {
   const { language } = useContext(MyContext);
   const { consultants, loading } = useConsultants();
@@ -150,7 +155,7 @@ console.log(filteredCon)
 
 
   useTitle("Consultants");
-
+  ReactGA.send({ hitType: "pageview", page: "/ai-consultant", title: "Consultants" });
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -215,11 +220,12 @@ console.log(filteredCon)
                 ))}
               </select>
             </div>
-            <div className="  ">
+            <div className="relative  ">
+            <AiOutlineSearch className="absolute left-3 top-3 text-xl text-black/50" />
               <input
                 type="text"
                 placeholder="Search Consultants"
-                className="py-2 px-4  w-full  border  "
+                className="py-2 px-4 pl-10  w-full  border border-black/50  "
                 value={searchText}
                 onChange={handleSearchInputChange}
               />

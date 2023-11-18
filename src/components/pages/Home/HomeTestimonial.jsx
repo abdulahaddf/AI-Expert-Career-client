@@ -13,6 +13,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Loader from "../../common/loader/Loader";
+import LazyLoad from "react-lazy-load";
 
 const HomeTestimonial = () => {
   const { language } = useContext(MyContext);
@@ -74,11 +75,14 @@ const HomeTestimonial = () => {
                   <BsQuote className="text-black text-4xl" />
                 </span>
                 <div className="-mt-[45%] z-50 mx-auto">
+                  <LazyLoad>
+
                   <img
                     className="mx-auto w-20 h-20 rounded-full"
                     src={imageURL}
                     alt="reviewer"
-                  />
+                    />
+                    </LazyLoad>
                 </div>
 
                 <h3 className="text-[20px] font-bold mt-4">{name}</h3>

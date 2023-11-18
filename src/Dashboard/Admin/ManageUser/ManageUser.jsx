@@ -8,6 +8,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { useState } from "react";
 import { useEffect } from "react";
 import UseUser from "../../../hooks/useUser";
+import { BsInfoSquareFill } from "react-icons/bs";
 
 const ManageUser = () => {
   const [users, loading, refetch] = UseUsers();
@@ -144,6 +145,7 @@ const ManageUser = () => {
               <th className="text-center">Email</th>
               <th>Role</th>
               <th className="text-center">Action</th>
+              <th className="text-center">Details</th>
               <th className="text-center">Remove</th>
             </tr>
           </thead>
@@ -200,6 +202,15 @@ const ManageUser = () => {
                     User
                   </button>
                 </td>
+                <td className=" text-primary text-center">
+                  <button
+                    className="btn-black"
+                    onClick={()=>document.getElementById(`${user._id}`).showModal()}
+                   
+                  >
+                    <BsInfoSquareFill />
+                  </button>
+                </td>
                 <td className="text-xl text-primary text-center">
                   <button
                     className="btn-black"
@@ -211,6 +222,32 @@ const ManageUser = () => {
                     <AiFillDelete />
                   </button>
                 </td>
+
+                
+<dialog id={user._id} className="modal">
+  <div className="modal-box">
+    <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+<h1 className="text-2xl mb-10 font-bold ">User Details</h1>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Name:</span> {user?.displayName}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Address:</span> {user?.address}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Phone:</span> {user?.phone}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Occupation:</span> {user?.occupation}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Position:</span> {user?.position}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Field:</span> {user?.field}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Job:</span> {user?.job}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Description:</span> {user?.description}</p>
+<p className="text-left"><span className="font-semibold pr-1 py-5">Social:</span> {user?.social}</p>
+   
+  </div>
+</dialog>
+
+
+
+
+
               </tr>
             ))}
           </tbody>

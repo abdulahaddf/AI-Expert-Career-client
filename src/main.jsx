@@ -10,8 +10,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NotificationProvider } from "./Context/NotificationProvider.jsx";
+import ReactGA from "react-ga4";
 
 const queryClient = new QueryClient();
+
+ReactGA.initialize("G-ENF3EB71NG");
+
+ReactGA.send({ hitType: "pageview", page: "/home", title: "Home Page" });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

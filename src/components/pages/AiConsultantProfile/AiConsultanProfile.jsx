@@ -11,15 +11,11 @@ import { LuNewspaper } from "react-icons/lu";
 import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { GrCatalogOption, GrUserExpert } from "react-icons/gr";
 import moment from "moment";
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
 import CopyURLButton from "./CopyUrlButton";
 import { useState } from "react";
 import ConReview from "./ConReview";
+import ReactGA from "react-ga4";
 
 const AiConsultanProfile = () => {
   const id = useParams();
@@ -61,6 +57,16 @@ const AiConsultanProfile = () => {
   const today = moment().format("dddd");
 
   // console.log(today);
+
+
+  ReactGA.event({
+    category: "Consultant",
+    action: "View Consultant",
+    label: displayName,
+    nonInteraction: true, // optional, true/false
+    transport: "xhr", // optional, beacon/xhr/image
+  });
+
 
   // scrollTo
   useEffect(() => {
