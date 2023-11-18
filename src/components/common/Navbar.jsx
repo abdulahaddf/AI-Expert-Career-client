@@ -127,7 +127,7 @@ const Navbar = () => {
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
-        <div className="py-1 px-4 relative   mx-auto max-w-full md:px-32">
+        <div className="py-1 px-4 relative   mx-auto max-w-full md:px-36">
           <div className="relative flex items-center justify-between  font-bold ">
             <div className="  flex items-center ">
               <div>
