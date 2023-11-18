@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { SiSocketdotio } from "react-icons/si";
 import { FaRegDotCircle } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
-import UseUser from "../../../hooks/useUser";
 import { AuthContext } from "../../../Context/AuthProvider";
 import { Link, useLocation } from "react-router-dom";
 

@@ -67,7 +67,7 @@ const Home = () => {
           className={` md:tooltip tooltip-left  duration-200 ${
             scrollNav ? "opacity-100" : "opacity-0"
           } transition-opacity duration-1000`}
-          data-tip="scroll to top"
+          data-tip="Scroll to top"
         >
           {scrollNav && (
             <Link

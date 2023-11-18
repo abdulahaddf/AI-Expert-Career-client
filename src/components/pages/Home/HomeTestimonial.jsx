@@ -77,7 +77,7 @@ const HomeTestimonial = () => {
                   <img
                     className="mx-auto w-20 h-20 rounded-full"
                     src={imageURL}
-                    alt=""
+                    alt="reviewer"
                   />
                 </div>
 

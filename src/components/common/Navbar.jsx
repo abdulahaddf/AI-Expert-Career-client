@@ -1,21 +1,15 @@
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-
-// import Logo from "../../assets/ai expert career logo 4.svg";
 import Logo from "/img/logo.png";
-import LogoSm from "../../../public/img/Logosm.png";
-import Cart from "../../assets/CartFigma.svg";
 import "./Navbar.css";
 import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
 import { AuthContext } from "../../Context/AuthProvider";
 import { RiArrowDownSLine } from "react-icons/ri";
 import UseUser from "../../hooks/useUser";
-import HomeSearch from "../pages/Home/HomeSearch";
 import SearchBox from "./SearchBox/SearchBox";
 import SearchMobile from "./SearchBox/SearchMobile";
 import { useEffect } from "react";
-import { IoNotifications } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { NotificationContext } from "../../Context/NotificationProvider";
 

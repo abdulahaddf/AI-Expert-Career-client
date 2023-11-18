@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import useCourses from "../../../hooks/UseCourses";
-import UseUsers from "../../../hooks/useUsers";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import useConsultants from "../../../hooks/UseConsultants";
 
 const SearchMobile = ({isOpen, setIsOpen}) => {
+  const { consultants } = useConsultants();
   const { language } = useContext(MyContext);
-  const [userinfo] = UseUsers();
   const [courses] = useCourses();
 
   const [search, setSearch] = useState("");
@@ -15,7 +16,7 @@ const SearchMobile = ({isOpen, setIsOpen}) => {
   const [consultantData, setConsultantData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   // const [isOpen, setIsOpen] = useState(true);
-
+const userinfo = consultants;
 
   const stripHTMLTags = (html) => {
     if (!html) return "";
@@ -116,7 +117,7 @@ const SearchMobile = ({isOpen, setIsOpen}) => {
                   )}{" "}
                 </p>
                 {CourseData?.map((course) => (
-                  <Link to={`/individualCourse/${course._id}`} onClick={() => setIsOpen(false)} className="flex flex-col items-start gap-2 my-4" key={course._id}>
+                  <Link to={`/individualCourse/${course._id}`} onClick={() => setIsOpen(false)} className="flex flex-col items-start gap-2 my-4 border-b-2 pb-1" key={course._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={course.insImage}
@@ -146,7 +147,7 @@ const SearchMobile = ({isOpen, setIsOpen}) => {
                   )}{" "}
                 </p>
                 {consultantData?.map((c) => (
-                  <Link to={`/ai-consultant-profile/${c._id}`} onClick={() => setIsOpen(false)} className="flex flex-col gap-2 my-4" key={c._id}>
+                  <Link to={`/ai-consultant-profile/${c._id}`} onClick={() => setIsOpen(false)} className="flex flex-col gap-2 my-4 border-b-2 pb-1" key={c._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={c.photoURL}

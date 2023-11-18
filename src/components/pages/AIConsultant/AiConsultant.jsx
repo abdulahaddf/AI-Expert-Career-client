@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
-import UseUsers from "../../../hooks/useUsers";
 import CallBtn from "./CallBtn";
 import Loader from "../../common/loader/Loader";
 import moment from "moment";
 import { FaRegDotCircle } from "react-icons/fa";
 import { SiSocketdotio } from "react-icons/si";
 import useTitle from "../../../hooks/useTitle";
+import useConsultants from "../../../hooks/UseConsultants";
 const AiConsultant = () => {
   const { language } = useContext(MyContext);
-  const [users, loading] = UseUsers();
+  const { consultants, loading } = useConsultants();
+  // const consultants = users?.filter((user) => user?.role === "consultant");
   const [searchText, setSearchText] = useState("");
-  const consultants = users?.filter((user) => user?.role === "consultant");
   const [filteredCon, setFilteredCon] = useState([]);
   const [selectedDay, setSelectedDay] = useState("All");
   const [selectedWorkingWith, setSelectedWorkingWith] = useState("All");
@@ -24,7 +24,7 @@ const AiConsultant = () => {
   //
   useEffect(() => {
     setFilteredCon(consultants);
-  }, [users]);
+  }, [consultants]);
 
   // console.log(filteredCon);
 

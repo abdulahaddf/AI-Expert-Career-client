@@ -8,15 +8,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
-import UseUsers from "../../../../hooks/useUsers";
 import Loader from "../../../common/loader/Loader";
 import { BiSupport } from "react-icons/bi";
+import useConsultants from "../../../../hooks/UseConsultants";
 
 
 const HomeConsultantSection = () => {
+  const { consultants, loading } = useConsultants();
     const { language } = useContext(MyContext);
-    const [users, loading] = UseUsers();
-    const consultants = users?.filter((user) => user?.role === "consultant");
   const today = moment().format("dddd");
 
 
