@@ -50,7 +50,7 @@ const Footer = () => {
       const data = await response.json();
 
       if (data.insertedId) {
-        setMail("")
+        setMail("");
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -63,9 +63,14 @@ const Footer = () => {
       setError("An error occurred while subscribing. Please try again later.");
     }
   };
+  const phoneNumber = "+8801995536898";
+
+  const handleCall = () => {
+    window.open(`tel:${phoneNumber}`);
+  };
   return (
     <div className="bg-[#000000] ">
-      <div className="pt-20 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 relative">
+      <div className="pt-10 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-20 text-white text-center sm:text-start ">
           <div className="col-span-2 2xl:p-4 ">
             <Link to="/" className="">
@@ -75,10 +80,17 @@ const Footer = () => {
                 alt=""
               />
             </Link>
-            <h4 className="text-white font-bold text-[18px] my-[36px]">
-              Ai Expert Career, aims to promote the adoptation and awareness of
-              Artificial Intelligence (AI) in Bangladesh We believe that AI has
-              the potential to revolutionize various indusstries in Bangladesh.
+            <h4 className="text-white/50 text-[18px] my-[36px]">
+              <span className="text-white">Our vision</span> is to see Al as a
+              driving force behind Bangladeshs eco- nomic prosperity,
+              Bangladeshi Al experts on the global stage and make opportunities
+              for all.
+            </h4>
+            <h4 className="text-white/50 text-[18px] my-[36px]">
+              <span className="text-white">Our mission</span> is to democratize
+              Al knowledge, making it accessible for every aspiring learners.
+              fostering a culture of continuous learning to the next generation
+              of Al leaders in Bangladesh.
             </h4>
             <div className="flex justify-center lg:justify-start items-center gap-4 ">
               <Link
@@ -145,94 +157,99 @@ const Footer = () => {
               </h2>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p>
-                  <Link to="/terms&conditions">
-                    {language !== "bn" ? "Terms & Conditions" : "শর্তাবলী"}
-                  </Link>
-                </p>
-                <p>
-                  <Link to="/courses">
-                    {language == "bn" ? "কোর্স সমূূহ" : "Courses"}
-                  </Link>
-                </p>
-                <p>
-                  <Link to="/ai-consultant">
-                    {language == "bn" ? "কনসালট্যান্ট" : " Consultants"}
-                  </Link>
-                </p>
-                <p>
-                  <Link to="/blogs">
+                  <Link className="hover:text-primary" to="/ai-consultant">
                     {language == "bn"
-                      ? "ব্লগ ও রিসোর্সেস"
-                      : "Blogs And Resources"}
+                      ? "আপনার AI যাত্রা শুরু করুন"
+                      : "Start your AI Journey"}
                   </Link>
                 </p>
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {language == "bn" ? "আমাদের সম্পর্কে " : " About Us"}
-                  </a>
+                  <Link className="hover:text-primary" to="/courses">
+                    {language == "bn" ? "কোর্স সমূূহ" : "View All Courses"}
+                  </Link>
                 </p>
-
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
+                  <Link className="hover:text-primary" to="/ai-consultant">
+                    {language == "bn" ? "ফ্রি কনসালটেন্সি" : "Free Consultancy"}
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="hover:text-primary"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    to="http://kritrimotta.aiexpertcareer.com"
                   >
                     {language == "bn"
-                      ? "একাডেমিক এসোসিয়েট হতে চান?"
-                      : "Contract with as a Acadamic Assistant"}
-                  </a>
+                      ? "বাংলা AI ম্যাগাজিন"
+                      : "Bangla AI Magazine"}
+                  </Link>
+                </p>
+                <p>
+                  <Link className="hover:text-primary" to="/blogs">
+                    {language == "bn" ? "ব্লগ ও আর্টিকেল" : "Blogs & Articles"}
+                  </Link>
+                </p>
+                <p>
+                  <Link className="hover:text-primary" to="/ai-consultant">
+                    {language == "bn"
+                      ? "ক্যারিয়ার রোডম্যাপ প্রয়োজন?"
+                      : "Need Career Roadmap?"}
+                  </Link>
                 </p>
               </div>
             </div>
             <div>
               <h2 className="text-[22px] font-bold text-[#ED1B24] mb-3">
-                {language == "bn" ? "আরো কিছু" : "Extras"}
+                {language == "bn" ? "আরো কিছু লিঙ্ক" : "Extra Links"}
               </h2>
               <div className="flex flex-col gap-2 text-[18px]">
                 <p>
-                  <a
-                    href="https://forum.solana.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {language == "bn"
-                      ? "সাপোর্ট ও জরুরি সেবা"
-                      : "Help & Support"}
-                  </a>
+                  <Link className="hover:text-primary" to="/terms&conditions">
+                    {language == "bn" ? "শর্তাবলী" : "Terms & Conditions"}
+                  </Link>
                 </p>
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {language == "bn" ? "ডিস্ক্লেইমার" : "Disclaimers"}
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {language == "bn"
-                      ? "টার্মস এন্ড কন্ডিশন"
-                      : "Terms and Conditions"}
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link className="hover:text-primary" to="/terms&conditions">
                     {language == "bn" ? "প্রাইভেসি পলিসি" : "Privacy policy"}
-                  </a>
+                  </Link>
+                </p>
+                <p>
+                  <Link className="hover:text-primary" to="/terms&conditions">
+                    {language == "bn" ? "রিফান্ড পলিসি" : "Refunud Policy"}
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="hover:text-primary"
+                    target="_blank"
+                    to="https://forms.gle/w6WDmG8UXRfX2T8d7"
+                  >
+                    {language == "bn"
+                      ? "একাডেমিক অ্যাসোসিয়েট হিসেবে যোগ দিন"
+                      : "Join as a Academic Associate"}
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="hover:text-primary"
+                    target="_blank"
+                    to="https://forms.gle/AhnfGZcdjJMcMAkH9"
+                  >
+                    {language == "bn"
+                      ? "এআই ম্যাগাজিন টিমে যোগ দিন"
+                      : "Join AI Magazine Team"}
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="hover:text-primary"
+                    target="_blank"
+                    to="https://forms.gle/xGHczAK8qySeyLKG7"
+                  >
+                    {language == "bn"
+                      ? "একজন পরামর্শদাতা হিসাবে যোগদান করুন"
+                      : "Join as an Consultant"}
+                  </Link>
                 </p>
               </div>
             </div>
@@ -243,41 +260,23 @@ const Footer = () => {
                 Contact information
               </h2>
               <div className="flex flex-col gap-2 text-[18px]">
-                <p>
-                  <a
-                    href="https://forum.solana.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Email: aiexpertcareer.info@gmail.com
-                  </a>
+                <a href="mailto: info@aiexpertcareer.com">
+                  Email:{" "}
+                  <span className="hover:text-primary">
+                    info@aiexpertcareer.com
+                  </span>
+                </a>
+
+                <p className="cursor-pointer" onClick={handleCall}>
+                  Cell:{" "}
+                  <span className="hover:text-primary">+8801724866855</span>,
+                  <span className="hover:text-primary">+8801995536898</span>
                 </p>
                 <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Address: 6A, 152/2K, panthapath
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Dhaka - 1205, Bangladesh
-                  </a>
-                </p>
-                <p>
-                  <a
-                    href="https://discord.com/invite/kBbATFA7PW"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Cell: +8801724866855, +8801995536898
-                  </a>
+                  Address:{" "}
+                  <span className="hover:text-primary">
+                    11, Barabag, Mirpur-2, Dhaka 1216.
+                  </span>
                 </p>
               </div>
             </div>
@@ -309,7 +308,6 @@ const Footer = () => {
                     onClick={handleSubmit}
                     className="z-20 inline-flex items-center justify-center rounded-lg h-12 text-lg w-32  bg-[#ED1B24] "
                   >
-                   
                     {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}
                   </button>
                 </div>
@@ -320,7 +318,7 @@ const Footer = () => {
         </div>
         <div>
           <p className="mt-20 lg:text-[18px] text-white">
-          Copyright &copy; 2023 AI Expert Career
+            Copyright &copy; 2023 AI Expert Career
           </p>
           <Link
             to="https://abdulahad-df.netlify.app"
