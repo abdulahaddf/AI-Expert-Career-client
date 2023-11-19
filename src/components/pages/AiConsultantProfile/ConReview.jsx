@@ -73,11 +73,11 @@ return (
               <BsQuote className="text-black text-4xl" />
             </span>
             <div className="-mt-[45%] z-50 mx-auto">
-              <img className="mx-auto w-40 h-40 rounded-full" src={imageURL} alt="" />
+              <img className="mx-auto w-20 h-20 rounded-full" src={imageURL} alt="" />
             </div>
 
-            <h3 className="text-[30px] font-bold mt-4">{name}</h3>
-            <h5 className="text-[18px] font-bold  mb-[15px]">
+            <h3 className="text-[20px] font-bold mt-4">{name}</h3>
+            <h5 className="text-[14px] font-bold  mb-[15px]">
               {designation}
             </h5>
             <p className="text-sm">{feedback}</p>

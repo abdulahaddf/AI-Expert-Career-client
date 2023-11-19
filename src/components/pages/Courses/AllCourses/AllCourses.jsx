@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useContext } from "react";
 import { MyContext } from "../../../../Context/Context";
@@ -19,6 +19,7 @@ const AllCourses = () => {
   const freeCourses = courses?.filter(
     (course) => course.mainCategory == "Free"
   );
+  const location = useLocation();
   const fundamentalCourses = courses?.filter(
     (course) => course.mainCategory == "Fundamental"
   );
@@ -93,8 +94,8 @@ useTitle("All Courses");
 ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
  // scrollTo
  useEffect(() => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}, []);
+  window.scrollTo(0,0);
+}, [location]);
 
   if (isLoading && !banner && !courses) return <Loader />;
   return (

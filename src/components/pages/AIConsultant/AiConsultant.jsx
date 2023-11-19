@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";
@@ -22,7 +22,7 @@ const AiConsultant = () => {
   const [filteredCon, setFilteredCon] = useState([]);
   const [selectedDay, setSelectedDay] = useState("All");
   const [selectedWorkingWith, setSelectedWorkingWith] = useState("All");
-
+const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
@@ -156,10 +156,12 @@ console.log(filteredCon)
 
   useTitle("Consultants");
   ReactGA.send({ hitType: "pageview", page: "/ai-consultant", title: "Consultants" });
+
+  
   // scrollTo
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+    window.scrollTo(0,0);
+  }, [location]);
   if (loading && filterCon ) return <Loader />;
   return (
     <div className=" lg:mt-[10px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
