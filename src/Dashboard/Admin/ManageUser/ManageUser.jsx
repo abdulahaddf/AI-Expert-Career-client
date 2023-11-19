@@ -16,7 +16,7 @@ const ManageUser = () => {
   
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 11;
 
   //make admin
   const handleMakeAdmin = (user) => {
@@ -176,7 +176,7 @@ const ManageUser = () => {
                     className="btn-black "
                     onClick={() => handleMakeAdmin(user)}
                     disabled={
-                      user.role === "admin" || user.role === "super admin"
+                    userinfo.role === "admin" || user.role === "admin" || user.role === "super admin"
                     }
                   >
                     {" "}

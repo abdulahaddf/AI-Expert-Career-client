@@ -34,6 +34,7 @@ const EditCourse = () => {
       category: course?.category,
       courseType: course?.courseType,
       courseModel: course?.courseModel,
+      liveInstruction: course?.liveInstruction,
       courseFee: course?.courseFee,
       discount: course?.discount,
       duration: course?.duration,
@@ -54,7 +55,6 @@ const EditCourse = () => {
       .then((response) => response.json())
       .then((data) => {
         setCourse(data);
-        // Set default values using reset method
         reset(data);
         setPageLoading(false);
       });
@@ -146,6 +146,7 @@ const EditCourse = () => {
       coverVideo,
       courseType,
       courseModel,
+      liveInstruction,
       courseFee,
       discount,
       duration,
@@ -196,6 +197,7 @@ const EditCourse = () => {
           coverVideo,
           courseType,
           courseModel,
+          liveInstruction,
           courseFee,
           discount,
           duration,
@@ -268,6 +270,7 @@ const EditCourse = () => {
           coverVideo,
           courseType,
           courseModel,
+          liveInstruction,
           courseFee,
           discount,
           duration,
@@ -614,7 +617,21 @@ const EditCourse = () => {
           </div>
         </div>
 </div>
-
+{courseModel === "live" && 
+<div className="mb-4">
+            <label
+              htmlFor="liveInstruction"
+              className="block mb-2 font-medium text-gray-700"
+            >
+              Live Course Instructions URL:
+            </label>
+            <input
+              {...register("liveInstruction", { required: true })}
+              type="url"
+              id="liveInstruction"
+              className="border border-gray-300 rounded-xl p-2 w-full"
+            />
+          </div>}
         {/* Course Fee Input (conditionally rendered) */}
         {courseType === "paid" && (
           <div className="grid gap-x-14 grid-cols-2  my-10">

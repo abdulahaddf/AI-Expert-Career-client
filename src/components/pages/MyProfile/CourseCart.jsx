@@ -31,7 +31,8 @@ console.log(courseData)
             <Link
             disabled={courseData.status === "pending"}
             className="btn-add"
-            to='/live-course'
+            to={course?.liveInstruction}
+            target="_blank"
             >
             Continue
             </Link>
