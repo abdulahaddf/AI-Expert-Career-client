@@ -25,7 +25,7 @@ const CourseVideo = () => {
   const [totalContentCount, setTotalContentCount] = useState(0);
   const [selectedContentIndex, setSelectedContentIndex] = useState(null);
   const [progressPercentage, setProgressPercentage] = useState(0);
-  console.log(id);
+  // console.log(course);
   useEffect(() => {
     fetch(`https://ai-server-sooty.vercel.app/singleEnrolledcourse/${id}`)
       .then((response) => {
@@ -124,11 +124,11 @@ const CourseVideo = () => {
 
   const currentModule = course.modules?.[currentModuleIndex];
   const currentContent = currentModule?.contents?.[currentContentIndex];
-  console.log(currentContent?.completed);
+  // console.log(currentContent?.completed);
   // console.log(completedContent[currentContent?.title])
 
-  console.log(totalContentCount);
-  console.log(completedCount);
+  // console.log(totalContentCount);
+  // console.log(completedCount);
   useEffect(() => {
     // Calculate the total content count based on your course data
     let totalCount = 0;
@@ -163,10 +163,10 @@ const CourseVideo = () => {
       setProgressPercentage(percentage);
     }
   }, [course, completedCount, totalContentCount]);
-  console.log(progressPercentage);
+  // console.log(progressPercentage);
 
   const postCompletionTime = async () => {
-    console.log("Posting completion time:");
+    // console.log("Posting completion time:");
     try {
       // Make a POST request to your Express route to update the main course enrollment collection
       const response = await fetch(
@@ -177,22 +177,19 @@ const CourseVideo = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            userId: userId, // Replace with the appropriate user ID
-            courseId: course._id, // Replace with the appropriate course ID
-            completionTime: moment().format("MMMM Do YYYY, h:mm a"), // Completion time
+            userId: userId, 
+            courseId: course._id, 
+            completionTime: moment().format("MMMM Do YYYY, h:mm a"), 
           }),
         }
       );
 
       if (response.status === 200) {
-        // Handle success, e.g., show a success message to the user
         console.log("Course completion status updated successfully");
       } else {
-        // Handle any errors, e.g., show an error message to the user
         console.error("Error updating course completion status");
       }
     } catch (error) {
-      // Handle any network or other errors
       console.error(error);
     }
   };
@@ -284,7 +281,7 @@ const CourseVideo = () => {
                       <div
                         className={`flex items-center ${
                           selectedContentIndex === content.title
-                            ? "bg-gray-300 rounded-2xl" // Change this to your desired background color
+                            ? "bg-gray-300 rounded-2xl" 
                             : ""
                         }`}
                         key={contentIndex}
@@ -351,7 +348,7 @@ const CourseVideo = () => {
                 />
               ) : currentContent.type === "assignment" ? (
                 <iframe
-                  className="w-[50vw] h-[520px]"
+                  className="md:w-[50vw] h-[520px]"
                   src={ass}
                   title="Assignment"
                 ></iframe>
