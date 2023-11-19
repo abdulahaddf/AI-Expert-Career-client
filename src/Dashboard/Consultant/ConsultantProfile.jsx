@@ -184,7 +184,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold ">
-                {language === "bn" ? "ঠিকানা" : "Designation"}
+                {language === "bn" ? "পদবী" : "Designation"}
               </label>
               <p className="text-md">
                 {userinfo?.designation ? (
@@ -196,12 +196,19 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold ">
-                {language === "bn" ? "ঠিকানা" : "Career Summary"}
+                {language === "bn" ? "ক্যারিয়ার" : "Career Summary"}
               </label>
               <p className="text-md">
                 {userinfo?.summary ? (
-                  <div className="" dangerouslySetInnerHTML={{ __html: userinfo?.summary.length > 250 ? userinfo?.summary.substring(0, 250) + ' ...' : userinfo?.summary }}></div>
-      
+                  <div
+                    className=""
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        userinfo?.summary.length > 250
+                          ? userinfo?.summary.substring(0, 250) + " ..."
+                          : userinfo?.summary,
+                    }}
+                  ></div>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
@@ -209,7 +216,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Company Name"}
+                {language === "bn" ? "কোম্পানি" : "Company Name"}
               </label>
               <p className="text-md">
                 {userinfo?.description ? (
@@ -221,7 +228,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Recent Works"}
+                {language === "bn" ? "সাম্প্রতিক কাজ" : "Recent Works"}
               </label>
               <p className="text-md">
                 {userinfo?.recentWorks ? (
@@ -237,7 +244,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Recent Successes"}
+                {language === "bn" ? "পুরস্কার এবং কৃতিত্ব" : "Awards & Achievements"}
               </label>
               <p className="text-md">
                 {userinfo?.successes ? (
@@ -249,7 +256,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Experience"}
+                {language === "bn" ? "অভিজ্ঞতা" : "Experience"}
               </label>
               <p className="text-md">
                 {userinfo?.experience ? (
@@ -265,7 +272,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Educational qualification"}
+                {language === "bn" ? "শিক্ষাগত যোগ্যতা" : "Educational qualification"}
               </label>
               <p className="text-md">
                 {userinfo?.qualification ? (
@@ -281,7 +288,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Availability"}
+                {language === "bn" ? "উপস্থিতি" : "Availability"}
               </label>
               <p className="text-md">
                 {userinfo?.selectedDays ? (
@@ -297,7 +304,7 @@ const ConsultantProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Working With"}
+                {language === "bn" ? "কাজ করছেন" : "Working With"}
               </label>
               <p className="text-md">
                 {userinfo?.workingWith ? (
@@ -313,48 +320,53 @@ const ConsultantProfile = () => {
             </div>
 
             <div className="mt-8 ">
-            <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Facebook Link"}
+              <label className="text-lg font-bold">
+                {language === "bn" ? "ফেসবুক" : "Facebook Link"}
               </label>
               <p className="text-md">
                 {userinfo?.facebook ? (
-                  <>
-                    {userinfo?.facebook}
-                  </>
+                  <>{userinfo?.facebook}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
-              </div>
+            </div>
             <div className="mt-8 ">
-            <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Linkedin Link"}
+              <label className="text-lg font-bold">
+                {language === "bn" ? "লিংকডিন" : "Linkedin Link"}
               </label>
               <p className="text-md">
                 {userinfo?.linkedin ? (
-                  <>
-                    {userinfo?.linkedin}
-                  </>
+                  <>{userinfo?.linkedin}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
-              </div>
+            </div>
             <div className="mt-8 ">
-            <label className="text-lg font-bold">
-                {language === "bn" ? "ঠিকানা" : "Twitter Link"}
+              <label className="text-lg font-bold">
+                {language === "bn" ? "টুইটার" : "Twitter Link"}
               </label>
               <p className="text-md ">
                 {userinfo?.twitter ? (
-                  <>
-                    {userinfo?.twitter}
-                  </>
+                  <>{userinfo?.twitter}</>
                 ) : (
                   <p className="font-normal">null</p>
                 )}
               </p>
-              </div>
-          
+            </div>
+            <div className="mt-8 ">
+              <label className="text-lg font-bold">
+                {language === "bn" ? "গিটহাব" : "Github Link"}
+              </label>
+              <p className="text-md ">
+                {userinfo?.github ? (
+                  <>{userinfo?.github}</>
+                ) : (
+                  <p className="font-normal">null</p>
+                )}
+              </p>
+            </div>
           </div>
         </div>
       </div>

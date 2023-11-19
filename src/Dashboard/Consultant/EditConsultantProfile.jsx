@@ -43,6 +43,7 @@ const EditConsultantProfile = () => {
       facebook: userinfo?.facebook,
       linkedin: userinfo?.linkedin,
       twitter: userinfo?.twitter,
+      github: userinfo?.github,
     },
   });
 
@@ -100,6 +101,7 @@ const EditConsultantProfile = () => {
       facebook,
       linkedin,
       twitter,
+      github,
     } = data;
     const selectedDays = daysOfWeek.filter((day) =>
       getValues(`availability.${day}`)
@@ -126,6 +128,7 @@ const EditConsultantProfile = () => {
       facebook,
       linkedin,
       twitter,
+      github,
     };
     console.log(profile);
     axios
@@ -397,7 +400,7 @@ const EditConsultantProfile = () => {
                 className="btn-black m-2"
                 onClick={() => appendSuccess("")}
               >
-                Add Success
+                Add Awards & achievement
               </button>
             </div>
             <div className="">
@@ -528,6 +531,26 @@ const EditConsultantProfile = () => {
                     {...field}
                     type="url"
                     id="twitter"
+                    className="block w-full px-4 py-2 mt-2 border rounded-lg"
+                  />
+                )}
+              />
+            </div>
+            <div className="">
+              <label
+                htmlFor="github"
+                className="block text-sm font-semibold text-gray-800"
+              >
+                Github Profile Link
+              </label>
+              <Controller
+                name="github"
+                control={control}
+                render={({ field }) => (
+                  <input
+                    {...field}
+                    type="url"
+                    id="github"
                     className="block w-full px-4 py-2 mt-2 border rounded-lg"
                   />
                 )}
