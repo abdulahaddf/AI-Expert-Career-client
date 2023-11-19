@@ -65,16 +65,16 @@ const NewsLetter = () => {
   return (
     <>
       <div className="flex flex-col-reverse md:flex-row  md:items-center lg:space-x-4">
-        <div className="md:w-3/4 mx-auto">
-          <h2 className="md:text-3xl lg:text-[35px] font-bold pb-3">
+        <div className=" md:w-3/4 mx-auto">
+          <h2 className="md:text-3xl lg:text-[35px] font-bold pb-3 mt-2">
             {language == "bn"
               ? "এ আই এর সকল আপডেট নিউজ পেতে এখনই সাবস্ক্রাইব করুন"
               : "Subscribe to our NEWSLETTER"}
           </h2>
 
           <div className="pt-5">
-          <div className=" flex items-center justify-between bg-white rounded-xl   w-full  border-2 border-primary">
-                  {/* <img src={email} alt="" /> */}
+          <div className=" flex items-center justify-between bg-white rounded-xl w-4/5  md:w-full  border-2 border-primary">
+                 
                   <div className="rounded-lg">
                     <form className="flex items-center ">
                   <AiOutlineMail className="text-primary w-10 md:w-16" />
@@ -85,13 +85,12 @@ const NewsLetter = () => {
                         onChange={(e) => setMail(e.target.value)}
                         className="outline-none   border-none text-black"
                       />
-                      {/* <button type="submit">Subscribe</button> */}
                     </form>
                   </div>
 
                   <button
                     onClick={handleSubmit}
-                    className="inline-flex items-center justify-center rounded-lg h-12 text-lg w-32  bg-[#ED1B24] text-white"
+                    className="inline-flex items-center justify-center rounded-lg h-12 text-lg w-[170px] md:w-32  bg-[#ED1B24] text-white"
                   >
                    
                     {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}

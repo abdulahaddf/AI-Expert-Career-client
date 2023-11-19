@@ -286,7 +286,7 @@ useEffect(() => {
   }, []);
   if (!blog.imageURL) return <Loader />;
   return (
-    <section className="md:px-4 md:py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  lg:px-8">
+    <section className="md:px-4 md:py-5 mx-auto sm:max-w-lg md:max-w-full lg:max-w-screen-xl  lg:px-8 overflow-hidden">
       <div className="w-11/12 md:w-4/5 mx-auto">
         {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
         {/* <div className="lg:border-r-2 border-[#00000057] p-1">
@@ -313,7 +313,8 @@ useEffect(() => {
                 className="rounded pb-12 w-[600px] "
               />
             </figure>
-            {language == "bn" ? (
+         <div className="">
+         {language == "bn" ? (
               blog?.descriptionBN ? (
                 <p
                   className="my-20  "
@@ -331,6 +332,7 @@ useEffect(() => {
                 dangerouslySetInnerHTML={{ __html: blog?.description }}
               ></p>
             )}
+         </div>
           </div>
 
 
