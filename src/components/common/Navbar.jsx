@@ -127,7 +127,7 @@ const Navbar = () => {
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
-        <div className="py-1 px-4 relative   mx-auto max-w-full md:px-36">
+        <div className="py-1 px-4 relative   mx-auto max-w-7xl">
           <div className="relative flex items-center justify-between  font-bold ">
             <div className="  flex items-center ">
               <div>
@@ -143,33 +143,34 @@ const Navbar = () => {
               <SearchBox userinfo={userinfo} />
             </div>
 
-            <ul className="items-center hidden font-[700] xl:flex">
+            <ul className="items-center hidden font-[700] xl:flex pl-5 ">
               <div className={"flex items-center"}>{menuItem}</div>
             </ul>
             <div className="flex  justify-between items-center gap-5 pl-32 md:pl-0">
-
-           {user && !isAdmin && userinfo?.role !== "super admin" ? (
-  <Link to="/dashboard/notifications" className="relative pl-2">
-    <IoMdNotificationsOutline className="text-2xl" />
-    {unopenedCount > 0 && (
-      <div className="bg-primary rounded-full p-0.5 px-[6px] text-[10px] text-white absolute -top-1.5 -right-2">
-        {unopenedCount}
-      </div>
-    )}
-  </Link>
-) : (
-  !user && (
-    <Link
-      onClick={() => setIsOpen(false)}
-      className="bg-white normal-case border-black border-[1px] rounded-lg h-[42px] hover:shadow-lg hover:bg-black hover:text-white py-2 md:px-4 hidden md:flex items-center justify-center"
-      to="/login"
-      state={{ from: location }}
-    >
-      {language === "bn" ? "লগ ইন" : "Sign In"}
-    </Link>
-  )
-)}
-
+              {user &&
+              !isAdmin &&
+              userinfo?.role !== "super admin" &&
+              userinfo?.role !== "consultant" ? (
+                <Link to="/dashboard/notifications" className="relative pl-2">
+                  <IoMdNotificationsOutline className="text-2xl" />
+                  {unopenedCount > 0 && (
+                    <div className="bg-primary rounded-full p-0.5 px-[6px] text-[10px] text-white absolute -top-1.5 -right-2">
+                      {unopenedCount}
+                    </div>
+                  )}
+                </Link>
+              ) : (
+                !user && (
+                  <Link
+                    onClick={() => setIsOpen(false)}
+                    className="bg-white normal-case border-black border-[1px] rounded-lg h-[42px] hover:shadow-lg hover:bg-black hover:text-white py-2 md:px-4 hidden md:flex items-center justify-center"
+                    to="/login"
+                    state={{ from: location }}
+                  >
+                    {language === "bn" ? "লগ ইন" : "Sign In"}
+                  </Link>
+                )
+              )}
 
               <button className="rounded-lg hidden  mt-2 lg:mt-0  border-2 border-[#ED1B24] md:flex justify-between items-center bg-[#fefefe] overflow-hidden h-[42px]">
                 <p
@@ -207,12 +208,14 @@ const Navbar = () => {
                     >
                       {" "}
                       <div className="flex items-center hover:text-primary ">
-                      <img
-  className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover "
-  src={userinfo?.photoURL || "https://i.ibb.co/sg6hmZ7/user.png"}
-  alt="user"
-/>
-
+                        <img
+                          className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover "
+                          src={
+                            userinfo?.photoURL ||
+                            "https://i.ibb.co/sg6hmZ7/user.png"
+                          }
+                          alt="user"
+                        />
 
                         <span className="text-xl ">
                           <RiArrowDownSLine
