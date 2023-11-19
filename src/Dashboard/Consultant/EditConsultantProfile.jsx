@@ -249,7 +249,7 @@ const EditConsultantProfile = () => {
               />
             </div>
 
-            <div className="">
+            <div className="flex-grow">
               <label className="block text-sm font-semibold text-gray-800 mb-2">
                 Career Summary
               </label>
@@ -367,7 +367,7 @@ const EditConsultantProfile = () => {
 
             <div className="">
               <label className="block text-sm font-semibold text-gray-800">
-                Successes
+                Awards & Achievement
               </label>
               {successes?.map((field, index) => (
                 <div key={field.id}>

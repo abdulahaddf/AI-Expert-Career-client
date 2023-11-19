@@ -76,8 +76,8 @@ const ConsultantProfile = () => {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <div className="mb-10">
-      <div className="md:grid grid-cols-4 bg-[rgba(236,218,219,0.2)]">
+    <div className="mb-10 w-[90dvw] 2xl:w-[95dvw]">
+      <div className="md:grid grid-cols-4 ">
         <div className="flex justify-center">
           <div className=" bg-[#ed1b2600] p-6">
             <figure className="flex justify-center">
