@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import profile from "../../../assets/AiConsultant/Ellipse 46.png";
-import { BsFillStarFill } from "react-icons/bs";
+import { BsFillStarFill, BsGithub } from "react-icons/bs";
 import Expertise from "./Expertise";
 import { useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -51,6 +51,7 @@ const AiConsultanProfile = () => {
     facebook,
     linkedin,
     twitter,
+    github,
   } = consultant;
   // console.log(consultant);
 
@@ -126,6 +127,13 @@ const AiConsultanProfile = () => {
                     twitter ? <Link to={twitter} target="_blank">
                     <div className="text-2xl  cursor-pointer">
                       <BsTwitter />
+                    </div>
+                  </Link> : ""
+                  }
+                  {
+                    github ? <Link to={github} target="_blank">
+                    <div className="text-2xl  cursor-pointer">
+                      <BsGithub />
                     </div>
                   </Link> : ""
                   }

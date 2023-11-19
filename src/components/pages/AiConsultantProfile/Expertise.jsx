@@ -10,6 +10,7 @@ import { AuthContext } from "../../../Context/AuthProvider";
 import { Link, useLocation } from "react-router-dom";
 
 const Expertise = ({ consultant }) => {
+  const { language } = useContext(MyContext);
 const { user } = useContext(AuthContext);
 const [isVisible, setIsVisible] = useState(true);
 console.log(user ? user : "nai");
@@ -29,8 +30,6 @@ availability,
 workingWith,
 selectedDays,
 } = consultant;
-
-const { language } = useContext(MyContext);
 const [hideButton, setHideButton] = useState(false);
 const { handleSubmit, register, reset } = useForm({
 defaultValues: {
@@ -124,7 +123,7 @@ window.removeEventListener("scroll", handleScroll);
 }, []);
 return (
 <div>
-  <h3 className="font-semibold text-2xl">Availability</h3>
+  <h3 className="font-semibold text-2xl"> {language === "bn" ? "উপস্থিতি" : "Availability"}</h3>
   <div className=" space-y-2 section text-lg ml-2 mt-2">
     {selectedDays?.map((d) => (
     <p className="flex items-center gap-1" key={d}>
@@ -132,9 +131,8 @@ return (
     </p>
     ))}
   </div>
-  <h3 className="font-semibold text-2xl mt-4">Works With</h3>
+  <h3 className="font-semibold text-2xl mt-4"> {language === "bn" ? "কাজ করছেন" : "Working With"}</h3>
   <div className="section text-lg ml-2 mt-2 space-y-2 ">
-    {/* {workingWith.map((w,i) => <p key={i}>{w}</p>)} */}
     {workingWith?.map((d) => (
     <p className="flex items-center gap-1" key={d}>
       {" "}
