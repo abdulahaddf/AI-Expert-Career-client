@@ -289,7 +289,7 @@ const Footer = () => {
 
               <div className="">
                 <div className=" flex items-center bg-white rounded-lg border w-fit">
-                  {/* <img src={email} alt="" /> */}
+                 
                   <AiOutlineMail className="text-primary w-10 md:w-16" />
                   <div>
                     <form>
