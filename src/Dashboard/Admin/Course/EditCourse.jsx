@@ -381,7 +381,7 @@ const EditCourse = () => {
     <div className="container max-w-4xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">
         Update Course : {course.title}
-        <DriveLinkConverter/>
+        <DriveLinkConverter />
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="flex flex-wrap justify-between">
@@ -557,68 +557,66 @@ const EditCourse = () => {
           </div>
         </div>
 
-
-
-<div className="md:flex gap-20">
-  {/* Course Model */}
-  <div className="my-5">
-          <label className="block font-semibold mb-1">Course Model:</label>
-          <div className="flex items-center space-x-4">
-            <label className="flex items-center gap-2 text-lg ">
-              <input
-                type="radio"
-                {...register("courseModel", { required: true })}
-                value="module"
-                className="radio"
-                checked={courseModel === "module"}
-                onChange={() => setCourseModel("module")}
-              />
-              Module
-            </label>
-            <label className="flex items-center gap-2 text-lg">
-              <input
-                type="radio"
-                {...register("courseModel", { required: true })}
-                value="live"
-                className="radio "
-                checked={courseModel === "live"}
-                onChange={() => setCourseModel("live")}
-              />
-              Live
-            </label>
+        <div className="md:flex gap-20">
+          {/* Course Model */}
+          <div className="my-5">
+            <label className="block font-semibold mb-1">Course Model:</label>
+            <div className="flex items-center space-x-4">
+              <label className="flex items-center gap-2 text-lg ">
+                <input
+                  type="radio"
+                  {...register("courseModel", { required: true })}
+                  value="module"
+                  className="radio"
+                  checked={courseModel === "module"}
+                  onChange={() => setCourseModel("module")}
+                />
+                Module
+              </label>
+              <label className="flex items-center gap-2 text-lg">
+                <input
+                  type="radio"
+                  {...register("courseModel", { required: true })}
+                  value="live"
+                  className="radio "
+                  checked={courseModel === "live"}
+                  onChange={() => setCourseModel("live")}
+                />
+                Live
+              </label>
+            </div>
+          </div>
+          {/* Course Type Dropdown */}
+          <div className="my-5">
+            <label className="block font-semibold mb-1">Course Type:</label>
+            <div className="flex items-center space-x-4">
+              <label className="flex items-center gap-2 text-lg ">
+                <input
+                  type="radio"
+                  {...register("courseType")}
+                  value="free"
+                  className="radio"
+                  checked={courseType === "free"}
+                  onChange={() => setCourseType("free")}
+                />
+                Free
+              </label>
+              <label className="flex items-center gap-2 text-lg">
+                <input
+                  type="radio"
+                  {...register("courseType")}
+                  value="paid"
+                  className="radio "
+                  checked={courseType === "paid"}
+                  onChange={() => setCourseType("paid")}
+                />
+                Paid
+              </label>
+            </div>
           </div>
         </div>
-        {/* Course Type Dropdown */}
-        <div className="my-5">
-          <label className="block font-semibold mb-1">Course Type:</label>
-          <div className="flex items-center space-x-4">
-            <label className="flex items-center gap-2 text-lg ">
-              <input
-                type="radio"
-                {...register("courseType")}
-                value="free"
-                className="radio"
-                checked={courseType === "free"}
-                onChange={() => setCourseType("free")}
-              />
-              Free
-            </label>
-            <label className="flex items-center gap-2 text-lg">
-              <input
-                type="radio"
-                {...register("courseType")}
-                value="paid"
-                className="radio "
-                checked={courseType === "paid"}
-                onChange={() => setCourseType("paid")}
-              />
-              Paid
-            </label>
-          </div>
-        </div>
-</div>
-{courseModel === "live" && 
-<div className="mb-4">
+        {courseModel === "live" && (
+          <div className="mb-4">
             <label
               htmlFor="liveInstruction"
               className="block mb-2 font-medium text-gray-700"
@@ -631,7 +629,8 @@ const EditCourse = () => {
               id="liveInstruction"
               className="border border-gray-300 rounded-xl p-2 w-full"
             />
-          </div>}
+          </div>
+        )}
         {/* Course Fee Input (conditionally rendered) */}
         {courseType === "paid" && (
           <div className="grid gap-x-14 grid-cols-2  my-10">
@@ -930,7 +929,6 @@ const EditCourse = () => {
               </button>
             </div>
           </div>
-       
         </div>
 
         {/* Adding module */}
