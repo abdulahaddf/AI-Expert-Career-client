@@ -71,7 +71,7 @@ const Footer = () => {
   return (
     <div className="bg-[#000000] ">
       <div className="pt-10 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-20 text-white text-center sm:text-start ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-10 text-white text-center sm:text-start ">
           <div className="col-span-2 2xl:p-4 ">
             <Link to="/" className="">
               <img
@@ -155,7 +155,7 @@ const Footer = () => {
               <h2 className="text-[22px] font-bold text-[#ED1B24] mb-3">
                 {language == "bn" ? "কুইক লিংক" : "Quick link"}
               </h2>
-              <div className="flex flex-col gap-2 text-[18px]">
+              <div className="flex flex-col gap-2 text-[14px]">
                 <p>
                   <Link className="hover:text-primary" to="/ai-consultant">
                     {language == "bn"
@@ -202,20 +202,20 @@ const Footer = () => {
               <h2 className="text-[22px] font-bold text-[#ED1B24] mb-3">
                 {language == "bn" ? "আরো কিছু লিঙ্ক" : "Extra Links"}
               </h2>
-              <div className="flex flex-col gap-2 text-[18px]">
+              <div className="flex flex-col gap-2 text-[14px]">
                 <p>
                   <Link className="hover:text-primary" to="/terms&conditions">
                     {language == "bn" ? "শর্তাবলী" : "Terms & Conditions"}
                   </Link>
                 </p>
                 <p>
-                  <Link className="hover:text-primary" to="/terms&conditions">
+                  <Link className="hover:text-primary" to="/privacy-policy">
                     {language == "bn" ? "প্রাইভেসি পলিসি" : "Privacy policy"}
                   </Link>
                 </p>
                 <p>
-                  <Link className="hover:text-primary" to="/terms&conditions">
-                    {language == "bn" ? "রিফান্ড পলিসি" : "Refunud Policy"}
+                  <Link className="hover:text-primary" to="/refund-policy">
+                    {language == "bn" ? "রিফান্ড পলিসি" : "Refund Policy"}
                   </Link>
                 </p>
                 <p>
@@ -259,7 +259,7 @@ const Footer = () => {
               <h2 className="text-[22px] font-bold text-[#ED1B24] mb-3">
                 Contact information
               </h2>
-              <div className="flex flex-col gap-2 text-[18px]">
+              <div className="flex flex-col gap-2 text-[14px]">
                 <a href="mailto: info@aiexpertcareer.com">
                   Email:{" "}
                   <span className="hover:text-primary">

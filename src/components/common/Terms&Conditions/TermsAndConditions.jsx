@@ -7,9 +7,9 @@ const TermsAndConditions = () => {
   }, []);
   
   return (
-    <div className="bg-gray-100 p-10">
-      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold mb-4">T&amp;C of AIEC</h1>
+    <div className=" p-10">
+      <div className="max-w-5xl mx-auto bg-white p-6 ">
+        <h1 className="text-3xl font-bold mb-4">T&amp;C of AI Expert Career</h1>
         <p>Welcome to AI Expert Career!</p>
         <p>
           These terms and conditions outline the rules and regulations for the

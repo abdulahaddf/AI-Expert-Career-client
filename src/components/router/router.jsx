@@ -71,6 +71,8 @@ import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
 import LiveCourse from "../../Dashboard/User/Course/LiveCourse";
 import SendNotifications from "../../Dashboard/Admin/Notification/SendNotifications";
 import Notifications from "../../Dashboard/User/Notifications/Notifications";
+import Privacy from "../common/Privacy/privacy";
+import Refund from "../common/Terms&Conditions/Refund/Refund";
 
 export const router = createBrowserRouter([
   {
@@ -101,6 +103,14 @@ export const router = createBrowserRouter([
       {
         path: "/terms&conditions",
         element: <TermsAndConditions />,
+      },
+      {
+        path: "/privacy-policy",
+        element: <Privacy />,
+      },
+      {
+        path: "/refund-policy",
+        element: <Refund />,
       },
       {
         path: "/cart",
