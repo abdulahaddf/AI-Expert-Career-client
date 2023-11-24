@@ -119,6 +119,7 @@ const EditCourse = () => {
     setValue("modules", [...watchModules, { title: "", contents: [] }]);
   };
 
+  
   const removeModule = (index) => {
     const updatedModules = [...watchModules];
     updatedModules.splice(index, 1);
