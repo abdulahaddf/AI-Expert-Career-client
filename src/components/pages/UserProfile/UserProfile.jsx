@@ -167,6 +167,11 @@ const UserProfile = () => {
                   <BiReset /> Reset Your Password
                 </Link>
               </div>
+              <div>
+                <Link className=" btn-add" to="/add-phone-number">
+                  <BiReset /> Add Your Phone Number
+                </Link>
+              </div>
             </div>
 {/* update profile pic modal */}
             <dialog id={`${userinfo.displayName}`} className="modal">

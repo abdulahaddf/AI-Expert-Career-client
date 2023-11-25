@@ -73,6 +73,7 @@ import SendNotifications from "../../Dashboard/Admin/Notification/SendNotificati
 import Notifications from "../../Dashboard/User/Notifications/Notifications";
 import Privacy from "../common/Privacy/privacy";
 import Refund from "../common/Terms&Conditions/Refund/Refund";
+import AddPhoneNumber from "../pages/UserProfile/AddPhoneNumber";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ export const router = createBrowserRouter([
       {
         path: "/forget",
         element: <ResetForm />,
+      },
+      {
+        path: "/add-phone-number",
+        element: <AddPhoneNumber />,
       },
       {
         path: "/terms&conditions",

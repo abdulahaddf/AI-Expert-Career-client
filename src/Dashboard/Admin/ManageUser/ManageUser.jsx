@@ -16,7 +16,7 @@ const ManageUser = () => {
   
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 11;
+  const itemsPerPage = 30;
 
   //make admin
   const handleMakeAdmin = (user) => {
@@ -133,7 +133,7 @@ const ManageUser = () => {
   if (loading) return <Loader />;
   return (
     <div>
-      <h3 className="text-3xl my-2 text-center">Total Users: {users.length}</h3>
+      <h3 className="text-3xl my-2 text-center">Total Users: {users.length - 1}</h3>
       <div className="overflow-x-auto">
         <table className="table table-zebra shadow-xl w-full text-center">
           {/* head */}

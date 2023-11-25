@@ -26,7 +26,7 @@ const EditConsultantProfile = () => {
   ];
   const servicesOptions = ["Research", "Career Consulting", "Project"];
 
-  const { control, handleSubmit, register, getValues } = useForm({
+  const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
       displayName: userinfo?.displayName,
       email: userinfo?.email,
@@ -103,6 +103,7 @@ const EditConsultantProfile = () => {
       twitter,
       github,
     } = data;
+    console.log(availability)
     const selectedDays = daysOfWeek.filter((day) =>
       getValues(`availability.${day}`)
     );
@@ -266,30 +267,32 @@ const EditConsultantProfile = () => {
               />
             </div>
             <div className="">
-              <label className="block text-sm font-semibold text-gray-800">
-                Availability
-              </label>
-              <div className="space-y-2 grid grid-cols-3">
-                {daysOfWeek.map((day) => (
-                  <div key={day} className="flex items-center gap-2 ">
-                    <Controller
-                      name={`availability.${day}`}
-                      control={control}
-                      render={({ field }) => (
-                        <>
-                          <input
-                            {...field}
-                            type="checkbox"
-                            className="checkbox checkbox-xs"
-                          />
-                          <label>{day}</label>
-                        </>
-                      )}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+  <label className="block text-sm font-semibold text-gray-800">
+    Availability
+  </label>
+  <div className="space-y-2 grid grid-cols-3">
+    {daysOfWeek.map((day) => (
+      <div key={day} className="flex items-center gap-2 ">
+        <Controller
+          name={`availability.${day}`}
+          control={control}
+          render={({ field }) => (
+            <>
+              <input
+                {...field}
+                type="checkbox"
+                className="checkbox checkbox-xs"
+                value={day} 
+                checked={field.value === true} 
+              />
+              <label>{day}</label>
+            </>
+          )}
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
             <div className="">
               <label className="block text-sm font-semibold text-gray-800">
@@ -322,7 +325,7 @@ const EditConsultantProfile = () => {
           Recent Works
         </label>
         {recentWorks?.map((field, index) => (
-          <div key={field.id}>
+          <div key={field}>
             <Controller
               name={`recentWorks[${index}].work`}
               control={control}
@@ -354,7 +357,7 @@ const EditConsultantProfile = () => {
               className="m-2"
               onClick={() => removeRecentWork(index)}
             >
-              Remove
+              <CiSquareRemove className="text-2xl" />
             </button>
           </div>
         ))}
