@@ -16,6 +16,7 @@ import CopyURLButton from "./CopyUrlButton";
 import { useState } from "react";
 import ConReview from "./ConReview";
 import ReactGA from "react-ga4";
+import { Helmet } from "react-helmet";
 
 const AiConsultanProfile = () => {
   const id = useParams();
@@ -33,6 +34,7 @@ const AiConsultanProfile = () => {
       });
   }, [id]);
   const {
+    _id,
     displayName,
     email,
     photoURL,
@@ -76,6 +78,15 @@ const AiConsultanProfile = () => {
   if (loading && consultant && !workingWith) return <Loader />;
   return (
     <div className=" md:w-4/5 mx-auto my-7">
+       <Helmet>
+        {/* <title>{blog.blogName}</title> */}
+        <meta property="og:url" content={`https://ai-expert.netlify.app/ai-consultant-profile/${_id}`}></meta>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={workingWith} />
+        <meta name="og:title" content={displayName} />
+        <meta name="og:description" content={workingWith} />
+        <meta name="og:image" content={photoURL} />
+      </Helmet>
       <div className="py-2  px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
         <div className="md:flex border shadow-sm p-3 lg:w-4/5 mx-auto">
           <div className="w-2/3 mx-auto md:w-1/2 flex justify-center items-center">

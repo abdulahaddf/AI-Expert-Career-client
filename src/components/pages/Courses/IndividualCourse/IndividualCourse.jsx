@@ -13,6 +13,7 @@ import ReactPlayer from "react-player";
 import PromoCode from "./PromoCode";
 import { FaHandPointRight } from "react-icons/fa";
 import {  IoIosArrowForward } from "react-icons/io";
+import { Helmet } from "react-helmet";
 
 
 
@@ -101,6 +102,14 @@ const IndividualCourse = () => {
   if (!title) return <Loader />;
   return (
    <div className="w-full">
+     <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={subtitle} />
+        <meta name="keywords" content={subtitle} />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={subtitle} />
+        <meta name="og:image" content={cover} />
+      </Helmet>
      <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">

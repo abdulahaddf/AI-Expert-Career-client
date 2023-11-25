@@ -28,7 +28,7 @@ const HomePartnership = () => {
       <div className="md:flex hidden items-center justify-center flex-wrap gap-6 mt-[40px]">
       <Marquee speed={100}>
         {
-          partners?.map(p => <div key={p._id}>
+          partners?.map(p => <div key={p}>
           <img
             src={p.imageURL}
             alt=""

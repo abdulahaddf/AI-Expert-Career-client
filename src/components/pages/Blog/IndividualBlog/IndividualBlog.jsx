@@ -25,6 +25,7 @@ import {
   TwitterShareButton,
 } from "react-share";
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
+import { Helmet } from "react-helmet";
 
 const IndividualBlog = () => {
   const { language } = useContext(MyContext);
@@ -54,27 +55,31 @@ const IndividualBlog = () => {
   //fetching data for individual blog
   console.log(name)
 
-  useEffect(() => {
-    const encodedName = encodeURIComponent(name);
-    const decodedName = decodeURIComponent(name);
-  console.log(encodedName)
-  console.log(decodedName)
-    // Use history.pushState to update the URL without triggering a page reload
-    const newUrl = new URL(window.location.href);
-    newUrl.pathname = `/singleblog/${encodedName}`;
-    window.history.pushState({ path: newUrl.toString() }, '', newUrl.toString());
+  // useEffect(() => {
+  //   const encodedName = encodeURIComponent(name);
+  //   const decodedName = decodeURIComponent(name);
+  // console.log(encodedName)
+  // console.log(decodedName)
+  //   // Use history.pushState to update the URL without triggering a page reload
+  //   const newUrl = new URL(window.location.href);
+  //   newUrl.pathname = `/singleblog/${encodedName}`;
+  //   window.history.pushState({ path: newUrl.toString() }, '', newUrl.toString());
   
-    // Fetch the data with the encoded name
-    fetch(`https://ai-server-sooty.vercel.app/blog/${encodedName}`)
+  //   // Fetch the data with the encoded name
+  //   fetch(`https://ai-server-sooty.vercel.app/blog/${encodedName}`)
+  //     .then((response) => response.json())
+  //     .then((data) => setBlog(data));
+  
+  //   // Ensure that if the component is unmounted, the URL is reset
+  //   return () => {
+  //     window.history.pushState({}, '', window.location.href);
+  //   };
+  // }, [name, userReaction, reload]);
+  useEffect(() => {
+    fetch(`https://ai-server-sooty.vercel.app/blog/${name}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
-  
-    // Ensure that if the component is unmounted, the URL is reset
-    return () => {
-      window.history.pushState({}, '', window.location.href);
-    };
   }, [name, userReaction, reload]);
-
 
 
 
@@ -287,6 +292,15 @@ useEffect(() => {
   if (!blog.imageURL) return <Loader />;
   return (
     <section className="md:px-4 md:py-5 mx-auto sm:max-w-lg md:max-w-full lg:max-w-screen-xl  lg:px-8 overflow-hidden">
+        <Helmet>
+        <title>{blog.blogName}</title>
+        <meta name="description" content={blog.blogName} />
+        <meta name="keywords" content={blog.selectedTags} />
+        <meta name="og:title" content={blog.blogName} />
+        {/* <meta name="og:description" content="Your blog post description for social media" /> */}
+        <meta name="og:image" content={blog.imageURL} />
+      </Helmet>
+      
       <div className="w-11/12 md:w-4/5 mx-auto">
         {/* lg:grid grid-cols-4 pt-[123px] gap-x-[15px] */}
         {/* <div className="lg:border-r-2 border-[#00000057] p-1">

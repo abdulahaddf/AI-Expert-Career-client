@@ -1,5 +1,4 @@
 import polygon1 from "./Assests/polygon-28.png";
-import polygon3 from "../../../assets/Courses/Ellipse 94.png";
 import polygon4 from "../../../assets/Courses/Rectangle 621.png";
 import polygon2 from "./Assests/polygon-31.png";
 import slideImg from "../../../assets/CourseSlider.png";
@@ -24,7 +23,7 @@ const CoursesForm = () => {
 
   return (
     <div className="w-5/6  mb-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-      <div className="lg:flex justify-between gap-20 item-center">
+      {/* <div className="lg:flex justify-between gap-20 item-center">
         <div className="w-full lg:w-1/2 relative">
           <h1 className=" text-[35px] font-bold">
             {language == "bn" ? "জয়েন করুন ফ্রি সেমিনারে" : "Join Free Seminar"}
@@ -130,7 +129,7 @@ const CoursesForm = () => {
             </button>
           </div>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 };
