@@ -1,44 +1,72 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
-
+import { useEffect } from 'react';
+import { PhoneAuthProvider, RecaptchaVerifier } from 'firebase/auth';
 
 const AddPhoneNumber = () => {
-  const {auth, user, profileUpdate } = useContext(AuthContext);
+  
+
+  const { user, auth } = useContext(AuthContext);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [verificationId, setVerificationId] = useState('');
+  const [recaptchaVerifier, setRecaptchaVerifier] = useState(null);
+
+  useEffect(() => {
+    // Initialize the recaptchaVerifier
+    const verifier = new RecaptchaVerifier('recaptcha-container', {
+      size: 'invisible', // or 'normal'
+      callback: (response) => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        // This callback will be called when the user successfully solves the reCAPTCHA.
+        console.log('reCAPTCHA solved:', response);
+      },
+      'expired-callback': () => {
+        // reCAPTCHA response expired, reset the reCAPTCHA widget.
+        // This callback will be called when the reCAPTCHA response expires.
+        console.log('reCAPTCHA expired');
+        // Reset the recaptchaVerifier when expired
+        setRecaptchaVerifier(null);
+      },
+    });
+
+    // Set the recaptchaVerifier in the state
+    setRecaptchaVerifier(verifier);
+  }, []);
 
   const handleSendVerificationCode = () => {
-    const phoneAuthProvider = new auth.PhoneAuthProvider();
-    phoneAuthProvider
-      .verifyPhoneNumber(phoneNumber,)
-      .then((verificationId) => {
-        setVerificationId(verificationId);
-        // Verification code sent successfully, handle UI update or further steps if needed
-        console.log('Verification code sent');
-      })
-      .catch((error) => {
-        // Handle error
-        console.error('Error sending verification code:', error);
-      });
+    if (recaptchaVerifier) {
+      const phoneAuthProvider = new PhoneAuthProvider(auth);
+      phoneAuthProvider
+        .verifyPhoneNumber(phoneNumber, recaptchaVerifier)
+        .then((vid) => {
+          setVerificationId(vid);
+          console.log('Verification code sent');
+        })
+        .catch((error) => {
+          console.error('Error sending verification code:', error);
+        });
+    } else {
+      console.error('RecaptchaVerifier not initialized');
+    }
   };
 
   const handleVerifyCode = () => {
-    const credential = auth.PhoneAuthProvider.credential(
+    const credential = PhoneAuthProvider.credential(
       verificationId,
       verificationCode
     );
 
     if (user) {
       user
-        .updatePhoneNumber(credential)
-        .then(() => {
+        .linkWithCredential(credential)
+        .then((linkedUser) => {
           // Phone number added successfully
-          console.log('Phone number added:', phoneNumber);
+          console.log('Phone number added:', linkedUser);
         })
         .catch((error) => {
           // Handle error
-          console.error('Error adding phone number:', error);
+          console.error('Error linking phone number:', error);
         });
     }
   };

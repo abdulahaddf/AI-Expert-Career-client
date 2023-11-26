@@ -10,6 +10,7 @@ import {
   updateProfile,
   FacebookAuthProvider,
   sendPasswordResetEmail,
+  PhoneAuthProvider,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
@@ -84,7 +85,7 @@ const AuthProvider = ({ children }) => {
 
     return () => unSubscribe();
   }, []);
-
+  const phoneAuthProvider = new PhoneAuthProvider(auth); 
   // console.log(auth, user);
   const authInfo = {
     user,
@@ -98,6 +99,7 @@ const AuthProvider = ({ children }) => {
     profileUpdate,
     signInFB,
     sendPasswordResetEmail,
+    phoneAuthProvider,
   };
 
   return (
