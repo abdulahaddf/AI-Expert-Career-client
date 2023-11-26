@@ -14,7 +14,7 @@ const AddPhoneNumber = () => {
 
   useEffect(() => {
     // Initialize the recaptchaVerifier
-    const verifier = new RecaptchaVerifier('recaptcha-container', {
+    const verifier = new RecaptchaVerifier(auth, {
       size: 'invisible', // or 'normal'
       callback: (response) => {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
