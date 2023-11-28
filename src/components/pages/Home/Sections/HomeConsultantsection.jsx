@@ -61,7 +61,7 @@ if(loading && consultants) return <Loader/>;
                 <SwiperSlide key={i} className="">
                  <Link
                   key={i}
-                  to={`/ai-consultant-profile/${c._id}`}
+                  to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`}
                   state={c}
                   className="flex items-center p-2  mb-5  "
                 >

@@ -19,20 +19,20 @@ import ReactGA from "react-ga4";
 import { Helmet } from "react-helmet";
 
 const AiConsultanProfile = () => {
-  const id = useParams();
-  // console.log(id);
+  const name = useParams();
+  console.log(name);
   const { language } = useContext(MyContext);
   const [consultant, setCon] = useState([])
   const [loading, setIsLoading]= useState(true)
   console.log(consultant);
   useEffect(() => {
-    fetch(`https://ai-server-sooty.vercel.app/user/${id.id}`)
+    fetch(`http://localhost:5000/user-name/${name.name.replace(/-/g, ' ').trim()}`)
       .then((response) => response.json())
       .then((data) => {
         setCon(data);
         setIsLoading(false);
       });
-  }, [id]);
+  }, [name]);
   const {
     _id,
     displayName,
@@ -74,13 +74,13 @@ const AiConsultanProfile = () => {
   // scrollTo
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [id]);
+  }, [name]);
   if (loading && consultant && !workingWith) return <Loader />;
   return (
     <div className=" md:w-4/5 mx-auto my-7">
        <Helmet>
         {/* <title>{blog.blogName}</title> */}
-        <meta property="og:url" content={`https://ai-expert.netlify.app/ai-consultant-profile/${_id}`}></meta>
+        <meta property="og:url" content={`https://ai-expert.netlify.app/consultant/${displayName.trim().replace(/\s+/g, '-')}`}></meta>
         <meta name="description" content={description} />
         <meta name="keywords" content={workingWith} />
         <meta name="og:title" content={displayName} />

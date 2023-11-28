@@ -66,7 +66,7 @@ const HomeConsultant = () => {
             {data?.map((itm) => (
               <SwiperSlide key={itm.id} className="">
                 <div
-                  to={"/ai-consultant-profile/2"}
+                  to={"/consultant/2"}
                   className="flex items-center p-2 pb-10   "
                 >
                   <div className="lg:flex p-6 bg-[#fff] lg:divide-x-2 divide-[#000000d7] shadow-lg">

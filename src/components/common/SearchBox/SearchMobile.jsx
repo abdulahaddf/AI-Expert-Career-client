@@ -147,7 +147,7 @@ const userinfo = consultants;
                   )}{" "}
                 </p>
                 {consultantData?.map((c) => (
-                  <Link to={`/ai-consultant-profile/${c._id}`} onClick={() => setIsOpen(false)} className="flex flex-col gap-2 my-4 border-b-2 pb-1" key={c._id}>
+                  <Link to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`} onClick={() => setIsOpen(false)} className="flex flex-col gap-2 my-4 border-b-2 pb-1" key={c._id}>
                     <img
                       className="h-12 w-12 rounded-full"
                       src={c.photoURL}

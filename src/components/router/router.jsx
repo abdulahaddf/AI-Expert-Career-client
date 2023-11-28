@@ -224,7 +224,7 @@ export const router = createBrowserRouter([
         element: <JobOpportunityIndibidual />,
       },
       {
-        path: "/ai-consultant-profile/:id",
+        path: "/consultant/:name",
         element: <AiConsultanProfile />,
       },
       {

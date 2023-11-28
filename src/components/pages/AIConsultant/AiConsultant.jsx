@@ -241,7 +241,7 @@ console.log(filteredCon)
               {paginatedCon.map((c, i) => (
                 <Link
                   key={i}
-                  to={`/ai-consultant-profile/${c._id}`}
+                  to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`}
                   state={c}
                   className="flex items-center p-2    "
                 >
