@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import useConsultants from "../../../hooks/UseConsultants";
 
 const SearchBox = () => {
-  const { consultants,  } = useConsultants();
+  const { consultants } = useConsultants();
   const { language } = useContext(MyContext);
   const [courses] = useCourses();
   const [search, setSearch] = useState("");
@@ -15,7 +15,7 @@ const SearchBox = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const userinfo = consultants;
-// console.log(isOpen)
+  // console.log(isOpen)
   const stripHTMLTags = (html) => {
     if (!html) return "";
     const tempElement = document.createElement("div");
@@ -82,11 +82,9 @@ const SearchBox = () => {
     setIsLoading(false);
   }, [search, courses]);
 
-
-
-useEffect(()=>{
-  setIsOpen(true);
-},[search])
+  useEffect(() => {
+    setIsOpen(true);
+  }, [search]);
   return (
     <div className="hidden xl:block relative top-0 left-5">
       <div className="flex items-center relative">
@@ -103,74 +101,90 @@ useEffect(()=>{
         />
         <AiOutlineSearch className="absolute left-4 text-black/50" />
       </div>
-      {
-        isOpen ? <>   {(CourseData.length > 0 || consultantData.length > 0) && (
-          <section className="absolute w-[50vw] mx-auto top-[60px] bg-white border p-3 shadow-lg flex justify-between">
-            <div className="h-96 w-1/2 p-3 overflow-y-auto border-r-2 border-black/10">
-              {CourseData.length > 0 ? (
-                <div>
-                  {/* <p className="mb-2">{CourseData.length} results found</p> */}
-                  <p className="mb-2">
-                    {CourseData.length == 1 ? (
-                      <>{CourseData.length} course found</>
-                    ) : (
-                      <>{CourseData.length} courses found</>
-                    )}{" "}
-                  </p>
-                  {CourseData?.map((course) => (
-                    <Link to={`/individualCourse/${course._id}`} onClick={() => setIsOpen(false)} className="flex items-start gap-2 my-4 border-b-2 pb-1" key={course._id}>
-                      <img
-                        className="h-12 w-12 rounded-full"
-                        src={course.insImage}
-                        alt={course.title}
-                      />
-                      <div>
-                        <h3 className="">{course.title}</h3>
-                        <p className="font-thin">
-                          Instructor: {course.instructor}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <p>No Courses Found</p>
-              )}
-            </div>
-            <div className="h-96 w-1/2 p-3 overflow-y-auto">
-              {consultantData.length > 0 ? (
-                <div className="h-fit p-3 px-5 overflow-y-auto">
-                  <p className="mb-2">
-                    {consultantData.length == 1 ? (
-                      <>{consultantData.length} consultant found</>
-                    ) : (
-                      <>{consultantData.length} consultants found</>
-                    )}{" "}
-                  </p>
-                  {consultantData?.map((c) => (
-                    <Link to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`} onClick={() => setIsOpen(false)} className="flex gap-2 my-4 border-b-2 pb-1" key={c._id}>
-                      <img
-                        className="h-12 w-12 rounded-full"
-                        src={c.photoURL}
-                        alt="Instructor"
-                      />
-                      <div>
-                        <h3 className="">{c.displayName}</h3>
-                        <p className="font-thin">
-                          {c?.designation ? c?.designation : ""}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <p>No Consultant Found</p>
-              )}
-            </div>
-          </section>
-        )}</> : ""
-      }
-   
+      {isOpen ? (
+        <>
+          {" "}
+          {(CourseData.length > 0 || consultantData.length > 0) && (
+            <section className="absolute w-[50vw] mx-auto top-[60px] bg-white border p-3 shadow-lg flex justify-between">
+              <div className="h-96 w-1/2 p-3 overflow-y-auto border-r-2 border-black/10">
+                {CourseData.length > 0 ? (
+                  <div>
+                    {/* <p className="mb-2">{CourseData.length} results found</p> */}
+                    <p className="mb-2">
+                      {CourseData.length == 1 ? (
+                        <>{CourseData.length} course found</>
+                      ) : (
+                        <>{CourseData.length} courses found</>
+                      )}{" "}
+                    </p>
+                    {CourseData?.map((course) => (
+                      <Link
+                        to={`/course/${course.title.trim().replace(/\s+/g, '-')}`}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-start gap-2 my-4 border-b-2 pb-1"
+                        key={course._id}
+                      >
+                        <img
+                          className="h-12 w-12 rounded-full"
+                          src={course.insImage}
+                          alt={course.title}
+                        />
+                        <div>
+                          <h3 className="">{course.title}</h3>
+                          <p className="font-thin">
+                            Instructor: {course.instructor}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No Courses Found</p>
+                )}
+              </div>
+              <div className="h-96 w-1/2 p-3 overflow-y-auto">
+                {consultantData.length > 0 ? (
+                  <div className="h-fit p-3 px-5 overflow-y-auto">
+                    <p className="mb-2">
+                      {consultantData.length == 1 ? (
+                        <>{consultantData.length} consultant found</>
+                      ) : (
+                        <>{consultantData.length} consultants found</>
+                      )}{" "}
+                    </p>
+                    {consultantData?.map((c) => (
+                      <Link
+                        to={`/consultant/${c.displayName
+                          .trim()
+                          .replace(/\s+/g, "-")}`}
+                        onClick={() => setIsOpen(false)}
+                        className="flex gap-2 my-4 border-b-2 pb-1"
+                        key={c._id}
+                      >
+                        <img
+                          className="h-12 w-12 rounded-full"
+                          src={c.photoURL}
+                          alt="Instructor"
+                        />
+                        <div>
+                          <h3 className="">{c.displayName}</h3>
+                          <p className="font-thin">
+                            {c?.designation ? c?.designation : ""}
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No Consultant Found</p>
+                )}
+              </div>
+            </section>
+          )}
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

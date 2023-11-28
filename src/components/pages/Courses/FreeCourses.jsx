@@ -180,7 +180,7 @@ const FreeCourses = () => {
               ) : (
                 <div className="flex w-full justify-between items-center mt-6">
                   <Link
-                    to={`/individualCourse/${course.id}`}
+                    to={`/course/${course.title.trim().replace(/\s+/g, '-')}`}
                     className="px-[26px]  py-3 text-white bg-[#FF265A]/90 font-semibold rounded-[10px]"
                   >
                     {language == "bn" ? "বিস্তারিত দেখুন" : "Buy"}

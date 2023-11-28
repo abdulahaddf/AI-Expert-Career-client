@@ -174,7 +174,7 @@ export const router = createBrowserRouter([
         element: <FreeCourses />,
       },
       {
-        path: "/individualCourse/:id",
+        path: "/course/:name",
         element: <IndividualCourse></IndividualCourse>,
       },
       {
@@ -492,7 +492,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/send-notifications",
         element: (
           <AdminRoute>
-            <SendNotifications/>
+            <SendNotifications />
           </AdminRoute>
         ),
       },

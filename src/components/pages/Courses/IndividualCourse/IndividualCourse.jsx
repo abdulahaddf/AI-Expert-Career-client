@@ -21,16 +21,16 @@ import { Helmet } from "react-helmet";
 const IndividualCourse = () => {
   const {  language } = useContext(MyContext);
   const [course, setCourse] = useState([]);
-  const { id } = useParams();
+  const { name } = useParams();
+  // console.log(name)
   const [isVisible, setIsVisible] = useState(true);
-  console.log(course);
-
+  // console.log(course);
   //fetching data for individual course
   useEffect(() => {
-    fetch(`https://ai-server-sooty.vercel.app/singlecourse/${id}`)
+    fetch(`https://ai-server-sooty.vercel.app/single-course/${name.replace(/-/g, ' ').trim()}`)
       .then((response) => response.json())
       .then((data) => setCourse(data));
-  }, [id]);
+  }, [name]);
 
  
 
