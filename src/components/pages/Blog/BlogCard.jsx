@@ -52,7 +52,7 @@ const BlogCard = ({ blog }) => {
 
       <div className="flex justify-between items-end mt-2">
         <div>
-          <Link to={`/blog/${blog.blogName}`}>
+          <Link to={`/blog/${blog.blogName.trim().replace(/\s+/g, '-')}`}>
             <button className="btn-black" onClick={incrementViewCount}>
               <FaArrowRight /> Read More
             </button>

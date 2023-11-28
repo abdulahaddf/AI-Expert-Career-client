@@ -1,10 +1,5 @@
-import facebook from "../Assests/facebook.svg";
-import linkdeIn from "../Assests/linkdeIn.svg";
-import share from "../Assests/share.svg";
 import Comment from "./Comment";
-import IndividualBlogCard from "./IndividualBlogCard";
 import NewsLetter from "../NewsLetter";
-import BlogItem from "./BlogItem/BlogItem";
 import { BiDislike, BiLike } from "react-icons/bi";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { useState } from "react";
@@ -36,7 +31,7 @@ const IndividualBlog = () => {
   const [userReaction, setUserReaction] = useState(null);
   const [cmnt, setComment] = useState("");
   const { name } = useParams();
-  const [randomBlogs, setRandomBlogs] = useState([]);
+  // const [randomBlogs, setRandomBlogs] = useState([]);
   const [randomCardBlog, setRandomCardBlog] = useState([]);
   const [reload, setReload] = useState(false);
   const currentURL = window.location.href;
@@ -53,30 +48,14 @@ const IndividualBlog = () => {
     ? allComments
     : allComments?.slice(0, 5);
   //fetching data for individual blog
-  console.log(name)
+  
 
-  // useEffect(() => {
-  //   const encodedName = encodeURIComponent(name);
-  //   const decodedName = decodeURIComponent(name);
-  // console.log(encodedName)
-  // console.log(decodedName)
-  //   // Use history.pushState to update the URL without triggering a page reload
-  //   const newUrl = new URL(window.location.href);
-  //   newUrl.pathname = `/singleblog/${encodedName}`;
-  //   window.history.pushState({ path: newUrl.toString() }, '', newUrl.toString());
-  
-  //   // Fetch the data with the encoded name
-  //   fetch(`https://ai-server-sooty.vercel.app/blog/${encodedName}`)
-  //     .then((response) => response.json())
-  //     .then((data) => setBlog(data));
-  
-  //   // Ensure that if the component is unmounted, the URL is reset
-  //   return () => {
-  //     window.history.pushState({}, '', window.location.href);
-  //   };
-  // }, [name, userReaction, reload]);
-  useEffect(() => {
-    fetch(`https://ai-server-sooty.vercel.app/blog/${name}`)
+    
+    // console.log(name)
+    const searchName = name.replace(/-/g, ' ').trim();
+    // console.log(searchName)
+    useEffect(() => {
+    fetch(`https://ai-server-sooty.vercel.app/blog/${searchName}`)
       .then((response) => response.json())
       .then((data) => setBlog(data));
   }, [name, userReaction, reload]);
@@ -270,10 +249,10 @@ useEffect(() => {
       }
 
       // Select the blogs from the shuffled array for recommendation
-      const randomBlogs = filtered.slice(0, 5);
+      // const randomBlogs = filtered.slice(0, 5);
       const randomCardBlog = filtered.slice(0, 4);
 
-      setRandomBlogs(randomBlogs);
+      // setRandomBlogs(randomBlogs);
       setRandomCardBlog(randomCardBlog);
     };
 
