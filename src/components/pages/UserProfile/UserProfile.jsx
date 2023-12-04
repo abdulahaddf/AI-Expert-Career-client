@@ -167,11 +167,11 @@ const UserProfile = () => {
                   <BiReset /> Reset Your Password
                 </Link>
               </div>
-              <div>
+              {/* <div>
                 <Link className=" btn-add" to="/add-phone-number">
                   <BiReset /> Add Your Phone Number
                 </Link>
-              </div>
+              </div> */}
             </div>
 {/* update profile pic modal */}
             <dialog id={`${userinfo.displayName}`} className="modal">
@@ -416,7 +416,7 @@ const UserProfile = () => {
                         Phone Number
                       </label>
                       <input
-                        type="number"
+                        type="tel"
                         id="phone"
                         defaultValue={userinfo?.phone}
                         {...register("phone")}

@@ -26,10 +26,10 @@ const AiConsultanProfile = () => {
   const [loading, setIsLoading]= useState(true)
   console.log(consultant);
   useEffect(() => {
-    fetch(`http://localhost:5000/user-name/${name.name.replace(/-/g, ' ').trim()}`)
+    fetch(`https://ai-server-sooty.vercel.app/user-name/${name.name.replace(/-/g, ' ').trim()}`)
       .then((response) => response.json())
       .then((data) => {
-        setCon(data);
+        setCon(data);-
         setIsLoading(false);
       });
   }, [name]);
@@ -83,6 +83,7 @@ const AiConsultanProfile = () => {
         <meta property="og:url" content={`https://ai-expert.netlify.app/consultant/${displayName.trim().replace(/\s+/g, '-')}`}></meta>
         <meta name="description" content={description} />
         <meta name="keywords" content={workingWith} />
+        <meta property="og:type" content="website"/>
         <meta name="og:title" content={displayName} />
         <meta name="og:description" content={workingWith} />
         <meta name="og:image" content={photoURL} />

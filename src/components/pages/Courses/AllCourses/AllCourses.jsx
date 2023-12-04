@@ -7,33 +7,25 @@ import CourseCard from "../CourseCard";
 import Loader from "../../../common/loader/Loader";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import { toast } from "react-toastify";
 import useTitle from "../../../../hooks/useTitle";
 import ReactGA from "react-ga4";
+import DynamicBanner from "./DynamicBanner";
 
 const AllCourses = () => {
   const { language } = useContext(MyContext);
   const [courses, isLoading] = useCourses();
   const freeCourses = courses?.filter(
     (course) => course.mainCategory == "Free"
-  );
-  const location = useLocation();
-  const fundamentalCourses = courses?.filter(
+    );
+    const location = useLocation();
+    const [banners, setBanners] = useState([]);
+    const fundamentalCourses = courses?.filter(
     (course) => course.mainCategory == "Fundamental"
   );
   const jobBasedCourses = courses?.filter(
     (course) => course.mainCategory == "Job Requirement Based");
-  const [banners, setBanners] = useState([]);
-  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
-  const [openPicModalIndex, setPicOpenModalIndex] = useState("");
-  useEffect(() => {
-    fetch(" https://ai-server-sooty.vercel.app/banners")
-      .then((response) => response.json())
-      .then((data) => setBanners(data));
-  }, [banners]);
-  const banner = banners[0];
+  
+
   const categories = [
     { category: "Machine learning", label: "Machine Learning Courses" },
     { category: "Data science", label: "Data Science Courses" },
@@ -52,40 +44,13 @@ const AllCourses = () => {
   // console.log(courses);  
 
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    if (data !== "null"){
-    try {
-      // Send Data to API
-      const apiResponse = await fetch(
-        "https://ai-server-sooty.vercel.app/seminar",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (!apiResponse.ok) {
-        throw new Error("Request failed");
-      }
-
-      const responseData = await apiResponse.json();
-
-      if (responseData.insertedId) {
-        if (openPicModalIndex) {
-          openPicModalIndex.close();
-        }
-        toast.success("You'll be notified");
-        reset();
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  }
-  }
+  // load dynamic banner data
+  useEffect(() => {
+    fetch(" https://ai-server-sooty.vercel.app/banners")
+      .then((response) => response.json())
+      .then((data) => setBanners(data));
+  }, []);
+ 
   
 
 
@@ -97,93 +62,13 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
   window.scrollTo(0,0);
 }, [location]);
 
-  if (isLoading && !banner && !courses) return <Loader />;
+  if (isLoading && !banners && !courses) return <Loader />;
   return (
     <div className="md:w-4/5 px-3 md:px-0 mx-auto">
       {/* Banner */}
       <div className="my-10 md:w-11/12 flex flex-col gap-5 lg:flex-row mx-auto">
         {/* Dynamic banners and titles */}
-        <div className="border-[1px] border-black/25 lg:w-1/2 mx-auto rounded-lg p-3 order-1 lg:order-2 space-y-3 ">
-          <h1 className="text-2xl text-center">{banner?.title}</h1>
-          <img src={banner?.banner} alt="" />
-          <h2>{banner?.subtitle}</h2>
-          <button
-            onClick={() => {
-              const modalId = `${banner._id}`;
-              const modal = document.getElementById(modalId);
-              setPicOpenModalIndex(modal);
-              if (modal) {
-                modal.showModal();
-              }
-            }}
-            className="btn-add w-full"
-          >
-            Join Free seminar
-          </button>
-
-          <dialog id={`${banner?._id}`} className="modal">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              method="dialog"
-              className="modal-box   text-black "
-            >
-              <button
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                onClick={() => {
-                  const modalId = `${banner._id}`;
-                  const modal = document.getElementById(modalId);
-                  if (modal) {
-                    modal.close();
-                  }
-                }}
-              >
-                ✕
-              </button>
-
-              <div className="mb-2">
-                <h1 className="text-2xl text-center font-bold mb-3">Join Free seminar</h1>
-                <p className="">Your Name:</p>
-                <input
-                  type="text"
-                  {...register("name", { required: true })}
-                  className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
-                />
-              </div>
-              <div className="mb-2">
-                <p className="">Phone Number:</p>
-                <input
-                  type="tel"
-                  {...register("phone", {
-                    required: "Phone number is required",
-                    pattern: {
-                      value: /^01\d{9}$/,
-                      message: "Please enter a valid phone number",
-                    },
-                  })}
-                  
-                  className="block   mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
-                />
-              </div>
-              <div className="mb-2">
-                <p className="">Email:</p>
-                <input
-                  type="email"
-                  {...register("email", { required: true })}
-                  className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
-                />
-              </div>
-              {errors.phone ?   <p className="text-red-500 text-sm">{errors.phone.message}</p> : ""}
-              <div className="mt-6">
-                <button type="submit" className="btn-add">
-                  Confirm
-                </button>
-              </div>
-            </form>
-          </dialog>
-        </div>
+       <DynamicBanner banners={banners}/>
 
         {/* Course categories */}
        <div className="md:w-3/5 mx-auto">

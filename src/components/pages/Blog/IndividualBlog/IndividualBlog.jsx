@@ -275,8 +275,9 @@ useEffect(() => {
         <title>{blog.blogName}</title>
         <meta name="description" content={blog.blogName} />
         <meta name="keywords" content={blog.selectedTags} />
+        <meta property="og:type" content="website"/>
         <meta name="og:title" content={blog.blogName} />
-        {/* <meta name="og:description" content="Your blog post description for social media" /> */}
+        <meta name="og:description" content={blog.category} />
         <meta name="og:image" content={blog.imageURL} />
       </Helmet>
       

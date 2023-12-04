@@ -119,14 +119,14 @@ const Blog = () => {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-5">
+    <div className="px-4 py-5 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-5 overflow-hidden">
       {/* Slider */}
       <div>
         <FeaturedBlogs featuredBlogs={featuredBlogs} />
       </div>
 
       {/* Blogs */}
-      <div className=" py-5">
+      <div className=" py-5 ">
 
 
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">

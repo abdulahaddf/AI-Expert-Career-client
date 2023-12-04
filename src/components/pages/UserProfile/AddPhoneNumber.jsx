@@ -1,113 +1,146 @@
-import { useContext, useState } from 'react';
-import { AuthContext } from '../../../Context/AuthProvider';
-import { useEffect } from 'react';
-import { PhoneAuthProvider, RecaptchaVerifier } from 'firebase/auth';
+import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import { CgSpinner } from "react-icons/cg";
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { PhoneAuthProvider, RecaptchaVerifier, signInWithPhoneNumber, updateProfile } from "firebase/auth";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
+import { toast } from "react-toastify";
+import OtpInput from 'react-otp-input';
 
-const AddPhoneNumber = () => {
-  
-
-  const { user, auth } = useContext(AuthContext);
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [verificationCode, setVerificationCode] = useState('');
-  const [verificationId, setVerificationId] = useState('');
-  const [recaptchaVerifier, setRecaptchaVerifier] = useState(null);
-
-  useEffect(() => {
-    // Initialize the recaptchaVerifier
-    const verifier = new RecaptchaVerifier(auth, {
-      size: 'invisible', // or 'normal'
-      callback: (response) => {
-        // reCAPTCHA solved, allow signInWithPhoneNumber.
-        // This callback will be called when the user successfully solves the reCAPTCHA.
-        console.log('reCAPTCHA solved:', response);
-      },
-      'expired-callback': () => {
-        // reCAPTCHA response expired, reset the reCAPTCHA widget.
-        // This callback will be called when the reCAPTCHA response expires.
-        console.log('reCAPTCHA expired');
-        // Reset the recaptchaVerifier when expired
-        setRecaptchaVerifier(null);
-      },
-    });
-
-    // Set the recaptchaVerifier in the state
-    setRecaptchaVerifier(verifier);
-  }, []);
-
-  const handleSendVerificationCode = () => {
-    if (recaptchaVerifier) {
-      const phoneAuthProvider = new PhoneAuthProvider(auth);
-      phoneAuthProvider
-        .verifyPhoneNumber(phoneNumber, recaptchaVerifier)
-        .then((vid) => {
-          setVerificationId(vid);
-          console.log('Verification code sent');
-        })
-        .catch((error) => {
-          console.error('Error sending verification code:', error);
-        });
-    } else {
-      console.error('RecaptchaVerifier not initialized');
+const App = () => {
+  const {auth, user } = useContext(AuthContext);
+  const [otp, setOtp] = useState("");
+  const [ph, setPh] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showOTP, setShowOTP] = useState(false);
+  const [confirmationResult, setConfirmationResult] = useState(null);
+console.log(user)
+function
+ 
+onCaptchVerify() {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            onSignup();
+          },
+          "expired-callback": () => {},
+        },
+        auth
+      );
     }
-  };
+  }
 
-  const handleVerifyCode = () => {
-    const credential = PhoneAuthProvider.credential(
-      verificationId,
-      verificationCode
-    );
+  function
+ 
+onSignup() {
+    setLoading(true);
+    onCaptchVerify();
 
-    if (user) {
-      user
-        .linkWithCredential(credential)
-        .then((linkedUser) => {
-          // Phone number added successfully
-          console.log('Phone number added:', linkedUser);
-        })
-        .catch((error) => {
-          // Handle error
-          console.error('Error linking phone number:', error);
-        });
-    }
-  };
+    const appVerifier = window.recaptchaVerifier;
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
+    const formatPh = "+" + ph;
 
-  const handleVerificationCodeChange = (e) => {
-    setVerificationCode(e.target.value);
-  };
+    signInWithPhoneNumber(auth, formatPh, appVerifier)
+      .then((confirmationResult) => {
+        setConfirmationResult(confirmationResult);
+        setLoading(false);
+        setShowOTP(true);
+        toast.success("OTP sent successfully!");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+  }
+
+  function onOTPVerify() {
+    setLoading(true);
+    confirmationResult
+      .confirm(otp)
+      .then(async (res) => {
+        console.log(res);
+        setLoading(false);
+
+        // Link the phone number to the existing user
+        const credential = PhoneAuthProvider.credential(confirmationResult, otp);
+        await user.linkWithCredential(credential);
+
+        toast.success("Phone number added successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }
 
   return (
-    <div className='h-screen flex items-center justify-center'>
-      {user ? (
-        <div className='flex items-center justify-center'>
-          <p>Welcome, {user.displayName}!</p>
-          <label>
-            Phone Number:
-            <input
-              className='input-primary'
-              type="tel"
-              value={phoneNumber}
-              onChange={handlePhoneNumberChange}
-            />
-          </label>
-          <button className='btn' onClick={handleSendVerificationCode}>Send Verification Code</button>
-          <input
-            className='input-primary'
-            type="text"
-            value={verificationCode}
-            onChange={handleVerificationCodeChange}
-            placeholder="Enter Verification Code"
-          />
-          <button className='btn' onClick={handleVerifyCode}>Verify</button>
-        </div>
-      ) : (
-        <p>Please sign in with Gmail to add a phone number.</p>
-      )}
-    </div>
+    <section className=" flex items-center justify-center h-screen">
+      <div>
+        <div id="recaptcha-container"></div>
+        
+          <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
+           
+            {showOTP ? (
+              <>
+                <div className=" w-fit mx-auto p-4 rounded-full">
+                  <BsFillShieldLockFill size={30} />
+                </div>
+                <label
+                  htmlFor="otp"
+                  className="font-bold text-xl text-center"
+                >
+                  Enter your OTP
+                </label>
+                <OtpInput
+      value={otp}
+      onChange={setOtp}
+      numInputs={6}
+      renderSeparator={<span>-</span>}
+      renderInput={(props) => <input {...props} />}
+    />
+                <button
+                  onClick={onOTPVerify}
+                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 rounded"
+                >
+                  {loading && (
+                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                  )}
+                  <span>Verify OTP</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
+                  <BsTelephoneFill size={30} />
+                </div>
+                <label
+                  htmlFor=""
+                  className="font-bold text-xl text-center"
+                >
+                  Verify your phone number
+                </label>
+                <PhoneInput country={"bd"} value={ph} onChange={setPh} />
+                <button
+                  onClick={onSignup}
+                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 rounded"
+                >
+                  {loading && (
+                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                  )}
+                  <span>Send code via SMS</span>
+                </button>
+              </>
+            )}
+          </div>
+       
+      </div>
+    </section>
   );
 };
 
-export default AddPhoneNumber;
+export default App;
