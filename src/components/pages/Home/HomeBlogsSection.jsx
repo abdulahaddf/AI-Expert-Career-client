@@ -81,7 +81,7 @@ const HomeBlogsSection = () => {
                     {blogs
                       .filter((blog) => blog.category === category)
                       .slice(0, 8) // Display the first four blogs in this category
-                      .map((filteredBlog, idx) => (
+                      .map((filteredBlog) => (
                         <BlogCard key={filteredBlog._id} blog={filteredBlog} />
                       ))}
                   </div>

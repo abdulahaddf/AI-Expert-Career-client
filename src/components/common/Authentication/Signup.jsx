@@ -343,7 +343,9 @@ const handleForm = (data) => {
         type={reshowPassword ? "text" : "password"}
         className="bg-[#fff0] border-b border-[#8E8E8E] w-full mb-7 px-2 py-3"
         name="repassword"
-        placeholder="Confirm your password"
+        placeholder={
+          language === "bn" ? "পাসওয়ার্ড নিশ্চিত করুন" : "Confirm your password"
+        }
         {...register("repassword", {
           required: "Password is required",
           minLength: {
@@ -422,12 +424,14 @@ const handleForm = (data) => {
             className= "mt-8 text-md font-normal text-center text-gray-700"
        
           >
-            Already have an account?{" "}
+             {language == "bn" ? "এ্যাকাউন্ট তৈরী আছে? " : "Already have an account? "}
+            
             <Link
               to="/login"
               className="font-medium text-lg text-primary  hover:underline hover:text-primary"
             >
-              Sign In Here
+               {language == "bn" ? " সাইন ইন করুন" : " Sign In Here"}
+             
             </Link>
           </p>
             </div>

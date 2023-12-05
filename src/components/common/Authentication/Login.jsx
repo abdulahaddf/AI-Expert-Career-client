@@ -314,13 +314,15 @@ const Login = () => {
             className= "mt-8 text-md font-normal text-center text-gray-700"
        
           >
-            Don't have an account?{" "}
+             {language == "bn" ? "কোন এ্যাকাউন্ট নেই?" : "Don't have an account?"}
+           
             <Link
               to="/signup"
               // state ={{from : location.state}}
               className="font-medium text-lg text-primary  hover:underline hover:text-primary"
-            >
-              Sign Up Here
+              >
+              {language == "bn" ? "  সাইন আপ করুন" : "  Sign Up Here"}
+            
             </Link>
           </p>
             </div>
