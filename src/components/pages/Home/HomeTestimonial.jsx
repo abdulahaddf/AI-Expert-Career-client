@@ -1,11 +1,9 @@
-import line from "../../../assets/line.svg";
-import TestImg from "../../../assets/test.svg";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-
 
 import { BsQuote } from "react-icons/bs";
 import { MyContext } from "../../../Context/Context";
@@ -41,7 +39,6 @@ const HomeTestimonial = () => {
           // spaceBetween={30}
           autoplay={{
             delay: 3000,
-            disableOnInteraction: true,
           }}
           loop={true}
           breakpoints={{

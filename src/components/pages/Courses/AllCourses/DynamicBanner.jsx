@@ -6,6 +6,10 @@ import { toast } from "react-toastify";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination'
+import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper';
+
+
+
 const DynamicBanner = ({ banners }) => {
   const {
     register,
@@ -51,14 +55,10 @@ const DynamicBanner = ({ banners }) => {
     }
   };
   return (
-    <div className="w-1/2 order-1 lg:order-2 space-y-3">
+    <div className="md:w-1/2 order-1 lg:order-2 space-y-3">
       <Swiper
-       autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-       pagination={true}
-       className="mySwiper"
+      modules={[Autoplay]}
+      autoplay
       >
         {banners?.map((banner) => (
             <SwiperSlide key={banner._id}>
