@@ -175,7 +175,7 @@ console.log(filteredCon)
             </h1>
             <p className="text-center ">
               {language == "bn"
-                ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করা"
+                ? "আমাদের এআই ভিত্তিক কন্সাল্টেন্সি সেবার মাধ্যমে আপনি আপনার এআই ক্যারিয়ার গড়তে একটি সুন্দর ও সংগঠিত রোডম্যাপ খেতে পারেন।আমাদের দক্ষ এক্সপার্টদের দ্বারা পরিচালিত এই পরিষেবায় আপনি আপনার এআই ক্যারিয়ারের সকল সমস্যার সমাধান করতেন পারবেন।"
                 : "No matter what background you are a student or learner, the right roadmap can take you to the pinnacle of success. Our AI roadmap and consultancy services are developed by these experts in various fields"}
             </p>
             <div className="w-fit mx-auto my-8">

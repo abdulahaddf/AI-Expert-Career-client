@@ -275,7 +275,8 @@ const Login = () => {
                       to="/forget"
                       className="text-xs text-red hover:underline"
                     >
-                      Forget Password?
+                  {language === "bn" ? "পাসওয়ার্ড ভূলে গিয়েছেন?" : "Forget Password?"}
+                    
                     </Link>
                   </div>
                   <button

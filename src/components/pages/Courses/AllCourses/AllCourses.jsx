@@ -98,7 +98,7 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
 
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
-          {language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Free Courses"}
+          {language == "bn" ? "ফ্রি কোর্স সমূহ" : "Free Courses"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
 
@@ -122,7 +122,7 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
           {language == "bn"
-            ? "প্রজেক্ট বেইজড কোর্সগুলো"
+            ? "ফান্ডামেন্টাল কোর্স সমূহ"
             : "Fundamental Courses"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
@@ -150,7 +150,7 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
           {language == "bn"
-            ? "প্রজেক্ট বেইজড কোর্সগুলো"
+            ? "জব রিকয়ারমেন্ট বেসড কোর্স সমূহ"
             : "Job Requirement Based Courses"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
