@@ -37,11 +37,14 @@ const HomeBlogsSection = () => {
   return (
     <div className="my-20">
       <h2 className="text-[30px] font-bold text-center">
-        {language == "bn" ? "ব্লগ সমূহ" : "Read Your Opportunities"}
+        {language == "bn"
+          ? "আপনার পছন্দের ব্লগ পড়ুন"
+          : "Read Your Opportunities"}
       </h2>
       <h3 className="text-center">
-        We are the first ever Artificial Intelligence based Ed-tech and
-        Consultancy Service Platform in Bangladesh
+        {language == "bn"
+          ? "আই এর গতিশীল বিশ্বকে আরো উন্মোচন করতে চোখ রাখুন আমাদের ব্লগগুলিতে।"
+          : "Stay informed and inspired as our expertly crafted blogs unravel the dynamic world of AI."}
       </h3>
       {/* <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " /> */}
       <div className=" mx-auto px-2 my-10 sm:px-0">
