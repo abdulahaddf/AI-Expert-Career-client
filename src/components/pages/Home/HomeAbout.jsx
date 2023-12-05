@@ -17,39 +17,39 @@ const HomeAbout = () => {
     {
       id: "1",
       img: aboutSvg1,
-      headline: "Ai Experts Contents",
-      headlineBn: "এ আই এক্সপার্টদের কন্টেন্ট",
-      info: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ",
+      headline: "AI Blogs & Newsletter",
+      headlineBn: "AI Blogs & Newsletter",
+      info: "Elevate your online presence with our AI-based blogs and news. Stay at the forefront of innovation with updated Blogs tailored to your niche, crafted by the synergy of human creativity and artificial intelligence. ",
       infoBn:
-        "হল মুদ্রণ এবং টাইপসেটিং শিল্পের ডামি পাঠ্য। লোরেম ইপসাম 1500 এর দশক থেকে শিল্পের মানক ডামি পাঠ্য, যখন একটি অজানা প্রিন্টার একটি গ্যালি নিয়েছিল",
+        "আমাদের এ আই বিষয়ক ব্লগ এবং নিউজলেটার পড়ার মাধ্যমে সমৃদ্ধ করুন  আপনার জ্ঞানের পরিধি। সৃজনশীলতার সমন্বয় দ্বারা নির্মিত নতুন নতুন সব ব্লগ পড়ে  উধভাবনের জগতে প্রথম সারির একজন হয়ে উঠুন আজই।",
     },
     {
       id: "2",
       img: aboutSvg2,
-      headline: "AI Career Consultancy",
-      headlineBn: "এ আই ক্যারিয়ার কন্সালটেন্সি",
-      info: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,  ",
+      headline: "Qualitiful AI Courses",
+      headlineBn: "Qualitiful AI Courses",
+      info: "Embark on a transformative learning journey with our AI-based courses. Gain hands-on experience and master the zest of AI, positioning yourself at the forefront of the tech revolution. ",
       infoBn:
-        "হল মুদ্রণ এবং টাইপসেটিং শিল্পের ডামি পাঠ্য। লোরেম ইপসাম 1500 এর দশক থেকে শিল্পের মানক ডামি পাঠ্য, যখন একটি অজানা প্রিন্টার একটি গ্যালি নিয়েছিল",
+        "এ আই ফিল্ডে আপনার শেখার যাত্রা শুরু হোক আমাদের এ আই কোর্সের মাধ্যমে। হ্যান্ডস অন প্র্যাকটিস  এবং এ আই এর সকল সেক্টরের নানান বিষয়ের উপর রয়েছে আমাদের এ আই  কোর্স সমূহ যা আপনার এ আই  ক্যারিয়ার গড়তে আপনাকে রাখবে এক ধাপ এগিয়ে।",
     },
     {
       id: "3",
       img: aboutSvg3,
-      headline: "Corporate AI Consultancy",
-      headlineBn: "কর্পোরেট এ আই কন্সালটেন্সি",
-      info: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,  ",
+      headline: "AI Career Consultancy",
+      headlineBn: "AI Career Consultancy",
+      info: "Kickstart your AI career under the supervise of our AI Career Consultancy. Let us guide you towards strategic decisions that unlock doors to exciting opportunities in the ever-evolving world of AI. ",
       infoBn:
-        "হল মুদ্রণ এবং টাইপসেটিং শিল্পের ডামি পাঠ্য। লোরেম ইপসাম 1500 এর দশক থেকে শিল্পের মানক ডামি পাঠ্য, যখন একটি অজানা প্রিন্টার একটি গ্যালি নিয়েছিল",
+        "এ আই ক্যারিয়ারের যাত্রা শুরুর প্রথম ধাপ হোক আমাদের ক্যারিয়ার কন্সাল্টেন্টদের হাত ধরেই। এ আই ইন্ডাস্ট্রির সকল নামকরা এক্সপার্টদের মাধ্যমে কন্সাল্টেন্সি সেবা নিয়ে গড়ে তুলুন আপনার এআই ক্যারিয়ার।",
     },
    
     {
       id: "5",
       img: aboutSvg5,
-      headline: "Job ready workshop program",
-      headlineBn: "জব রেডি ওয়ার্কশপ প্রোগ্রাম",
-      info: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ",
+      headline: "Bangla AI Magazine",
+      headlineBn: "Bangla AI Magazine",
+      info: "We are offering the first ever Bangla language AI magazine in Bangladesh. Widen your knowledge over the world of AI simply going through our Magazines. ",
       infoBn:
-        " মুদ্রণ এবং টাইপসেটিং শিল্পের ডামি পাঠ্য। লোরেম ইপসাম 1500 এর দশক থেকে শিল্পের মানক ডামি পাঠ্য, যখন একটি অজানা প্রিন্টার একটি গ্যালি নিয়েছিল",
+        " বাংলাদেশে প্রথম সম্পুর্ণ এ আই  বিষয়ক তথ্য নিয়ে তৈরী আমাদের এআই মাগাজিন। এ আই জগত নিয়ে আরো জানতে ও জ্ঞান আরোহণ করতে পারেন আমাদের ম্যাগাজিনটি পড়ে।",
     },
  
    
