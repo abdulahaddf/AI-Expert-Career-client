@@ -36,13 +36,13 @@ if(loading && consultants) return <Loader/>;
             </h1>
             <p className="mt-6 w-[80%]">
               {language === "bn"
-                ? "আপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে পৌছে দিতে পারে সফলতার শীর্ষে। আমাদের এ আই রোডম্যাপ এবং কনসাল্টেন্সি সার্ভিস বিভিন্ন এ এই এক্সপার্টদের দ্বারা তৈরি করাআপনি যেকোনো বেকগ্রাউন্ডের স্টুডেন্ট বা লার্নার হোন না কেনো, সঠিক রোডম্যাপ পারে আপনাকে আপনাকে"
-                : "We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh."}
+                ? "সঠিক ক্যারিয়ার গড়তে এবং ক্যারিয়ারের সকল সমস্যা সমাধান করতে বেছে নিতে পারেন আপনার পছন্দের কস্নাল্টেন্টকে।"
+                : "Uproot all your career problems in just one session with our career Consultant."}
             </p>
             <div className="mt-5">
           <Link to="/ai-consultant">
             <button className="btn-view w-full md:w-fit">
-             <BiSupport/> Go for Free Consultancy 
+             <BiSupport/> {language == "bn" ? "ফ্রি কল করুন" : "Go for Free Consultancy "} 
             </button>
           </Link>
         </div>
