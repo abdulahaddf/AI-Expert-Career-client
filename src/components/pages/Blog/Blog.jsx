@@ -150,9 +150,10 @@ const Blog = () => {
                <div className="hidden md:block">
                <div className="section bg-black md:h-96 flex flex-col justify-center">
                   <h2 className="text-xl font-semibold text-white">
-                    Are you Want to Know The Proper Roadmap of Al Journey?
+                      {language == "bn" ? "আপনি কি এআই ক্যারিয়ার গড়ার জন্যে পরিপূর্ণ রোডম্যাপ পেতে চান?" : "Are you Want to Know The Proper Roadmap of Al Journey?"}
+                    
                   </h2>
-                  <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/ai-consultant">Let&apos;s Go</Link>
+                  <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/ai-consultant"> {language == "bn" ? "এগিয়ে জান" : "Let's Go"}</Link>
                 </div>
                </div>
               </div>

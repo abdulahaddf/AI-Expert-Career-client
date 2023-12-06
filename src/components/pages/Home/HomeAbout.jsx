@@ -7,6 +7,13 @@ import aboutSvg5 from "../../../assets/aboutSvg5.svg";
 import aboutSvg6 from "../../../assets/aboutSvg6.svg";
 import aboutSvg7 from "../../../assets/aboutSvg4.svg";
 import aboutSvg8 from "../../../assets/aboutSvg2.svg";
+import consultantI from "../../../../src/assets/homeAboutUs/consul.png"
+import courseI from "../../../../src/assets/homeAboutUs/course.png"
+import blogI from "../../../../src/assets/homeAboutUs/blog.png"
+import magazI from "../../../../src/assets/homeAboutUs/magazine.png"
+
+
+
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 
@@ -15,38 +22,39 @@ const HomeAbout = () => {
 
   const aboutCard = [
     {
-      id: "1",
-      img: aboutSvg1,
-      headline: "AI Blogs & Newsletter",
-      headlineBn: "AI Blogs & Newsletter",
-      info: "Elevate your online presence with our AI-based blogs and news. Stay at the forefront of innovation with updated Blogs tailored to your niche, crafted by the synergy of human creativity and artificial intelligence. ",
-      infoBn:
-        "আমাদের এ আই বিষয়ক ব্লগ এবং নিউজলেটার পড়ার মাধ্যমে সমৃদ্ধ করুন  আপনার জ্ঞানের পরিধি। সৃজনশীলতার সমন্বয় দ্বারা নির্মিত নতুন নতুন সব ব্লগ পড়ে  উধভাবনের জগতে প্রথম সারির একজন হয়ে উঠুন আজই।",
-    },
-    {
-      id: "2",
-      img: aboutSvg2,
-      headline: "Qualitiful AI Courses",
-      headlineBn: "Qualitiful AI Courses",
-      info: "Embark on a transformative learning journey with our AI-based courses. Gain hands-on experience and master the zest of AI, positioning yourself at the forefront of the tech revolution. ",
-      infoBn:
-        "এ আই ফিল্ডে আপনার শেখার যাত্রা শুরু হোক আমাদের এ আই কোর্সের মাধ্যমে। হ্যান্ডস অন প্র্যাকটিস  এবং এ আই এর সকল সেক্টরের নানান বিষয়ের উপর রয়েছে আমাদের এ আই  কোর্স সমূহ যা আপনার এ আই  ক্যারিয়ার গড়তে আপনাকে রাখবে এক ধাপ এগিয়ে।",
-    },
-    {
       id: "3",
-      img: aboutSvg3,
+      img: consultantI,
       headline: "AI Career Consultancy",
-      headlineBn: "AI Career Consultancy",
+      headlineBn: "এ আই ক্যারিয়ার কন্সাল্টেন্সি",
       info: "Kickstart your AI career under the supervise of our AI Career Consultancy. Let us guide you towards strategic decisions that unlock doors to exciting opportunities in the ever-evolving world of AI. ",
       infoBn:
         "এ আই ক্যারিয়ারের যাত্রা শুরুর প্রথম ধাপ হোক আমাদের ক্যারিয়ার কন্সাল্টেন্টদের হাত ধরেই। এ আই ইন্ডাস্ট্রির সকল নামকরা এক্সপার্টদের মাধ্যমে কন্সাল্টেন্সি সেবা নিয়ে গড়ে তুলুন আপনার এআই ক্যারিয়ার।",
     },
    
     {
-      id: "5",
-      img: aboutSvg5,
+      id: "2",
+      img: courseI,
+      headline: "Qualitiful AI Courses",
+      headlineBn: "মানসম্পন্ন এ আই কোর্স সমূহ",
+      info: "Embark on a transformative learning journey with our AI-based courses. Gain hands-on experience and master the zest of AI, positioning yourself at the forefront of the tech revolution. ",
+      infoBn:
+        "এ আই ফিল্ডে আপনার শেখার যাত্রা শুরু হোক আমাদের এ আই কোর্সের মাধ্যমে। হ্যান্ডস অন প্র্যাকটিস  এবং এ আই এর সকল সেক্টরের নানান বিষয়ের উপর রয়েছে আমাদের এ আই  কোর্স সমূহ যা আপনার এ আই  ক্যারিয়ার গড়তে আপনাকে রাখবে এক ধাপ এগিয়ে।",
+    },
+    
+    {
+      id: "1",
+      img: blogI,
+      headline: "AI Blogs & Newsletter",
+      headlineBn: "এআই ব্লগ ও নিউজলেটার ",
+      info: "Elevate your online presence with our AI-based blogs and news. Stay at the forefront of innovation with updated Blogs tailored to your niche, crafted by the synergy of human creativity and artificial intelligence. ",
+      infoBn:
+        "আমাদের এ আই বিষয়ক ব্লগ এবং নিউজলেটার পড়ার মাধ্যমে সমৃদ্ধ করুন  আপনার জ্ঞানের পরিধি। সৃজনশীলতার সমন্বয় দ্বারা নির্মিত নতুন নতুন সব ব্লগ পড়ে  উধভাবনের জগতে প্রথম সারির একজন হয়ে উঠুন আজই।",
+    },
+    {
+      id: "4",
+      img: magazI,
       headline: "Bangla AI Magazine",
-      headlineBn: "Bangla AI Magazine",
+      headlineBn: "বাংলা এ আই মাগাজিন",
       info: "We are offering the first ever Bangla language AI magazine in Bangladesh. Widen your knowledge over the world of AI simply going through our Magazines. ",
       infoBn:
         " বাংলাদেশে প্রথম সম্পুর্ণ এ আই  বিষয়ক তথ্য নিয়ে তৈরী আমাদের এআই মাগাজিন। এ আই জগত নিয়ে আরো জানতে ও জ্ঞান আরোহণ করতে পারেন আমাদের ম্যাগাজিনটি পড়ে।",

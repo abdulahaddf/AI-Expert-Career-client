@@ -6,8 +6,11 @@ import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { FaUpRightFromSquare } from "react-icons/fa6";
+import { useContext } from "react";
+import { MyContext } from "../../../Context/Context";
 
 const FeaturedBlogs = ({ featuredBlogs }) => {
+  const { language } = useContext(MyContext);
   console.log(featuredBlogs);
 
   return (
@@ -49,7 +52,7 @@ const FeaturedBlogs = ({ featuredBlogs }) => {
                       className="btn-view flex items-center "
                       to={`/blog/${b.blogName}`}
                     >
-                      <FaUpRightFromSquare /> Read More
+                      <FaUpRightFromSquare />  {language == "bn" ? "আরো পড়ুন" : "Read More"}
                     </Link>
                   </button>
                 </div>

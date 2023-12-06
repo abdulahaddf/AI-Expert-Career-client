@@ -38,6 +38,7 @@ const EditCourse = () => {
       courseFee: course?.courseFee,
       discount: course?.discount,
       duration: course?.duration,
+      selectedFeatures: course?.features,
       instructor: course?.instructor,
       insDesignation: course?.insDesignation,
       modules: course?.modules,
@@ -202,6 +203,7 @@ const EditCourse = () => {
           courseFee,
           discount,
           duration,
+          features:  selectedFeatures.length > 0 ? selectedFeatures : course.features,
           category,
           mainCategory,
           instructor,
@@ -275,7 +277,7 @@ const EditCourse = () => {
           courseFee,
           discount,
           duration,
-          features: selectedFeatures,
+          features:  selectedFeatures.length > 0 ? selectedFeatures : course.features,
           Collaborators: selectedCollaborators,
           category,
           mainCategory,
@@ -465,7 +467,7 @@ const EditCourse = () => {
                   className="rounded-xl p-2 md:w-72 select select-bordered"
                 >
                   <option value="">Select a Main Category</option>
-                  {mainCategoryOptions.map((option, index) => (
+                  {mainCategoryOptions?.map((option, index) => (
                     <option key={index} value={option}>
                       {option}
                     </option>
@@ -490,7 +492,7 @@ const EditCourse = () => {
                   className="rounded-xl p-2 md:w-72 select select-bordered"
                 >
                   <option value="">Select a Category</option>
-                  {categoryOptions.map((option, index) => (
+                  {categoryOptions?.map((option, index) => (
                     <option key={index} value={option}>
                       {option}
                     </option>
@@ -521,7 +523,7 @@ const EditCourse = () => {
           </label>
           {/* Selected Features */}
           <div className="mb-2">
-            {selectedFeatures.map((feature, index) => (
+            {selectedFeatures?.map((feature, index) => (
               <span
                 key={index}
                 className="inline-block bg-gray-200 px-2 py-1 rounded-lg mr-2"
@@ -766,7 +768,7 @@ const EditCourse = () => {
               Frequently Asked Questions:
             </h2>
 
-            {faqFields.map((faq, index) => (
+            {faqFields?.map((faq, index) => (
               <div key={faq.id} className="mb-4 flex items-center gap-10">
                 <input
                   type="text"
@@ -801,7 +803,7 @@ const EditCourse = () => {
           {/* Add pre requisites */}
           <div className="my-10">
             <h3 className="text-2xl font-bold mb-4">Add pre requisites:</h3>
-            {preFields.map((pre, index) => (
+            {preFields?.map((pre, index) => (
               <div key={pre.id} className="mb-4 flex items-center gap-5">
                 <input
                   type="text"
@@ -830,7 +832,7 @@ const EditCourse = () => {
           {/* Add eligible members */}
           <div className="my-10">
             <h3 className="text-2xl font-bold mb-4">Who will do the course:</h3>
-            {eligibleFields.map((eligible, index) => (
+            {eligibleFields?.map((eligible, index) => (
               <div key={eligible.id} className="mb-4 flex items-center gap-5">
                 <input
                   type="text"
@@ -859,7 +861,7 @@ const EditCourse = () => {
           {/* Add goals */}
           <div className="my-10">
             <h3 className="text-2xl font-bold mb-4">Course Goals:</h3>
-            {goalFields.map((goal, index) => (
+            {goalFields?.map((goal, index) => (
               <div key={goal.id} className="mb-4 flex items-center gap-5">
                 <input
                   type="text"
@@ -894,7 +896,7 @@ const EditCourse = () => {
             </label>
             {/* Selected Collaborators */}
             <div className="mb-2">
-              {selectedCollaborators.map((Collaborator, index) => (
+              {selectedCollaborators?.map((Collaborator, index) => (
                 <span
                   key={index}
                   className="inline-block bg-gray-200 px-2 py-1 rounded-lg mr-2"
@@ -943,7 +945,7 @@ const EditCourse = () => {
             + Add Module
           </button>
 
-          {watchModules.map((module, moduleIndex) => (
+          {watchModules?.map((module, moduleIndex) => (
             <div
               key={moduleIndex}
               className="border border-gray-300 rounded-xl p-4 mb-4"
@@ -1000,7 +1002,7 @@ const EditCourse = () => {
               </div>
 
               {module.contents &&
-                module.contents.map((content, contentIndex) => (
+                module.contents?.map((content, contentIndex) => (
                   <div
                     key={contentIndex}
                     className="border border-gray-300 rounded-xl p-4 mb-4"

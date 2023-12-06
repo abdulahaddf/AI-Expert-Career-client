@@ -43,7 +43,7 @@ const HomeBlogsSection = () => {
       </h2>
       <h3 className="text-center">
         {language == "bn"
-          ? "আই এর গতিশীল বিশ্বকে আরো উন্মোচন করতে চোখ রাখুন আমাদের ব্লগগুলিতে।"
+          ? "এ আই এর নতুন উদ্ভাবন, ইন্ডাস্ট্রি ইনসাইটস এবং কতটা এগিয়ে যাচ্ছি আমরা জানতে পড়ুন আমাদের ব্লগ সমূহ।"
           : "Stay informed and inspired as our expertly crafted blogs unravel the dynamic world of AI."}
       </h3>
       {/* <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " /> */}

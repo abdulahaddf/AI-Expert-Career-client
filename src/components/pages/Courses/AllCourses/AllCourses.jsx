@@ -66,7 +66,7 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
   return (
     <div className="md:w-4/5 px-3 md:px-0 mx-auto">
       {/* Banner */}
-      <div className="my-10 md:w-11/12 flex flex-col gap-5 lg:flex-row mx-auto">
+      <div className="my-10 flex flex-col gap-5 md:gap-10 xl:flex-row mx-auto justify-center  items-center">
         {/* Dynamic banners and titles */}
        <DynamicBanner banners={banners}/>
 

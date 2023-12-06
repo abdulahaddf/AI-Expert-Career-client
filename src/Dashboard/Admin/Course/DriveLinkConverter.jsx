@@ -37,11 +37,12 @@ const DriveLinkConverter = () => {
     </form>
 
     <h2 className="text-md font-semibold mb-4">Google Drive URL Converter</h2>
+    <p className='mb-5 text-sm'>Upload photo to drive and convert the link from here for the photo URL option</p>
       
       <input
         type="text"
          className="input input-bordered input-md w-full max-w-xs"
-        placeholder="Enter Google Drive URL"
+        placeholder="Enter Google Drive Public URL"
         value={inputUrl}
         onChange={(e) => setInputUrl(e.target.value)}
       />
