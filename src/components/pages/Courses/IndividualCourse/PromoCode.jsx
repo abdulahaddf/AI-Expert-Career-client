@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../../Context/Context";
 
-const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
+const PromoCode = ({ discountAmount, discount, courseFee, course, enrolled }) => {
   const { language } = useContext(MyContext);
   const [promo, setPromo] = useState([]);
   const [appliedPromo, setAppliedPromo] = useState("");
@@ -43,9 +43,9 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
             {" "}
             {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
           </span>{" "}
-          {discount ? <span className="line-through text-gray-500 mx-2 text-md">
+          {discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
             ৳ {courseFee}
-          </span> : ""}
+          </span> : "" : ""}
           <span className="text-xl">৳{discountAmount}</span>
           {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
         </p>
@@ -77,13 +77,20 @@ const PromoCode = ({ discountAmount, discount, courseFee, course }) => {
           </span>{" "}
         </p>
         <div className="text-center hidden md:block">
-          <Link
-            to="/enroll"
-            state={{ course, payable, discountAmount, courseFee }}
-            className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
-          >
-            Enroll Now
-          </Link>
+        
+          {
+                  enrolled ? <div>
+                    <p>You&apos;ve Enrolled Already</p>
+                    <Link className="text-blue-600 " to='/dashboard/my-courses'>Check Here</Link>
+                  </div> : 
+                   <Link
+                   to="/enroll"
+                   state={{ course, payable, discountAmount, courseFee }}
+                   className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
+                 >
+                   Enroll Now
+                 </Link>
+                 }
         </div>
       </section>
     </div>

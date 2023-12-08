@@ -14,6 +14,7 @@ import PromoCode from "./PromoCode";
 import { FaHandPointRight } from "react-icons/fa";
 import {  IoIosArrowForward } from "react-icons/io";
 import { Helmet } from "react-helmet";
+import useEnrollmentCheck from "../../../../hooks/useEnrollmentCheck";
 
 
 
@@ -92,8 +93,8 @@ const IndividualCourse = () => {
   }, []);
   
   
-
-
+  const enrolled = useEnrollmentCheck(_id);
+console.log(enrolled);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -113,17 +114,19 @@ const IndividualCourse = () => {
      <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
-        <h1 className="text-2xl md:text-2xl font-bold">{title}</h1>
+        <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
-        <div className=" px-2 h-fit  md:w-[538px] lg:w-[768px] mx-auto">
+        <div className=" h-fit ">
           {coverVideo ? (
-           
-              <ReactPlayer height="50vh"  width="100%"
+         
+
+              <ReactPlayer   width="100%"
                url={coverVideo} />
+           
           
               
           ) : (
-            <img src={cover} alt="" className=" md:max-w-3xl mx-auto" />
+            <img src={cover} alt="cover" className="w-full mx-auto" />
           )}
         </div>
 
@@ -284,7 +287,7 @@ const IndividualCourse = () => {
           <div className="section">
             <div className="md:flex items-center gap-5 p-5 border-b-[1px] text-center md:text-left">
               <figure className="flex justify-center">
-                <img className="rounded-full w-20 h-20" src={insImage} alt="" />
+                <img className="rounded-full w-20 h-20" src={insImage} alt=" instructor" />
               </figure>
               <div>
                 <h4 className="text-xl font-bold py-2">{instructor}</h4>
@@ -374,19 +377,26 @@ const IndividualCourse = () => {
                     courseFee={courseFee}
                     discount={discount}
                     course={course}
+                    enrolled={enrolled}
                   />
                 </>
               ) : (
                 //  free course enrollment
                 <>
                   <p className="text-xl font-semibold my-5">Free Course</p>
+                 {
+                  enrolled ? <div>
+                    <p>You&apos;ve Enrolled Already</p>
+                    <Link className="text-blue-600 " to='/dashboard/my-courses'>Check Here</Link>
+                  </div> : 
                   <Link
-                    state={{ _id, title, course }}
-                    to="/free-course"
-                    className="btn-view-red"
-                  >
-                    Enroll Now
-                  </Link>
+                  state={{ _id, title, course }}
+                  to="/free-course"
+                  className="btn-view-red"
+                >
+                  Enroll Now
+                </Link>
+                 }
                 </>
               )}
             </div>
@@ -435,9 +445,16 @@ const IndividualCourse = () => {
             ৳ {courseFee ? courseFee : "Free"}
           </p>
           <div className="flex justify-center">
-            <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
-              Enroll Now <IoIosArrowForward/>
-            </Link>
+            
+            {
+                  enrolled ? <div>
+                    <p>You&apos;ve Enrolled Already</p>
+                    <Link className="text-blue-600 " to='/dashboard/my-courses'>Check Here</Link>
+                  </div> : 
+                  <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
+                  Enroll Now <IoIosArrowForward/>
+                </Link>
+                 }
           </div>
         </div>
       )}

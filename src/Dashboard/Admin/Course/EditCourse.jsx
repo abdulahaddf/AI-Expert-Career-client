@@ -1059,11 +1059,11 @@ const EditCourse = () => {
           ))}
         </div>
 
-        <button type="submit" className="btn-see">
+        <button type="submit" className="btn-see text-primary hover:text-white">
           {isLoading ? (
-            <p className="flex items-center gap-2 text-white">
+            <p className="flex items-center gap-2 ">
               Uploading{" "}
-              <span className="loading loading-spinner text-error"></span>
+              <span className="loading loading-spinner"></span>
             </p>
           ) : (
             "Update"

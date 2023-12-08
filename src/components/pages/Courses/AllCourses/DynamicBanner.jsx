@@ -18,7 +18,7 @@ const DynamicBanner = ({ banners }) => {
     formState: { errors },
   } = useForm();
   const [openPicModalIndex, setPicOpenModalIndex] = useState("");
-  console.log(banners);
+  // console.log(banners);
 
   const onSubmit = async (data) => {
     console.log(data);

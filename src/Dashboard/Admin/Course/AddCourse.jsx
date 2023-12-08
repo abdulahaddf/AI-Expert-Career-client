@@ -559,7 +559,7 @@ const AddCourse = () => {
                 Discount %
               </label>
               <input
-                {...register("discount", { required: true })}
+                {...register("discount")}
                 type="number"
                 id="discount"
                 className="border border-gray-300 rounded-xl p-2 w-full"
