@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "/img/logo.png";
 import "./Navbar.css";
 import { useContext } from "react";
@@ -20,11 +20,11 @@ const Navbar = () => {
   const { setLanguage, language } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(true);
   // console.log(isOpen);
-
+const navigate = useNavigate();
   const [userinfo] = UseUser();
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
-
+// console.log(location)
   const isAdmin = userinfo?.role === "admin";
   // console.log(isAdmin);
   const handleMouseEnter = () => {
@@ -120,7 +120,14 @@ const Navbar = () => {
       </li>
     </>
   );
-
+  const handleLogOut = () => {
+    if (location.pathname.startsWith('/dashboard')) {
+      navigate('/');
+      logOut();
+    } else {
+      logOut();
+    }
+  };
   useEffect(() => {
     setIsOpen(true);
   }, [isMenuOpen]);
@@ -255,7 +262,7 @@ const Navbar = () => {
                                 User Control
                               </Link>
 
-                              <Link className="navOptions" onClick={logOut}>
+                              <Link className="navOptions" onClick={()=>handleLogOut()}>
                                 Logout
                               </Link>
                             </li>
@@ -267,7 +274,7 @@ const Navbar = () => {
                               >
                                 My Profile
                               </Link>
-                              <li className="navOptions " onClick={logOut}>
+                              <li className="navOptions " onClick={()=>handleLogOut()}>
                                 Logout
                               </li>
                             </li>
@@ -292,7 +299,7 @@ const Navbar = () => {
                                 Appointments
                               </Link>
 
-                              <li className="navOptions" onClick={logOut}>
+                              <li className="navOptions" onClick={()=>handleLogOut()}>
                                 Logout
                               </li>
                             </li>

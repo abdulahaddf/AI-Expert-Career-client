@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
-import loginBG from "../../../assets/LoginBg.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { MyContext } from "../../../Context/Context";

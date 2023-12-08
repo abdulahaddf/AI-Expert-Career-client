@@ -29,12 +29,18 @@ import {
 import UseUser from "../../../hooks/useUser";
 import { FiLogOut } from "react-icons/fi";
 import useTitle from "../../../hooks/useTitle";
-import { IoIosNotificationsOutline, IoMdNotificationsOutline } from "react-icons/io";
+import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 import { NotificationContext } from "../../../Context/NotificationProvider";
 import Loader from "../../common/loader/Loader";
+import { useNavigate } from "react-router-dom";
+
+
+
+
 const DashboardLayout = () => {
   const { language } = useContext(MyContext);
+  const navigate = useNavigate();
   const { unopenedCount } =
     useContext(NotificationContext);
   const { user, logOut } = useContext(AuthContext);
@@ -46,8 +52,20 @@ const DashboardLayout = () => {
   // const gradientColor =
   //   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
 
+const handleLogOut =()=>{
+  navigate('/')
+  logOut();
+}
+
+
+
+
+
+
   useTitle("Dashboard");
-  if (!user) return <Loader />;
+
+  if (!user) return <Loader/>
+
   return (
     <div className="">
       <Navbar />
@@ -385,7 +403,7 @@ const DashboardLayout = () => {
 
                     <div
                       className=" my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
-                      onClick={logOut}
+                      onClick={()=>handleLogOut()}
                     >
                       <FiLogOut />
                       <button className="font-bold pl-2">
