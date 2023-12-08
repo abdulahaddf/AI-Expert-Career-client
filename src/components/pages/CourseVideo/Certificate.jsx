@@ -3,7 +3,7 @@ import html2pdf from "html2pdf.js";
 import { useEffect, useState } from "react";
 import { MdDownloadForOffline } from "react-icons/md";
 
-const Certificate = ({ id }) => {
+const Certificate = ({ id, progressPercentage }) => {
   console.log(id);
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ const Certificate = ({ id }) => {
         console.error(error);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, progressPercentage]);
 
   const generatePdf = () => {
     const pdfOptions = {
@@ -45,7 +45,7 @@ const Certificate = ({ id }) => {
       <img src="../../../../src/assets/certificate/Certificate.jpg" style="width: 100%; height: 100%;" alt="Certificate Background" />
 
       <!-- Content to overlay on the image -->
-      <p class="absolute top-[408px]  left-[420px] text-primary font-bold text-6xl">${name}</p>
+      <p class="absolute top-[408px]  left-[440px] text-primary font-bold text-6xl">${name}</p>
       <p class="absolute top-[590px]  left-[420px] text-primary font-bold text-4xl">${courseTitle}</p>
       <p class="absolute top-[645px]  left-[445px] text-black  text-2xl">${completionTime}</p>
       <p class="absolute top-[990px]  left-[660px] text-black  text-2xl">AIEC${_id}</p>

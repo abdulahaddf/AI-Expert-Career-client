@@ -324,7 +324,7 @@ const CourseVideo = () => {
           <div className="flex items-center">
             <button disabled={progressPercentage != 100} className="btn-add">
               {" "}
-              <Certificate id={id} />{" "}
+              <Certificate id={id} progressPercentage={progressPercentage} />{" "}
             </button>
           </div>
           {/* <p
