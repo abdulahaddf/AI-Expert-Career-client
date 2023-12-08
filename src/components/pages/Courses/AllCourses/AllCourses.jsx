@@ -16,15 +16,15 @@ const AllCourses = () => {
   const [courses, isLoading] = useCourses();
   const freeCourses = courses?.filter(
     (course) => course.mainCategory == "Free"
-    );
-    const location = useLocation();
-    const [banners, setBanners] = useState([]);
-    const fundamentalCourses = courses?.filter(
+  );
+  const location = useLocation();
+  const [banners, setBanners] = useState([]);
+  const fundamentalCourses = courses?.filter(
     (course) => course.mainCategory == "Fundamental"
   );
   const jobBasedCourses = courses?.filter(
-    (course) => course.mainCategory == "Job Requirement Based");
-  
+    (course) => course.mainCategory == "Job Requirement Based"
+  );
 
   const categories = [
     { category: "Machine learning", label: "Machine Learning Courses" },
@@ -41,8 +41,7 @@ const AllCourses = () => {
     { category: "IoT", label: "IoT Courses" },
   ];
 
-  // console.log(courses);  
-
+  // console.log(courses);
 
   // load dynamic banner data
   useEffect(() => {
@@ -50,17 +49,17 @@ const AllCourses = () => {
       .then((response) => response.json())
       .then((data) => setBanners(data));
   }, []);
- 
-  
 
-
-
-useTitle("All Courses");
-ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
- // scrollTo
- useEffect(() => {
-  window.scrollTo(0,0);
-}, [location]);
+  useTitle("All Courses");
+  ReactGA.send({
+    hitType: "pageview",
+    page: "/courses",
+    title: "Courses Page",
+  });
+  // scrollTo
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   if (isLoading && !banners && !courses) return <Loader />;
   return (
@@ -68,32 +67,36 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
       {/* Banner */}
       <div className="my-10 flex flex-col gap-5 md:gap-10 xl:flex-row mx-auto justify-center  items-center">
         {/* Dynamic banners and titles */}
-       <DynamicBanner banners={banners}/>
+        <DynamicBanner banners={banners} />
 
         {/* Course categories */}
-       <div className="md:w-3/5 mx-auto">
-          <h1 className="text-3xl text-center font-semibold mb-5">{language == "bn" ? "প্রজেক্ট বেইজড কোর্সগুলো" : "Course Categories"}</h1>
-       <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
-          {categories?.map((categoryItem) => (
-            <Link
-              key={categoryItem.category}
-              to={`/all-courses/${categoryItem.category}`}
-              state={courses}
-              className="glass md:w-[180px] p-3 hover:bg-slate-200 rounded-lg"
-            >
-              <h2>{categoryItem.label}</h2>
-              <p>
-                {
-                  courses?.filter(
-                    (course) => course.category === categoryItem.category
-                  ).length
-                }{" "}
-                Courses
-              </p>
-            </Link>
-          ))}
+        <div className="md:w-3/5 mx-auto">
+          <h1 className="text-3xl text-center font-semibold mb-5">
+            {language == "bn"
+              ? "প্রজেক্ট বেইজড কোর্সগুলো"
+              : "Course Categories"}
+          </h1>
+          <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
+            {categories?.map((categoryItem) => (
+              <Link
+                key={categoryItem.category}
+                to={`/all-courses/${categoryItem.category}`}
+                state={courses}
+                className="glass md:w-[180px] p-3 hover:bg-slate-200 rounded-lg"
+              >
+                <h2>{categoryItem.label}</h2>
+                <p>
+                  {
+                    courses?.filter(
+                      (course) => course.category === categoryItem.category
+                    ).length
+                  }{" "}
+                  Courses
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
-       </div>
       </div>
 
       <section className="my-14">
@@ -104,8 +107,9 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
 
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+          {freeCourses?.length > 0 ? (
+            <>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
             {freeCourses?.slice(0, 4).map((course) => (
               <CourseCard key={course._id} course={course}></CourseCard>
             ))}
@@ -116,7 +120,12 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
               {language == "bn" ? "আরো দেখুন" : "See More"}
             </Link>
           </div>
+            </>
+          ) : (
+            <p className=" text-center text-2xl">No Course Available Yet</p>
+          )}
         </div>
+
       </section>
 
       <section className="my-14">
@@ -127,16 +136,17 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
 
+       
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+          {fundamentalCourses?.length > 0 ? (
+            <>
+             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
             {fundamentalCourses?.slice(0, 4).map((course) => (
               <CourseCard key={course._id} course={course}></CourseCard>
             ))}
-          </div>
-
-          <div className="flex justify-center my-10">
+               </div>
+             <div className="flex justify-center my-10">
             <Link
               state={courses}
               to="/allCourses/Fundamental"
@@ -145,7 +155,11 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
               {language == "bn" ? "আরো দেখুন" : "See More"}
             </Link>
           </div>
-        </div>
+            </>
+          ) : (
+            <p className=" text-center text-2xl">No Course Available Yet</p>
+          )}
+        </div> 
       </section>
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
@@ -157,22 +171,26 @@ ReactGA.send({ hitType: "pageview", page: "/courses", title: "Courses Page" });
 
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
-            {jobBasedCourses?.slice(0, 4).map((course) => (
-              <CourseCard key={course._id} course={course}></CourseCard>
-            ))}
-          </div>
-
-          <div className="flex justify-center my-10 ">
-            <Link
-              state={courses}
-              to="/allCourses/Job Requirement Based"
-              className="btn-view"
-            >
-              {language == "bn" ? "আরো দেখুন" : "See More"}
-            </Link>
-          </div>
+          {jobBasedCourses?.length > 0 ? (
+            <>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center text-center">
+                {jobBasedCourses?.slice(0, 4).map((course) => (
+                  <CourseCard key={course._id} course={course}></CourseCard>
+                ))}
+                <div className="flex justify-center my-10 ">
+                  <Link
+                    state={courses}
+                    to="/allCourses/Job Requirement Based"
+                    className="btn-view"
+                  >
+                    {language == "bn" ? "আরো দেখুন" : "See More"}
+                  </Link>
+                </div>
+              </div>
+            </>
+          ) : (
+            <p className=" text-center text-2xl">No Course Available Yet</p>
+          )}
         </div>
       </section>
     </div>

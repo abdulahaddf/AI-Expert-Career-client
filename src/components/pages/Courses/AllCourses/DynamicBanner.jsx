@@ -55,7 +55,7 @@ const DynamicBanner = ({ banners }) => {
     }
   };
   return (
-    <div className="md:w-1/2 order-1 lg:order-2 space-y-3">
+    <div className="w-full md:w-1/2 order-1 lg:order-2 space-y-3">
       <Swiper
       modules={[Autoplay]}
       autoplay
