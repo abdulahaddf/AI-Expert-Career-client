@@ -130,6 +130,28 @@ console.log(enrolled);
           )}
         </div>
 
+{/* Main features for mobile view */}
+<div className="section md:w-96 text-sm md:hidden">
+          <h3 className="text-xl font-bold my-3">
+            {" "}
+            {language == "bn"
+              ? "এই কোর্সের ভেতরে যা যা রয়েছে"
+              : "Main Features:"}
+          </h3>
+          <div>
+            {features?.map((feature, i) => (
+              <div key={i}>
+                <p className="flex items-center gap-3 my-3 text-lg">
+                  <FaHandPointRight className="text-primary text-lg" />{" "}
+                  {feature}
+                </p>
+              </div>
+            ))}
+          </div> 
+          </div>
+
+
+
 
         <div className="md:hidden">
 {courseType === "paid" && (
@@ -300,7 +322,7 @@ console.log(enrolled);
         </div>
 
         {/* FAQ Section */}
-        <div className="my-5 md:my-0">
+        <div className="my-5 md:my-0 pb-0 md:pb-5 lg:pb-0">
           <h3 className="text-xl md:text-2xl font-bold my-3">
             {" "}
             {language == "bn"
@@ -347,7 +369,7 @@ console.log(enrolled);
       {/* right Side Contents */}
       <section className="my-5 md:my-0">
         {/* Features */}
-        <div className="section md:w-96 text-sm ">
+        <div className="section md:w-96 text-sm hidden md:block">
           <h3 className="text-xl font-bold my-3">
             {" "}
             {language == "bn"
@@ -441,8 +463,13 @@ console.log(enrolled);
     <div className=" md:hidden">
       {isVisible && (
         <div className="fixed bottom-0 left-0 w-full max-h-[80vh] bg-white border shadow-lg z-10 overflow-y-auto">
+          
           <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">
-            ৳ {courseFee ? courseFee : "Free"}
+            
+            {courseFee > 0 ? <>{discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
+            ৳ {courseFee}
+          </span> : "" : ""}
+          <span className="text-xl">৳{discountAmount}</span></> : "Free"}
           </p>
           <div className="flex justify-center">
             

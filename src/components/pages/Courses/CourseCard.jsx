@@ -8,13 +8,20 @@ import { toast } from "react-toastify";
 
 const CourseCard = ({ course }) => {
   const { language } = useContext(MyContext);
+  const [openPicModalIndex, setPicOpenModalIndex] = useState("");
+  const {courseFee, discount} = course;
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const [openPicModalIndex, setPicOpenModalIndex] = useState("");
+  const discountAmount = courseFee * (1 - discount / 100);
+
+
+
+
+
   const onSubmit = async (data) => {
     console.log(data);
     if (data !== "null") {
@@ -58,8 +65,12 @@ const CourseCard = ({ course }) => {
   return (
     <div
       key={course._id}
-      className="w-full md:w-[280px] p-2 bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl"
+      className="w-full md:w-[280px] p-2 bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl relative"
     >
+      {
+        discount ? 
+        <div className="absolute bg-primary text-white px-4 py-0.5 rounded-xl text-xs font-semibold -top-1 -right-3 h-5 w-14">-{discount}%</div> : ""
+      }
       <img className="w-full md:w-[279px]  pt-0" src={course?.cover} alt="" />
       <h2 className="pt-[15px] text-[18px] font-bold ">{course?.title}</h2>
       <p className="text-[14px] text-[#818181]">
@@ -76,7 +87,11 @@ const CourseCard = ({ course }) => {
         )}
         {course?.description ? (
           <p className="font-semibold">
-            {course.courseFee > 0 ? <>TK {course.courseFee}</> : "Free"}
+            
+            {course?.courseFee > 0 ? <>{discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
+            ৳ {courseFee}
+          </span> : "" : ""}
+          <span className="text-xl">৳{discountAmount}</span></> : "Free"}
           </p>
         ) : (
           <button
