@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "/img/logowhite.png";
 
-import footerBG from "./ai expert career icon white.svg";
+import footerBG from "./alogo.svg";
 import { useContext, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import Swal from "sweetalert2";
@@ -68,10 +68,23 @@ const Footer = () => {
   const handleCall = () => {
     window.open(`tel:${phoneNumber}`);
   };
+  {/* <img
+          className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "
+          src={footerBG}
+          alt=""
+        /> */}
   return (
-    <div className="bg-[#000000] ">
-      <div className="pt-10 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-10 text-white text-center sm:text-start ">
+    <div style={{
+      '--image-url': `url(${footerBG})`,
+      backgroundPosition: 'bottom 10px right -80px',
+      backgroundRepeat: 'no-repeat',
+      
+    }} className="bg-[#000000] bg-[image:var(--image-url)] bg-[length:500px_500px]">
+      <div className="pt-10 pb-10 px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 ">
+      <div
+  
+  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-10 text-white text-center sm:text-start "
+>
           <div className="col-span-2 2xl:p-4 ">
             <Link to="/" className="">
               <img
@@ -329,11 +342,11 @@ const Footer = () => {
             <span className="font-bold underline hover:text-primary">AHAD</span>
           </Link>
         </div>
-        <img
+        {/* <img
           className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "
           src={footerBG}
           alt=""
-        />
+        /> */}
       </div>
     </div>
   );

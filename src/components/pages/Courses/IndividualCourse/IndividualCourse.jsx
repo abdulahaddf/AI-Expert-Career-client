@@ -285,7 +285,7 @@ console.log(enrolled);
                         key={i}
                       >
                         <p className="flex items-center gap-3 my-3 cursor-pointer text-md md:text-lg font-semibold">
-                          <MdOutlineVideoLibrary /> {c.title}
+                          <MdOutlineVideoLibrary className=""/> <span>{c.title}</span> 
                         </p>
 
                         <AiFillLock className="text-gray-400" />
