@@ -116,7 +116,7 @@ console.log(enrolled);
       <section className="space-y-5  md:space-y-10">
         <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
-        <div className=" h-fit ">
+        <div className=" h-fit">
           {coverVideo ? (
          
 
@@ -284,7 +284,7 @@ console.log(enrolled);
                         className="flex items-center justify-between"
                         key={i}
                       >
-                        <p className="flex items-center gap-3 my-3 cursor-pointer text-lg font-semibold">
+                        <p className="flex items-center gap-3 my-3 cursor-pointer text-md md:text-lg font-semibold">
                           <MdOutlineVideoLibrary /> {c.title}
                         </p>
 

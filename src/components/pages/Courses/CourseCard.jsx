@@ -69,7 +69,7 @@ const CourseCard = ({ course }) => {
     >
       {
         discount ? 
-        <div className="absolute bg-primary text-white px-4 py-0.5 rounded-xl text-xs font-semibold -top-1 -right-3 h-5 w-14">-{discount}%</div> : ""
+        <div className="absolute bg-primary text-white rounded-full p-2 py-3 text-xs font-semibold -top-3 -right-3 h-10 w-10">-{discount}%</div> : ""
       }
       <img className="w-full md:w-[279px]  pt-0" src={course?.cover} alt="" />
       <h2 className="pt-[15px] text-[18px] font-bold ">{course?.title}</h2>
