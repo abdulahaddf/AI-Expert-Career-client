@@ -1,12 +1,3 @@
-import line from "../../../assets/line.svg";
-import aboutSvg1 from "../../../assets/aboutSvg1.svg";
-import aboutSvg2 from "../../../assets/aboutSvg2.svg";
-import aboutSvg3 from "../../../assets/aboutSvg3.svg";
-import aboutSvg4 from "../../../assets/aboutSvg4.svg";
-import aboutSvg5 from "../../../assets/aboutSvg5.svg";
-import aboutSvg6 from "../../../assets/aboutSvg6.svg";
-import aboutSvg7 from "../../../assets/aboutSvg4.svg";
-import aboutSvg8 from "../../../assets/aboutSvg2.svg";
 import consultantI from "../../../../src/assets/homeAboutUs/consul.png"
 import courseI from "../../../../src/assets/homeAboutUs/course.png"
 import blogI from "../../../../src/assets/homeAboutUs/blog.png"
@@ -65,13 +56,17 @@ const HomeAbout = () => {
   return (
     <div name='about' className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md md:flex justify-between">
 <div className="md:w-5/6 flex flex-col  justify-center mx-auto ml-6 ">
-  <h4 className="text-primary pb-3">About Us</h4>
+  <h4 className="text-primary pb-3 text-xl">{language === "bn"
+          ? "আমাদের সম্পর্কে"
+          : <p>About Us</p>}</h4>
 <h3 className=" font-bold lg:text-[36px] text-xl leading-10">
         {language === "bn"
           ? "কি কি সুবিধা পাবেন আমাদের থেকে ?"
           : <p>Transform your Career through <span className="text-primary">Learning</span> </p>}
       </h3>
-      <p className="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quidem reiciendis laboriosam praesentium accusamus iusto corrupti tempore voluptate? Ipsum, saepe.</p>
+      <p className="pt-3">{language === "bn"
+          ? "আমরা বাংলাদেশের প্রথম কোনো প্রতিষ্ঠান যারা কৃত্রিম বুদ্ধিমত্তা নিয়ে ক্যারিয়ার কনসালটেন্সি এবং বেসিক থেকে প্রফেশনাল প্রজেক্ট বেইজড লার্নিং প্লাটফর্ম। অল্প সময়ের যাত্রায় আমরা দেশের এ আই এক্সপার্ট ও প্রফেশনালদের নিয়ে কৃত্রিম বুদ্ধিমত্তা সেক্টরে  দেশের ডিজিটাল লিটারেসিতে ভূমিকা রেখে চলেছি।"
+          : <p>We democratizes AI Education and makes it accessible to all AI learners in Bangladesh. We first ever offer AI Consultancy Services for every learner, do surveys to find pain points, and create fundamental and Job role-based courses. </p>}</p>
 
 
 </div>
