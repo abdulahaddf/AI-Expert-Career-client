@@ -134,6 +134,7 @@ const AddBlog = () => {
     "Pytorch",
     "Kaggle",
     "Matplotlib",
+    "Technology",
   ];
 
   const handleCategoryChange = (e) => {

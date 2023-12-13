@@ -75,7 +75,7 @@ const HeroAria = () => {
 
 
 
-   <Scrollbtn/>
+   {/* <Scrollbtn/> */}
     </div>
   );
 };

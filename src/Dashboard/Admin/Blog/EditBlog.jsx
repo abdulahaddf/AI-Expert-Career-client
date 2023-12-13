@@ -206,6 +206,7 @@ const EditBlog = () => {
     "Pytorch",
     "Kaggle",
     "Matplotlib",
+    "Technology",
   ];
 
   const handleCategoryChange = (e) => {
