@@ -37,7 +37,7 @@ const BlogCard = ({ blog }) => {
       <div className="space-y-4 flex flex-col justify-center items-center ">
         <Link to={`/blog/${blog.blogName}`}>
           {/* Font bold */}
-          <h2 className="font-bold text-[18px] text-center">{blog.blogName}</h2> 
+          <h2 className="font-bold text-[18px] text-center li-ador-noirrit-semibold">{blog.blogName}</h2> 
         </Link>
 
         <div

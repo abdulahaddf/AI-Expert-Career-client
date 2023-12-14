@@ -295,8 +295,8 @@ const CourseVideo = () => {
                           className="flex items-center w-full gap-3 h-fit text-left my-3 cursor-pointer text-lg font-medium"
                         >
                           <p>
-                            
-                          { content.type == "assignment" ? <span><img className="w-5" src={assI} alt="" /></span> : content.type =="quiz" ? <span className="w-5">{quizI}</span> : <MdVideoLibrary className="w-[30px]" />  }
+
+                          { content.type == "assignment" ? <span><img className="w-7" src={assI} alt="" /></span> : content.type =="quiz" ? <span className="w-7">{quizI}</span> : <MdVideoLibrary className="w-[30px]" />  }
                             
                           </p>{" "}
                           <p>{content.title}</p>

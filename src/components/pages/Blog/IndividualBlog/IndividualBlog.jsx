@@ -288,7 +288,7 @@ useEffect(() => {
         </div> */}
 
         <div className="col-span-4 lg:mt-0 mt-8 ">
-            <h2 className="font-bold text-3xl">{blog.blogName}</h2>
+            <h2 className="font-bold text-3xl md:text-5xl li-ador-noirrit-semibold">{blog.blogName}</h2>
           <div className="flex flex-col md:flex-row md:gap-8 text-black/50">
             <p>{moment(blog.createAt).format("MMMM Do YYYY, h:mm a")}</p>
             
@@ -304,7 +304,7 @@ useEffect(() => {
               <img
                 src={blog?.imageURL}
                 alt="banner"
-                className="rounded pb-12 w-[600px] "
+                className="rounded pb-12 w-[900px] "
               />
             </figure>
          <div className="">

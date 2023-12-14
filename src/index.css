@@ -99,7 +99,12 @@
   } 
   
 }
-
+.li-ador-noirrit-bold {
+  font-family: "Li Ador Noirrit Bold" !important;
+}
+.li-ador-noirrit-semibold {
+  font-family: "Li Ador Noirrit SemiBold" !important;
+}
 
 
 :root {
