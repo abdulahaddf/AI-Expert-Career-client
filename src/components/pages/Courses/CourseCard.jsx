@@ -63,10 +63,12 @@ const CourseCard = ({ course }) => {
     }
   };
   return (
-    <div
+    <Link
+    to={`/course/${course.title.trim().replace(/\s+/g, '-')}`}
       key={course._id}
       className="w-full md:w-[280px] p-2 bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl relative"
     >
+      
       {
         discount ? 
         <div className="absolute bg-primary text-white rounded-full p-2 py-3 text-xs font-semibold -top-3 -right-3 h-10 w-10">-{discount}%</div> : ""
@@ -177,7 +179,7 @@ const CourseCard = ({ course }) => {
           </div>
         </form>
       </dialog>
-    </div>
+    </Link>
   );
 };
 

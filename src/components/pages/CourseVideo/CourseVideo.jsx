@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import Loader from "../../common/loader/Loader";
 import Certificate from "./Certificate";
 import moment from "moment";
+import quizI from "../../../../src/assets/homeAboutUs/course.png";
+import assI from "../../../../src/assets/homeAboutUs/blog.png";
 
 const CourseVideo = () => {
   const { id } = useParams();
@@ -293,7 +295,9 @@ const CourseVideo = () => {
                           className="flex items-center w-full gap-3 h-fit text-left my-3 cursor-pointer text-lg font-medium"
                         >
                           <p>
-                            <MdVideoLibrary className="w-[30px]" />
+                            
+                          { content.type == "assignment" ? <span><img className="w-5" src={assI} alt="" /></span> : content.type =="quiz" ? <span className="w-5">{quizI}</span> : <MdVideoLibrary className="w-[30px]" />  }
+                            
                           </p>{" "}
                           <p>{content.title}</p>
                         </p>

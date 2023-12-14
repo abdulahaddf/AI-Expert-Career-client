@@ -73,7 +73,7 @@ const NewsLetter = () => {
           </h2>
 
           <div className="pt-5">
-          <div className=" flex items-center justify-between bg-white rounded-xl w-4/5  md:w-full  border-2 border-primary">
+          <div className=" flex items-center justify-between bg-white rounded-xl w-[300px] sm:w-[350px]  md:w-full  border-2 border-primary ">
                  
                   <div className="rounded-lg">
                     <form className="flex items-center ">
@@ -83,14 +83,14 @@ const NewsLetter = () => {
                         placeholder={language === "bn" ? "ই-মেইল" : "Enter your email"}
                         value={mail}
                         onChange={(e) => setMail(e.target.value)}
-                        className="outline-none   border-none text-black"
+                        className="outline-none   border-none text-black w-32"
                       />
                     </form>
                   </div>
 
                   <button
                     onClick={handleSubmit}
-                    className="inline-flex items-center justify-center rounded-lg h-12 text-lg w-[170px] md:w-32  bg-[#ED1B24] text-white"
+                    className="inline-flex items-center md:justify-center rounded-lg h-12 text-lg px-3 py-4 md:px-0 w-[100px] sm:w-[220px] md:w-32  bg-[#ED1B24] text-white"
                   >
                    
                     {language == "bn" ? "সাবস্ক্রাইব" : "Subscribe"}

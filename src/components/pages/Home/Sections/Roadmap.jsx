@@ -17,7 +17,8 @@ const Roadmap = () => {
         <p className="text-md md:text-lg my-1 md:my-0">
           {language == "bn" ? "আপনার এ আই ক্যারিয়ার জার্নিকে আরো এগিয়ে নিতে আজই যোগাযোগ করুন আমাদের এ আই কন্সাল্টেন্টদের সাথে।" : "Accelerate your AI career journey with our comprehensive consultancy services"}
         </p>
-        <Link to='/ai-consultant' className="btn-black btn-sm md:btn-md md:btn-view flex items-center w-fit"> {language == "bn" ? "ক্যারিয়ার শুরু করুন" : "Start Your Career"}<FiArrowUpRight/></Link>
+        <Link to='/ai-consultant' className="btn-black btn-sm md:btn-md md:btn-view flex items-center
+         w-3/4"> {language == "bn" ? "ক্যারিয়ার শুরু করুন" : "Start Your Career"}<FiArrowUpRight/></Link>
       </div>
     </div>
   );

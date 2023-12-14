@@ -36,7 +36,8 @@ const BlogCard = ({ blog }) => {
       </figure>
       <div className="space-y-4 flex flex-col justify-center items-center ">
         <Link to={`/blog/${blog.blogName}`}>
-          <h2 className="font-bold text-[16px]">{blog.blogName}</h2>
+          {/* Font bold */}
+          <h2 className="font-bold text-[18px] text-center">{blog.blogName}</h2> 
         </Link>
 
         <div

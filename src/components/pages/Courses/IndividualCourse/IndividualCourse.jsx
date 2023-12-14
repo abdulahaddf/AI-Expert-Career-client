@@ -15,7 +15,8 @@ import { FaHandPointRight } from "react-icons/fa";
 import {  IoIosArrowForward } from "react-icons/io";
 import { Helmet } from "react-helmet";
 import useEnrollmentCheck from "../../../../hooks/useEnrollmentCheck";
-
+import quizI from "../../../../../src/assets/homeAboutUs/course.png";
+import assI from "../../../../../src/assets/homeAboutUs/blog.png";
 
 
 
@@ -64,7 +65,7 @@ const IndividualCourse = () => {
     preRequisites,
     eligibleUsers,
   } = course;
-  // console.log(coverVideo)
+  // console.log(modules)
  
   const discountAmount = courseFee * (1 - discount / 100);
 
@@ -285,7 +286,18 @@ console.log(enrolled);
                         key={i}
                       >
                         <p className="flex items-center gap-3 my-3 cursor-pointer text-md md:text-lg font-semibold">
-                          <MdOutlineVideoLibrary className=""/> <span>{c.title}</span> 
+
+                          
+                           { c.type == "assignment" ? <span><img className="w-5" src={assI} alt="" /></span> : c.type =="quiz" ? <span className="w-5">{quizI}</span> : <MdOutlineVideoLibrary/>   }
+                           
+                        
+                          
+                          
+                          
+                          
+                          
+                          
+                          <span>{c.title}</span> 
                         </p>
 
                         <AiFillLock className="text-gray-400" />
