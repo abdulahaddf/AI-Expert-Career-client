@@ -26,6 +26,7 @@ const AllCourses = () => {
     (course) => course.mainCategory == "Professional"
   );
 
+  
   const categories = [
     { category: "Machine learning", label: "Machine Learning Courses" },
     { category: "Data science", label: "Data Science Courses" },
