@@ -20,7 +20,7 @@ const MyCourse = () => {
       setLoading(false);
   }, [userinfo]);
 
-  console.log(courses);
+  // console.log(courses);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,7 +37,7 @@ const MyCourse = () => {
           </h3>
           <>
             {courses.length > 0 ? (
-              <div className="grid xl:grid-cols-2 justify-between mt-[30px] gap-5 2xl:gap-x-0 mx-auto">
+              <div className="grid grid-cols-1 xl:grid-cols-2 justify-between mt-[30px] gap-5  mx-auto ">
                 {courses?.map((course, i) => (
                   
                   <CourseCart

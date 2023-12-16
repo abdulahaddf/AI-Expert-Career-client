@@ -2,13 +2,13 @@
 import html2pdf from "html2pdf.js";
 import { useEffect, useState } from "react";
 import { MdDownloadForOffline } from "react-icons/md";
-
-const Certificate = ({ id, progressPercentage }) => {
-  console.log(id);
+import CertificateImage from "../../../../src/assets/certificate/Certificate.jpg";
+const Certificate = ({ id, progressPercentage,reload }) => {
+  // console.log(id);
   const [course, setCourse] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { _id, name, courseTitle, completionTime } = course;
+
   useEffect(() => {
     fetch(`https://ai-server-sooty.vercel.app/singleEnrolledcourse/${id}`)
       .then((response) => {
@@ -25,7 +25,12 @@ const Certificate = ({ id, progressPercentage }) => {
         console.error(error);
         setLoading(false);
       });
-  }, [id, progressPercentage]);
+  }, [id, reload]);
+
+  const { _id, name, courseTitle, completionTime } = course;
+  // console.log(course)
+  // console.log(name.length)
+  const nameClass = name?.length > 18 ? 'left-[270px]' : 'left-[440px]';
 
   const generatePdf = () => {
     const pdfOptions = {
@@ -42,10 +47,10 @@ const Certificate = ({ id, progressPercentage }) => {
     }px; relative border-2 border-primary">
     <div class="absolute inset-0">
       <!-- Use the image as an <img> element -->
-      <img src="../../../../src/assets/certificate/Certificate.jpg" style="width: 100%; height: 100%;" alt="Certificate Background" />
+      <img src=${CertificateImage} style="width: 100%; height: 100%;" alt="Certificate Background" />
 
       <!-- Content to overlay on the image -->
-      <p class="absolute top-[408px]  left-[440px] text-primary font-bold text-6xl">${name}</p>
+      <p class="absolute top-[408px]  ${nameClass} text-primary font-bold text-6xl">${name}</p>
       <p class="absolute top-[590px]  left-[420px] text-primary font-bold text-4xl">${courseTitle}</p>
       <p class="absolute top-[645px]  left-[445px] text-black  text-2xl">${completionTime}</p>
       <p class="absolute top-[990px]  left-[660px] text-black  text-2xl">AIEC${_id}</p>
@@ -79,7 +84,7 @@ const Certificate = ({ id, progressPercentage }) => {
         onClick={handleButtonClick}
       >
         {loading ? (
-          <p>Loading</p>
+          <p>Loading...</p>
         ) : (
           <>
             <MdDownloadForOffline />

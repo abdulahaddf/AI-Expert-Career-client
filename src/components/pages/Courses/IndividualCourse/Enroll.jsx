@@ -169,9 +169,9 @@ console.log(course)
               <div className="flex items-center gap-3 justify-center"> </div>
 
               <p className=" text-xl flex justify-between border-b-2">
-                {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
+                {language == "bn" ? "সর্বমোট:" : "Payable Total:"}
                 <span className="font-normal">
-                  ৳ {payable ? payable : discountAmount}{" "}
+                  ৳ {payable ? payable.toFixed(2) : discountAmount.toFixed(2)}{" "}
                 </span>{" "}
               </p>
             </div>

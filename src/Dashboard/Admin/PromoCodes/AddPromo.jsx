@@ -98,7 +98,7 @@ const AddPromo = () => {
               </label>
               <input
                 required
-                type="number"
+                type="text"
                 name="discount"
                 {...register("discount")}
                 placeholder="Enter % of Discount"

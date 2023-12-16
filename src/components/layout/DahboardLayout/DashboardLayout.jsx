@@ -82,7 +82,7 @@ const handleLogOut =()=>{
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className="mb-10 md:pt-10 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-8  "
+          className="mb-10 md:pt-10 mx-auto max-w-full md:max-w-full  2xl:max-w-screen-2xl md:px-8  "
         >
           <div className="flex  space-x-0 lg:space-x-[18px] ">
             <div

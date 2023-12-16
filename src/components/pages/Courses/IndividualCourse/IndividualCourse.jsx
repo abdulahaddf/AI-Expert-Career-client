@@ -65,7 +65,7 @@ const IndividualCourse = () => {
     preRequisites,
     eligibleUsers,
   } = course;
-  // console.log(modules)
+  // console.log(course)
  
   const discountAmount = courseFee * (1 - discount / 100);
 
@@ -112,7 +112,7 @@ console.log(enrolled);
         <meta name="og:description" content={subtitle} />
         <meta name="og:image" content={cover} />
       </Helmet>
-     <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:w-11/12 md:px-10 xl:flex gap-10 ">
+     <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:max-w-7xl md:px-10 xl:flex gap-6 xl:gap-10 ">
       {/* Left Side Contents */}
       <section className="space-y-5  md:space-y-10">
         <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>

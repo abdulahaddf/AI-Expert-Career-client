@@ -11,7 +11,7 @@ const unopenedCount = notifications.length - openedNotifications.length;
 
 useEffect(() => {
     fetchNotifications();
-    const intervalId = setInterval(fetchNotifications, 10000);
+    const intervalId = setInterval(fetchNotifications, 90000);
     return () => clearInterval(intervalId);
   }, [openedNotifications]);
 

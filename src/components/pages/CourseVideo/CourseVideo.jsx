@@ -27,7 +27,8 @@ const CourseVideo = () => {
   const [totalContentCount, setTotalContentCount] = useState(0);
   const [selectedContentIndex, setSelectedContentIndex] = useState(null);
   const [progressPercentage, setProgressPercentage] = useState(0);
-  // console.log(course);
+  const [reload, setReload] = useState(false);
+  // console.log(userId);
   useEffect(() => {
     fetch(`https://ai-server-sooty.vercel.app/singleEnrolledcourse/${id}`)
       .then((response) => {
@@ -165,7 +166,7 @@ const CourseVideo = () => {
       setProgressPercentage(percentage);
     }
   }, [course, completedCount, totalContentCount]);
-  // console.log(progressPercentage);
+  console.log(progressPercentage);
 
   const postCompletionTime = async () => {
     // console.log("Posting completion time:");
@@ -187,6 +188,7 @@ const CourseVideo = () => {
       );
 
       if (response.status === 200) {
+        setReload(true);
         console.log("Course completion status updated successfully");
       } else {
         console.error("Error updating course completion status");
@@ -328,7 +330,7 @@ const CourseVideo = () => {
           <div className="flex items-center">
             <button disabled={progressPercentage != 100} className="btn-add">
               {" "}
-              <Certificate id={id} progressPercentage={progressPercentage} />{" "}
+              <Certificate id={id} progressPercentage={progressPercentage} reload={reload} />{" "}
             </button>
           </div>
           {/* <p
@@ -358,7 +360,7 @@ const CourseVideo = () => {
                 ></iframe>
               ) : currentContent.type === "quiz" ? (
                 <iframe src={quiz} width="700" height="900" title="Quiz">
-                  Loading…
+                  
                 </iframe>
               ) : (
                 "Not Loaded"
@@ -395,7 +397,7 @@ const CourseVideo = () => {
                 currentContent?.completed
               }
               onClick={() =>
-                handleMarkAsComplete(currentModule.title, currentContent?.title)
+                handleMarkAsComplete(currentModule.title, currentContent.title)
               }
             >
               {language === "bn"

@@ -5,13 +5,19 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../../Context/Context";
 
-const PromoCode = ({ discountAmount, discount, courseFee, course, enrolled }) => {
+const PromoCode = ({
+  discountAmount,
+  discount,
+  courseFee,
+  course,
+  enrolled,
+}) => {
   const { language } = useContext(MyContext);
   const [promo, setPromo] = useState([]);
   const [appliedPromo, setAppliedPromo] = useState("");
   const [payable, setPayable] = useState("");
   const [promoUpdate, setUpdate] = useState("");
-  console.log(discount)
+  console.log(discount);
   useEffect(() => {
     fetch("https://ai-server-sooty.vercel.app/promo")
       .then((response) => response.json())
@@ -27,8 +33,8 @@ const PromoCode = ({ discountAmount, discount, courseFee, course, enrolled }) =>
       const newdiscountAmount = discountAmount - discountedAmount;
       setPayable(newdiscountAmount);
 
-      setUpdate("The Price is reduced by $ " + discountedAmount);
-      return newdiscountAmount;
+      setUpdate("The Price is reduced by $ " + discountedAmount.toFixed(0));
+      return newdiscountAmount.toFixed(0);
     } else {
       setUpdate("The Promo Code is not valid");
       // Promo code not found
@@ -43,9 +49,17 @@ const PromoCode = ({ discountAmount, discount, courseFee, course, enrolled }) =>
             {" "}
             {language == "bn" ? "কোর্সের মূল্য:" : "Course Fee:"}
           </span>{" "}
-          {discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
-            ৳ {courseFee}
-          </span> : "" : ""}
+          {discount ? (
+            discount != 0 ? (
+              <span className="line-through text-gray-500 mx-2 text-md">
+                ৳ {courseFee}
+              </span>
+            ) : (
+              ""
+            )
+          ) : (
+            ""
+          )}
           <span className="text-xl">৳{discountAmount}</span>
           {/* <span className="text-red-600 ml-4"> Save: {discount}%</span> */}
         </p>
@@ -71,26 +85,28 @@ const PromoCode = ({ discountAmount, discount, courseFee, course, enrolled }) =>
         <p className="text-center font-thin text-slate-600">{promoUpdate}</p>
         {/* TODO _________ change the final amount by fetching the dis count */}
         <p className=" text-xl flex justify-between border-b-2">
-          {language == "bn" ? "প্রদেয় মোট:" : "Payable Total:"}
+          {language == "bn" ? "সর্বমোট:" : "Payable Total:"}
           <span className="font-normal">
-            ৳ {payable ? payable : discountAmount}{" "}
+            ৳ {payable ? payable.toFixed(0) : discountAmount.toFixed(0)}{" "}
           </span>{" "}
         </p>
         <div className="text-center hidden md:block">
-        
-          {
-                  enrolled ? <div>
-                    <p>You&apos;ve Enrolled Already</p>
-                    <Link className="text-blue-600 " to='/dashboard/my-courses'>Check Here</Link>
-                  </div> : 
-                   <Link
-                   to="/enroll"
-                   state={{ course, payable, discountAmount, courseFee }}
-                   className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
-                 >
-                   Enroll Now
-                 </Link>
-                 }
+          {enrolled ? (
+            <div>
+              <p>You&apos;ve Enrolled Already</p>
+              <Link className="text-blue-600 " to="/dashboard/my-courses">
+                Check Here
+              </Link>
+            </div>
+          ) : (
+            <Link
+              to="/enroll"
+              state={{ course, payable, discountAmount, courseFee }}
+              className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
+            >
+              Enroll Now
+            </Link>
+          )}
         </div>
       </section>
     </div>

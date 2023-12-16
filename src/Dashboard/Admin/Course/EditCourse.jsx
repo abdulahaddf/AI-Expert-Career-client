@@ -20,7 +20,7 @@ const EditCourse = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [pageLoading, setPageLoading] = useState(true);
   const [selectedCollaborators, setSelectedCollaborators] = useState([]);
-  const [description, setDescription] = useState(course.description);
+  const [description, setDescription] = useState(course?.description);
   const [newCollaborator, setNewCollaborator] = useState("");
   const editor = useRef(null);
 
@@ -442,7 +442,7 @@ const EditCourse = () => {
           <JoditEditor
             id="description"
             ref={editor}
-            value={course.description}
+            value={course?.description}
             tabIndex={1} // tabIndex of textarea
             onChange={(newDescription) => setDescription(newDescription)}
           />

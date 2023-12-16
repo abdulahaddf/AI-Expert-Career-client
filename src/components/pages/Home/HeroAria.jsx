@@ -20,7 +20,7 @@ const HeroAria = () => {
   if (!banner) return <Loader/>;
   return (
     <div className=" bg-[#fff] mb-[40px]  " style={{ background: gradientColor }}>
-      <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:h-[90dvh]">
+      <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full 2xl:max-w-screen-2xl  md:px-24 lg:px-8 md:h-[90dvh]">
         <div className="md:flex">
           <div className="lg:text-start md:w-1/2 flex flex-col  justify-center md:pl-3">
             {/* <h3 className="text-[16px] lg:text-[20px] xl:text-[14px] 2xl:text-[16px] font-[700] mb-[16px] text-[#ED1B24] lg:text-start">

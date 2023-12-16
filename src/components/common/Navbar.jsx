@@ -154,7 +154,7 @@ const navigate = useNavigate();
             <ul className="items-center hidden font-[700] xl:flex pl-5 ">
               <div className={"flex items-center"}>{menuItem}</div>
             </ul>
-            <div className="flex  justify-between items-center gap-5 pl-32 md:pl-0">
+            <div className="flex  justify-between items-center gap-5 pl-28 md:pl-0">
               {user &&
               !isAdmin &&
               userinfo?.role !== "super admin" &&

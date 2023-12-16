@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CourseCart = ({ courseData, userId }) => {
   const { course, _id } = courseData;
-console.log(courseData)
+// console.log(courseData)
   return (
     <div className="flex section w-11/12 md:w-96 mx-auto md:p-5">
       <img src={course?.cover} alt="" className="mr-4 w-32 h-20" />
