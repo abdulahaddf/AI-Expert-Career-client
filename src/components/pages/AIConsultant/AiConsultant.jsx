@@ -295,7 +295,7 @@ console.log(filteredCon)
               ))}
             </div>
           ) : (
-            <p className="text-2xl text-center my-20">Consultants Coming Soon</p>
+            <p className="text-2xl text-center my-20">Coming Soon</p>
           )}
         </div>
 

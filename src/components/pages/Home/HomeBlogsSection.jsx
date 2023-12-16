@@ -90,7 +90,7 @@ const HomeBlogsSection = () => {
                         className="flex items-center justify-center col-span-full text-center"
                         style={{ gridColumn: "1 / -1" }}
                       >
-                        <p className="text-lg ">Coming Soon</p>
+                        <p className="text-lg ">Blogs are Coming Soon</p>
                       </div>
                     )}
                   </div>

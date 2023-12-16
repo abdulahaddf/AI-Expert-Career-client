@@ -30,7 +30,7 @@ const Certificate = ({ id, progressPercentage,reload }) => {
   const { _id, name, courseTitle, completionTime } = course;
   // console.log(course)
   // console.log(name.length)
-  const nameClass = name?.length > 18 ? 'left-[270px]' : 'left-[440px]';
+  // const nameClass = name?.length > 18 ? 'left-[270px]' : 'left-[440px]';
 
   const generatePdf = () => {
     const pdfOptions = {
@@ -50,9 +50,9 @@ const Certificate = ({ id, progressPercentage,reload }) => {
       <img src=${CertificateImage} style="width: 100%; height: 100%;" alt="Certificate Background" />
 
       <!-- Content to overlay on the image -->
-      <p class="absolute top-[408px]  ${nameClass} text-primary font-bold text-6xl">${name}</p>
-      <p class="absolute top-[590px]  left-[420px] text-primary font-bold text-4xl">${courseTitle}</p>
-      <p class="absolute top-[645px]  left-[445px] text-black  text-2xl">${completionTime}</p>
+      <p class="absolute top-[408px]  left-[160px] text-primary font-bold text-6xl">${name}</p>
+      <p class="absolute top-[590px]  left-[160px] text-primary font-bold text-4xl">${courseTitle}</p>
+      <p class="absolute top-[645px]  left-[160px] text-black  text-2xl">${completionTime}</p>
       <p class="absolute top-[990px]  left-[660px] text-black  text-2xl">AIEC${_id}</p>
     </div>
   </div>

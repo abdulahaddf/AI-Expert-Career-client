@@ -1,4 +1,3 @@
-
 import { Tab } from "@headlessui/react";
 import { useEffect, useState } from "react";
 import BlogCard from "../Blog/BlogCard";
@@ -15,24 +14,21 @@ const HomeCourseSection = () => {
   const { language } = useContext(MyContext);
   const [courses, isLoading] = useCourses();
   const { category } = useParams(); // Get the selected category from the URL
-if(isLoading) return <Loader/>;
+  if (isLoading) return <Loader />;
   return (
     <div className="mt-5 md:mt-20 mb-10">
       <h2 className="text-[30px] font-bold text-center">
-        {language == "bn"
-          ? "কোর্স সমূহ"
-          : "Choose Your AI Journey"}
+        {language == "bn" ? "কোর্স সমূহ" : "Choose Your AI Journey"}
       </h2>
       <h3 className="text-center">
-        We are the first-ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh
+        We are the first-ever Artificial Intelligence based Ed-tech and
+        Consultancy Service Platform in Bangladesh
       </h3>
 
       <div className=" mx-auto px-2 py-5 md:py-16 sm:px-0">
         <Tab.Group>
           <div className="md:flex justify-between">
-            <Tab.List
-              className="flex md:space-x-5 rounded-lg border text-black p-1 md:w-3/4 whitespace-nowrap overflow-x-auto"
-            >
+            <Tab.List className="flex md:space-x-5 rounded-lg border text-black p-1 md:w-3/4 whitespace-nowrap overflow-x-auto">
               {categories.map((cat) => (
                 <Tab
                   key={cat}
@@ -51,7 +47,7 @@ if(isLoading) return <Loader/>;
               ))}
             </Tab.List>
             <Link
-              to="/courses" 
+              to="/courses"
               className="btn btn-md btn-ghost btn-outline border-black normal-case  hover:shadow-lg hover:bg-black hover:text-white flex justify-center mt-5 md:mt-0"
             >
               View All Courses
@@ -71,11 +67,23 @@ if(isLoading) return <Loader/>;
                       .filter((course) => course.mainCategory === cat)
                       .slice(0, 8)
                       .map((filteredCourse, idx) => (
-                        <CourseCard key={idx} course={filteredCourse}></CourseCard>
+                        <CourseCard
+                          key={idx}
+                          course={filteredCourse}
+                        ></CourseCard>
                       ))}
+                    {courses.filter((course) => course.mainCategory === cat)
+                      .length === 0 && (
+                      <div
+                        className="flex items-center justify-center col-span-full text-center"
+                        style={{ gridColumn: "1 / -1" }}
+                      >
+                        <p className="text-lg">Courses are Coming Soon</p>
+                      </div>
+                    )}
                   </div>
                   <Link
-                  state={courses}
+                    state={courses}
                     to={`/allCourses/${cat}`} // Use the selected category to generate the link
                     className="btn-view w-fit flex justify-center  mx-auto "
                   >

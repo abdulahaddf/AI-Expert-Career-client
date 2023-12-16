@@ -35,9 +35,18 @@ const AllMainCategoryCourses = () => {
     <div className="w-11/12 mx-auto mb-10">
       <h1 className="text-3xl text-center my-10">All {mainCategory} Courses</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 ">
-        {paginatedCourses?.map((course) => (
-          <CourseCard key={course._id} course={course}></CourseCard>
-        ))}
+{
+  paginatedCourses.length > 0 ? <>{paginatedCourses?.map((course) => (
+    <CourseCard key={course._id} course={course}></CourseCard>
+  ))}</> :  <div
+  className="flex items-center justify-center col-span-full text-center"
+  style={{ gridColumn: "1 / -1" }}
+>
+  <p className="text-lg">Courses are Coming Soon</p>
+</div>
+}
+
+        
       </div>
       {/* pagination */}
       <div className="flex justify-center mt-8">
