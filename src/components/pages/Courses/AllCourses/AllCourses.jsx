@@ -63,7 +63,7 @@ const AllCourses = () => {
 
   if (isLoading && !banners && !courses) return <Loader />;
   return (
-    <div className="md:w-4/5 px-3 md:px-0 mx-auto">
+    <div className="md:w-4/5 max-w-7xl px-3 md:px-0 mx-auto ">
       {/* Banner */}
       <div className="my-10 flex flex-col gap-5 md:gap-10 xl:flex-row mx-auto justify-center  items-center">
         {/* Dynamic banners and titles */}
@@ -109,23 +109,26 @@ const AllCourses = () => {
           {/* Development courses card ** data from array of object  */}
           {freeCourses?.length > 0 ? (
             <>
-             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
-            {freeCourses?.slice(0, 4).map((course) => (
-              <CourseCard key={course._id} course={course}></CourseCard>
-            ))}
-          </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+                {freeCourses?.slice(0, 4).map((course) => (
+                  <CourseCard key={course._id} course={course}></CourseCard>
+                ))}
+              </div>
 
-          <div className="flex justify-center my-10">
-            <Link state={courses} to="/allCourses/Free" className="btn-view">
-              {language == "bn" ? "আরো দেখুন" : "See More"}
-            </Link>
-          </div>
+              <div className="flex justify-center my-10">
+                <Link
+                  state={courses}
+                  to="/allCourses/Free"
+                  className="btn-view"
+                >
+                  {language == "bn" ? "আরো দেখুন" : "See More"}
+                </Link>
+              </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">No Course Available Yet</p>
+            <p className=" text-center text-2xl">Courses are Coming Soon</p>
           )}
         </div>
-
       </section>
 
       <section className="my-14">
@@ -136,30 +139,29 @@ const AllCourses = () => {
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
 
-       
         <div className="my-10">
           {/* Development courses card ** data from array of object  */}
           {fundamentalCourses?.length > 0 ? (
             <>
-             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
-            {fundamentalCourses?.slice(0, 4).map((course) => (
-              <CourseCard key={course._id} course={course}></CourseCard>
-            ))}
-               </div>
-             <div className="flex justify-center my-10">
-            <Link
-              state={courses}
-              to="/allCourses/Fundamental"
-              className="btn-view"
-            >
-              {language == "bn" ? "আরো দেখুন" : "See More"}
-            </Link>
-          </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+                {fundamentalCourses?.slice(0, 4).map((course) => (
+                  <CourseCard key={course._id} course={course}></CourseCard>
+                ))}
+              </div>
+              <div className="flex justify-center my-10">
+                <Link
+                  state={courses}
+                  to="/allCourses/Fundamental"
+                  className="btn-view"
+                >
+                  {language == "bn" ? "আরো দেখুন" : "See More"}
+                </Link>
+              </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">No Course Available Yet</p>
+            <p className=" text-center text-2xl">Courses are Coming Soon</p>
           )}
-        </div> 
+        </div>
       </section>
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
@@ -189,7 +191,7 @@ const AllCourses = () => {
               </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">No Course Available Yet</p>
+            <p className=" text-center text-2xl">Courses are Coming Soon</p>
           )}
         </div>
       </section>

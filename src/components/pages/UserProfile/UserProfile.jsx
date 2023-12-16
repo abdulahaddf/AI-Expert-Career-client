@@ -21,12 +21,17 @@ const UserProfile = () => {
   // const { displayName, email, photoURL, phone, address, city } = userinfo;
 
   const updateProfile = (data) => {
-    const { name, phone, address,occupation,
+    const {
+      name,
+      phone,
+      address,
+      occupation,
       position,
       field,
       job,
       description,
-      social } = data;
+      social,
+    } = data;
 
     const profile = {
       displayName: name || userinfo?.displayName,
@@ -173,7 +178,7 @@ const UserProfile = () => {
                 </Link>
               </div> */}
             </div>
-{/* update profile pic modal */}
+            {/* update profile pic modal */}
             <dialog id={`${userinfo.displayName}`} className="modal">
               <form
                 onSubmit={handleSubmit(updatePicture)}
@@ -253,7 +258,6 @@ const UserProfile = () => {
               </p>
             </div>
 
-
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="occupation">
                 {language === "bn" ? "পেশা" : "Occupation"}
@@ -280,7 +284,9 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="field">
-                {language === "bn" ? "আপনি কোন ক্যারিয়ার ফিল্ডে আগ্রহী" : "Interested Career Field"}
+                {language === "bn"
+                  ? "আপনি কোন ক্যারিয়ার ফিল্ডে আগ্রহী"
+                  : "Interested Career Field"}
               </label>
               <p className="text-lg ">
                 {userinfo?.field ? (
@@ -292,7 +298,9 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="description">
-                {language === "bn" ? "আপনি কোন টাইপের জব অনুসন্ধান করছেন" : "Which type of job you searching"}
+                {language === "bn"
+                  ? "আপনি কোন টাইপের জব অনুসন্ধান করছেন"
+                  : "Which type of job you searching"}
               </label>
               <p className="text-lg ">
                 {userinfo?.job ? (
@@ -304,7 +312,9 @@ const UserProfile = () => {
             </div>
             <div className="mt-8">
               <label className="text-[#707070] " htmlFor="description">
-                {language === "bn" ? "আপনার সম্পর্কে বিস্তারিত" : "Your Description"}
+                {language === "bn"
+                  ? "আপনার সম্পর্কে বিস্তারিত"
+                  : "Your Description"}
               </label>
               <p className="text-lg ">
                 {userinfo?.description ? (
@@ -327,15 +337,8 @@ const UserProfile = () => {
               </p>
             </div>
 
-
-
-
-
-
-
             <div className="mt-8">
-        
-{/* Update information modal */}
+              {/* Update information modal */}
               <dialog id={`${userinfo._id}`} className="modal">
                 <form
                   onSubmit={handleSubmit(updateProfile)}
@@ -488,7 +491,7 @@ const UserProfile = () => {
                         htmlFor="job"
                         className="block text-sm font-semibold text-gray-800"
                       >
-                       Which type of job you searching
+                        Which type of job you searching
                       </label>
                       <input
                         type="text"
@@ -503,7 +506,7 @@ const UserProfile = () => {
                         htmlFor="description"
                         className="block text-sm font-semibold text-gray-800"
                       >
-                       Your Description
+                        Your Description
                       </label>
                       <input
                         type="text"
@@ -528,10 +531,6 @@ const UserProfile = () => {
                         className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
                       />
                     </div>
-
-
-
-
                   </div>
 
                   <button type="submit" className="btn-add">

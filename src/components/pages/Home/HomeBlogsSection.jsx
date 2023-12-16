@@ -72,7 +72,7 @@ const HomeBlogsSection = () => {
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              categories.map((category, index) => (
+              categories?.map((category, index) => (
                 <Tab.Panel
                   key={index}
                   className="rounded-full bg-white md:p-3 "
@@ -80,10 +80,19 @@ const HomeBlogsSection = () => {
                   <div className="pt-3 grid gap-x-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center gap-y-[24px] md:gap-[34px] pb-6">
                     {blogs
                       .filter((blog) => blog.category === category)
-                      .slice(0, 8) // Display the first four blogs in this category
+                      .slice(0, 8)
                       .map((filteredBlog) => (
                         <BlogCard key={filteredBlog._id} blog={filteredBlog} />
                       ))}
+                    {blogs.filter((blog) => blog.category === category)
+                      .length === 0 && (
+                      <div
+                        className="flex items-center justify-center col-span-full text-center"
+                        style={{ gridColumn: "1 / -1" }}
+                      >
+                        <p className="text-lg ">Coming Soon</p>
+                      </div>
+                    )}
                   </div>
                   <Link
                     to="/blogs"

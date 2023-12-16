@@ -23,21 +23,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Context>
       <AuthProvider>
         <NotificationProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router}></RouterProvider>
-        </QueryClientProvider>
-        <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={true}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                draggable
-                limit={1}
-                theme="light"
-              />
-              </NotificationProvider>
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router}></RouterProvider>
+          </QueryClientProvider>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            draggable
+            limit={1}
+            theme="light"
+          />
+        </NotificationProvider>
       </AuthProvider>
       <App />
     </Context>

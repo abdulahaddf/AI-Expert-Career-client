@@ -79,7 +79,7 @@ const Footer = () => {
       backgroundPosition: 'bottom 10px right -80px',
       backgroundRepeat: 'no-repeat',
       
-    }} className="bg-[#000000] bg-[image:var(--image-url)] bg-[length:500px_500px]  max-w-full md:max-w-full  2xl:max-w-screen-2xl mx-auto">
+    }} className="bg-[#000000] bg-[image:var(--image-url)] bg-[length:500px_500px] w-full  mx-auto">
       <div className="pt-10 pb-10 px-4 mx-auto  md:px-24 lg:px-20 ">
       <div
   
