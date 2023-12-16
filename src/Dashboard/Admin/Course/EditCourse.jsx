@@ -73,7 +73,7 @@ const EditCourse = () => {
     "IoT",
     "Others",
   ];
-  const mainCategoryOptions = ["Free", "Fundamental", "Job Requirement Based"];
+  const mainCategoryOptions = ["Free", "Fundamental", "Professional"];
 
   //   handling dynamic FAQ section
   const {
@@ -120,7 +120,6 @@ const EditCourse = () => {
     setValue("modules", [...watchModules, { title: "", contents: [] }]);
   };
 
-  
   const removeModule = (index) => {
     const updatedModules = [...watchModules];
     updatedModules.splice(index, 1);
@@ -203,7 +202,8 @@ const EditCourse = () => {
           courseFee,
           discount,
           duration,
-          features:  selectedFeatures.length > 0 ? selectedFeatures : course.features,
+          features:
+            selectedFeatures.length > 0 ? selectedFeatures : course.features,
           category,
           mainCategory,
           instructor,
@@ -277,7 +277,8 @@ const EditCourse = () => {
           courseFee,
           discount,
           duration,
-          features:  selectedFeatures.length > 0 ? selectedFeatures : course.features,
+          features:
+            selectedFeatures.length > 0 ? selectedFeatures : course.features,
           Collaborators: selectedCollaborators,
           category,
           mainCategory,
@@ -1062,8 +1063,7 @@ const EditCourse = () => {
         <button type="submit" className="btn-see text-primary hover:text-white">
           {isLoading ? (
             <p className="flex items-center gap-2 ">
-              Uploading{" "}
-              <span className="loading loading-spinner"></span>
+              Uploading <span className="loading loading-spinner"></span>
             </p>
           ) : (
             "Update"

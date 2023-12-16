@@ -23,7 +23,7 @@ const AllCourses = () => {
     (course) => course.mainCategory == "Fundamental"
   );
   const jobBasedCourses = courses?.filter(
-    (course) => course.mainCategory == "Job Requirement Based"
+    (course) => course.mainCategory == "Professional"
   );
 
   const categories = [
@@ -167,7 +167,7 @@ const AllCourses = () => {
         <h2 className="text-[30px] font-bold text-center">
           {language == "bn"
             ? "জব রিকয়ারমেন্ট বেসড কোর্স সমূহ"
-            : "Job Requirement Based Courses"}
+            : "Professional Courses"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />
 
@@ -182,7 +182,7 @@ const AllCourses = () => {
                 <div className="flex justify-center my-10 ">
                   <Link
                     state={courses}
-                    to="/allCourses/Job Requirement Based"
+                    to="/allCourses/Professional"
                     className="btn-view"
                   >
                     {language == "bn" ? "আরো দেখুন" : "See More"}

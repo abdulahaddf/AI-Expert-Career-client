@@ -8,7 +8,7 @@ import useCourses from "../../../hooks/UseCourses";
 import CourseCard from "../Courses/CourseCard";
 import Loader from "../../common/loader/Loader";
 
-const categories = ["Free", "Fundamental", "Job Requirement Based"];
+const categories = ["Free", "Fundamental", "Professional"];
 
 const HomeCourseSection = () => {
   const { language } = useContext(MyContext);

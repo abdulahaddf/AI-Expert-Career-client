@@ -40,7 +40,7 @@ const AddCourse = () => {
     "IoT",
     "Others",
   ];
-  const mainCategoryOptions = ["Free", "Fundamental", "Job Requirement Based"];
+  const mainCategoryOptions = ["Free", "Fundamental", "Professional"];
 
   //   handling dynamic FAQ section
   const {
@@ -521,7 +521,7 @@ const AddCourse = () => {
             </div>
           </div>
         </div>
-{/* if course is live add a doc link for instructions */}
+        {/* if course is live add a doc link for instructions */}
         {courseModel === "live" && (
           <div className="mb-4">
             <label
