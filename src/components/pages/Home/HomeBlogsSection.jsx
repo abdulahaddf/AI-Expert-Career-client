@@ -98,7 +98,7 @@ const HomeBlogsSection = () => {
                     to="/blogs"
                     className="btn-black flex justify-center w-fit mx-auto btn-md"
                   >
-                    View More
+                   {language == "bn" ? "আরো দেখুন" : "View More"}
                   </Link>
                 </Tab.Panel>
               ))

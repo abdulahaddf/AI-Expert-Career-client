@@ -11,7 +11,7 @@ import { MyContext } from "../../../Context/Context";
 
 const FeaturedBlogs = ({ featuredBlogs }) => {
   const { language } = useContext(MyContext);
-  console.log(featuredBlogs);
+  // console.log(featuredBlogs);
 
   return (
     <div>

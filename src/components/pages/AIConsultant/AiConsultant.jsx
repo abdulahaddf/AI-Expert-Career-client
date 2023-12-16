@@ -115,7 +115,7 @@ const location = useLocation();
     setSelectedWorkingWith(selected);
     filterConsultants(selectedDay, selected);
   };
-console.log(consultants)
+// console.log(consultants)
   const filterConsultants = (day, workingWith) => {
     if (day === "All" && workingWith === "All") {
       setFilteredCon(consultants);
@@ -147,7 +147,7 @@ console.log(consultants)
 
   // Slice the sorted and filtered data for pagination
   const paginatedCon = filteredCon.slice(startIndex, endIndex);
-console.log(filteredCon)
+// console.log(filteredCon)
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });

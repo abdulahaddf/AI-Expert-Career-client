@@ -28,7 +28,7 @@ const HeroAria = () => {
                 ? "সেরা অনলাইন ভিডিও কোর্স পছন্দ করুন"
                 : " Choose best online video courses"}
             </h3> */}
-            <div className="text-[35px] sm:text-[42px] flex flex-col lg:text-[55px]  xl:text-[60px] font-semibold leading-none lg:text-start pt-10 md:pt-0">
+            <div className="text-[35px] sm:text-[42px] flex flex-col lg:text-[55px]  xl:text-[60px] font-semibold leading-none lg:text-start pt-10 md:pt-0 ">
               <h1>
                 {language == "bn"
                   ? "কৃত্রিম বুদ্ধিমত্তার কঠিন জার্নিতে"

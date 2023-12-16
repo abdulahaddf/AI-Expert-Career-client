@@ -167,7 +167,7 @@ const AllCourses = () => {
       <section className="my-14">
         <h2 className="text-[30px] font-bold text-center">
           {language == "bn"
-            ? "জব রিকয়ারমেন্ট বেসড কোর্স সমূহ"
+            ? "প্রোফেশনাল কোর্স সমূহ"
             : "Professional Courses"}
         </h2>
         <hr className="w-12 h-1 bg-[#FF265A]/90 rounded-full mx-auto " />

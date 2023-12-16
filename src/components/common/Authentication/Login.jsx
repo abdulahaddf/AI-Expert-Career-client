@@ -39,8 +39,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-  console.log(location);
-  console.log(from);
+  // console.log(location);
+  // console.log(from);
 
 
 
@@ -51,7 +51,7 @@ const Login = () => {
   signIn(email, password)
     .then((result) => {
       const loggedUser = result.user;
-      console.log("User info:", loggedUser);
+      // console.log("User info:", loggedUser);
 
       // Check if the user's email is verified
       if (loggedUser.emailVerified) {
@@ -148,7 +148,7 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            console.log(result.user);
+            // console.log(result.user);
             toast.info("Successfully Signed In", {
               icon: <AiFillCheckCircle className="text-xl text-primary" />,
             });

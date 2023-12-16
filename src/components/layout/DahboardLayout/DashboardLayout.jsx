@@ -394,7 +394,7 @@ const handleLogOut =()=>{
                       />
                       {language === "bn" ? "নটিফিকেশন" : "Notifications"}
                       <div className="badge  ml-2">
-                        {unopenedCount}
+                        {unopenedCount <= 0 ? 0 : unopenedCount}
                       </div>
                     </NavLink>
 

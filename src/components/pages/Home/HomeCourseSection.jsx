@@ -50,7 +50,8 @@ const HomeCourseSection = () => {
               to="/courses"
               className="btn btn-md btn-ghost btn-outline border-black normal-case  hover:shadow-lg hover:bg-black hover:text-white flex justify-center mt-5 md:mt-0"
             >
-              View All Courses
+              {language == "bn" ? "সকল কোর্স দেখুন" : "View All Courses"}
+              
             </Link>
           </div>
           <Tab.Panels className="mt-2">
@@ -87,7 +88,8 @@ const HomeCourseSection = () => {
                     to={`/allCourses/${cat}`} // Use the selected category to generate the link
                     className="btn-view w-fit flex justify-center  mx-auto "
                   >
-                    View More
+                     {language == "bn" ? "আরো দেখুন" : "View More"}
+                    
                   </Link>
                 </Tab.Panel>
               ))

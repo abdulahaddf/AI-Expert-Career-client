@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Logo from "/img/logo.png";
 import "./Navbar.css";
 import { useContext } from "react";
@@ -121,6 +121,8 @@ const navigate = useNavigate();
       </li>
     </>
   );
+
+  console.log(location.pathname)
   const handleLogOut = () => {
     if (location.pathname.startsWith('/dashboard')) {
       navigate('/');
@@ -129,6 +131,21 @@ const navigate = useNavigate();
       logOut();
     }
   };
+
+  
+const handleLogOutAdmin = () => {
+  // console.log("clicked");
+  if (window.location.pathname.startsWith('/dashboard')) {
+    navigate('/home', {replace: true});
+    // console.log("from dashboard");
+    logOut();
+  } else {
+    // console.log('from else');
+    logOut();
+  }
+};
+ 
+
   useEffect(() => {
     setIsOpen(true);
   }, [isMenuOpen]);
@@ -263,7 +280,7 @@ const navigate = useNavigate();
                                 User Control
                               </Link>
 
-                              <Link className="navOptions" onClick={()=>handleLogOut()}>
+                              <Link className="navOptions" onClick={handleLogOutAdmin}>
                                 Logout
                               </Link>
                             </li>

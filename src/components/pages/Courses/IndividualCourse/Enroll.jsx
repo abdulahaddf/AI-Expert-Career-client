@@ -171,7 +171,7 @@ console.log(course)
               <p className=" text-xl flex justify-between border-b-2">
                 {language == "bn" ? "সর্বমোট:" : "Payable Total:"}
                 <span className="font-normal">
-                  ৳ {payable ? payable.toFixed(2) : discountAmount.toFixed(2)}{" "}
+                  ৳ {payable ? payable.toFixed(0) : discountAmount.toFixed(0)}{" "}
                 </span>{" "}
               </p>
             </div>
@@ -222,7 +222,7 @@ console.log(course)
                   <li className="text-sm font-normal">
                     Transfer{" "}
                     <span className="text-primary text-lg">
-                      {payable ? payable : discountAmount}
+                      {payable ? payable.toFixed(0) : discountAmount.toFixed(0)}
                     </span>{" "}
                     TK to the following number:
                     <span className="text-primary text-lg"> 01995536898</span>

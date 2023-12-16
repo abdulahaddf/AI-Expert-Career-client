@@ -98,7 +98,7 @@ const ControlEnrollments = () => {
                 <td>{c.courseTitle}</td>
                 <td className="text-center">{c.name}</td>
                 <td className="text-center">{c.email}</td>
-                <td className="text-center">{c.amount ? c.amount : "Free"}</td>
+                <td className="text-center">{c.amount ? c.amount.toFixed(0) : "Free"}</td>
                 <td className="text-center">{c.tId ? c.tId : "Free"}</td>
                 <td className="text-center">{c.sender ? c.sender : "Free"}</td>
                 <td className="text-center">{disabledAcceptButtons.includes(c._id) ? "approved" : c.status}</td>
