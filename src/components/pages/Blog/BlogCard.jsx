@@ -29,13 +29,13 @@ const BlogCard = ({ blog }) => {
     <div className="section w-full flex flex-col justify-between  p-2">
       <figure className="rounded-lg">
         <img
-          className="w-fit  pb-3 mx-auto rounded-lg object-cover"
+          className="w-full md:w-fit  pb-3 mx-auto rounded-lg object-cover"
           src={blog.imageURL}
           alt="cover"
         />
       </figure>
       <div className="space-y-4 flex flex-col justify-center items-center ">
-        <Link to={`/blog/${blog.blogName}`}>
+        <Link to={`/blog/${blog.blogName}`} onClick={incrementViewCount}>
           {/* Font bold */}
           <h2 className="font-bold text-[18px] text-center li-ador-noirrit-semibold">{blog.blogName}</h2> 
         </Link>

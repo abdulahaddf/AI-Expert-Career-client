@@ -321,6 +321,15 @@ const handleLogOut =()=>{
                       />
                       {language === "bn" ? "মেইল সমূহ" : "All submitted mails"}
                     </NavLink>
+                    <div
+                      className=" my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      onClick={()=>handleLogOut()}
+                    >
+                      <FiLogOut />
+                      <button className="font-bold pl-2">
+                        {language === "bn" ? "লগ আউট" : "Logout"}
+                      </button>
+                    </div>
                   </ul>
                 ) : userinfo?.role === "consultant" ? (
                   // Consultant Dashboard link starts from here

@@ -167,8 +167,8 @@ const location = useLocation();
     <div className=" lg:mt-[10px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
       <div className=" ">
         <div className="">
-          <div className="w-4/5 mx-auto ">
-            <h1 className="font-bold text-center text-[35px]">
+          <div className="md:w-4/5 mx-auto ">
+            <h1 className="font-bold text-center text-[28px] md:text-[35px] pb-3">
               {language == "bn"
                 ? "ক্যারিয়ারের সঠিক দিক নির্দেশনার জন্য কনসালটেন্ট খুঁজুন"
                 : "One Stop Solution in your AI Career paths"}

@@ -38,7 +38,7 @@ const IndividualBlog = () => {
   const location = useLocation();
   // console.log(currentURL);
   // console.log(id);
-  console.log(blog);
+  // console.log(blog);
   const allComments = blog?.comments?.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -126,7 +126,7 @@ const IndividualBlog = () => {
   };
 
 
-console.log(userReaction)
+// console.log(userReaction)
 
   const handleLikeClick = async () => {
     if (!user || !user.email) {
@@ -160,7 +160,7 @@ console.log(userReaction)
   };
 
   const handleDislikeOrLike = async (status) => {
-    console.log(status);
+    // console.log(status);
     if (!user || !user.email) {
       toast.error('You need to login first');
       return;
@@ -209,7 +209,7 @@ useEffect(() => {
   if (user && blog.likes) {
     const userLike = blog.likes.find((like) => like.email === user.email);
     if (userLike) {
-      setUserReaction(userLike.status); // Set user's reaction based on their like/dislike status
+      setUserReaction(userLike.status); 
     }
   }
 }, [blog, user]);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, Navigate, useLocation, useNavigate,} from "react-router-dom";
 import Logo from "/img/logo.png";
 import "./Navbar.css";
 import { useContext } from "react";
@@ -133,18 +133,19 @@ const navigate = useNavigate();
   };
 
   
-const handleLogOutAdmin = () => {
-  // console.log("clicked");
-  if (window.location.pathname.startsWith('/dashboard')) {
-    navigate('/home', {replace: true});
-    // console.log("from dashboard");
-    logOut();
-  } else {
-    // console.log('from else');
-    logOut();
-  }
-};
+// const handleLogOutAdmin = () => {
+//   console.log("clicked");
+//   if (window.location.pathname.includes('/dashboard')) {
+//     navigate('/home', {replace: true});
+//     console.log("from dashboard");
+//     // logOut();
+//   } else {
+//     console.log('from else');
+//     logOut();
+//   }
+// };
  
+
 
   useEffect(() => {
     setIsOpen(true);
@@ -279,10 +280,16 @@ const handleLogOutAdmin = () => {
                               >
                                 User Control
                               </Link>
-
-                              <Link className="navOptions" onClick={handleLogOutAdmin}>
-                                Logout
+                              <Link
+                                to="/dashboard/control-enrollments"
+                                className=" navOptions"
+                              >
+                               Enrollments
                               </Link>
+
+                              {/* <Link className="navOptions" onClick={handleLogOutAdmin}>
+                                Logout
+                              </Link> */}
                             </li>
                           ) : userinfo?.role === "consultant" ? (
                             <li className="flex flex-col justify-center items-center h-fit space-y-4 mt-10  p-1 ">

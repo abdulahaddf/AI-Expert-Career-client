@@ -300,7 +300,9 @@ const Login = () => {
             </button>
                 </div>
                 {/* join with facebook button  */}
-                <div className="mt-5  mx-auto text-center bg-white rounded-lg">
+
+
+                {/* <div className="mt-5  mx-auto text-center bg-white rounded-lg">
                 <button
               onClick={handlefbSignIn}
               type="button"
@@ -309,7 +311,9 @@ const Login = () => {
               <img className="h-9 w-9 ml-5" src={facebook} alt="" />
               <span className="ml-2">Sign in with Facebook</span>
             </button>
-                </div>
+                </div> */}
+
+
             <p
             className= "mt-8 text-md font-normal text-center text-gray-700"
        

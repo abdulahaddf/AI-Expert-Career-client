@@ -16,7 +16,7 @@ const CallBtn = () => {
     <div>
       <button
         onClick={handleCall}
-        className="btn btn-ghost btn-outline normal-case border-primary text-primary hover:border-primary  hover:shadow-lg hover:bg-primary hover:text-white btn-md md:px-8 text-lg md:hidden"
+        className="btn btn-ghost btn-outline normal-case border-primary text-primary hover:border-primary  hover:shadow-lg hover:bg-primary hover:text-white btn-md md:px-8  sm:text-lg md:hidden w-full"
       >
       <BsFillTelephoneFill/> {language == "bn" ? "ফ্রি কল করুন" : " Call for Free Consultancy"} 
       </button>
