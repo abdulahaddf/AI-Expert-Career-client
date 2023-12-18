@@ -256,10 +256,10 @@ console.log(course)
                 required
                 type="tel"
                 onChange={handleNumberChange}
-                placeholder="Enter Sender Number"
+                placeholder="01xxxxxxxxx"
                 className="input input-bordered input-sm w-full max-w-xs "
               />
-              Sender Number
+            Sender Number
             </label>
           </section>
           <p className="text-sm text-primary">{error ? error : ""}</p>
@@ -291,7 +291,7 @@ console.log(course)
         </div>
         <Link
           onClick={handleSubmit}
-          disabled={error.length > 0 || !isChecked}
+          disabled={error.length > 0 || !isChecked || tId.length < 6 || number.length < 11}
           state={title}
           to="/complete-enroll"
           className="btn-add"
