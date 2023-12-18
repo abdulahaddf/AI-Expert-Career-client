@@ -364,7 +364,7 @@ const UserProfile = () => {
                   <h3 className="text-3xl font-semibold text-center  uppercase mb-5">
                     Update Profile{" "}
                   </h3>
-                  <div className="grid md:grid-cols-2 space-x-5">
+                  <div className="grid md:grid-cols-2 space-x-4">
                     <div className="mb-2">
                       <label
                         htmlFor="name"
@@ -426,21 +426,7 @@ const UserProfile = () => {
                         className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
                       />
                     </div>
-                    <div className="mb-2">
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-semibold text-gray-800"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        type="number"
-                        id="phone"
-                        defaultValue={userinfo?.phone}
-                        {...register("phone")}
-                        className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
-                      />
-                    </div>
+                   
                     <div className="mb-2">
                       <label
                         htmlFor="occupation"

@@ -95,7 +95,7 @@ const Footer = () => {
             </Link>
             <h4 className="text-white/50 text-[18px] my-[36px]">
               <span className="text-white">Our vision</span> is to see Al as a
-              driving force behind Bangladeshs eco- nomic prosperity,
+              driving force behind Bangladeshs economic prosperity,
               Bangladeshi Al experts on the global stage and make opportunities
               for all.
             </h4>

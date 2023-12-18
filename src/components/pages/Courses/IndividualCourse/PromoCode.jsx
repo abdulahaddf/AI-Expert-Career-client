@@ -33,7 +33,7 @@ const PromoCode = ({
       const newdiscountAmount = discountAmount - discountedAmount;
       setPayable(newdiscountAmount);
 
-      setUpdate("The Price is reduced by $ " + discountedAmount.toFixed(0));
+      setUpdate("The Price is reduced by ৳ " + discountedAmount.toFixed(0));
       return newdiscountAmount.toFixed(0);
     } else {
       setUpdate("The Promo Code is not valid");

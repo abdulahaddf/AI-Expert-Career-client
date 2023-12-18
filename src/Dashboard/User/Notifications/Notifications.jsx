@@ -13,6 +13,10 @@ const Notifications = () => {
     <div className="px-4 md:w-1/2 mx-auto mb-10 ">
       <h1 className="font-bold text-center text-2xl">Notifications</h1>
       <section>
+        {
+          notifications.length > 0 ?  <>
+          
+       
         {notifications?.map((n) => (
           <div
             key={n._id}
@@ -39,7 +43,7 @@ const Notifications = () => {
               </div>
             </dialog>
           </div>
-        ))}
+        ))}</> : <p className="my-20 text-3xl font-semibold text-center">No notifications available</p> }
       </section>
     </div>
   );
