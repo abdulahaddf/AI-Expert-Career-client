@@ -17,7 +17,7 @@ const UserProfile = () => {
   const [openModalIndex, setOpenModalIndex] = useState("");
   const [openPicModalIndex, setPicOpenModalIndex] = useState("");
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors }, } = useForm();
   // const { displayName, email, photoURL, phone, address, city } = userinfo;
 
   const updateProfile = (data) => {
@@ -422,7 +422,12 @@ const UserProfile = () => {
                         type="tel"
                         id="phone"
                         defaultValue={userinfo?.phone}
-                        {...register("phone")}
+                        {...register("phone", {
+                          pattern: {
+                            value: /^01\d{9}$/,
+                            message: "Please enter a valid phone number",
+                          }})
+                        }
                         className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
                       />
                     </div>
@@ -517,6 +522,13 @@ const UserProfile = () => {
                         className="block w-full px-4 py-2 mt-2 text-red bg-white border rounded-md focus:border-red focus:ring-red focus:outline-none focus:ring focus:ring-opacity-40"
                       />
                     </div>
+                    <div
+                        className="flex items-center justify-center col-span-full text-center"
+                        style={{ gridColumn: "1 / -1" }}
+                      >
+                        <p className="text-lg ">{ errors.phone ?   <p className="text-red-500 text-sm">{errors.phone.message}</p> : ""}</p>
+                      </div>
+                    
                   </div>
 
                   <button type="submit" className="btn-add">

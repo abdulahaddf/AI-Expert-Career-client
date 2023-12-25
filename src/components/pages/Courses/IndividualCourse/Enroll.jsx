@@ -23,7 +23,7 @@ const Enroll = () => {
   const [error, setError] = useState("");
   // console.log(tId, number);
   // console.log(error.length)
-console.log(course)
+  console.log(course);
   const handleSubmit = async () => {
     try {
       // Prepare Enroll Data
@@ -39,7 +39,7 @@ console.log(course)
         tId: tId,
         sender: number,
         amount: payable || discountAmount,
-        courseModel : course?.courseModel,
+        courseModel: course?.courseModel,
         status: "pending",
       };
 
@@ -75,28 +75,19 @@ console.log(course)
     setTid(id);
   };
 
-
-
-
   const isValidPhoneNumber = (input) => /^01\d{9}$/.test(input);
 
   const handleNumberChange = (e) => {
     const newNumber = e.target.value;
 
-    if (isValidPhoneNumber(newNumber) || newNumber === '') {
+    if (isValidPhoneNumber(newNumber) || newNumber === "") {
       setNumber(newNumber);
       setError("");
     } else {
       // Handle invalid input (e.g., show a message or prevent updating state)
-      setError('Please enter a valid number');
+      setError("Please enter a valid number");
     }
   };
-
-
-
-
-
-
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
@@ -108,13 +99,11 @@ console.log(course)
   useEffect(() => {
     if (userinfo.message) {
       toast.error("You need to log in first");
-     
-      navigate('/login', { state: { from: location } });
+
+      navigate("/login", { state: { from: location } });
     }
   }, [location]);
   return (
-    
-   
     <div className="md:flex justify-evenly md:h-[100vh] my-10 px-3 md:px-0">
       <div className="section h-fit md:w-2/5 text-xl p-14">
         <h1 className="font-bold my-4 text-3xl">User Information:</h1>
@@ -198,11 +187,25 @@ console.log(course)
                       {payable ? payable : discountAmount}
                     </span>{" "}
                     টাকা সরবরাহ করুন:
-                    <span className="text-primary text-lg"> 01995536898</span>
+                    <p>
+                      <span>
+                        {" "}
+                        বিকাশ -
+                        <span className="text-primary text-lg">
+                          {" "}
+                          ০১৯৯৫৫৩৬৮৯৮
+                        </span>{" "}
+                      </span>
+                      <span>
+                        <br /> নগদ -
+                        <span className="text-primary text-lg">
+                          {" "}
+                         ০১৮২৭১০০২৪২ <br />
+                        </span>{" "}
+                      </span>
+                    </p>
                   </li>
-                  <li className="text-sm font-normal">
-                    লেনদেন সম্পূর্ণ করতে Bkash, Nagad, বা Rocket ব্যবহার করুন।
-                  </li>
+                  
                   <li className="text-sm font-normal">
                     নীচের ইনপুট ফিল্ডে আপনার লেনদেনের ট্রান্সঅ্যাকশন আইডি এবং যে
                     মোবাইল নম্বরটি ব্যবহার করেছেন, সেই নম্বরটি প্রদান করুন।
@@ -225,11 +228,25 @@ console.log(course)
                       {payable ? payable.toFixed(0) : discountAmount.toFixed(0)}
                     </span>{" "}
                     TK to the following number:
-                    <span className="text-primary text-lg"> 01995536898</span>
+                    <p>
+                      <span>
+                        {" "}
+                        Bkash -
+                        <span className="text-primary text-lg">
+                          {" "}
+                          01995536898
+                        </span>{" "}
+                      </span>
+                      <span>
+                        <br /> Nagad -
+                        <span className="text-primary text-lg">
+                          {" "}
+                          01827100242 <br />
+                        </span>{" "}
+                      </span>
+                    </p>
                   </li>
-                  <li className="text-sm font-normal">
-                    Use Bkash, Nagad, or Rocket for the transaction.
-                  </li>
+
                   <li className="text-sm font-normal">
                     Enter your Transaction ID and the phone number you used for
                     the transaction in the input fields below.
@@ -259,7 +276,7 @@ console.log(course)
                 placeholder="01xxxxxxxxx"
                 className="input input-bordered input-sm w-full max-w-xs "
               />
-            Sender Number
+              Sender Number
             </label>
           </section>
           <p className="text-sm text-primary">{error ? error : ""}</p>
@@ -291,7 +308,12 @@ console.log(course)
         </div>
         <Link
           onClick={handleSubmit}
-          disabled={error.length > 0 || !isChecked || tId.length < 6 || number.length < 11}
+          disabled={
+            error.length > 0 ||
+            !isChecked ||
+            tId.length < 6 ||
+            number.length < 11
+          }
           state={title}
           to="/complete-enroll"
           className="btn-add"
@@ -300,7 +322,6 @@ console.log(course)
         </Link>
       </div>
     </div>
-            
   );
 };
 

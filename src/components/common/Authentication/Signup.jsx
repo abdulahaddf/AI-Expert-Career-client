@@ -285,7 +285,7 @@ const handleForm = (data) => {
   placeholder={
     language === "bn"
       ? "আপনার মোবাইল নম্বর"
-      : "Enter your phone number"
+      : "Enter your phone number 01xx"
   }
   {...register("phone", {
     required: "Phone number is required",
