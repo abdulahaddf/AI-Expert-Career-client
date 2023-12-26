@@ -33,7 +33,7 @@ const HomeTestimonial = () => {
         {language === "bn" ? "শিক্ষার্থীরা যা বলছেন" : "Our Testimonial"}
       </h3>
      
-      <div className=" mx-auto">
+      <div className="mx-auto ">
         <Swiper
           // slidesPerView={3}
           // spaceBetween={30}
@@ -66,21 +66,18 @@ const HomeTestimonial = () => {
           className="mySwiper "
         >
           {feedback?.map(({ _id, name, imageURL, designation, feedback }) => (
-            <SwiperSlide key={_id} className=" pb-16">
-              <div className="p-10 bg-[#fff] shadow-md md:shadow-xl rounded-[20px] text-center mt-[120px] relative">
+            <SwiperSlide key={_id} className="pb-16 ">
+              <div className="p-10 mx-7 bg-[#fff] shadow-[0_-5px_30px_rgba(217,217,217,217)] rounded-[20px] text-center mt-[120px] relative">
                 <span className="absolute left-[16px] top-[-15px]">
-                  <BsQuote className="text-black text-4xl" />
+                  <BsQuote className="text-4xl text-black" />
                 </span>
-                <div className="-mt-[45%] z-50 mx-auto">
-                  <LazyLoad>
-
+               <LazyLoad>
                   <img
-                    className="mx-auto w-20 h-20 rounded-full"
+                    className="w-20 h-20 mx-auto rounded-full"
                     src={imageURL}
                     alt="reviewer"
                     />
                     </LazyLoad>
-                </div>
 
                 <h3 className="text-[20px] font-bold mt-4">{name}</h3>
                 <h5 className="text-[14px]   mb-[15px]">
