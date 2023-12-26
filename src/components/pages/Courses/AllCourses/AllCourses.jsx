@@ -90,9 +90,9 @@ const AllCourses = () => {
                   {
                     courses?.filter(
                       (course) => course.category === categoryItem.category
-                    ).length == 0 ? <p className="text-red-600">coming soon</p>  : courses?.filter(
+                    ).length == 0 ? <p className="text-red-600">Coming Soon</p>  : courses?.filter(
                       (course) => course.category === categoryItem.category
-                    ).length + " courses"
+                    ).length + " Courses"
                   }
                   
                 </p>
