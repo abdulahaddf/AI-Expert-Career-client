@@ -95,7 +95,7 @@ const IndividualCourse = () => {
   
   
   const enrolled = useEnrollmentCheck(_id);
-console.log(enrolled);
+// console.log(enrolled);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -105,7 +105,7 @@ console.log(enrolled);
   return (
    <div className="w-full">
      <Helmet>
-        <title>{title}</title>
+        <title>Course - {title}</title>
         <meta name="description" content={subtitle} />
         <meta name="keywords" content={subtitle} />
         <meta name="og:title" content={title} />
