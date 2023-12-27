@@ -64,35 +64,37 @@ const AllCourses = () => {
 
   if (isLoading && !banners && !courses) return <Loader />;
   return (
-    <div className="md:w-4/5 max-w-7xl px-3 md:px-0 mx-auto ">
+    <div className="px-3 mx-auto md:w-4/5 max-w-7xl md:px-0 ">
       {/* Banner */}
-      <div className="my-10 flex flex-col gap-5 md:gap-10 xl:flex-row mx-auto justify-center  items-center">
+      <div className="flex flex-col items-center justify-center gap-5 mx-auto my-10 md:gap-10 xl:flex-row">
         {/* Dynamic banners and titles */}
         <DynamicBanner banners={banners} />
 
         {/* Course categories */}
-        <div className="md:w-3/5 mx-auto">
-          <h1 className="text-3xl text-center font-semibold mb-5">
+        <div className="mx-auto md:w-3/5">
+          <h1 className="mb-5 text-3xl font-semibold text-center">
             {language == "bn"
-              ? "প্রজেক্ট বেইজড কোর্সগুলো"
+              ? "কোর্স ক্যাটাগরি"
               : "Course Categories"}
           </h1>
-          <div className="grid grid-cols-2 md:grid-cols-3 text-md h-fit w-full gap-5 order-2 my-5 lg:my-0 lg:order-1 content-center ">
+          <div className="grid content-center order-2 w-full grid-cols-2 gap-5 my-5 md:grid-cols-3 text-md h-fit lg:my-0 lg:order-1 ">
             {categories?.map((categoryItem) => (
               <Link
                 key={categoryItem.category}
                 to={`/all-courses/${categoryItem.category}`}
                 state={courses}
-                className="glass md:w-[180px] p-3 hover:bg-slate-200 rounded-lg"
+                className="glass md:w-[180px] p-3 hover:bg-zinc-900 bg-black rounded-lg text-center text-white"
               >
-                <h2>{categoryItem.label}</h2>
+                <h2 className="text-white">{categoryItem.label}</h2>
                 <p>
                   {
                     courses?.filter(
                       (course) => course.category === categoryItem.category
-                    ).length
-                  }{" "}
-                  Courses
+                    ).length == 0 ? <p className="text-red-600">Coming Soon</p>  : courses?.filter(
+                      (course) => course.category === categoryItem.category
+                    ).length + " Courses"
+                  }
+                  
                 </p>
               </Link>
             ))}
@@ -110,7 +112,7 @@ const AllCourses = () => {
           {/* Development courses card ** data from array of object  */}
           {freeCourses?.length > 0 ? (
             <>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+              <div className="grid justify-center gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {freeCourses?.slice(0, 4).map((course) => (
                   <CourseCard key={course._id} course={course}></CourseCard>
                 ))}
@@ -127,7 +129,7 @@ const AllCourses = () => {
               </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">Courses are Coming Soon</p>
+            <p className="text-2xl text-center ">Courses are Coming Soon</p>
           )}
         </div>
       </section>
@@ -144,7 +146,7 @@ const AllCourses = () => {
           {/* Development courses card ** data from array of object  */}
           {fundamentalCourses?.length > 0 ? (
             <>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center">
+              <div className="grid justify-center gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {fundamentalCourses?.slice(0, 4).map((course) => (
                   <CourseCard key={course._id} course={course}></CourseCard>
                 ))}
@@ -160,7 +162,7 @@ const AllCourses = () => {
               </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">Courses are Coming Soon</p>
+            <p className="text-2xl text-center ">Courses are Coming Soon</p>
           )}
         </div>
       </section>
@@ -176,7 +178,7 @@ const AllCourses = () => {
           {/* Development courses card ** data from array of object  */}
           {jobBasedCourses?.length > 0 ? (
             <>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 justify-center text-center">
+              <div className="grid justify-center gap-4 text-center md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {jobBasedCourses?.slice(0, 4).map((course) => (
                   <CourseCard key={course._id} course={course}></CourseCard>
                 ))}
@@ -192,7 +194,7 @@ const AllCourses = () => {
               </div>
             </>
           ) : (
-            <p className=" text-center text-2xl">Courses are Coming Soon</p>
+            <p className="text-2xl text-center ">Courses are Coming Soon</p>
           )}
         </div>
       </section>

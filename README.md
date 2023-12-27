@@ -3,7 +3,7 @@
 
 To set up the project locally, follow these steps:
 
-1. Clone the repository: `git clone gh repo clone codewithmahadihasan/Ai-Expert-Carrer`
+1. Clone the repository: `git clone {this repository link}`
 2. Navigate to the project directory: `cd AI-Expert-Career`
 3. Install dependencies: `npm install`
 
@@ -15,8 +15,4 @@ After completing the installation, you can run the project locally with the foll
 npm run dev
 ```
 
-
-## License
-
-This project is licensed under the [Bright Future](www.thebrightfuture.co).
 

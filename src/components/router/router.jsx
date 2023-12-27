@@ -68,6 +68,7 @@ import TermsAndConditions from "../common/Terms&Conditions/TermsAndConditions";
 import NewsletterMail from "../../Dashboard/Admin/NewsletterMail/NewsletterMail";
 import SendMail from "../../Dashboard/Admin/Appointments/SendMail";
 import AddReviews from "../../Dashboard/Admin/Reviews/AddReviews";
+import ShowReviews from "../../Dashboard/Admin/Reviews/ShowReviews";
 import LiveCourse from "../../Dashboard/User/Course/LiveCourse";
 import SendNotifications from "../../Dashboard/Admin/Notification/SendNotifications";
 import Notifications from "../../Dashboard/User/Notifications/Notifications";
@@ -485,6 +486,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AddReviews />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/show-reviews",
+        element: (
+          <AdminRoute>
+            <ShowReviews />
           </AdminRoute>
         ),
       },
