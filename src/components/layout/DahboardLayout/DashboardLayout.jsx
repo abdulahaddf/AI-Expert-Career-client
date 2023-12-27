@@ -82,7 +82,7 @@ const handleLogOut =()=>{
         <div
           // eslint-disable-next-line react/no-unknown-property
           x-data="{ isOpen: false }"
-          className="mb-10 md:pt-10 mx-auto max-w-full md:max-w-full  2xl:max-w-screen-2xl md:px-8  "
+          className="max-w-full mx-auto mb-10 md:pt-10 md:max-w-full 2xl:max-w-screen-2xl md:px-8 "
         >
           <div className="flex  space-x-0 lg:space-x-[18px] ">
             <div
@@ -135,7 +135,7 @@ const handleLogOut =()=>{
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "পরিচালনা করুন" : "User Control"}
+                      {language === "bn" ? "ইউজার লিস্ট" : "User Control"}
                     </NavLink>
 
                     <NavLink
@@ -219,7 +219,7 @@ const handleLogOut =()=>{
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn"
-                        ? "এনরোলমেন্টস"
+                        ? "কোর্স এনরোলমেন্টস"
                         : "Control Enrollments"}
                     </NavLink>
                     <NavLink
@@ -254,7 +254,7 @@ const handleLogOut =()=>{
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "কোর্স ব্যানার" : "Course banner"}
+                      {language === "bn" ? "ইভেন্ট যোগ করুন" : "Add Event"}
                     </NavLink>
 
                     <NavLink
@@ -287,8 +287,26 @@ const handleLogOut =()=>{
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "রিভিউ" : "Add Reviews"}
+                      {language === "bn" ? "রিভিউ যোগ করুন" : "Add Reviews"}
                     </NavLink>
+
+                    <NavLink
+                      to={"/dashboard/show-reviews"}
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-white bg-[#ED1B24]  py-[10px] items-center w-[234px] pl-4 my-1 text-lg font-bold flex   rounded-[10px]"
+                          : "my-1 text-lg font-bold flex   rounded-[10px] text-gray-700 transition-colors duration-300 transform  hover:text-maroon py-[10px] items-center w-[234px] pl-4 hover:bg-[#ED1B24]/20"
+                      }
+                    >
+                      <MdReviews
+                        className={`${({ isActive }) =>
+                          isActive
+                            ? "text-white"
+                            : "text-red-600"}mb-[4px] mr-2 `}
+                      />
+                      {language === "bn" ? "ফিডব্যাক দেখুন" : "Show Feedbacks"}
+                    </NavLink>
+                    
                     <NavLink
                       to={"/dashboard/send-notifications"}
                       className={({ isActive }) =>
@@ -303,8 +321,9 @@ const handleLogOut =()=>{
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 font-semibold`}
                       />
-                      {language === "bn" ? "নটিফিকেশন" : "Send Notifications"}
+                      {language === "bn" ? "নোটিফিকেশন" : "Send Notifications"}
                     </NavLink>
+                    
                     <NavLink
                       to={"/dashboard/newsletter"}
                       className={({ isActive }) =>
@@ -326,7 +345,7 @@ const handleLogOut =()=>{
                       onClick={()=>handleLogOut()}
                     >
                       <FiLogOut />
-                      <button className="font-bold pl-2">
+                      <button className="pl-2 font-bold">
                         {language === "bn" ? "লগ আউট" : "Logout"}
                       </button>
                     </div>
@@ -402,7 +421,7 @@ const handleLogOut =()=>{
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
                       {language === "bn" ? "নটিফিকেশন" : "Notifications"}
-                      <div className="badge  ml-2">
+                      <div className="ml-2 badge">
                         {unopenedCount <= 0 ? 0 : unopenedCount}
                       </div>
                     </NavLink>
@@ -412,7 +431,7 @@ const handleLogOut =()=>{
                       onClick={()=>handleLogOut()}
                     >
                       <FiLogOut />
-                      <button className="font-bold pl-2">
+                      <button className="pl-2 font-bold">
                         {language === "bn" ? "লগ আউট" : "Logout"}
                       </button>
                     </div>
