@@ -11,8 +11,9 @@ import { toast } from "react-toastify";
 import { AiFillCheckCircle } from "react-icons/ai";
 import Lottie from "lottie-react";
 import google from "../../../assets/social/google.png"
-import facebook from "../../../assets/social/facebook.png"
 import animationData from "../../../assets/animation/login.json";
+
+
 const Login = () => {
   const { signIn, signInGoogle, signInFB, setLoading,logOut } =
     useContext(AuthContext);
