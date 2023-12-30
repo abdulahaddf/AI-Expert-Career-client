@@ -17,7 +17,7 @@ const HomeAbout = () => {
       img: consultantI,
       headline: "AI Career Consultancy",
       headlineBn: "এ আই ক্যারিয়ার কন্সাল্টেন্সি",
-      info: "Kickstart check your AI career under the supervise of our AI Career Consultancy. Let us guide you towards strategic decisions that unlock doors to exciting opportunities in the ever-evolving world of AI. ",
+      info: "Kickstart your AI career under the supervise of our AI Career Consultancy. Let us guide you towards strategic decisions that unlock doors to exciting opportunities in the ever-evolving world of AI. ",
       infoBn:
         "এ আই ক্যারিয়ারের যাত্রা শুরুর প্রথম ধাপ হোক আমাদের ক্যারিয়ার কন্সাল্টেন্টদের হাত ধরেই। এ আই ইন্ডাস্ট্রির সকল নামকরা এক্সপার্টদের মাধ্যমে কন্সাল্টেন্সি সেবা নিয়ে গড়ে তুলুন আপনার এআই ক্যারিয়ার।",
     },
