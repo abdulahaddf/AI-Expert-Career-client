@@ -66,7 +66,7 @@ const HomeAbout = () => {
       </h3>
       <p className="pt-3">{language === "bn"
           ? "আমরা বাংলাদেশের প্রথম কোনো প্রতিষ্ঠান যারা কৃত্রিম বুদ্ধিমত্তা নিয়ে ক্যারিয়ার কনসালটেন্সি এবং বেসিক থেকে প্রফেশনাল প্রজেক্ট বেইজড লার্নিং প্লাটফর্ম। অল্প সময়ের যাত্রায় আমরা দেশের এ আই এক্সপার্ট ও প্রফেশনালদের নিয়ে কৃত্রিম বুদ্ধিমত্তা সেক্টরে  দেশের ডিজিটাল লিটারেসিতে ভূমিকা রেখে চলেছি।"
-          : <p>We democratizes every AI Education and makes it accessible to all AI learners in Bangladesh. We first ever offer AI Consultancy Services for every learner, do surveys to find pain points, and create fundamental and Job role-based courses. </p>}</p>
+          : <p>We aim to democratize AI education in Bangladesh by making it accessible to all learners. Our AI Consultancy Services cater to every individual, addressing their pain points through surveys and offering fundamental and job role-based courses. </p>}</p>
 
 
 </div>
