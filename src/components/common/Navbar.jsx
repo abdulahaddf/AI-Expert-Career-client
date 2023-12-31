@@ -122,7 +122,7 @@ const navigate = useNavigate();
     </>
   );
 
-  console.log(location.pathname)
+  // console.log(location.pathname)
   const handleLogOut = () => {
     if (location.pathname.startsWith('/dashboard')) {
       navigate('/');
