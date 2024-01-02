@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../../../Context/Context";
+import moment from "moment";
 
 const PromoCode = ({
   discountAmount,
@@ -11,13 +12,14 @@ const PromoCode = ({
   courseFee,
   course,
   enrolled,
+  endDate,
 }) => {
   const { language } = useContext(MyContext);
   const [promo, setPromo] = useState([]);
   const [appliedPromo, setAppliedPromo] = useState("");
   const [payable, setPayable] = useState("");
   const [promoUpdate, setUpdate] = useState("");
-  console.log(discount);
+  // console.log(discount);
   useEffect(() => {
     fetch("https://ai-server-sooty.vercel.app/promo")
       .then((response) => response.json())
@@ -41,6 +43,13 @@ const PromoCode = ({
       return discountAmount;
     }
   };
+  const now = moment().utcOffset("+06:00");
+  const parsedEndDate = moment(endDate, "YYYY-MM-DD HH:mm:ss").utcOffset(
+    "+06:00"
+  );
+  const endOfAdmission = moment(parsedEndDate).endOf("day");
+  const endDiff = moment.duration(endOfAdmission.diff(now));
+  // console.log(endDiff)
   return (
     <div>
       <section className="text-slate-900 font-semibold my-5 p-1   space-y-5 ">
@@ -102,6 +111,7 @@ const PromoCode = ({
             <Link
               to="/enroll"
               state={{ course, payable, discountAmount, courseFee }}
+              disabled={endDiff.asMilliseconds() < 0}
               className="btn btn-ghost btn-outline normal-case border-primary hover:text-primary  hover:shadow-lg bg-primary text-white hover:bg-white hover:border-primary btn-md md:px-8 text-lg"
             >
               Enroll Now
