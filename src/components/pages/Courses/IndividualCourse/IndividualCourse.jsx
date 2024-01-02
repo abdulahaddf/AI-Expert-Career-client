@@ -157,7 +157,7 @@ const IndividualCourse = () => {
         <div className="md:hidden">
 {courseType === "paid" && (
           <>
-            <CountDown startDate={startDate} endDate={endDate} />
+            <CountDown startDate={startDate} endDate={endDate} courseDate={courseDate} />
             <div className="section flex justify-between">
               <div className="">
                 <h3 className="text-md font-semibold my-3">
@@ -412,6 +412,7 @@ const IndividualCourse = () => {
                     discount={discount}
                     course={course}
                     enrolled={enrolled}
+                    endDate={endDate}
                   />
                 </>
               ) : (
@@ -437,7 +438,7 @@ const IndividualCourse = () => {
             <div className=" ">
 {courseType === "paid" && (
           <>
-            <CountDown startDate={startDate} endDate={endDate} />
+            <CountDown startDate={startDate} endDate={endDate} courseDate={courseDate} />
             <div className="section flex justify-between ">
               <div className="">
                 <h3 className="text-md font-semibold my-3">
