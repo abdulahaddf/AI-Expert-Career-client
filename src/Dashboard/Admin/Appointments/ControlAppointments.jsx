@@ -173,11 +173,11 @@ const ControlAppointments = () => {
   if (!appointments) return <Loader />;
   return (
     <div>
-      <h1 className="text-3xl text-center my-5">Control Appointments</h1>
+      <h1 className="my-5 text-3xl text-center">Control Appointments</h1>
       <div className="">
-        <table className="table table-zebra shadow-xl w-full  text-center overflow-x-auto">
+        <table className="table w-full overflow-x-auto text-center shadow-xl table-zebra">
           {/* head */}
-          <thead className="bg-primary text-white text-xl text-center">
+          <thead className="text-xl text-center text-white bg-primary">
             <tr>
               <th>#</th>
               <th className="text-center">Consultant </th>
@@ -217,7 +217,7 @@ const ControlAppointments = () => {
                       handleRequest(a._id);
                       disableAcceptButton(a._id);
                     }}
-                    className="btn btn-success btn-xs normal-case text-white mx-1"
+                    className="mx-1 text-white normal-case btn btn-success btn-xs"
                   >
                     Accept
                   </button>
@@ -253,15 +253,15 @@ const ControlAppointments = () => {
                   <div className="modal-box">
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                      <button className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">
                         ✕
                       </button>
                     </form>
-                    <div className="text-left space-y-4">
-                      <h1 className="text-2xl text-center mb-10 font-semibold">
+                    <div className="space-y-4 text-left">
+                      <h1 className="mb-10 text-2xl font-semibold text-center">
                         User Details{" "}
                         {a.urgent ? (
-                          <span className="text-primary text-lg">(Urgent)</span>
+                          <span className="text-lg text-primary">(Urgent)</span>
                         ) : null}
                       </h1>
                       <h1>
@@ -324,18 +324,18 @@ const ControlAppointments = () => {
                 <dialog id={`${a.createAt}`} className="modal ">
                   <div className="modal-box">
                     <form method="dialog">
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                      <button className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">
                         ✕
                       </button>
                     </form>
 
                     <div className="">
-                      <div className=" p-2  text-left">
-                        <h2 className="text-2xl font-semibold my-5 text-center">
+                      <div className="p-2 text-left ">
+                        <h2 className="my-5 text-2xl font-semibold text-center">
                           Sending Mail
                         </h2>
                         <div className="mb-4">
-                          <p className="font-semibold pb-1">User Mail</p>
+                          <p className="pb-1 font-semibold">User Mail</p>
                           <input
                             type="email"
                             placeholder="Recipient Email 1"
@@ -344,7 +344,7 @@ const ControlAppointments = () => {
                           />
                         </div>
                         <div className="mb-4">
-                          <p className="font-semibold pb-1">Consultant Mail</p>
+                          <p className="pb-1 font-semibold">Consultant Mail</p>
                           <input
                             type="email"
                             placeholder="Recipient Email 2"
@@ -353,7 +353,7 @@ const ControlAppointments = () => {
                           />
                         </div>
                         <div className="mb-4">
-                          <p className="font-semibold pb-1">Subject</p>
+                          <p className="pb-1 font-semibold">Subject</p>
                           <input
                             type="text"
                             placeholder="Subject"
@@ -363,7 +363,7 @@ const ControlAppointments = () => {
                           />
                         </div>
                         <div className="mb-4 ">
-                          <p className="font-semibold pb-1">Mail body</p>
+                          <p className="pb-1 font-semibold">Mail body</p>
 
                           <JoditEditor
                             id="message"

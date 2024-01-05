@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import courseImg from "../../../assets/Dashboard/mycourses.png";
+
 import CourseCart from "../../../components/pages/MyProfile/CourseCart";
 import { MyContext } from "../../../Context/Context";
 import axios from "axios";
@@ -28,10 +28,10 @@ const MyCourse = () => {
 
   if (loading && !courses) return <Loader />;
   return (
-    <div className=" mb-12 md:w-11/12 mx-auto">
+    <div className="mx-auto mb-12  md:w-11/12">
       {courses ? (
-        <div className="xl:w-11/12 mx-auto px-6">
-          <h3 className=" font-bold text-center text-2xl">
+        <div className="px-6 mx-auto xl:w-11/12">
+          <h3 className="text-2xl font-bold text-center ">
             {" "}
             {language === "bn" ? "কোর্স সমূূহ" : "My courses"}{" "}
           </h3>

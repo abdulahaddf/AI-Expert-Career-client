@@ -99,9 +99,11 @@ const location = useLocation();
   ];
   const workingWithOptions = [
     "All",
-    "Research",
     "Career Consulting",
-    "Project" /* Add more options as needed */,
+    "Corporate Consulting",
+    "Research",
+    "Project",
+     /* Add more options as needed */,
   ];
 
   const handleDayChange = (e) => {
@@ -165,9 +167,9 @@ const location = useLocation();
   if (loading && filterCon ) return <Loader />;
   return (
     <div className=" lg:mt-[10px] px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
-      <div className=" ">
+      <div className="">
         <div className="">
-          <div className="md:w-4/5 mx-auto ">
+          <div className="mx-auto md:w-4/5 ">
             <h1 className="font-bold text-center text-[28px] md:text-[35px] pb-3">
               {language == "bn"
                 ? "ক্যারিয়ারের সঠিক দিক নির্দেশনার জন্য কনসালটেন্ট খুঁজুন"
@@ -178,18 +180,18 @@ const location = useLocation();
                 ? "আমাদের এআই ভিত্তিক কন্সাল্টেন্সি সেবার মাধ্যমে আপনি আপনার এআই ক্যারিয়ার গড়তে একটি সুন্দর ও সংগঠিত রোডম্যাপ পেতে পারেন।আমাদের দক্ষ এক্সপার্টদের দ্বারা পরিচালিত এই পরিষেবায় আপনি আপনার এআই ক্যারিয়ারের সকল সমস্যার সমাধান করতেন পারবেন।"
                 : "No matter what background you are a student or learner, the right roadmap can take you to the pinnacle of success. Our AI roadmap and consultancy services are developed by these experts in various fields"}
             </p>
-            <div className="w-fit mx-auto my-8">
+            <div className="mx-auto my-8 w-fit">
               <CallBtn />
             </div>
           </div>
 
-          <div className="mt-10 md:my-12 md:flex space-y-2 items-center justify-between gap-5 ">
-            <h3 className=" font-semibold text-lg lg:text-2xl ">
+          <div className="items-center justify-between gap-5 mt-10 space-y-2 md:my-12 md:flex ">
+            <h3 className="text-lg font-semibold lg:text-2xl">
               {language == "bn"
                 ? "ক্যাটাগরি নির্বাচন করুণ"
                 : "Search Your Consultant"}
             </h3>
-            <div className="border p-2 flex justify-between md:justify-evenly ">
+            <div className="flex justify-between p-2 border md:justify-evenly ">
               <label htmlFor="daySelect" className="mr-2 text-left">
                 Select Day:
               </label>
@@ -205,7 +207,7 @@ const location = useLocation();
                 ))}
               </select>
             </div>
-            <div className="border p-2 flex justify-between md:justify-evenly">
+            <div className="flex justify-between p-2 border md:justify-evenly">
               <label htmlFor="workingWithSelect" className="mr-2">
                 Select Working With:
               </label>
@@ -222,12 +224,12 @@ const location = useLocation();
                 ))}
               </select>
             </div>
-            <div className="relative  ">
-            <AiOutlineSearch className="absolute left-3 top-3 text-xl text-black/50" />
+            <div className="relative ">
+            <AiOutlineSearch className="absolute text-xl left-3 top-3 text-black/50" />
               <input
                 type="text"
                 placeholder="Search Consultants"
-                className="py-2 px-4 pl-10  w-full  border border-black/50  "
+                className="w-full px-4 py-2 pl-10 border border-black/50 "
                 value={searchText}
                 onChange={handleSearchInputChange}
               />
@@ -237,19 +239,19 @@ const location = useLocation();
           <hr className="border-[0.5px] border-[#ACACAC] my-4" />
 
           {paginatedCon.length > 0 && paginatedCon ? (
-            <div className="grid md:grid-cols-2 gap-y-4 gap-x-5 mt-10 md:w-5/6 mx-auto">
+            <div className="grid mx-auto mt-10 md:grid-cols-2 gap-y-4 gap-x-5 md:w-5/6">
               {paginatedCon.map((c, i) => (
                 <Link
                   key={i}
                   to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`}
                   state={c}
-                  className="flex items-center p-2    "
+                  className="flex items-center p-2 "
                 >
-                  <div className="flex flex-col-reverse md:flex-row section w-full mx-auto gap-2  relative">
-                    <div className="md:w-4/6  my-2 md:my-3 ">
+                  <div className="relative flex flex-col-reverse w-full gap-2 mx-auto md:flex-row section">
+                    <div className="my-2 md:w-4/6 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (
-                          <span className="bg-primary text-white rounded-full px-2 absolute top-2 left-4">
+                          <span className="absolute px-2 text-white rounded-full bg-primary top-2 left-4">
                             Available
                           </span>
                         ) : (
@@ -279,23 +281,23 @@ const location = useLocation();
                         ))}
                       </p>
 
-                      <button className="btn-black w-full  mt-4 md:hidden">View Profile</button>
+                      <button className="w-full mt-4 btn-black md:hidden">View Profile</button>
                     </div>
-                    <div className="flex flex-col justify-between text-center  ">
+                    <div className="flex flex-col justify-between text-center ">
                       <img
-                        className="w-36 h-36 rounded-full mx-auto mb-2"
+                        className="mx-auto mb-2 rounded-full w-36 h-36"
                         src={c.photoURL}
                         alt=""
                       />
 
-                      <button className="btn-black hidden md:block">View Profile</button>
+                      <button className="hidden btn-black md:block">View Profile</button>
                     </div>
                   </div>
                 </Link>
               ))}
             </div>
           ) : (
-            <p className="text-2xl text-center my-20">Coming Soon</p>
+            <p className="my-20 text-2xl text-center">Coming Soon</p>
           )}
         </div>
 

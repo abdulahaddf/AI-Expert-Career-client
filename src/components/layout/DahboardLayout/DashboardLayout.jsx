@@ -420,7 +420,7 @@ const handleLogOut =()=>{
                             ? "text-white"
                             : "text-red-600"}mb-[4px] mr-2 `}
                       />
-                      {language === "bn" ? "নটিফিকেশন" : "Notifications"}
+                      {language === "bn" ? "নোটিফিকেশন" : "Notifications"}
                       <div className="ml-2 badge">
                         {unopenedCount <= 0 ? 0 : unopenedCount}
                       </div>

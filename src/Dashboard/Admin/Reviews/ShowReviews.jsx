@@ -66,7 +66,8 @@ const ShowReviews =() =>
                             <td>{s.name}</td>
                             <td>{s.designation}</td>
                             <td>{s.feedback}</td>
-                            <td>{moment(s.creatAt).format("DD/MM/YYYY")}</td>
+                            <td>{moment(s.createAt).format("DD/MM/YYYY")}</td>
+                            
                             <td><button className="btn-add" onClick={() => handleDelete(s._id)} >Delete</button></td>
                             </tr>
                         ))}

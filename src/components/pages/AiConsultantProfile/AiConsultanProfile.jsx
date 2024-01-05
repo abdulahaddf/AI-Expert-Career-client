@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import profile from "../../../assets/AiConsultant/Ellipse 46.png";
 import { BsFillStarFill, BsGithub } from "react-icons/bs";
 import Expertise from "./Expertise";
 import { useEffect } from "react";
@@ -12,7 +11,7 @@ import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
 import { GrCatalogOption, GrUserExpert } from "react-icons/gr";
 import moment from "moment";
 import { BsFacebook, BsLinkedin, BsTwitter } from "react-icons/bs";
-import CopyURLButton from "./CopyUrlButton";
+import CopyURLButton from "./CopyURLButton";
 import { useState } from "react";
 import ConReview from "./ConReview";
 import ReactGA from "react-ga4";
@@ -77,7 +76,7 @@ const AiConsultanProfile = () => {
   }, [name]);
   if (loading && consultant && !workingWith) return <Loader />;
   return (
-    <div className=" md:w-4/5 mx-auto my-7">
+    <div className="mx-auto md:w-4/5 my-7">
        <Helmet>
         {/* <title>{blog.blogName}</title> */}
         <meta property="og:url" content={`https://ai-expert.netlify.app/consultant/${displayName.trim().replace(/\s+/g, '-')}`}></meta>
@@ -88,9 +87,9 @@ const AiConsultanProfile = () => {
         <meta name="og:description" content={workingWith} />
         <meta name="og:image" content={photoURL} />
       </Helmet>
-      <div className="py-2  px-4 mx-auto max-w-full md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
-        <div className="md:flex border shadow-sm p-3 lg:w-4/5 mx-auto">
-          <div className="w-2/3 mx-auto md:w-1/2 flex justify-center items-center">
+      <div className="max-w-full px-4 py-2 mx-auto md:max-w-full lg:max-w-screen-xl xl:max-w-screen-xl 2xl:max-w-screen-2xl md:px-24 lg:px-20 2xl:px-8">
+        <div className="p-3 mx-auto border shadow-sm md:flex lg:w-4/5">
+          <div className="flex items-center justify-center w-2/3 mx-auto md:w-1/2">
           <img
   src={photoURL}
   alt="photo"
@@ -100,18 +99,18 @@ const AiConsultanProfile = () => {
           </div>
 
           <div className="w-full md:w-1/2 mt-[10px] md:mt-0 flex items-center ">
-            <div className="space-y-1 w-full">
-              <h1 className="font-bold text-2xl text-center md:text-left">{displayName}</h1>
+            <div className="w-full space-y-1">
+              <h1 className="text-2xl font-bold text-center md:text-left">{displayName}</h1>
 
-              <p className=" font-medium text-xl text-center md:text-left">{designation}</p>
+              <p className="text-xl font-medium text-center md:text-left">{designation}</p>
 
-              <p className="  font-medium text-center md:text-left">{description}</p>
+              <p className="font-medium text-center md:text-left">{description}</p>
 
-              <div className="lg:flex items-center place-content-between space-y-3  pt-2 md:mt-10 md:pt-10 ">
+              <div className="items-center pt-2 space-y-3 lg:flex place-content-between md:mt-10 md:pt-10 ">
                <div>
                <p className="">
                   {selectedDays?.includes(today) ? (
-                    <span className="bg-primary text-white rounded-full px-2 ">
+                    <span className="px-3 py-1 text-white rounded-full bg-primary ">
                       Available
                     </span>
                   ) : (
@@ -120,31 +119,31 @@ const AiConsultanProfile = () => {
                 </p>
                </div>
                 <div className="flex justify-between">
-                <div className="flex lg:justify-center items-center gap-3 mr-2">
+                <div className="flex items-center gap-3 mr-2 lg:justify-center">
                  {
                   facebook ?  <Link to={facebook} target="_blank">
-                  <div className=" text-2xl  cursor-pointer">
+                  <div className="text-2xl cursor-pointer ">
                     <BsFacebook />
                   </div>
                 </Link> : ""
                  }
                   {
                     linkedin ? <Link to={linkedin} target="_blank">
-                    <div className=" text-2xl   cursor-pointer">
+                    <div className="text-2xl cursor-pointer ">
                       <BsLinkedin />
                     </div>
                   </Link> : ""
                   }
                   {
                     twitter ? <Link to={twitter} target="_blank">
-                    <div className="text-2xl  cursor-pointer">
+                    <div className="text-2xl cursor-pointer">
                       <BsTwitter />
                     </div>
                   </Link> : ""
                   }
                   {
                     github ? <Link to={github} target="_blank">
-                    <div className="text-2xl  cursor-pointer">
+                    <div className="text-2xl cursor-pointer">
                       <BsGithub />
                     </div>
                   </Link> : ""
@@ -173,13 +172,13 @@ const AiConsultanProfile = () => {
                 {language == "bn" ? "কর্মজীবনের সারাংশ" : "Career Summary"}
               </h2>
               
-              <p className="section text-lg ml-2 mt-2" dangerouslySetInnerHTML={{ __html: summary }}></p>
+              <p className="mt-2 ml-2 text-lg section" dangerouslySetInnerHTML={{ __html: summary }}></p>
               {/* <hr className="border-[0.5] mt-12 border-black" /> */}
 
               <h2 className="text-2xl font-bold mt-7">
                 {language == "bn" ? "সাম্প্রতিক কাজের উদাহরণ" : "Recent Works"}
               </h2>
-              <ul className="space-y-2 section text-lg ml-2 mt-2">
+              <ul className="mt-2 ml-2 space-y-2 text-lg section">
                 {recentWorks?.map((r) => (
                   <div key={r} className="flex items-center gap-2 ">
                     <LuNewspaper />
@@ -193,10 +192,10 @@ const AiConsultanProfile = () => {
                 <h2 className="text-2xl font-bold mt-[30px]">
                   {language == "bn" ? "সমসাময়িক সফলতাগুলো" : "Recent Success"}
                 </h2>
-               <div className="section text-lg ml-2 mt-2">
+               <div className="mt-2 ml-2 text-lg section">
                {successes?.map((s) => (
-                  <div key={s} className=" space-y-2 ">
-                    <p className="text-lg flex items-center gap-2">
+                  <div key={s} className="space-y-2 ">
+                    <p className="flex items-center gap-2 text-lg">
                       <IoCheckmarkDoneCircleOutline /> {s}
                     </p>
                   </div>
@@ -207,10 +206,10 @@ const AiConsultanProfile = () => {
               <h2 className="text-2xl font-bold mt-[30px]">
                 {language == "bn" ? "অভিজ্ঞতা" : "Experience"}
               </h2>
-             <div className="section text-lg ml-2 mt-2">
+             <div className="mt-2 ml-2 text-lg section">
              {experience?.map((e, i) => (
-                <div key={i} className=" space-y-2">
-                  <p className="text-lg flex items-center gap-2">
+                <div key={i} className="space-y-2 ">
+                  <p className="flex items-center gap-2 text-lg">
                     <GrUserExpert /> {e}
                   </p>
                 </div>
@@ -223,10 +222,10 @@ const AiConsultanProfile = () => {
                   ? "শিক্ষাগত যোগ্যতা"
                   : "Educational Qualification"}
               </h2>
-             <div className="section text-lg ml-2 mt-2">
+             <div className="mt-2 ml-2 text-lg section">
              {qualification?.map((e, i) => (
-                <div key={i} className="ml-5 mb-2 space-y-2">
-                  <p className="text-lg flex items-center gap-2">
+                <div key={i} className="mb-2 ml-5 space-y-2">
+                  <p className="flex items-center gap-2 text-lg">
                     <GrCatalogOption /> {e}
                   </p>
                 </div>
