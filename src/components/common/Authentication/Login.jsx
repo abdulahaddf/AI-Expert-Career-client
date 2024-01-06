@@ -204,10 +204,10 @@ const Login = () => {
 }, []);
   return (
     <div>
-      <div className=" " style={{ background: gradientColor }}>
-        <div className="py-6  w-11/12 mx-auto  md:px-20 ">
+      <div className="" style={{ background: gradientColor }}>
+        <div className="w-11/12 py-6 mx-auto md:px-20 ">
           <div className="md:flex justify-evenly ">
-            <div className="p-5 md:pt-20 md:w-1/2 z-10 glass">
+            <div className="z-10 p-5 md:pt-20 md:w-1/2 glass">
               <div className="relative">
                 <h2 className="text-[27px] font-bold text-center md:mb-[45px]">
                   {language === "bn" ? "লগইন একাউন্ট" : "Login"}
@@ -255,12 +255,12 @@ const Login = () => {
                   />
                   {showPassword ? (
                     <FaEyeSlash
-                      className="absolute right-3 bottom-9 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-9"
                       onClick={() => setShowPassword(false)}
                     />
                   ) : (
                     <FaEye
-                      className="absolute right-3 bottom-9  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-9"
                       onClick={() => setShowPassword(true)}
                     />
                   )}
@@ -281,7 +281,7 @@ const Login = () => {
                   </div>
                   <button
                     type="submit"
-                    className="btn-view w-full mt-2"
+                    className="w-full mt-2 btn-view"
                   >
                     
                       {language === "bn" ? "লগইন" : "Login"}
@@ -290,33 +290,33 @@ const Login = () => {
                 </form>
               </div>
                {/* join with google button  */}
-             <div className="mt-10  mx-auto text-center bg-white rounded-lg">
+             <div className="mx-auto mt-10 text-center bg-white rounded-lg">
                 <button
               onClick={handleGoogleSignIn}
               type="button"
-              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+              className="flex items-center justify-center w-full p-2 border rounded-md border-red"
             >
-              <img className="h-8 w-8" src={google} alt="" />
+              <img className="w-8 h-8" src={google} alt="" />
               <span className="ml-2">Sign in with Google</span>
             </button>
                 </div>
                 {/* join with facebook button  */}
 
 
-                {/* <div className="mt-5  mx-auto text-center bg-white rounded-lg">
+                {/* <div className="mx-auto mt-5 text-center bg-white rounded-lg">
                 <button
               onClick={handlefbSignIn}
               type="button"
-              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+              className="flex items-center justify-center w-full p-2 border rounded-md border-red"
             >
-              <img className="h-9 w-9 ml-5" src={facebook} alt="" />
+              <img className="ml-5 h-9 w-9" src={facebook} alt="" />
               <span className="ml-2">Sign in with Facebook</span>
             </button>
                 </div> */}
 
 
             <p
-            className= "mt-8 text-md font-normal text-center text-gray-700"
+            className= "mt-8 font-normal text-center text-gray-700 text-md"
        
           >
              {language == "bn" ? "কোন এ্যাকাউন্ট নেই?" : "Don't have an account?"}
@@ -324,7 +324,7 @@ const Login = () => {
             <Link
               to="/signup"
               // state ={{from : location.state}}
-              className="font-medium text-lg text-primary  hover:underline hover:text-primary"
+              className="text-lg font-medium text-primary hover:underline hover:text-primary"
               >
               {language == "bn" ? "  সাইন আপ করুন" : "  Sign Up Here"}
             
@@ -334,7 +334,7 @@ const Login = () => {
            
             <div className="">
             <Lottie
-          className="select-none pointer-events-none no-select unselectable md:w-full"
+          className="pointer-events-none select-none no-select unselectable md:w-full"
           animationData={animationData}
           loop={true}
         />

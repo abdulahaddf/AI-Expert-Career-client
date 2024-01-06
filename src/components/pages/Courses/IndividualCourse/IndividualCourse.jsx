@@ -15,8 +15,8 @@ import { FaHandPointRight } from "react-icons/fa";
 import {  IoIosArrowForward } from "react-icons/io";
 import { Helmet } from "react-helmet";
 import useEnrollmentCheck from "../../../../hooks/useEnrollmentCheck";
-import quizI from "../../../../../src/assets/homeAboutUs/course.png";
-import assI from "../../../../../src/assets/homeAboutUs/blog.png";
+import quizI from "../../../../../src/assets/homeAboutUs/course.svg";
+import assI from "../../../../../src/assets/homeAboutUs/blog.svg";
 
 
 
@@ -112,10 +112,10 @@ const IndividualCourse = () => {
         <meta name="og:description" content={subtitle} />
         <meta name="og:image" content={cover} />
       </Helmet>
-     <section className="px-4 py-2 my-5 md:my-10 mx-auto  max-w-full xl:max-w-7xl md:px-10 xl:flex gap-6 xl:gap-10 ">
+     <section className="max-w-full gap-6 px-4 py-2 mx-auto my-5 md:my-10 xl:max-w-7xl md:px-10 xl:flex xl:gap-10 ">
       {/* Left Side Contents */}
-      <section className="space-y-5  md:space-y-10">
-        <h1 className="text-3xl md:text-4xl font-bold">{title}</h1>
+      <section className="space-y-5 md:space-y-10">
+        <h1 className="text-3xl font-bold md:text-4xl">{title}</h1>
         <h2 className="text-xl ">{subtitle}</h2>
         <div className=" h-fit">
           {coverVideo ? (
@@ -132,8 +132,8 @@ const IndividualCourse = () => {
         </div>
 
 {/* Main features for mobile view */}
-<div className="section md:w-96 text-sm md:hidden">
-          <h3 className="text-xl font-bold my-3">
+<div className="text-sm section md:w-96 md:hidden">
+          <h3 className="my-3 text-xl font-bold">
             {" "}
             {language == "bn"
               ? "এই কোর্সের ভেতরে যা যা রয়েছে"
@@ -143,7 +143,7 @@ const IndividualCourse = () => {
             {features?.map((feature, i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
-                  <FaHandPointRight className="text-primary text-lg" />{" "}
+                  <FaHandPointRight className="text-lg text-primary" />{" "}
                   {feature}
                 </p>
               </div>
@@ -158,9 +158,9 @@ const IndividualCourse = () => {
 {courseType === "paid" && (
           <>
             <CountDown startDate={startDate} endDate={endDate} courseDate={courseDate} />
-            <div className="section flex justify-between">
+            <div className="flex justify-between section">
               <div className="">
-                <h3 className="text-md font-semibold my-3">
+                <h3 className="my-3 font-semibold text-md">
                   {" "}
                   {language == "bn" ? "ভর্তি শেষ:" : "Admission will end on:"}
                 </h3>
@@ -168,7 +168,7 @@ const IndividualCourse = () => {
               </div>
               <p className="border-[1px] border-black/25" />
               <div className="">
-                <h3 className="text-sm font-semibold my-3">
+                <h3 className="my-3 text-sm font-semibold">
                   {" "}
                   {language == "bn"
                     ? "কোর্স শুরু হবে:"
@@ -187,7 +187,7 @@ const IndividualCourse = () => {
         {/* description */}
 
         <div>
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn" ? "কোর্স বিবরণ:" : "Course Details:"}
           </h3>
@@ -198,17 +198,17 @@ const IndividualCourse = () => {
 
         {/* who can do the course */}
         <div>
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn"
               ? "কারা এই কোর্সের জন্য উপযুক্ত:"
               : "Who Are Suitable For This Course:"}
           </h3>
-          <div className="section grid md:grid-cols-2 text-lg">
+          <div className="grid text-lg section md:grid-cols-2">
             {eligibleUsers?.map((eli,i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3 ">
-                  <FaHandPointRight className="text-primary text-lg" /> {eli}
+                  <FaHandPointRight className="text-lg text-primary" /> {eli}
                 </p>
               </div>
             ))}{" "}
@@ -217,17 +217,17 @@ const IndividualCourse = () => {
 
         {/* preRequisites */}
         <div>
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn"
               ? "কোর্সের প্রয়োজনীয়তা:"
               : "Course Requirements:"}
           </h3>
-          <div className="section bg-slate-50 grid md:grid-cols-2">
+          <div className="grid section bg-slate-50 md:grid-cols-2">
             {preRequisites?.map((pre,i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
-                  <FaHandPointRight className="text-primary text-lg" /> {pre}
+                  <FaHandPointRight className="text-lg text-primary" /> {pre}
                 </p>
               </div>
             ))}{" "}
@@ -235,15 +235,15 @@ const IndividualCourse = () => {
         </div>
         {/* Course Goals */}
         <div>
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn" ? "কোর্সের লক্ষ্য:" : "Course Goals:"}
           </h3>
-          <div className="section grid md:grid-cols-2 text-lg">
+          <div className="grid text-lg section md:grid-cols-2">
             {goals?.map((goal, i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3">
-                  <FaHandPointRight className="text-primary text-lg" /> {goal}
+                  <FaHandPointRight className="text-lg text-primary" /> {goal}
                 </p>
               </div>
             ))}{" "}
@@ -251,21 +251,21 @@ const IndividualCourse = () => {
         </div>
         {/* Course Curriculum */}
         <div className="">
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn"
               ? "কোর্সের পরিপূর্ণ কারিকুলাম:"
               : "Course Curriculum:"}
           </h3>
 
-          <div className="bg-white p-4 rounded-lg">
+          <div className="p-4 bg-white rounded-lg">
             {modules?.map((module, i) => (
               <div key={i}>
                 <details className="group [&_summary::-webkit-details-marker]:hidden rounded-xl p-2 bg-white ">
                   <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-xl bg-slate-100 p-3 text-gray-900">
                     <h2 className="font-bold cursor-pointer">{module.title}</h2>
                     <svg
-                      className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+                      className="w-5 h-5 transition duration-300 shrink-0 group-open:-rotate-180"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -279,13 +279,13 @@ const IndividualCourse = () => {
                       />
                     </svg>
                   </summary>
-                  <p className="mt-4 px-4 leading-relaxed text-gray-700 ">
+                  <p className="px-4 mt-4 leading-relaxed text-gray-700 ">
                     {module.contents.map((c,i) => (
                       <div
                         className="flex items-center justify-between"
                         key={i}
                       >
-                        <p className="flex items-center gap-3 my-3 cursor-pointer text-md md:text-lg font-semibold">
+                        <p className="flex items-center gap-3 my-3 font-semibold cursor-pointer text-md md:text-lg">
 
                           
                            { c.type == "assignment" ? <span><img className="w-5" src={assI} alt="" /></span> : c.type =="quiz" ? <span className="w-5">{quizI}</span> : <MdOutlineVideoLibrary/>   }
@@ -312,7 +312,7 @@ const IndividualCourse = () => {
 
         {/* Course Instructor */}
         <div>
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn"
               ? "আপনি যার কাছ থেকে শিখবেন:"
@@ -321,21 +321,21 @@ const IndividualCourse = () => {
           <div className="section">
             <div className="md:flex items-center gap-5 p-5 border-b-[1px] text-center md:text-left">
               <figure className="flex justify-center">
-                <img className="rounded-full w-20 h-20" src={insImage} alt=" instructor" />
+                <img className="w-20 h-20 rounded-full" src={insImage} alt=" instructor" />
               </figure>
               <div>
-                <h4 className="text-xl font-bold py-2">{instructor}</h4>
+                <h4 className="py-2 text-xl font-bold">{instructor}</h4>
                 <p>{insDesignation}</p>
               </div>
             </div>
-            <br className=" " />
+            <br className="" />
             <p className="text-lg">{insDescription}</p>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="my-5 md:my-0 pb-0 md:pb-5 lg:pb-0">
-          <h3 className="text-xl md:text-2xl font-bold my-3">
+        <div className="pb-0 my-5 md:my-0 md:pb-5 lg:pb-0">
+          <h3 className="my-3 text-xl font-bold md:text-2xl">
             {" "}
             {language == "bn"
               ? "সচরাচর প্রশ্নগুলোর উত্তর:"
@@ -354,7 +354,7 @@ const IndividualCourse = () => {
                       <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-45"
+                          className="w-5 h-5 transition duration-300 shrink-0 group-open:-rotate-45"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -367,7 +367,7 @@ const IndividualCourse = () => {
                       </span>
                     </summary>
 
-                    <p className="mt-4 leading-relaxed font-normal text-gray-700">
+                    <p className="mt-4 font-normal leading-relaxed text-gray-700">
                       {faq.answer}
                     </p>
                   </details>
@@ -381,8 +381,8 @@ const IndividualCourse = () => {
       {/* right Side Contents */}
       <section className="my-5 md:my-0">
         {/* Features */}
-        <div className="section md:w-96 text-sm hidden md:block">
-          <h3 className="text-xl font-bold my-3">
+        <div className="hidden text-sm section md:w-96 md:block">
+          <h3 className="my-3 text-xl font-bold">
             {" "}
             {language == "bn"
               ? "এই কোর্সের ভেতরে যা যা রয়েছে"
@@ -392,7 +392,7 @@ const IndividualCourse = () => {
             {features?.map((feature, i) => (
               <div key={i}>
                 <p className="flex items-center gap-3 my-3 text-lg">
-                  <FaHandPointRight className="text-primary text-lg" />{" "}
+                  <FaHandPointRight className="text-lg text-primary" />{" "}
                   {feature}
                 </p>
               </div>
@@ -400,8 +400,8 @@ const IndividualCourse = () => {
           </div> 
           </div>
 
-          <div className=" mt-10 sticky top-20  hidden md:block">
-            <div className="course-details text-base mt-5 section">
+          <div className="sticky hidden mt-10 top-20 md:block">
+            <div className="mt-5 text-base course-details section">
               {/* paid course enrollment */}
               {courseType === "paid" ? (
                 <>
@@ -418,7 +418,7 @@ const IndividualCourse = () => {
               ) : (
                 //  free course enrollment
                 <>
-                  <p className="text-xl font-semibold my-5">Free Course</p>
+                  <p className="my-5 text-xl font-semibold">Free Course</p>
                  {
                   enrolled ? <div>
                     <p>You&apos;ve Enrolled Already</p>
@@ -435,13 +435,13 @@ const IndividualCourse = () => {
                 </>
               )}
             </div>
-            <div className=" ">
+            <div className="">
 {courseType === "paid" && (
           <>
             <CountDown startDate={startDate} endDate={endDate} courseDate={courseDate} />
-            <div className="section flex justify-between ">
+            <div className="flex justify-between section ">
               <div className="">
-                <h3 className="text-md font-semibold my-3">
+                <h3 className="my-3 font-semibold text-md">
                   {" "}
                   {language == "bn" ? "ভর্তি শেষ:" : "Admission will end on:"}
                 </h3>
@@ -449,7 +449,7 @@ const IndividualCourse = () => {
               </div>
               <p className="border-[1px] border-black/25" />
               <div className="">
-                <h3 className="text-sm font-semibold my-3">
+                <h3 className="my-3 text-sm font-semibold">
                   {" "}
                   {language == "bn"
                     ? "কোর্স শুরু হবে:"
@@ -477,9 +477,9 @@ const IndividualCourse = () => {
       {isVisible && (
         <div className="fixed bottom-0 left-0 w-full max-h-[80vh] bg-white border shadow-lg z-10 overflow-y-auto">
           
-          <p className="text-xl md:text-2xl text-left pl-3 font-semibold py-1">
+          <p className="py-1 pl-3 text-xl font-semibold text-left md:text-2xl">
             
-            {courseFee > 0 ? <>{discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
+            {courseFee > 0 ? <>{discount ? discount != 0 ? <span className="mx-2 text-gray-500 line-through text-md">
             ৳ {courseFee}
           </span> : "" : ""}
           <span className="text-xl">৳{discountAmount}</span></> : "Free"}
@@ -491,7 +491,7 @@ const IndividualCourse = () => {
                     <p>You&apos;ve Enrolled Already</p>
                     <Link className="text-blue-600 " to='/dashboard/my-courses'>Check Here</Link>
                   </div> : 
-                  <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="btn-view-red bg-white w-11/12">
+                  <Link to="/enroll" state={{ course, discountAmount, courseFee }} className="w-11/12 bg-white btn-view-red">
                   Enroll Now <IoIosArrowForward/>
                 </Link>
                  }

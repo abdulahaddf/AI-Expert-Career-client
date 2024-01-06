@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 import Loader from "../../common/loader/Loader";
 import Certificate from "./Certificate";
 import moment from "moment";
-import quizI from "../../../../src/assets/homeAboutUs/course.png";
-import assI from "../../../../src/assets/homeAboutUs/blog.png";
+import quizI from "../../../../src/assets/homeAboutUs/course.svg";
+import assI from "../../../../src/assets/homeAboutUs/blog.svg";
 
 const CourseVideo = () => {
   const { id } = useParams();
@@ -248,25 +248,25 @@ const CourseVideo = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className="grid grid-cols-3 gap-x-4 md:mt-5 mb-5 md:mb-20 px-2 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-4">
+    <div className="grid grid-cols-3 px-2 py-5 mx-auto mb-5 gap-x-4 md:mt-5 md:mb-20 sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-4">
       {/* Sidebar with modules and contents */}
-      <div className="col-span-12 md:col-span-1 mt-5 md:mt-0 order-last md:order-first">
+      <div className="order-last col-span-12 mt-5 md:col-span-1 md:mt-0 md:order-first">
         <div className="section">
           <h3 className="text-2xl font-bold">
             {language === "bn"
               ? "কোর্সের পরিপূর্ণ কারিকুলাম:"
               : "Course Content:"}
           </h3>
-          <div className="bg-white p-4 rounded-lg">
+          <div className="p-4 bg-white rounded-lg">
             {course?.modules?.map((module, moduleIndex) => (
               <div key={moduleIndex}>
                 <details className="group [&_summary::-webkit-details-marker]:hidden rounded-xl p-2 bg-white ">
                   <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-xl bg-slate-100 p-3 text-gray-900">
-                    <h2 className="font-bold md:text-lg cursor-pointer">
+                    <h2 className="font-bold cursor-pointer md:text-lg">
                       {module.title}
                     </h2>
                     <svg
-                      className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
+                      className="w-5 h-5 transition duration-300 shrink-0 group-open:-rotate-180"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -294,7 +294,7 @@ const CourseVideo = () => {
                           onClick={() =>
                             handleContent(content, moduleIndex, contentIndex)
                           }
-                          className="flex items-center w-full gap-3 h-fit text-left my-3 cursor-pointer text-lg font-medium"
+                          className="flex items-center w-full gap-3 my-3 text-lg font-medium text-left cursor-pointer h-fit"
                         >
                           <p>
 
@@ -319,7 +319,7 @@ const CourseVideo = () => {
         <div>
           <p>Progress: {progressPercentage.toFixed(2)}%</p>
         </div>
-        <div className="md:flex justify-between items-center space-y-4">
+        <div className="items-center justify-between space-y-4 md:flex">
           <div className="w-2/3 bg-[#D9D9D9] h-4 rounded-full mb-1">
             <div
               className="bg-[#ED1B24] h-4 rounded-full"
@@ -370,18 +370,18 @@ const CourseVideo = () => {
             <Loader />
           )}
         </div>
-        <div className="lg:flex mt-5 w-full justify-between items-center">
-          <h3 className="text-xl w-1/2 font-bold">{currentContent?.title}</h3>
+        <div className="items-center justify-between w-full mt-5 lg:flex">
+          <h3 className="w-1/2 text-xl font-bold">{currentContent?.title}</h3>
           <div>
             <button
-              className="btn-black mr-3 "
+              className="mr-3 btn-black "
               onClick={handlePrevious}
               disabled={currentModuleIndex === 0 && currentContentIndex === 0}
             >
               {language === "bn" ? "পূর্ববর্তী" : "Previous"}
             </button>
             <button
-              className="btn-black mr-3"
+              className="mr-3 btn-black"
               onClick={handleNext}
               disabled={
                 currentModuleIndex === course.modules.length - 1 &&

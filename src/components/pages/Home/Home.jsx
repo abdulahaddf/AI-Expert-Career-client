@@ -2,13 +2,8 @@ import { useEffect, useState } from "react";
 import HeroAria from "./HeroAria";
 import HomeAbout from "./HomeAbout";
 // import HomeBlogs from "./HomeBlogs";
-import HomeCourses from "./HomeCourses";
-import HomeEvent from "./HomeEvent";
-// 
 import HomePartnership from "./HomePartnership";
-import HomeSearch from "./HomeSearch";
 import HomeTestimonial from "./HomeTestimonial";
-import HomeBlogs from "./HomeBlog";
 import HomeBlogsSection from "./HomeBlogsSection";
 import HomeCourseSection from "./HomeCourseSection";
 import Roadmap from "./Sections/Roadmap";

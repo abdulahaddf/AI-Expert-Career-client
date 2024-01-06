@@ -1,5 +1,3 @@
-import line from "../../../assets/line.svg";
-import TestImg from "../../../assets/test.svg";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -67,13 +65,13 @@ return (
         {" "}
         {filtered?.map(
         ({ _id, name, imageURL, designation, feedback }) => (
-        <SwiperSlide key={_id} className=" pb-16">
+        <SwiperSlide key={_id} className="pb-16 ">
           <div className="p-10 bg-[#fff] shadow-xl rounded-[20px] text-center mt-[120px] relative">
             <span className="absolute left-[16px] top-[-15px]">
-              <BsQuote className="text-black text-4xl" />
+              <BsQuote className="text-4xl text-black" />
             </span>
             <div className="-mt-[45%] z-50 mx-auto">
-              <img className="mx-auto w-20 h-20 rounded-full" src={imageURL} alt="" />
+              <img className="w-20 h-20 mx-auto rounded-full" src={imageURL} alt="" />
             </div>
 
             <h3 className="text-[20px] font-bold mt-4">{name}</h3>
@@ -87,7 +85,7 @@ return (
         )}
       </>
       ) : (
-      <p className="text-center text-xl my-10">No Reviews</p>
+      <p className="my-10 text-xl text-center">No Reviews</p>
       )}
     </Swiper>
 
