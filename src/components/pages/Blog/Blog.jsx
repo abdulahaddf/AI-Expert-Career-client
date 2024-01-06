@@ -119,25 +119,25 @@ const Blog = () => {
   }, []);
   if (isLoading) return <Loader />;
   return (
-    <div className="px-4 py-5 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-5 overflow-hidden">
+    <div className="px-4 py-5 mx-auto overflow-hidden md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:mt-5">
       {/* Slider */}
       <div>
         <FeaturedBlogs featuredBlogs={featuredBlogs} />
       </div>
 
       {/* Blogs */}
-      <div className=" py-5 ">
+      <div className="py-5 ">
 
 
         <div className="lg:grid lg:grid-cols-5 gap-[15px]">
           {/* Hide this section on small devices */}
           <div className="">
-            <div className="flex flex-col justify-between items-center h-full">
-              <h2 className="font-bold text-2xl pb-2 md:pb-5">
+            <div className="flex flex-col items-center justify-between h-full">
+              <h2 className="pb-2 text-2xl font-bold md:pb-5">
                 {language == "bn" ? "ক্যাটাগরি পছন্দ করুন" : "Filter category"}
               </h2>
-              <div className="flex flex-col-reverse md:flex-col justify-between h-full ">
-                <div className="space-y-1 grid grid-cols-2 border p-2 rounded-lg md:grid-cols-1 gap-x-3 ">
+              <div className="flex flex-col-reverse justify-between h-full md:flex-col ">
+                <div className="grid grid-cols-2 p-2 space-y-1 border rounded-lg md:grid-cols-1 gap-x-3 ">
                   {categories?.map((category, index) => (
                     <CategoryCard
                       key={index}
@@ -148,9 +148,9 @@ const Blog = () => {
                   ))}
                 </div>
                <div className="hidden md:block">
-               <div className="section bg-black md:h-96 flex flex-col justify-center">
+               <div className="flex flex-col justify-center mt-10 bg-black section md:h-96">
                   <h2 className="text-xl font-semibold text-white">
-                      {language == "bn" ? "আপনি কি এআই ক্যারিয়ার গড়ার জন্যে পরিপূর্ণ রোডম্যাপ পেতে চান?" : "Are you Want to Know The Proper Roadmap of Al Journey?"}
+                      {language == "bn" ? "আপনি কি এআই ক্যারিয়ার গড়ার জন্যে পরিপূর্ণ রোডম্যাপ পেতে চান?" : "Do you Want to Know The Proper Roadmap of Al Journey?"}
                     
                   </h2>
                   <Link className="btn btn-sm btn-ghost btn-outline normal-case hover:shadow-lg hover:bg-white hover:text-black hover:border-0; my-2 text-white" to="/ai-consultant"> {language == "bn" ? "এগিয়ে জান" : "Let's Go"}</Link>
@@ -160,7 +160,7 @@ const Blog = () => {
             </div>
           </div>
           <div className="col-span-4">
-          <div className="flex justify-center items-center md:justify-end my-5 md:mb-5">
+          <div className="flex items-center justify-center my-5 md:justify-end md:mb-5">
             {/* <div className="lg:hidden"><button className="border-black border-[1px] rounded-lg hover:bg-black hover:text-white px-2 py-[6.5px] font-semibold flex items-center gap-2"><GoFilter/> Filter</button></div> */}
 
 
@@ -173,7 +173,7 @@ const Blog = () => {
   </div> 
   <div className="drawer-side">
     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-    <ul className="menu p-4 w-80 h-fit bg-base-200 text-base-content z-40 ">
+    <ul className="z-40 p-4 menu w-80 h-fit bg-base-200 text-base-content ">
     
       <li><a>Sidebar Item 1</a></li>
       <li><a>Sidebar Item 2</a></li>
@@ -200,13 +200,13 @@ const Blog = () => {
 
 
 
-          <div className=" flex justify-center md:justify-evenly  items-center">
-            {/* <div className="lg:hidden text-2xl">
+          <div className="flex items-center justify-center md:justify-evenly">
+            {/* <div className="text-2xl lg:hidden">
               <BiDotsHorizontalRounded />
             </div> */}
             <select
               onChange={getFilter}
-              className="w-40 py-2 px-2  bg-white  text-xl  font-bold border"
+              className="w-40 px-2 py-2 text-xl font-bold bg-white border"
             >
               <option defaultChecked>All</option>
               <option value="Trends">Trends</option>
@@ -216,13 +216,13 @@ const Blog = () => {
         </div>
             <div className="">
               {paginatedBlogs.length > 0 && paginatedBlogs ? (
-                <div className="grid  md:grid-cols-2  lg:grid-cols-3 gap-5 justify-evenly">
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 justify-evenly">
                   {paginatedBlogs?.map((blog) => (
                     <BlogCard key={blog._id} blog={blog} />
                   ))}
                 </div>
               ) : (
-                <p className="text-2xl text-center w-4/5">No Blogs Found</p>
+                <p className="w-4/5 text-2xl text-center">No Blogs Found</p>
               )}
             </div>
           </div>

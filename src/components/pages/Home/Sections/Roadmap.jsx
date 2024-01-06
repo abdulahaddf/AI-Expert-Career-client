@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import roadmapImage from "../../../../assets/banner/roadmap.png";
+import roadmapImage from "../../../../assets/banner/roadmap.svg";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useContext } from "react";
 import { MyContext } from "../../../../Context/Context";

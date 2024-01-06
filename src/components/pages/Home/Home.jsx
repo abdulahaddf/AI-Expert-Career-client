@@ -4,7 +4,7 @@ import HomeAbout from "./HomeAbout";
 // import HomeBlogs from "./HomeBlogs";
 import HomeCourses from "./HomeCourses";
 import HomeEvent from "./HomeEvent";
-import HomeHeading from "./HomeHeading";
+// 
 import HomePartnership from "./HomePartnership";
 import HomeSearch from "./HomeSearch";
 import HomeTestimonial from "./HomeTestimonial";
@@ -45,7 +45,7 @@ const Home = () => {
   return (
     <>
       <HeroAria />
-      <div className=" px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
+      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
         {/* <HomeSearch /> */}
         <HomeAbout />
         <HomeCourseSection />
@@ -77,7 +77,7 @@ const Home = () => {
               offset={-150}
               duration={500}
             >
-              <FaArrowCircleUp className=" font-semibold rounded-full shadow-xl text-2xl md:text-2xl md:w-8 md:h-8 text-black" />
+              <FaArrowCircleUp className="text-2xl font-semibold text-black rounded-full shadow-xl md:text-2xl md:w-8 md:h-8" />
             </Link>
           )}
         </div>

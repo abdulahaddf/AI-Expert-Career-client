@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import AllCourses from "./AllCourses/AllCourses";
 import CoursesForm from "./CoursesForm";
-import CoursesHeader from "./CoursesHeader";
-import CoursesIcon from "./totalCoursesIcon.png";
+// import CoursesHeader from "./CoursesHeader";
+// import CoursesIcon from "./totalCoursesIcon.png";
 const Courses = () => {
   const courseCategory = [
     {
@@ -37,9 +37,9 @@ const Courses = () => {
     <div className="md:mt-[30px] ">
       <div className="pb-[105px]  ml-3">
         {/* courses page header */}
-        <CoursesHeader></CoursesHeader>
+        
       </div>
-      <div className="py-2  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+      <div className="py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
         {/* course Category (Our total course) */}
         {/* <h2 className="text-[35px] font-bold">Our Total Courses</h2> */}
 

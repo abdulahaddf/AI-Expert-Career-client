@@ -282,64 +282,64 @@ const AddCourse = () => {
   };
 
   return (
-    <div className="container max-w-5xl mx-auto p-4">
-      <h1 className="text-2xl font-bold  text-white bg-primary text-center py-2 rounded-lg">
+    <div className="max-w-5xl p-4 mx-auto ">
+      <h1 className="py-2 text-2xl font-bold text-center text-white rounded-lg bg-primary">
         Publish a Course
       </h1>
       <DriveLinkConverter />
 
-      <h1 className="text-2xl font-bold mb-4">Course Information:</h1>
+      <h1 className="mb-4 text-2xl font-bold">Course Information:</h1>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <div className="flex flex-wrap justify-between">
           <div className="mb-4">
-            <label htmlFor="title" className="block  mb-1">
+            <label htmlFor="title" className="block mb-1">
               Course Title:
             </label>
             <input
               {...register("title", { required: true })}
               type="text"
               id="title"
-              className="border border-gray-300 rounded-xl p-2"
+              className="p-2 border border-gray-300 rounded-xl"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="imageURL" className="block  mb-1">
+            <label htmlFor="imageURL" className="block mb-1">
               Cover Image
             </label>
             <input
               {...register("image", { required: true })}
               type="file"
               id="image"
-              className="input file-input file-input-sm   text-black file-input-error"
+              className="text-black input file-input file-input-sm file-input-error"
               onChange={(e) => setImage(e.target.files[0])}
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="coverVideo" className="block  mb-1">
+            <label htmlFor="coverVideo" className="block mb-1">
               Cover Video URL(optional):
             </label>
             <input
               {...register("coverVideo")}
               type="url"
               id="coverVideo"
-              className="border border-gray-300 rounded-xl p-2 "
+              className="p-2 border border-gray-300 rounded-xl "
             />
           </div>
         </div>
         <div className="mb-4">
-          <label htmlFor="subtitle" className="block  mb-1">
+          <label htmlFor="subtitle" className="block mb-1">
             Course Sub-Title:
           </label>
           <input
             {...register("subtitle", { required: true })}
             type="text"
             id="subtitle"
-            className="border border-gray-300 rounded-xl p-2 w-full"
+            className="w-full p-2 border border-gray-300 rounded-xl"
           />
         </div>
         {/* Course Description */}
         <div className="my-5">
-          <p className="block font-semibold text-2xl mb-4">
+          <p className="block mb-4 text-2xl font-semibold">
             Course Description:
           </p>
           <JoditEditor
@@ -355,7 +355,7 @@ const AddCourse = () => {
         <div className="flex flex-wrap justify-between">
           {/* main category */}
           <div className="mb-4">
-            <label htmlFor="mainCategory" className="block font-semibold mb-1">
+            <label htmlFor="mainCategory" className="block mb-1 font-semibold">
               Main Category:
             </label>
             <Controller
@@ -367,7 +367,7 @@ const AddCourse = () => {
                 <select
                   {...field}
                   id="mainCategory"
-                  className="rounded-xl p-2 md:w-72 select select-bordered"
+                  className="p-2 rounded-xl md:w-72 select select-bordered"
                 >
                   <option value="">Select a Main Category</option>
                   {mainCategoryOptions.map((option, index) => (
@@ -381,7 +381,7 @@ const AddCourse = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="category" className="block font-semibold mb-1">
+            <label htmlFor="category" className="block mb-1 font-semibold">
               Category:
             </label>
             <Controller
@@ -393,7 +393,7 @@ const AddCourse = () => {
                 <select
                   {...field}
                   id="category"
-                  className="rounded-xl p-2 md:w-72 select select-bordered"
+                  className="p-2 rounded-xl md:w-72 select select-bordered"
                 >
                   <option value="">Select a Category</option>
                   {categoryOptions.map((option, index) => (
@@ -406,14 +406,14 @@ const AddCourse = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="duration" className="block font-semibold mb-1">
+            <label htmlFor="duration" className="block mb-1 font-semibold">
               Duration (min):
             </label>
             <input
               {...register("duration", { required: true })}
               type="number"
               id="duration"
-              className="border border-gray-300 rounded-xl p-2 md:w-64"
+              className="p-2 border border-gray-300 rounded-xl md:w-64"
             />
           </div>
         </div>
@@ -421,7 +421,7 @@ const AddCourse = () => {
         {/* Course Features */}
 
         <div className="mb-4">
-          <label htmlFor="features" className="block font-semibold mb-1">
+          <label htmlFor="features" className="block mb-1 font-semibold">
             Course Features:
           </label>
           {/* Selected Features */}
@@ -429,7 +429,7 @@ const AddCourse = () => {
             {selectedFeatures.map((feature, index) => (
               <span
                 key={index}
-                className="inline-block bg-gray-200 px-2 py-1 rounded-lg mr-2"
+                className="inline-block px-2 py-1 mr-2 bg-gray-200 rounded-lg"
               >
                 {feature}
                 <button
@@ -456,7 +456,7 @@ const AddCourse = () => {
             <button
               type="button"
               onClick={addNewFeature}
-              className="btn-black ml-3"
+              className="ml-3 btn-black"
             >
               Add
             </button>
@@ -466,7 +466,7 @@ const AddCourse = () => {
         <div className="flex gap-20">
           {/* Course Model Dropdown */}
           <div className="my-5">
-            <label className="block font-semibold mb-1">Course Model:</label>
+            <label className="block mb-1 font-semibold">Course Model:</label>
             <div className="flex items-center space-x-4">
               <label className="flex items-center gap-2 text-lg ">
                 <input
@@ -494,7 +494,7 @@ const AddCourse = () => {
           </div>
           {/* Course Type Dropdown */}
           <div className="my-5">
-            <label className="block font-semibold mb-1">Course Type:</label>
+            <label className="block mb-1 font-semibold">Course Type:</label>
             <div className="flex items-center space-x-4">
               <label className="flex items-center gap-2 text-lg ">
                 <input
@@ -534,16 +534,16 @@ const AddCourse = () => {
               {...register("liveInstruction", { required: true })}
               type="url"
               id="liveInstruction"
-              className="border border-gray-300 rounded-xl p-2 w-full"
+              className="w-full p-2 border border-gray-300 rounded-xl"
             />
           </div>
         )}
 
         {/* Course Fee Input (conditionally rendered) */}
         {courseType === "paid" && (
-          <div className="grid gap-x-14 grid-cols-2  my-10">
+          <div className="grid grid-cols-2 my-10 gap-x-14">
             <div className="mb-4">
-              <label htmlFor="courseFee" className="block font-semibold mb-1">
+              <label htmlFor="courseFee" className="block mb-1 font-semibold">
                 Course Fee:
               </label>
               <input
@@ -551,61 +551,61 @@ const AddCourse = () => {
                 {...register("courseFee", { required: true })}
                 type="number"
                 id="courseFee"
-                className="border border-gray-300 rounded-xl p-2 w-full "
+                className="w-full p-2 border border-gray-300 rounded-xl "
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="discount" className="block font-semibold mb-1">
+              <label htmlFor="discount" className="block mb-1 font-semibold">
                 Discount %
               </label>
               <input
                 {...register("discount")}
                 type="number"
                 id="discount"
-                className="border border-gray-300 rounded-xl p-2 w-full"
+                className="w-full p-2 border border-gray-300 rounded-xl"
               />
             </div>
 
             <div className="flex justify-between">
               <div className="mb-4">
-                <label htmlFor="startDate" className="block font-semibold mb-1">
+                <label htmlFor="startDate" className="block mb-1 font-semibold">
                   Admission Start Date:
                 </label>
                 <input
                   {...register("startDate")}
                   type="date"
                   id="startDate"
-                  className="border border-gray-300 rounded-xl p-2"
+                  className="p-2 border border-gray-300 rounded-xl"
                 />
               </div>
 
               <div className="mb-4">
-                <label htmlFor="endDate" className="block font-semibold mb-1">
+                <label htmlFor="endDate" className="block mb-1 font-semibold">
                   Admission End Date:
                 </label>
                 <input
                   {...register("endDate")}
                   type="date"
                   id="endDate"
-                  className="border border-gray-300 rounded-xl p-2"
+                  className="p-2 border border-gray-300 rounded-xl"
                 />
               </div>
             </div>
             <div className="mb-4">
-              <label htmlFor="courseDate" className="block font-semibold mb-1">
+              <label htmlFor="courseDate" className="block mb-1 font-semibold">
                 Course will start:
               </label>
               <input
                 {...register("courseDate")}
                 type="date"
                 id="courseDate"
-                className="border border-gray-300 rounded-xl p-2"
+                className="p-2 border border-gray-300 rounded-xl"
               />
             </div>
           </div>
         )}
         {/* Instructor Profile */}
-        <p className="block font-semibold mb-1 text-2xl">Instructor Profile:</p>
+        <p className="block mb-1 text-2xl font-semibold">Instructor Profile:</p>
         <div className="flex flex-wrap justify-between">
           <div className="mb-4">
             <label
@@ -618,7 +618,7 @@ const AddCourse = () => {
               {...register("instructor", { required: true })}
               type="text"
               id="instructor"
-              className="border border-gray-300 rounded-xl p-2 w-full "
+              className="w-full p-2 border border-gray-300 rounded-xl "
             />
           </div>
           <div className="mb-4">
@@ -632,7 +632,7 @@ const AddCourse = () => {
               {...register("insDesignation", { required: true })}
               type="text"
               id="insDesignation"
-              className="border border-gray-300 rounded-xl p-2 w-full"
+              className="w-full p-2 border border-gray-300 rounded-xl"
             />
           </div>
           <div className="mb-4">
@@ -646,7 +646,7 @@ const AddCourse = () => {
               {...register("insDescription", { required: true })}
               type="text"
               id="insDescription"
-              className="border border-gray-300 rounded-xl p-2 w-full "
+              className="w-full p-2 border border-gray-300 rounded-xl "
             />
           </div>
           <div className="mb-4">
@@ -660,7 +660,7 @@ const AddCourse = () => {
               {...register("insImage", { required: true })}
               type="url"
               id="insDesignation"
-              className="border border-gray-300 rounded-xl p-2 w-full"
+              className="w-full p-2 border border-gray-300 rounded-xl"
             />
           </div>
         </div>
@@ -669,12 +669,12 @@ const AddCourse = () => {
           {/* Faq adding */}
 
           <div className="my-10">
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="mb-4 text-2xl font-bold">
               Frequently Asked Questions:
             </h2>
 
             {faqFields.map((faq, index) => (
-              <div key={faq.id} className="mb-4 flex items-center gap-10">
+              <div key={faq.id} className="flex items-center gap-10 mb-4">
                 <input
                   type="text"
                   placeholder="Question"
@@ -690,7 +690,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => faqRemove(index)}
-                  className="btn-black mt-2"
+                  className="mt-2 btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -707,9 +707,9 @@ const AddCourse = () => {
 
           {/* Add pre requisites */}
           <div className="my-10">
-            <h3 className="text-2xl font-bold mb-4">Add pre requisites:</h3>
+            <h3 className="mb-4 text-2xl font-bold">Add pre requisites:</h3>
             {preFields.map((pre, index) => (
-              <div key={pre.id} className="mb-4 flex items-center gap-5">
+              <div key={pre.id} className="flex items-center gap-5 mb-4">
                 <input
                   type="text"
                   placeholder="pre requisites"
@@ -719,7 +719,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => preRemove(index)}
-                  className="mt-2  btn-black"
+                  className="mt-2 btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -736,9 +736,9 @@ const AddCourse = () => {
 
           {/* Add eligible members */}
           <div className="my-10">
-            <h3 className="text-2xl font-bold mb-4">Who will do the course:</h3>
+            <h3 className="mb-4 text-2xl font-bold">Who will do the course:</h3>
             {eligibleFields.map((eligible, index) => (
-              <div key={eligible.id} className="mb-4 flex items-center gap-5">
+              <div key={eligible.id} className="flex items-center gap-5 mb-4">
                 <input
                   type="text"
                   placeholder="Eligible User"
@@ -748,7 +748,7 @@ const AddCourse = () => {
                 <button
                   type="button"
                   onClick={() => eligibleRemove(index)}
-                  className="mt-2  btn-black"
+                  className="mt-2 btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -765,19 +765,19 @@ const AddCourse = () => {
 
           {/* Add goals */}
           <div className="my-10">
-            <h3 className="text-2xl font-bold mb-4">Course Goals:</h3>
+            <h3 className="mb-4 text-2xl font-bold">Course Goals:</h3>
             {goalFields.map((goal, index) => (
-              <div key={goal.id} className="mb-4 flex items-center gap-5">
+              <div key={goal.id} className="flex items-center gap-5 mb-4">
                 <input
                   type="text"
                   placeholder="Goals"
                   {...register(`goals.${index}`)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-xl  "
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl "
                 />
                 <button
                   type="button"
                   onClick={() => goalRemove(index)}
-                  className="mt-2  btn-black"
+                  className="mt-2 btn-black"
                 >
                   <FiDelete />
                 </button>
@@ -795,8 +795,8 @@ const AddCourse = () => {
 
         {/* Add Collaborators */}
         <div className="flex justify-between">
-          <div className="mb-4 w-1/2">
-            <label htmlFor="Collaborators" className="text-2xl font-bold mb-4">
+          <div className="w-1/2 mb-4">
+            <label htmlFor="Collaborators" className="mb-4 text-2xl font-bold">
               Course Collaborators:
             </label>
             {/* Selected Collaborators */}
@@ -804,7 +804,7 @@ const AddCourse = () => {
               {selectedCollaborators.map((Collaborator, index) => (
                 <span
                   key={index}
-                  className="inline-block bg-gray-200 px-2 py-1 rounded-lg mr-2"
+                  className="inline-block px-2 py-1 mr-2 bg-gray-200 rounded-lg"
                 >
                   {Collaborator}
                   <button
@@ -831,7 +831,7 @@ const AddCourse = () => {
               <button
                 type="button"
                 onClick={addNewCollaborator}
-                className="btn-black ml-3"
+                className="ml-3 btn-black"
               >
                 Add
               </button>
@@ -841,10 +841,10 @@ const AddCourse = () => {
 
         {/* Adding module */}
         <div className="my-10">
-          <p className="block font-semibold mb-1 text-2xl">Design Course</p>
+          <p className="block mb-1 text-2xl font-semibold">Design Course</p>
           <button
             type="button"
-            className="btn-black my-2 font-semibold text-xl"
+            className="my-2 text-xl font-semibold btn-black"
             onClick={addModule}
           >
             + Add Module
@@ -853,16 +853,16 @@ const AddCourse = () => {
           {watchModules.map((module, moduleIndex) => (
             <div
               key={moduleIndex}
-              className="border border-gray-300 rounded-xl p-4 mb-4"
+              className="p-4 mb-4 border border-gray-300 rounded-xl"
             >
               <div className="flex items-center gap-5 my-5">
-                <h2 className="text-xl font-semibold mb-2">
+                <h2 className="mb-2 text-xl font-semibold">
                   Module {moduleIndex + 1}
                 </h2>
                 <button
                   type="button"
                   onClick={() => removeModule(moduleIndex)}
-                  className="text-2xl text-primary pb-2"
+                  className="pb-2 text-2xl text-primary"
                 >
                   <MdPlaylistRemove />
                 </button>
@@ -871,35 +871,35 @@ const AddCourse = () => {
               <div className="mb-4">
                 <label
                   htmlFor={`modules[${moduleIndex}].title`}
-                  className="block font-semibold mb-1"
+                  className="block mb-1 font-semibold"
                 >
                   Module Title:
                 </label>
                 <input
                   {...register(`modules[${moduleIndex}].title`)}
                   type="text"
-                  className="border border-gray-300 rounded-xl p-2 w-full"
+                  className="w-full p-2 border border-gray-300 rounded-xl"
                 />
               </div>
 
               <div className="flex flex-wrap items-center space-x-2">
                 <button
                   type="button"
-                  className="btn-black my-2"
+                  className="my-2 btn-black"
                   onClick={() => addContentWithType(moduleIndex, "content")}
                 >
                   + Add Content
                 </button>
                 <button
                   type="button"
-                  className="btn-black my-2"
+                  className="my-2 btn-black"
                   onClick={() => addContentWithType(moduleIndex, "quiz")}
                 >
                   + Add Quiz
                 </button>
                 <button
                   type="button"
-                  className="btn-black my-2"
+                  className="my-2 btn-black"
                   onClick={() => addContentWithType(moduleIndex, "assignment")}
                 >
                   + Add Assignment
@@ -910,10 +910,10 @@ const AddCourse = () => {
                 module.contents.map((content, contentIndex) => (
                   <div
                     key={contentIndex}
-                    className="border border-gray-300 rounded-xl p-4 mb-4"
+                    className="p-4 mb-4 border border-gray-300 rounded-xl"
                   >
                     <div className="flex items-center gap-5">
-                      <h3 className="text-lg font-semibold mb-2">
+                      <h3 className="mb-2 text-lg font-semibold">
                         {content.type} {contentIndex + 1}
                       </h3>
                       <button
@@ -921,7 +921,7 @@ const AddCourse = () => {
                         onClick={() =>
                           removeContentWithType(moduleIndex, contentIndex)
                         }
-                        className="text-primary pb-2"
+                        className="pb-2 text-primary"
                       >
                         <MdRemoveCircle />
                       </button>
@@ -930,7 +930,7 @@ const AddCourse = () => {
                     <div className="mb-4">
                       <label
                         htmlFor={`modules[${moduleIndex}].contents[${contentIndex}].title`}
-                        className="block font-semibold mb-1"
+                        className="block mb-1 font-semibold"
                       >
                         {content.type} Title:
                       </label>
@@ -939,14 +939,14 @@ const AddCourse = () => {
                           `modules[${moduleIndex}].contents[${contentIndex}].title`
                         )}
                         type="text"
-                        className="border border-gray-300 rounded-xl p-2 w-full"
+                        className="w-full p-2 border border-gray-300 rounded-xl"
                       />
                     </div>
 
                     <div className="mb-4">
                       <label
                         htmlFor={`modules[${moduleIndex}].contents[${contentIndex}].url`}
-                        className="block font-semibold mb-1"
+                        className="block mb-1 font-semibold"
                       >
                         Content URL:
                       </label>
@@ -955,7 +955,7 @@ const AddCourse = () => {
                           `modules[${moduleIndex}].contents[${contentIndex}].url`
                         )}
                         type="url"
-                        className="border border-gray-300 rounded-xl p-2 w-full"
+                        className="w-full p-2 border border-gray-300 rounded-xl"
                       />
                     </div>
                   </div>

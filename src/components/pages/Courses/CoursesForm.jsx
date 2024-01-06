@@ -1,8 +1,5 @@
-import polygon1 from "./Assests/polygon-28.png";
-import polygon4 from "../../../assets/Courses/Rectangle 621.png";
-import polygon2 from "./Assests/polygon-31.png";
-import slideImg from "../../../assets/CourseSlider.png";
-import CourseSlider from "./CourseSlider";
+
+
 import { useContext } from "react";
 import { MyContext } from "../../../Context/Context";
 
@@ -22,16 +19,16 @@ const CoursesForm = () => {
   ];
 
   return (
-    <div className="w-5/6  mb-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
-      {/* <div className="lg:flex justify-between gap-20 item-center">
-        <div className="w-full lg:w-1/2 relative">
+    <div className="w-5/6 mx-auto mb-20 sm:max-w-xl md:max-w-full lg:max-w-screen-xl">
+      {/* <div className="justify-between gap-20 lg:flex item-center">
+        <div className="relative w-full lg:w-1/2">
           <h1 className=" text-[35px] font-bold">
             {language == "bn" ? "জয়েন করুন ফ্রি সেমিনারে" : "Join Free Seminar"}
           </h1>
           <img
             src={polygon3}
             alt=""
-            className="absolute md:right-1/2 right-0 -mr-8 -top-2"
+            className="absolute right-0 -mr-8 md:right-1/2 -top-2"
           />
           <img src={polygon4} alt="" className="absolute -left-12 top-1/2" />
           <p className="font-medium">
@@ -121,7 +118,7 @@ const CoursesForm = () => {
             alt=""
           />
 
-          <img className="absolute right-10 bottom-0" src={polygon2} alt="" />
+          <img className="absolute bottom-0 right-10" src={polygon2} alt="" />
 
           <div className="flex justify-end">
             <button className="py-[14px] w-full text-[19px font-semibold] bg-[#F52413] text-white rounded-[7px] ">
