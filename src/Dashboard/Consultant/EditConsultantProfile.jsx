@@ -24,7 +24,7 @@ const EditConsultantProfile = () => {
     "Thursday",
     "Friday",
   ];
-  const servicesOptions = ["Research", "Career Consulting", "Project"];
+  const servicesOptions = ["Research", "Career Consulting", "Project","Corporate Consulting"];
 
   const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
@@ -153,9 +153,9 @@ const EditConsultantProfile = () => {
   if (!userinfo) return <Loader />;
   return (
     <div>
-      <div className="container mx-auto p-4">
+      <div className="container p-4 mx-auto">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid md:grid-cols-2 gap-8 space-y-4">
+          <div className="grid gap-8 space-y-4 md:grid-cols-2">
             <div className="">
               <label
                 htmlFor="displayName"
@@ -254,7 +254,7 @@ const EditConsultantProfile = () => {
             </div>
 
             <div className="flex-grow">
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
+              <label className="block mb-2 text-sm font-semibold text-gray-800">
                 Career Summary
               </label>
 
@@ -270,7 +270,7 @@ const EditConsultantProfile = () => {
   <label className="block text-sm font-semibold text-gray-800">
     Availability
   </label>
-  <div className="space-y-2 grid grid-cols-3">
+  <div className="grid grid-cols-3 space-y-2">
     {daysOfWeek.map((day) => (
       <div key={day} className="flex items-center gap-2 ">
         <Controller
@@ -363,7 +363,7 @@ const EditConsultantProfile = () => {
         ))}
         <button
           type="button"
-          className="btn-black m-2"
+          className="m-2 btn-black"
           onClick={() => appendRecentWork({ work: '', link: '' })}
         >
           Add Recent Work
@@ -400,7 +400,7 @@ const EditConsultantProfile = () => {
               ))}
               <button
                 type="button"
-                className="btn-black m-2"
+                className="m-2 btn-black"
                 onClick={() => appendSuccess("")}
               >
                 Add Awards & achievement
@@ -426,7 +426,7 @@ const EditConsultantProfile = () => {
                   />
                   <button
                     type="button"
-                    className=" m-2"
+                    className="m-2 "
                     onClick={() => removeExperience(index)}
                   >
                     <CiSquareRemove className="text-2xl" />
@@ -435,7 +435,7 @@ const EditConsultantProfile = () => {
               ))}
               <button
                 type="button"
-                className="btn-black m-2"
+                className="m-2 btn-black"
                 onClick={() => appendExperience("")}
               >
                 Add Experience
@@ -462,7 +462,7 @@ const EditConsultantProfile = () => {
                   />
                   <button
                     type="button"
-                    className=" m-2"
+                    className="m-2 "
                     onClick={() => removeQualification(index)}
                   >
                     <CiSquareRemove className="text-2xl" />
@@ -471,7 +471,7 @@ const EditConsultantProfile = () => {
               ))}
               <button
                 type="button"
-                className="btn-black m-2"
+                className="m-2 btn-black"
                 onClick={() => appendQualification("")}
               >
                 Add Qualification
@@ -560,7 +560,7 @@ const EditConsultantProfile = () => {
               />
             </div>
           </div>
-          <button type="submit" className="btn-add my-5">
+          <button type="submit" className="my-5 btn-add">
             Submit
           </button>
         </form>

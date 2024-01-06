@@ -13,7 +13,7 @@ const Expertise = ({ consultant }) => {
   const { language } = useContext(MyContext);
 const { user } = useContext(AuthContext);
 const [isVisible, setIsVisible] = useState(true);
-console.log(user ? user : "nai");
+// console.log(user ? user : "nai");
 const {
 displayName: cName,
 email: cMail,
@@ -123,18 +123,18 @@ window.removeEventListener("scroll", handleScroll);
 }, []);
 return (
 <div>
-  <h3 className="font-semibold text-2xl"> {language === "bn" ? "উপস্থিতি" : "Availability"}</h3>
-  <div className=" space-y-2 section text-lg ml-2 mt-2">
+  <h3 className="text-2xl font-semibold"> {language === "bn" ? "উপস্থিতি" : "Availability"}</h3>
+  <div className="mt-2 ml-2 space-y-2 text-lg section">
     {selectedDays?.map((d) => (
-    <p className="flex items-center gap-1" key={d}>
+    <p className="flex items-center gap-2" key={d}>
       <FaRegDotCircle /> {d}
     </p>
     ))}
   </div>
-  <h3 className="font-semibold text-2xl mt-4"> {language === "bn" ? "কাজ করছেন" : "Working With"}</h3>
-  <div className="section text-lg ml-2 mt-2 space-y-2 ">
+  <h3 className="mt-4 text-2xl font-semibold"> {language === "bn" ? "কাজ করছেন" : "Working With"}</h3>
+  <div className="mt-2 ml-2 space-y-2 text-lg section ">
     {workingWith?.map((d) => (
-    <p className="flex items-center gap-1" key={d}>
+    <p className="flex items-center gap-2" key={d}>
       {" "}
       <SiSocketdotio /> {d}
     </p>
@@ -163,10 +163,10 @@ return (
 
   {/* Fixed button for mobile */}
   {isVisible && (
-  <div className="bg-white rounded-lg fixed bottom-0 p-2   z-10 md:hidden w-11/12 mx-auto">
+  <div className="fixed bottom-0 z-10 w-11/12 p-2 mx-auto bg-white rounded-lg md:hidden">
     {user ? (
     <button onClick={()=> document.getElementById("my_modal_5").showModal()}
-      className=" btn-view-red w-full "
+      className="w-full btn-view-red"
       >
       {language == "bn"
       ? "এপয়েন্টমেন্ট বুক করুন"
@@ -175,7 +175,7 @@ return (
     </button>
     ) : (
     <Link to="/login" state={{ from: location }} onClick={()=> toast.error("Please Login first")}
-    className=" btn-view-red w-full "
+    className="w-full btn-view-red"
     >
     {language == "bn"
     ? "এপয়েন্টমেন্ট বুক করুন"
@@ -191,7 +191,7 @@ return (
       <form method="dialog">
         {/* if there is a button in form, it will close the modal */}
         <button
-          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 bg-primary text-white hover:bg-primary">
+          className="absolute text-white btn btn-sm btn-circle btn-ghost right-2 top-2 bg-primary hover:bg-primary">
           ✕
         </button>
       </form>
@@ -239,8 +239,10 @@ return (
           <select {...register("problemType", { required: true })}
             className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
             <option value="Career Consulting">Career Consulting</option>
+            <option value="Corporate Consulting">Corporate Consulting</option>
+            <option value="Research">Research paper</option>
             <option value="Project">Project</option>
-            <option value="Research">Research</option>
+            
           </select>
         </div>
         <div>
@@ -258,7 +260,7 @@ return (
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"></textarea>
         </div>
         <div className="flex items-center">
-          <label htmlFor="urgent" className="text-xl text-primary mr-2">
+          <label htmlFor="urgent" className="mr-2 text-xl text-primary">
             Is it urgent?
           </label>
           <input {...register("urgent")} type="checkbox" className="checkbox checkbox-xs checkbox-error" />
@@ -321,8 +323,9 @@ return (
         <select {...register("problemType", { required: true })}
           className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
           <option value="Career Consulting">Career Consulting</option>
-          <option value="Project">Project</option>
+          <option value="Corporate Consulting">Corporate Consulting</option>
           <option value="Research">Research</option>
+          <option value="Project">Project</option>
         </select>
       </div>
       <div>
@@ -340,7 +343,7 @@ return (
           className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"></textarea>
       </div>
       <div className="flex items-center">
-        <label htmlFor="urgent" className="text-xl text-primary mr-2">
+        <label htmlFor="urgent" className="mr-2 text-xl text-primary">
           Is it urgent?
         </label>
         <input {...register("urgent")} type="checkbox" className="checkbox checkbox-xs checkbox-error" />

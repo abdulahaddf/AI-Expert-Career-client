@@ -34,7 +34,7 @@ function CopyURLButton({text}) {
   return (
     <div>
       {/* <p>Current URL: {window.location.href}</p> */}
-      <button className='text-white px-2 rounded-full bg-black flex items-center gap-2' onClick={copyToClipboard}>
+      <button className='flex items-center gap-2 px-3 py-0.5 text-white bg-black rounded-full' onClick={copyToClipboard}>
        <BsFillShareFill/> {copied ? 'Link Copied!' : text}
       </button>
     </div>
