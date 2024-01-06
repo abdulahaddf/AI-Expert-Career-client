@@ -126,7 +126,7 @@ return (
   <h3 className="text-2xl font-semibold"> {language === "bn" ? "উপস্থিতি" : "Availability"}</h3>
   <div className="mt-2 ml-2 space-y-2 text-lg section">
     {selectedDays?.map((d) => (
-    <p className="flex items-center gap-1" key={d}>
+    <p className="flex items-center gap-2" key={d}>
       <FaRegDotCircle /> {d}
     </p>
     ))}
@@ -134,7 +134,7 @@ return (
   <h3 className="mt-4 text-2xl font-semibold"> {language === "bn" ? "কাজ করছেন" : "Working With"}</h3>
   <div className="mt-2 ml-2 space-y-2 text-lg section ">
     {workingWith?.map((d) => (
-    <p className="flex items-center gap-1" key={d}>
+    <p className="flex items-center gap-2" key={d}>
       {" "}
       <SiSocketdotio /> {d}
     </p>
