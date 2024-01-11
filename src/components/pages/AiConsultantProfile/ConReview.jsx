@@ -1,5 +1,4 @@
-import line from "../../../assets/line.svg";
-import TestImg from "../../../assets/test.svg";
+/* eslint-disable react/prop-types */
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
