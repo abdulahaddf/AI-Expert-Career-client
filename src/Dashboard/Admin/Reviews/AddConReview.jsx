@@ -8,11 +8,10 @@ const AddConReview = () => {
 
   const onSubmit = async (data) => {
     // console.log(data);
-    const { name, designation, feedback } = data;
+    const { name, email, designation, feedback } = data;
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
-
     try {
       const coverForm = new FormData();
       coverForm.append("image", image);
@@ -33,6 +32,7 @@ const AddConReview = () => {
       // Prepare Feedback Data
       const feedbackData = {
         name,
+        email,
         designation,
         feedback,
         imageURL: cover_image_url,
