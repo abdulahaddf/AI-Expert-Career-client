@@ -159,8 +159,10 @@ const navigate = useNavigate();
               <div>
                 <Link to="/" className="flex items-center justify-center gap-2">
                   <img
-                    className="w-24 pointer-events-none select-none no-select md:w-32 md:p-2"
+                    className="pointer-events-none select-none no-select md:w-32 md:p-2"
                     src={Logo}
+                    width="100 rem"
+                    height="1"
                     alt=""
                   />
                 </Link>
@@ -377,7 +379,7 @@ const navigate = useNavigate();
                           onClick={() => setIsOpen(false)}
                           className="flex items-center justify-center gap-2"
                         >
-                          <img className="w-20 bg-white" src={Logo} alt="" />
+                          <img className="bg-white " src={Logo} alt="" width="50rem" height="1"/>
                         </NavLink>
                       </div>
                       <div className="absolute my-2"></div>

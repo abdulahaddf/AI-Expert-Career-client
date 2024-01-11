@@ -26,15 +26,17 @@ const BlogCard = ({ blog }) => {
 
   // console.log(blog);
   return (
-    <div className="section w-full flex flex-col justify-between  p-2">
+    <div className="flex flex-col justify-between w-full p-2 section">
       <figure className="rounded-lg">
         <img
-          className="w-full md:w-fit  pb-3 mx-auto rounded-lg object-cover"
+          className="object-cover pb-3 mx-auto rounded-lg md:w-fit"
           src={blog.imageURL}
           alt="cover"
+          width="100%"
+          height="1"
         />
       </figure>
-      <div className="space-y-4 flex flex-col justify-center items-center ">
+      <div className="flex flex-col items-center justify-center space-y-4 ">
         <Link to={`/blog/${blog.blogName}`} onClick={incrementViewCount}>
           {/* Font bold */}
           <h2 className="font-bold text-[18px] text-center li-ador-noirrit-semibold">{blog.blogName}</h2> 
@@ -51,7 +53,7 @@ const BlogCard = ({ blog }) => {
         ></div>
       </div>
 
-      <div className="flex justify-between items-end mt-2">
+      <div className="flex items-end justify-between mt-2">
         <div>
           <Link to={`/blog/${blog.blogName.trim().replace(/\s+/g, '-')}`}>
             <button className="btn-black" onClick={incrementViewCount}>
@@ -60,12 +62,12 @@ const BlogCard = ({ blog }) => {
           </Link>
         </div>
         <div className="flex items-center justify-between gap-5 text-xl">
-          <div className="flex gap-1 items-center cursor-pointer">
+          <div className="flex items-center gap-1 cursor-pointer">
             <FaThumbsUp className="" />
             <p className="font-bold text-[14px]">{blog.likes.length}</p>
           </div>
 
-          <div className="flex gap-1 items-center cursor-pointer">
+          <div className="flex items-center gap-1 cursor-pointer">
             <AiFillEye />
             <p className="font-bold text-[14px]">
               {formatViewCount(blog?.view)}

@@ -89,6 +89,8 @@ const Footer = () => {
             <Link to="/" className="">
               <img
                 className="mx-auto pointer-events-none select-none no-select unselectable md:mx-px w-36 md:w-48"
+                width="9 rem"
+                height="1"
                 src={Logo}
                 alt=""
               />
@@ -109,21 +111,24 @@ const Footer = () => {
               <Link
                 to="https://www.facebook.com/aiexpertcareer"
                 target="_blank"
-                className="rounded-full  w-10 p-0.5"
+                className="rounded-full w-10 p-0.5"
               >
                 <img
-                  className="w-12"
                   src="https://www.svgrepo.com/show/452196/facebook-1.svg"
                   alt=""
+                  width="32 rem"
+                  height="1"
                 />
               </Link>
               <Link
                 target="_blank"
                 to="https://www.instagram.com/ai_expert_career/"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src={"https://www.svgrepo.com/show/452231/instagram.svg"}
                   alt=""
                 />
@@ -132,10 +137,13 @@ const Footer = () => {
                 target="_blank"
                 to="https://www.linkedin.com/company/aiexpertcareer/"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/452051/linkedin.svg"
+                 
                   alt=""
                 />
               </Link>
@@ -143,22 +151,28 @@ const Footer = () => {
                 target="_blank"
                 to="https://wa.me/+8801995536898"
                 className="rounded-full w-8 p-0.5"
+               
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/354560/whatsapp.svg"
                   alt=""
+                  
                 />
               </Link>
               <Link
                 target="_blank"
                 to="https://www.youtube.com/@aiexpertcareer"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/452138/youtube.svg"
                   alt=""
+                  
                 />
               </Link>
             </div>
