@@ -5,7 +5,6 @@ import { MyContext } from "../../../Context/Context";
 import { FaTelegramPlane } from "react-icons/fa";
 import { BsArrowRightShort } from "react-icons/bs";
 import useTitle from "../../../hooks/useTitle";
-import Scrollbtn from "../../common/button/Scrollbtn";
 import Loader from "../../common/loader/Loader";
 
 const HeroAria = () => {
@@ -19,7 +18,9 @@ const HeroAria = () => {
 
   if (!banner) return <Loader/>;
   return (
+    
     <div className=" bg-[#fff] mb-[40px]  " style={{ background: gradientColor }}>
+      
       <div className="px-4 relative pt-2 mx-auto sm:max-w-xl md:max-w-full 2xl:max-w-screen-2xl  md:px-24 lg:px-8 md:h-[90dvh]">
         <div className="md:flex">
           <div className="flex flex-col justify-center lg:text-start md:w-1/2 md:pl-3">
@@ -63,7 +64,7 @@ const HeroAria = () => {
             </div>
           </div>
           <div className="flex justify-end mt-8 sm:mt-0 md:w-1/2">
-          {banner ?  <img src={banner} alt=""  /> : <div className="w-1/2 skeleton"></div>}
+          {banner ?  <img src={banner} alt="aiexpertcareer_homephoto" width="100%" height="1" fetchpriority="high" /> : <div className="w-1/2 skeleton"></div>}
             
           </div>
         </div>

@@ -1,4 +1,4 @@
-import loginBG from "../../../assets/LoginBg.svg";
+
 import { Link, useNavigate } from "react-router-dom";
 import { sendEmailVerification, sendSignInLinkToEmail } from "firebase/auth";
 import { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import google from "../../../assets/social/google.png"
-import facebook from "../../../assets/social/facebook.png"
+
 import Lottie from "lottie-react";
 import animationData from "../../../assets/animation/reg.json";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
@@ -228,8 +228,8 @@ const handleForm = (data) => {
 
   return (
     <div>
-      <div className=" " style={{ background: gradientColor }}>
-        <div className="py-6 w-11/12 mx-auto  md:px-20 ">
+      <div className="" style={{ background: gradientColor }}>
+        <div className="w-11/12 py-6 mx-auto md:px-20 ">
           <div className="md:flex justify-evenly">
             <div className="p-5  lg:px-[70px] lg:col-span-5 z-10 glass">
               <div className="relative">
@@ -323,12 +323,12 @@ const handleForm = (data) => {
                   />
                   {showPassword ? (
                     <FaEyeSlash
-                      className="absolute right-3 bottom-7 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-7"
                       onClick={() => setShowPassword(false)}
                     />
                   ) : (
                     <FaEye
-                      className="absolute right-3 bottom-7  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-7"
                       onClick={() => setShowPassword(true)}
                     />
                   )}
@@ -356,12 +356,12 @@ const handleForm = (data) => {
       />
                   {reshowPassword ? (
                     <FaEyeSlash
-                      className="absolute right-3 bottom-7 transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-7"
                       onClick={() => setreShowPassword(false)}
                     />
                   ) : (
                     <FaEye
-                      className="absolute right-3 bottom-7  transform -translate-y-1/2 text-gray-400 cursor-pointer text-2xl"
+                      className="absolute text-2xl text-gray-400 transform -translate-y-1/2 cursor-pointer right-3 bottom-7"
                       onClick={() => setreShowPassword(true)}
                     />
                   )}
@@ -369,11 +369,11 @@ const handleForm = (data) => {
                 </div>
             
                   
-{ errors.phone ?   <p className="text-red-500 text-sm">{errors.phone.message}</p> :
+{ errors.phone ?   <p className="text-sm text-red-500">{errors.phone.message}</p> :
   errors.password ?<> {errors.password  && (
-    <span className="text-red-500 text-sm">{errors.password.message}</span>
+    <span className="text-sm text-red-500">{errors.password.message}</span>
     )}</> :  <>{passwordMatchError && (
-      <span className="text-red-500 text-sm">Passwords do not match</span>
+      <span className="text-sm text-red-500">Passwords do not match</span>
       )}</>
 }
 
@@ -388,7 +388,7 @@ const handleForm = (data) => {
 
                   <button
                     type="submit"
-                    className="btn-view w-full mt-2"
+                    className="w-full mt-2 btn-view"
                   >
                       {language === "bn" ? "সাবমিট" : "Sign Up "}
                    
@@ -399,38 +399,38 @@ const handleForm = (data) => {
                
               </div>
              {/* join with google button  */}
-             <div className="mt-10  mx-auto text-center bg-white rounded-lg">
+             <div className="mx-auto mt-10 text-center bg-white rounded-lg">
                 <button
               onClick={handleGoogleSignIn}
               type="button"
-              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+              className="flex items-center justify-center w-full p-2 border rounded-md border-red"
             >
-              <img className="h-8 w-8" src={google} alt="" />
+              <img className="w-8 h-8" src={google} alt="" />
               <span className="ml-2">Sign up with Google</span>
             </button>
                 </div>
                 {/* join with facebook button  */}
-                {/* <div className="mt-5  mx-auto text-center bg-white rounded-lg">
+                {/* <div className="mx-auto mt-5 text-center bg-white rounded-lg">
                 <button
               onClick={handlefbSignIn}
               type="button"
-              className="flex items-center justify-center w-full p-2 border border-red rounded-md"
+              className="flex items-center justify-center w-full p-2 border rounded-md border-red"
             >
-              <img className="h-9 w-9 ml-5" src={facebook} alt="" />
+              <img className="ml-5 h-9 w-9" src={facebook} alt="" />
               <span className="ml-2">Sign up with Facebook</span>
             </button>
                 </div> */}
 
 
             <p
-            className= "mt-8 text-md font-normal text-center text-gray-700"
+            className= "mt-8 font-normal text-center text-gray-700 text-md"
        
           >
              {language == "bn" ? "এ্যাকাউন্ট তৈরী আছে? " : "Already have an account? "}
             
             <Link
               to="/login"
-              className="font-medium text-lg text-primary  hover:underline hover:text-primary"
+              className="text-lg font-medium text-primary hover:underline hover:text-primary"
             >
                {language == "bn" ? " সাইন ইন করুন" : " Sign In Here"}
              
@@ -440,7 +440,7 @@ const handleForm = (data) => {
             <div className="">
 
             <Lottie
-          className="select-none pointer-events-none no-select unselectable w-full"
+          className="w-full pointer-events-none select-none no-select unselectable"
           animationData={animationData}
           loop={true}
           />

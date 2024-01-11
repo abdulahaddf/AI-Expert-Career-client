@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url("https:fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https:fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-@import "daisyui/dist/full.css";
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-@import url("https:fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https:fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-@import "daisyui/dist/full.css";
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"); */
 
 
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins&display=swap');
 
 
   /* @font-face {
@@ -41,6 +32,7 @@
   font-weight: 400;
   font-style: normal;
   unicode-range: U+0980-09FF, U+200C-200D;
+  font-display: swap;
 }
 
 @font-face {
@@ -49,6 +41,7 @@
   font-weight: 600;
   font-style: normal;
   unicode-range: U+0980-09FF, U+200C-200D;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,10 +61,10 @@
 
 @layer components {
   .btn-custom-sm {
-    @apply btn btn-sm  hover:bg-primary text-primary hover:text-white transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-200 border-b-2 border-red-600 hover:border-red-400;
+    @apply transition duration-200 ease-in-out delay-150 border-b-2 border-red-600 btn btn-sm hover:bg-primary text-primary hover:text-white hover:-translate-y-1 hover:scale-105 hover:border-red-400;
   }
   .btn-add {
-    @apply btn btn-sm btn-ghost btn-outline normal-case text-primary hover:shadow-lg hover:bg-primary hover:border-primary hover:text-white;
+    @apply normal-case btn btn-sm btn-ghost btn-outline text-primary hover:shadow-lg hover:bg-primary hover:border-primary hover:text-white;
   }
   .btn-red {
     @apply btn btn-sm btn-ghost btn-outline normal-case text-primary border-[1px] border-primary   shadow-2xl hover:bg-primary hover:border-primary;
@@ -83,16 +76,16 @@
     @apply border-black border-2 hover:shadow-lg hover:bg-black hover:text-white py-[1px] duration-300 px-2 rounded-lg font-semibold;
   } */
   .btn-black {
-    @apply btn btn-sm btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:text-white;
+    @apply normal-case btn btn-sm btn-ghost btn-outline hover:shadow-lg hover:bg-black hover:text-white;
   }
   .btn-view {
-    @apply btn btn-ghost btn-outline normal-case  hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-8 text-lg;
+    @apply text-lg normal-case btn btn-ghost btn-outline hover:shadow-lg hover:bg-black hover:text-white btn-md md:px-8;
   }
   .btn-view-red {
-    @apply btn btn-ghost btn-outline normal-case border-primary text-primary  hover:shadow-lg hover:bg-primary hover:text-white hover:border-primary btn-md md:px-8 text-lg ;
+    @apply text-lg normal-case btn btn-ghost btn-outline border-primary text-primary hover:shadow-lg hover:bg-primary hover:text-white hover:border-primary btn-md md:px-8 ;
   }
   .section {
-    @apply bg-white shadow-sm hover:shadow-xl duration-500 text-sm p-4 rounded-lg border border-black/25;
+    @apply p-4 text-sm duration-500 bg-white border rounded-lg shadow-sm hover:shadow-xl border-black/25;
   } 
   .navOptions {
     @apply btn bg-[#fefefe] w-full  btn-sm normal-case  rounded-xl hover:no-underline hover:text-white hover:bg-primary;

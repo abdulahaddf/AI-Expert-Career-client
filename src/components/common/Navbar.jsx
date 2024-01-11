@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink, Navigate, useLocation, useNavigate,} from "react-router-dom";
-import Logo from "/img/logo.png";
+import Logo from "/img/logo.svg";
 import "./Navbar.css";
 import { useContext } from "react";
 import { MyContext } from "../../Context/Context";
@@ -153,14 +153,16 @@ const navigate = useNavigate();
   return (
     <>
       <div className="shadow bg-white w-full z-[100] sticky top-0">
-        <div className="py-1 px-4 relative   mx-auto max-w-7xl">
-          <div className="relative flex items-center justify-between  font-bold ">
-            <div className="  flex items-center ">
+        <div className="relative px-4 py-1 mx-auto max-w-7xl">
+          <div className="relative flex items-center justify-between font-bold ">
+            <div className="flex items-center ">
               <div>
-                <Link to="/" className="flex justify-center items-center gap-2">
+                <Link to="/" className="flex items-center justify-center gap-2">
                   <img
-                    className="select-none pointer-events-none no-select w-24 md:w-32 md:p-2"
+                    className="pointer-events-none select-none no-select md:w-32 md:p-2"
                     src={Logo}
+                    width="100 rem"
+                    height="1"
                     alt=""
                   />
                 </Link>
@@ -172,7 +174,7 @@ const navigate = useNavigate();
             <ul className="items-center hidden font-[700] xl:flex pl-5 ">
               <div className={"flex items-center"}>{menuItem}</div>
             </ul>
-            <div className="flex  justify-between items-center gap-5 pl-28 md:pl-0">
+            <div className="flex items-center justify-between gap-5 pl-28 md:pl-0">
               {user &&
               !isAdmin &&
               userinfo?.role !== "super admin" &&
@@ -224,18 +226,18 @@ const navigate = useNavigate();
               {user ? (
                 <div className="">
                   <div
-                    className=" dropdown dropdown-hover "
+                    className=" dropdown dropdown-hover"
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
                     <label
                       tabIndex={0}
-                      className="cursor-pointer flex rounded-lg p-1  justify-center items-center overflow-hidden relative"
+                      className="relative flex items-center justify-center p-1 overflow-hidden rounded-lg cursor-pointer"
                     >
                       {" "}
                       <div className="flex items-center hover:text-primary ">
                         <img
-                          className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover "
+                          className="object-cover w-12 h-12 rounded-full md:w-14 md:h-14 "
                           src={
                             userinfo?.photoURL ||
                             "https://i.ibb.co/sg6hmZ7/user.png"
@@ -254,13 +256,12 @@ const navigate = useNavigate();
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-menu bg-white z-20  shadow-md  absolute right-0 w-32
-                  rounded-box   text-left mt-2"
+                      className="absolute right-0 z-20 w-32 mt-2 text-left bg-white shadow-md dropdown-menu rounded-box"
                     >
                       <li className="">
                         {user ? (
                           isAdmin || userinfo?.role === "super admin" ? (
-                            <li className="flex flex-col space-y-2  p-1  ">
+                            <li className="flex flex-col p-1 space-y-2 ">
                               <Link
                                 to="/dashboard/my-profile"
                                 className="navOptions"
@@ -269,7 +270,7 @@ const navigate = useNavigate();
                               </Link>
                               <Link
                                 to="/dashboard/add-blog"
-                                className="navOptions ml-0"
+                                className="ml-0 navOptions"
                               >
                                 Add Blog
                               </Link>
@@ -292,7 +293,7 @@ const navigate = useNavigate();
                               </Link> */}
                             </li>
                           ) : userinfo?.role === "consultant" ? (
-                            <li className="flex flex-col justify-center items-center h-fit space-y-4 mt-10  p-1 ">
+                            <li className="flex flex-col items-center justify-center p-1 mt-10 space-y-4 h-fit ">
                               <Link
                                 to="/dashboard/consultant-profile"
                                 className="navOptions"
@@ -304,7 +305,7 @@ const navigate = useNavigate();
                               </li>
                             </li>
                           ) : (
-                            <li className="flex flex-col justify-center items-center h-fit space-y-2  p-1 ">
+                            <li className="flex flex-col items-center justify-center p-1 space-y-2 h-fit ">
                               <Link
                                 to="/dashboard/my-profile"
                                 className="navOptions"
@@ -369,19 +370,19 @@ const navigate = useNavigate();
                 </svg>
               </button>
               {isMenuOpen && isOpen && (
-                <div className="absolute  top-0 left-0 w-full z-50">
+                <div className="absolute top-0 left-0 z-50 w-full">
                   <div className="p-5 bg-white border rounded shadow-sm">
                     <div className="flex items-center justify-between mb-4">
                       <div>
                         <NavLink
                           to="/"
                           onClick={() => setIsOpen(false)}
-                          className="flex justify-center items-center gap-2"
+                          className="flex items-center justify-center gap-2"
                         >
-                          <img className="bg-white w-20" src={Logo} alt="" />
+                          <img className="bg-white " src={Logo} alt="" width="50rem" height="1"/>
                         </NavLink>
                       </div>
-                      <div className="my-2 absolute"></div>
+                      <div className="absolute my-2"></div>
                       <div>
                         <button
                           aria-label="Close Menu"

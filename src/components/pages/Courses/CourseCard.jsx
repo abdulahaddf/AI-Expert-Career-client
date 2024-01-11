@@ -71,26 +71,26 @@ const CourseCard = ({ course }) => {
       
       {
         discount ? 
-        <div className="absolute bg-primary text-white rounded-full p-2 py-3 text-xs font-semibold -top-3 -right-3 h-10 w-10">-{discount}%</div> : ""
+        <div className="absolute w-10 h-10 p-2 py-3 text-xs font-semibold text-white rounded-full bg-primary -top-3 -right-3">-{discount}%</div> : ""
       }
-      <img className="w-full md:w-[279px]  pt-0" src={course?.cover} alt="" />
+      <img className="md:w-[279px]  pt-0" src={course?.cover} alt="" width="100%" height="1"/>
       <h2 className="pt-[15px] text-[18px] font-bold ">{course?.title}</h2>
       <p className="text-[14px] text-[#818181]">
         {course?.subtitle?.slice(0, 115)}...
       </p>
 
-      <div className="flex w-full justify-between items-center mt-6">
+      <div className="flex items-center justify-between w-full mt-6">
         {course?.description ? (
           <Link to={`/course/${course.title.trim().replace(/\s+/g, '-')}`} className="btn-black">
             {language == "bn" ? "বিস্তারিত দেখুন" : "View Details"}
           </Link>
         ) : (
-          <p className=" font-semibold p-1 ">Coming Soon...</p>
+          <p className="p-1 font-semibold ">Coming Soon...</p>
         )}
         {course?.description ? (
           <p className="font-semibold">
             
-            {course?.courseFee > 0 ? <>{discount ? discount != 0 ? <span className="line-through text-gray-500 mx-2 text-md">
+            {course?.courseFee > 0 ? <>{discount ? discount != 0 ? <span className="mx-2 text-gray-500 line-through text-md">
             ৳ {courseFee}
           </span> : "" : ""}
           <span className="text-xl">৳{discountAmount}</span></> : "Free"}
@@ -115,10 +115,10 @@ const CourseCard = ({ course }) => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           method="dialog"
-          className="modal-box   text-black "
+          className="text-black modal-box "
         >
           <button
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
             onClick={() => {
               const modalId = `${course._id}`;
               const modal = document.getElementById(modalId);
@@ -131,16 +131,15 @@ const CourseCard = ({ course }) => {
           </button>
 
           <div className="mb-2">
-            <h1 className="text-lg  mb-3">
+            <h1 className="mb-3 text-lg">
               Book Your Seat for the course : <br />{" "}
-              <span className="font-bold text-2xl">{course.title}</span>{" "}
+              <span className="text-2xl font-bold">{course.title}</span>{" "}
             </h1>
             <p className="">Your Name:</p>
             <input
               type="text"
               {...register("name", { required: true })}
-              className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
+              className="block w-full mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40 input file-input file-input-bordered file-input-error"
             />
           </div>
           <div className="mb-2">
@@ -154,8 +153,7 @@ const CourseCard = ({ course }) => {
                   message: "Please enter a valid phone number",
                 },
               })}
-              className="block   mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
+              className="block w-full mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40 input file-input file-input-bordered file-input-error"
             />
           </div>
           <div className="mb-2">
@@ -163,12 +161,11 @@ const CourseCard = ({ course }) => {
             <input
               type="email"
               {...register("email", { required: true })}
-              className="block   mt-2  bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
+              className="block w-full mt-2 bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40 input file-input file-input-bordered file-input-error"
             />
           </div>
           {errors.phone ? (
-            <p className="text-red-500 text-sm">{errors.phone.message}</p>
+            <p className="text-sm text-red-500">{errors.phone.message}</p>
           ) : (
             ""
           )}

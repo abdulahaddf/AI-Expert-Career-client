@@ -1,7 +1,7 @@
-import consultantI from "../../../../src/assets/homeAboutUs/consul.png"
-import courseI from "../../../../src/assets/homeAboutUs/course.png"
-import blogI from "../../../../src/assets/homeAboutUs/blog.png"
-import magazI from "../../../../src/assets/homeAboutUs/magazine.png"
+import consultantI from "../../../../src/assets/homeAboutUs/consul.svg"
+import courseI from "../../../../src/assets/homeAboutUs/course.svg"
+import blogI from "../../../../src/assets/homeAboutUs/blog.svg"
+import magazI from "../../../../src/assets/homeAboutUs/magazine.svg"
 
 
 
@@ -54,9 +54,9 @@ const HomeAbout = () => {
    
   ];
   return (
-    <div name='about' className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md md:flex justify-between">
-<div className="md:w-5/6 flex flex-col  justify-center mx-auto ml-6 ">
-  <h4 className="text-primary pb-3 text-xl">{language === "bn"
+    <div name='about' className="justify-between py-5 my-5 rounded-md md:my-20 bg-slate-100 md:py-20 md:px-6 md:flex">
+<div className="flex flex-col justify-center mx-auto ml-6 md:w-5/6 ">
+  <h4 className="pb-3 text-xl text-primary">{language === "bn"
           ? "আমাদের সম্পর্কে"
           : <p>About Us</p>}</h4>
 <h3 className=" font-bold lg:text-[36px] text-xl leading-10">
@@ -72,14 +72,14 @@ const HomeAbout = () => {
 </div>
 
 <div>
-<div className="w-11/12 mx-auto grid md:grid-cols-2 justify-center mt-4 md:mt-0  gap-4 ">
+<div className="grid justify-center w-11/12 gap-4 mx-auto mt-4 md:grid-cols-2 md:mt-0 ">
         {aboutCard.map(({ id, img, headline, info, headlineBn, infoBn }) => (
           <div
             key={id}
             className="px-3 border-[0.5px] cursor-pointer  border-gray-50 shadow hover:shadow-lg  bg-white rounded-lg flex gap-5 p-2 "
           >
             <figure>
-              <img className=" w-[150px] " src={img} alt="" />
+              <img width="150" height="1" src={img} alt="" />
             </figure>
            <div className="pt-2">
            <h3 className="text-[20px] text-lg font-semibold mb-[10px]">

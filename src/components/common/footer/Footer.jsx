@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Logo from "/img/logowhite.png";
+import Logo from "./logowhite.svg";
 
-import footerBG from "./alogo.svg";
+import footerBG from "./backdrop_footer.svg";
 import { useContext, useState } from "react";
 import { MyContext } from "../../../Context/Context";
 import Swal from "sweetalert2";
@@ -69,7 +69,7 @@ const Footer = () => {
     window.open(`tel:${phoneNumber}`);
   };
   {/* <img
-          className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "
+          className="absolute right-0 z-0 bottom-14 md:bottom-0 w-72 "
           src={footerBG}
           alt=""
         /> */}
@@ -80,15 +80,17 @@ const Footer = () => {
       backgroundRepeat: 'no-repeat',
       
     }} className="bg-[#000000] bg-[image:var(--image-url)] bg-[length:500px_500px] w-full  mx-auto">
-      <div className="pt-10 pb-10 px-4 mx-auto  md:px-24 lg:px-20 ">
+      <div className="px-4 pt-10 pb-10 mx-auto md:px-24 lg:px-20 ">
       <div
   
-  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-10 text-white text-center sm:text-start "
+  className="grid grid-cols-1 gap-5 text-center text-white md:grid-cols-2 lg:grid-cols-5 md:gap-10 sm:text-start "
 >
           <div className="col-span-2 2xl:p-4 ">
             <Link to="/" className="">
               <img
-                className="select-none pointer-events-none no-select unselectable mx-auto md:mx-px w-36 md:w-48"
+                className="mx-auto pointer-events-none select-none no-select unselectable md:mx-px w-36 md:w-48"
+                width="9 rem"
+                height="1"
                 src={Logo}
                 alt=""
               />
@@ -105,25 +107,28 @@ const Footer = () => {
               fostering a culture of continuous learning to the next generation
               of Al leaders in Bangladesh.
             </h4>
-            <div className="flex justify-center lg:justify-start items-center gap-4 ">
+            <div className="flex items-center justify-center gap-4 lg:justify-start ">
               <Link
                 to="https://www.facebook.com/aiexpertcareer"
                 target="_blank"
-                className="rounded-full  w-10 p-0.5"
+                className="rounded-full w-10 p-0.5"
               >
                 <img
-                  className="w-12"
                   src="https://www.svgrepo.com/show/452196/facebook-1.svg"
                   alt=""
+                  width="32 rem"
+                  height="1"
                 />
               </Link>
               <Link
                 target="_blank"
                 to="https://www.instagram.com/ai_expert_career/"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src={"https://www.svgrepo.com/show/452231/instagram.svg"}
                   alt=""
                 />
@@ -132,10 +137,13 @@ const Footer = () => {
                 target="_blank"
                 to="https://www.linkedin.com/company/aiexpertcareer/"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/452051/linkedin.svg"
+                 
                   alt=""
                 />
               </Link>
@@ -143,22 +151,28 @@ const Footer = () => {
                 target="_blank"
                 to="https://wa.me/+8801995536898"
                 className="rounded-full w-8 p-0.5"
+               
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/354560/whatsapp.svg"
                   alt=""
+                  
                 />
               </Link>
               <Link
                 target="_blank"
                 to="https://www.youtube.com/@aiexpertcareer"
                 className="rounded-full w-10 p-0.5"
+                
               >
                 <img
-                  className="w-12"
+                  width="37 rem"
+                  height="1"
                   src="https://www.svgrepo.com/show/452138/youtube.svg"
                   alt=""
+                  
                 />
               </Link>
             </div>
@@ -301,9 +315,9 @@ const Footer = () => {
               </h2>
 
               <div className="">
-                <div className=" flex items-center bg-white rounded-lg border w-fit">
+                <div className="flex items-center bg-white border rounded-lg w-fit">
                  
-                  <AiOutlineMail className="text-primary w-10 md:w-16" />
+                  <AiOutlineMail className="w-10 text-primary md:w-16" />
                   <div>
                     <form>
                       <input
@@ -311,7 +325,7 @@ const Footer = () => {
                         placeholder={language === "bn" ? "ই-মেইল" : "Email"}
                         value={mail}
                         onChange={(e) => setMail(e.target.value)}
-                        className="outline-none  w-full border-none text-black"
+                        className="w-full text-black border-none outline-none"
                       />
                       {/* <button type="submit">Subscribe</button> */}
                     </form>
@@ -336,14 +350,14 @@ const Footer = () => {
           <Link
             to="https://abdulahad-df.netlify.app"
             target="_blank"
-            className="text-white z-50"
+            className="z-50 text-white"
           >
             Developed by{" "}
             <span className="font-bold underline hover:text-primary">AHAD</span>
           </Link>
         </div>
         {/* <img
-          className="absolute bottom-14 md:bottom-0 right-0 w-72 z-0 "
+          className="absolute right-0 z-0 bottom-14 md:bottom-0 w-72 "
           src={footerBG}
           alt=""
         /> */}
