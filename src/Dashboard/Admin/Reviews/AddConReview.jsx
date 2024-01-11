@@ -12,7 +12,6 @@ const AddConReview = () => {
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_Image_Upload_token
     }`;
-
     try {
       const coverForm = new FormData();
       coverForm.append("image", image);
