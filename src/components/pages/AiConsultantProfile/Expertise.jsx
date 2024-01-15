@@ -238,11 +238,10 @@ return (
           </label>
           <select {...register("problemType", { required: true })}
             className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
-            <option value="Career Consulting">Career Consulting</option>
-            <option value="Corporate Consulting">Corporate Consulting</option>
-            <option value="Research">Research paper</option>
-            <option value="Project">Project</option>
-            
+            {workingWith?.map((d) => (
+              <option value={d} key={d}>{d}</option>
+            ))
+            }
           </select>
         </div>
         <div>
@@ -322,10 +321,10 @@ return (
         </label>
         <select {...register("problemType", { required: true })}
           className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
-          <option value="Career Consulting">Career Consulting</option>
-          <option value="Corporate Consulting">Corporate Consulting</option>
-          <option value="Research">Research</option>
-          <option value="Project">Project</option>
+          {workingWith?.map((d) => (
+              <option value={d} key={d}>{d}</option>
+            ))
+          }
         </select>
       </div>
       <div>

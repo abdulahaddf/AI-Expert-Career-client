@@ -26,13 +26,13 @@ const HomePartnership = () => {
 
       </center>
       <div className="md:flex hidden items-center justify-center flex-wrap gap-6 mt-[40px]">
-      <Marquee speed={100}>
+      <Marquee speed={70}>
         {
           partners?.map(p => <div key={p}>
           <img
             src={p.imageURL}
             alt=""
-            className="select-none pointer-events-none no-select unselectable w-64  mr-7"
+            className="w-40 pointer-events-none select-none no-select unselectable mr-7"
           />
           
           </div>)
@@ -40,14 +40,14 @@ const HomePartnership = () => {
        
         </Marquee>
       </div>
-      <Swiper
+      {/* <Swiper
         autoplay={{
           delay: 2500,
           disableOnInteraction: true,
         }}
         pagination={true}
         modules={[Pagination, Autoplay]}
-        className="mySwiper  lg:hidden py-10"
+        className="py-10 mySwiper lg:hidden"
       >
         {
           partners?.map(p => <div key={p._id}>
@@ -55,14 +55,14 @@ const HomePartnership = () => {
           <img
             src={p.imageURL}
             alt=""
-            className="select-none pointer-events-none no-select unselectable w-64  mr-7"
+            className="w-64 pointer-events-none select-none no-select unselectable mr-7"
           />
           
         </SwiperSlide>
           </div>)
         }
        
-      </Swiper>
+      </Swiper> */}
     </div>
   );
 };

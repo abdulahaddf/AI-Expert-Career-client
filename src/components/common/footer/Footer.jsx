@@ -345,7 +345,7 @@ const Footer = () => {
         </div>
         <div>
           <p className="mt-20 lg:text-[18px] text-white">
-            Copyright &copy; 2023 AI Expert Career
+            Copyright &copy; 2024 AI Expert Career
           </p>
           <Link
             to="https://abdulahad-df.netlify.app"
