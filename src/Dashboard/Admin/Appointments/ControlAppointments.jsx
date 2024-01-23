@@ -273,6 +273,9 @@ const ControlAppointments = () => {
                         <span className="font-semibold">Mail:</span> {a.email}
                       </p>
                       <p>
+                        <span className="font-semibold">phone:</span> {a.phone}
+                      </p>
+                      <p>
                         <span className="font-semibold">Appointment Date:</span>{" "}
                         {a.appointDate}
                       </p>
@@ -281,8 +284,12 @@ const ControlAppointments = () => {
                         {a.appointTime}
                       </p>
                       <p>
-                        <span className="font-semibold">Problem Type:</span>{" "}
+                        <span className="font-semibold">Consultancy Type:</span>{" "}
                         {a.problemType}
+                      </p>
+                      <p>
+                      <span className="font-semibold">Budget:</span>{" "}
+                        {a.budget}
                       </p>
                       {a.caseSummary ? (
                         <p>

@@ -6,15 +6,22 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { BsArrowRightShort } from "react-icons/bs";
 import useTitle from "../../../hooks/useTitle";
 import Loader from "../../common/loader/Loader";
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
+
+
 
 const HeroAria = () => {
   const gradientColor =
   "linear-gradient(176.98deg, #FFF3F8 -4.94%, #E1F9F0 42.2%, rgba(244, 213, 255, 0.96) 110.23%)";
   const { language } = useContext(MyContext);
   useTitle("Home");
-
-
-
+  
+  
+  const [text] = useTypewriter({
+    words: ['Guideline', 'Consultancy', 'Roadmap', 'Opportunity','Training'],
+    loop: false,
+    onLoopDone: () => console.log(`loop completed after 3 runs.`)
+  });
 
   if (!banner) return <Loader/>;
   return (
@@ -29,20 +36,28 @@ const HeroAria = () => {
                 ? "সেরা অনলাইন ভিডিও কোর্স পছন্দ করুন"
                 : " Choose best online video courses"}
             </h3> */}
-            <div className="text-[35px] sm:text-[42px] flex flex-col lg:text-[55px]  xl:text-[60px] font-semibold leading-none lg:text-start pt-10 md:pt-0 ">
+            <div className="text-[30px] sm:text-[38px] flex flex-col lg:text-[55px]  xl:text-[60px] font-semibold leading-none lg:text-start pt-10 md:pt-0 ">
               <h1>
                 {language == "bn"
                   ? "কৃত্রিম বুদ্ধিমত্তার কঠিন জার্নিতে"
                   : "Find Your Proper "}
               </h1>
+              
               <h1 className="mt-4">
                 {language == "bn"
                   ? "নিজেকে রাখুন একধাপ এগিয়ে"
-                  : "AI Career Guideline"}
+                  : "AI Career "}
+                <span className="text-red-600">
+                  {language == "bn"
+                  ?""
+                  :text}</span>
+                {language == "bn"
+                ?"":<Cursor cursorColor='red'/>}
+                  
               </h1>
             </div>
 
-            <h4 className="text-[16px] text-red-600 font-bold my-[15px] lg:w-[80%]  ">
+            <h4 className="text-[14px] text-red-600 font-bold my-[15px] lg:w-[80%]  ">
               {language == "bn"
                 ? "  ক্যারিয়ার গড়ুন আর্টিফিশিয়াল ইন্টেলিজেন্স এক্সপার্ট হয়ে এ আই এক্সপার্ট ক্যারিয়ারের সাথে।"
                 : "We are the first ever Artificial Intelligence based Ed-tech and Consultancy Service Platform in Bangladesh."}

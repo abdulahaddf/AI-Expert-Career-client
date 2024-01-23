@@ -24,8 +24,9 @@ const EditConsultantProfile = () => {
     "Thursday",
     "Friday",
   ];
-  const servicesOptions = ["Research", "Career Consulting", "Project","Corporate Consulting"];
-
+  const servicesOptions = ["Research (Thesis/Report/Patent)","Career Consultancy","Corporate Consultancy","1:1 Mentorship Program","AI Project (Basic to Advanced)"];
+  const timeOptions = ["9-10:30am","10:30am - 12pm","2-2:30pm","2:30-4pm","4:30-6pm","6-7:30pm","7:30-9pm"];
+  
   const { control, handleSubmit, getValues } = useForm({
     defaultValues: {
       displayName: userinfo?.displayName,
@@ -110,6 +111,10 @@ const EditConsultantProfile = () => {
     const workingWith = servicesOptions.filter((service) =>
       getValues(`services.${service}`)
     );
+    const prefertime = timeOptions.filter((time) =>
+      getValues(`times.${time}`)
+    );
+    console.log(prefertime);
     // console.log(workingWith.length);
     // console.log('Selected Days:', selectedDays);
     const profile = {
@@ -125,6 +130,7 @@ const EditConsultantProfile = () => {
       availability,
       selectedDays,
       workingWith : workingWith.length > 0 ? workingWith : userinfo.workingWith,
+      prefertime : prefertime.length > 0 ? prefertime : userinfo.prefertime,
       summary,
       facebook,
       linkedin,
@@ -369,7 +375,32 @@ const EditConsultantProfile = () => {
           Add Recent Work
         </button>
       </div>
-
+            
+            <div className="">
+              <label className="block text-sm font-semibold text-gray-800">
+                your Preferable Time
+              </label>
+              <div className="space-y-2">
+                {timeOptions.map((time) => (
+                  <div key={time} className="flex items-center gap-2">
+                    <Controller
+                      name={`times.${time}`}
+                      control={control}
+                      render={({ field }) => (
+                        <>
+                          <input
+                            {...field}
+                            type="checkbox"
+                            className="checkbox checkbox-xs"
+                          />
+                          <label>{time}</label>
+                        </>
+                      )}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="">
               <label className="block text-sm font-semibold text-gray-800">

@@ -77,7 +77,7 @@ const ConsultantProfile = () => {
   if (isLoading) return <Loader />;
   return (
     <div className="mb-10 w-[90dvw] 2xl:w-[95dvw]">
-      <div className="md:grid grid-cols-4 ">
+      <div className="grid-cols-4 md:grid ">
         <div className="flex justify-center">
           <div className=" bg-[#ed1b2600] p-6">
             <figure className="flex justify-center">
@@ -88,7 +88,7 @@ const ConsultantProfile = () => {
               />
             </figure>
 
-            <div className="space-y-5 mt-5 flex flex-col justify-center">
+            <div className="flex flex-col justify-center mt-5 space-y-5">
               <button
                 onClick={() => {
                   const modalId = `${userinfo.displayName}`;
@@ -120,10 +120,10 @@ const ConsultantProfile = () => {
               <form
                 onSubmit={handleSubmit(updatePicture)}
                 method="dialog"
-                className="modal-box   text-black "
+                className="text-black modal-box "
               >
                 <button
-                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                  className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
                   onClick={() => {
                     const modalId = `${userinfo.displayName}`;
                     const modal = document.getElementById(modalId);
@@ -135,15 +135,14 @@ const ConsultantProfile = () => {
                   ✕
                 </button>
 
-                <h3 className="font-bold text-lg">Change Your Picture</h3>
+                <h3 className="text-lg font-bold">Change Your Picture</h3>
                 <div className="mb-2">
                   <input
                     checked={true}
                     type="file"
                     id="url"
                     {...register("url")}
-                    className="block   mt-2 text-primary bg-white border rounded-md focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40
-                  input file-input file-input-bordered w-full file-input-error"
+                    className="block w-full mt-2 bg-white border rounded-md text-primary focus:border-primary focus:ring-primary focus:outline-none focus:ring focus:ring-opacity-40 input file-input file-input-bordered file-input-error"
                   />
                 </div>
                 <div className="mt-6">
@@ -157,7 +156,7 @@ const ConsultantProfile = () => {
         </div>
 
         <div className="col-span-3 p-3">
-          <div className="md:grid grid-cols-3 mt-2 gap-8">
+          <div className="grid-cols-3 gap-8 mt-2 md:grid">
             <div className="mt-8">
               <label className="text-lg font-bold " htmlFor="name">
                 {language === "bn" ? "নাম" : "Name"}
@@ -319,11 +318,11 @@ const ConsultantProfile = () => {
               </p>
             </div>
 
-            <div className="mt-8 ">
+            <div className="w-2/5 mt-8">
               <label className="text-lg font-bold">
                 {language === "bn" ? "ফেসবুক" : "Facebook Link"}
               </label>
-              <p className="text-md">
+              <p className="pr-4 ">
                 {userinfo?.facebook ? (
                   <>{userinfo?.facebook}</>
                 ) : (
