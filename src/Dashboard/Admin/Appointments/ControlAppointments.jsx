@@ -273,6 +273,9 @@ const ControlAppointments = () => {
                         <span className="font-semibold">Mail:</span> {a.email}
                       </p>
                       <p>
+                        <span className="font-semibold">phone:</span> {a.phone}
+                      </p>
+                      <p>
                         <span className="font-semibold">Appointment Date:</span>{" "}
                         {a.appointDate}
                       </p>

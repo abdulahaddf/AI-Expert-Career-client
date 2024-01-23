@@ -13,7 +13,7 @@ const Expertise = ({ consultant }) => {
   const { language } = useContext(MyContext);
 const { user } = useContext(AuthContext);
 const [isVisible, setIsVisible] = useState(true);
-// console.log(user ? user : "nai");
+
 const {
 displayName: cName,
 email: cMail,
@@ -34,6 +34,7 @@ const [hideButton, setHideButton] = useState(false);
 const { handleSubmit, register, reset } = useForm({
 defaultValues: {
 email: user?.email,
+displayName: user?.displayName,
 },
 });
 const location = useLocation();
@@ -198,7 +199,7 @@ return (
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 section">
         <div>
           <label htmlFor="name" className="text-xl font-semibold">
-            Name*
+            Your Name*
           </label>
           <input {...register("name", { required: true })} type="text" placeholder="Enter your name"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" />
@@ -227,7 +228,7 @@ return (
         </div>
         <div>
           <label htmlFor="appointTime" className="text-xl font-semibold">
-            Appointment time*
+            Estimated time*
           </label>
           <input {...register("appointTime", { required: true })} type="time" placeholder="Select an appointment time"
             className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" />
@@ -281,10 +282,11 @@ return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 section">
       <div>
         <label htmlFor="name" className="text-xl font-semibold">
-          Name*
+         Your Name*
         </label>
+        {/* value={user?.displayName}  defaultValue={user?.displayName} */}
         <input {...register("name", { required: true })} type="text" placeholder="Enter your name"
-          className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" />
+          className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"  />
       </div>
       <div>
         <label htmlFor="email" className="text-xl font-semibold">
@@ -303,14 +305,14 @@ return (
       </div>
       <div>
         <label htmlFor="appointDate" className="text-xl font-semibold">
-          Appointment date*
+          appointment date*
         </label>
         <input {...register("appointDate", { required: true })} type="date" placeholder="Select an appointment date"
           className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" />
       </div>
       <div>
         <label htmlFor="appointTime" className="text-xl font-semibold">
-          Appointment time*
+          Estimated time*
         </label>
         <input {...register("appointTime", { required: true })} type="time" placeholder="Select an appointment time"
           className="py-2 px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" />

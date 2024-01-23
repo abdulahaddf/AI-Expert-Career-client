@@ -315,7 +315,7 @@ const Footer = () => {
               </h2>
 
               <div className="">
-                <div className="flex items-center bg-white border rounded-lg w-fit">
+                <div className="flex items-center mx-auto bg-white border rounded-lg w-fit">
                  
                   <AiOutlineMail className="w-10 text-primary md:w-16" />
                   <div>
@@ -343,19 +343,34 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div>
-          <p className="mt-20 lg:text-[18px] text-white">
-            Copyright &copy; 2024 AI Expert Career
-          </p>
-          <Link
-            to="https://abdulahad-df.netlify.app"
-            target="_blank"
-            className="z-50 text-white"
-          >
-            Developed by{" "}
-            <span className="font-bold underline hover:text-primary">AHAD</span>
-          </Link>
+        <div className="">
+          <div className="">
+            
+            <Link
+              to="https://abdulahad-df.netlify.app"
+              target="_blank"
+              className="z-50 inline-block text-white"
+              >
+              <p className="mt-20 lg:text-[18px] text-white inline-block">
+              Copyright &copy; 2024 AI Expert Career 
+              </p>
+               <br /> Developed by{" "}
+              <span className="font-bold underline hover:text-primary">AHAD</span>
+            </Link>
+          <div className="mt-4 md:float-right md:mt-12">
+            <a href="https://www.glassdoor.com/Overview/Working-at-AI-Expert-Career-EI_IE9446630.11,27.htm">
+              <img alt="Find us on Glassdoor." src="https://www.glassdoor.com/pc-app/static/img/partnerCenter/badges/eng_FIND_US_258x90.png" className="m-0"/>
+            </a>
+          </div>
+          
+          
+          </div>
+            
+          
+
         </div>
+         
+        
         {/* <img
           className="absolute right-0 z-0 bottom-14 md:bottom-0 w-72 "
           src={footerBG}

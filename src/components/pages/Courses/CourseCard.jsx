@@ -63,17 +63,21 @@ const CourseCard = ({ course }) => {
     }
   };
   return (
-    <Link
-    to={`/course/${course.title.trim().replace(/\s+/g, '-')}`}
-      key={course._id}
-      className="w-full md:w-[280px] p-2 bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl relative"
-    >
-      
+    <div className="w-full md:w-[280px] p-2 bg-white flex flex-col rounded-[7px] shadow-md  hover:shadow-xl relative">
       {
         discount ? 
         <div className="absolute w-10 h-10 p-2 py-3 text-xs font-semibold text-white rounded-full bg-primary -top-3 -right-3">-{discount}%</div> : ""
       }
+      {course?.description ?
+        (<Link
+        to={`/course/${course.title.trim().replace(/\s+/g, '-')}`}
+        key={course._id}   
+        >
+          <img className="md:w-[279px]  pt-0" src={course?.cover} alt="" width="100%" height="1"/>
+        </Link>
+        ):
       <img className="md:w-[279px]  pt-0" src={course?.cover} alt="" width="100%" height="1"/>
+      }
       <h2 className="pt-[15px] text-[18px] font-bold ">{course?.title}</h2>
       <p className="text-[14px] text-[#818181]">
         {course?.subtitle?.slice(0, 115)}...
@@ -176,7 +180,7 @@ const CourseCard = ({ course }) => {
           </div>
         </form>
       </dialog>
-    </Link>
+    </div>
   );
 };
 

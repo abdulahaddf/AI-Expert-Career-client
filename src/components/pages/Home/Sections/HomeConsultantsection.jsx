@@ -25,11 +25,11 @@ const HomeConsultantSection = () => {
 
 if(loading && consultants) return <Loader/>;
     return (
-        <div className="my-5 md:my-20 bg-slate-100 py-5 md:py-20 md:px-6 rounded-md">
-        <div className="md:grid items-stretch md:mt-0 mt-4 grid-cols-2 gap-3">
+        <div className="py-5 my-5 rounded-md md:my-20 bg-slate-100 md:py-20 md:px-6">
+        <div className="items-stretch grid-cols-2 gap-3 mt-4 md:grid md:mt-0">
           <div className="flex flex-col justify-center px-4 md:ml-6">
-            <h1 className="text-primary pb-3">AI Consultancy</h1>
-            <h1 className=" font-bold text-2xl md:text-4xl">
+            <h1 className="pb-3 text-primary">AI Consultancy</h1>
+            <h1 className="text-2xl font-bold md:text-4xl">
               {language === "bn"
                 ? "কর্পোরেট বা ক্যারিয়ার কনসালটেন্টের মাধ্যমে নিশ্চিত করুণ আপনার সঠিক জার্নিটা!"
                 : <p>One Stop Solution in Your <br /> <span className="text-primary">AI Career Problems</span> </p>}
@@ -41,7 +41,7 @@ if(loading && consultants) return <Loader/>;
             </p>
             <div className="mt-5">
           <Link to="/ai-consultant">
-            <button className="btn-view w-full md:w-fit">
+            <button className="w-full btn-view md:w-fit">
              <BiSupport/> {language == "bn" ? "ফ্রি কল করুন" : "Go for Free Consultancy "} 
             </button>
           </Link>
@@ -63,13 +63,13 @@ if(loading && consultants) return <Loader/>;
                   key={i}
                   to={`/consultant/${c.displayName.trim().replace(/\s+/g, '-')}`}
                   state={c}
-                  className="flex items-center p-2  mb-5  "
+                  className="flex p-2 mb-5 "
                 >
-                  <div className="flex flex-col-reverse md:flex-row section w-full mx-auto gap-2  relative">
-                    <div className="md:w-4/6  my-2 md:my-3 ">
+                  {/* <div className="relative flex flex-col-reverse w-full gap-2 mx-auto md:flex-row section">
+                    <div className="my-2 md:w-4/6 md:my-3 ">
                       <p className="mb-3">
                         {c?.selectedDays?.includes(today) ? (
-                          <span className="bg-primary text-white rounded-full px-2 absolute top-2 left-4">
+                          <span className="absolute px-2 text-white rounded-full bg-primary top-2 left-4">
                             Available
                           </span>
                         ) : (
@@ -81,14 +81,9 @@ if(loading && consultants) return <Loader/>;
                         {c.displayName}
                       </h2>
                       <p className="mb-5 text-center md:text-left">{c.designation}</p>
-                      <h2 className="text-[17px] font-bold">Availability</h2>
-                      <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1 mb-2">
-                        {c?.selectedDays?.map((d) => (
-                          <p className="flex items-center gap-1" key={d}>
-                            <FaRegDotCircle /> {d}
-                          </p>
-                        ))}
-                      </p>
+                      
+                      
+                      
                       <h2 className="text-[17px] font-bold">Works With</h2>
                       <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1">
                         {c?.workingWith?.map((d) => (
@@ -99,17 +94,72 @@ if(loading && consultants) return <Loader/>;
                         ))}
                       </p>
 
-                      <button className="btn-black w-full  mt-4 md:hidden">View Profile</button>
+                      <button className="w-full mt-4 btn-black md:hidden">View Profile</button>
                     </div>
-                    <div className="flex flex-col justify-between text-center  ">
+                    <div className="flex flex-col justify-between text-center ">
                       <img
-                        className="w-36 h-36 rounded-full mx-auto mb-2"
+                        className="w-32 h-32 mx-auto mb-2 rounded-full object-fit"
                         src={c.photoURL}
                         alt=""
                       />
-
-                      <button className="btn-black hidden md:block">View Profile</button>
+                      <button className="hidden btn-black md:block">View Profile</button>
                     </div>
+                  </div> */}
+                  <div className="relative flex flex-col w-full gap-2 mx-auto md:flex-col section">
+                    <div className="my-2 md:my-3">
+                      <p className="mb-3">
+                        {c?.selectedDays?.includes(today) ? (
+                          <span className="absolute px-2 text-white rounded-full bg-primary top-2 left-4">
+                            Available
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                      </p>
+                      
+                      <div className="grid grid-cols-4 md:flex md:flex-row">
+                        <div className="col-span-3 md:inline-block md:w-5/6">
+                          <h2 className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] md:text-left font-bold md:my-2">
+                            {c.displayName}
+                          </h2>
+                          <p className="mb-5 md:text-left">{c.designation}, {c.description}</p>
+                          
+                        </div>
+                        <div className="col-span-1 md:w-2/5">
+                          <img
+                          className="inline-block float-right ml-4 rounded-full lg:h-28 lg:w-28 shrink sm:w-28 sm:h-28 object-fit md:w-20 md:h-20"
+                          src={c.photoURL}
+                          alt="consultant image"
+                        />
+                        </div>
+                        
+                      </div>
+                      
+                      {/* <h2 className="text-[17px] font-bold">Availability</h2>
+                      <p className="text-[#515151]/90 flex flex-wrap gap-3 mt-1 mb-2">
+                        {c?.selectedDays?.map((d) => (
+                          <p className="flex items-center gap-1" key={d}>
+                            <FaRegDotCircle /> {d}
+                          </p>
+                        ))}
+                      </p> */}
+                      <h2 className="text-[17px] font-bold">Works With</h2>
+                      <p className=" text-[#515151]/90 flex flex-wrap gap-3 mt-1">
+                        {c?.workingWith?.map((d) => (
+                          <p className="flex items-center gap-1" key={d}>
+                            {" "}
+                            <SiSocketdotio /> {d}
+                          </p>
+                        ))}
+                      </p>
+
+                      <button className="w-full mt-4 btn-black md:hidden">View Profile</button>
+                    </div>
+                    <div className="flex flex-row-reverse justify-between text-center">
+                      <button className="hidden md:float-right btn-black md:block">View Profile</button>
+                    </div>
+                      
+                    
                   </div>
                 </Link>
                 </SwiperSlide>

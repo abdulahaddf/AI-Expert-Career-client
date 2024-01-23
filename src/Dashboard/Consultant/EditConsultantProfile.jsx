@@ -24,7 +24,7 @@ const EditConsultantProfile = () => {
     "Thursday",
     "Friday",
   ];
-  const servicesOptions = ["Research", "Career Consulting", "Project","Corporate Consulting"];
+  const servicesOptions = ["Research (Thesis/Report/Patent)","Career Consultancy","Corporate Consultancy","1:1 Mentorship Program","AI Project (Basic to Advanced)"];
 
   const { control, handleSubmit, getValues } = useForm({
     defaultValues: {

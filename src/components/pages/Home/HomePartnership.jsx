@@ -25,7 +25,7 @@ const HomePartnership = () => {
       <center>
 
       </center>
-      <div className="md:flex hidden items-center justify-center flex-wrap gap-6 mt-[40px]">
+      <div className="md:flex items-center justify-center flex-wrap gap-6 mt-[40px]">
       <Marquee speed={70}>
         {
           partners?.map(p => <div key={p}>

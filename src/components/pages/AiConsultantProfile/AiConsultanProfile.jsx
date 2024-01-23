@@ -100,7 +100,7 @@ const AiConsultanProfile = () => {
             <img
               src={photoURL}
               alt="photo"
-              className="border h-48 w-48 md:w-72 md:h-72 rounded-full p-2 border-dashed border-[#FF0944] object-cover"
+              className="border h-48 w-48 md:w-72 md:h-72 rounded-full p-2 border-dashed border-[#FF0944] object-contain"
             />
           </div>
 
@@ -198,14 +198,14 @@ const AiConsultanProfile = () => {
               <h2 className="text-2xl font-bold mt-7">
                 {language == "bn" ? "সাম্প্রতিক কাজের উদাহরণ" : "Recent Works"}
               </h2>
-              <div className="mt-2 ml-2 section space-y-3">
+              <div className="mt-2 ml-2 space-y-3 section">
                 {recentWorks?.map((r) => (
-                  <div key={r} className="flex  gap-2 ">
-                    <LuNewspaper className="text-lg mt-1" />
+                  <div key={r} className="flex gap-2 ">
+                    <LuNewspaper className="mt-1 text-lg" />
                     <Link
                       to={r?.link}
                       target="_blank"
-                      className="w-11/12 text-lg  "
+                      className="w-11/12 text-lg "
                     >
                       {r?.work}
                     </Link>
@@ -219,11 +219,11 @@ const AiConsultanProfile = () => {
                 <h2 className="text-2xl font-bold mt-[30px]">
                   {language == "bn" ? "সমসাময়িক সফলতাগুলো" : "Recent Success"}
                 </h2>
-                <div className="mt-2 ml-2 section space-y-3">
+                <div className="mt-2 ml-2 space-y-3 section">
                   {successes?.map((s) => (
                     <div key={s}>
                       <p className="flex gap-2">
-                        <IoCheckmarkDoneCircleOutline className="text-xl mt-1" />{" "}
+                        <IoCheckmarkDoneCircleOutline className="mt-1 text-xl" />{" "}
                         <span className="w-11/12 text-lg">{s}</span>
                       </p>
                     </div>
@@ -234,11 +234,11 @@ const AiConsultanProfile = () => {
               <h2 className="text-2xl font-bold mt-[30px]">
                 {language == "bn" ? "অভিজ্ঞতা" : "Experience"}
               </h2>
-              <div className="mt-2 ml-2 section space-y-3">
+              <div className="mt-2 ml-2 space-y-3 section">
                 {experience?.map((e, i) => (
                   <div key={i}>
                     <p className="flex gap-2">
-                      <GrUserExpert className="text-lg mt-1" />  <span className="w-11/12 text-lg">{e}</span>
+                      <GrUserExpert className="mt-1 text-lg" />  <span className="w-11/12 text-lg">{e}</span>
                     </p>
                   </div>
                 ))}
@@ -250,10 +250,10 @@ const AiConsultanProfile = () => {
                   ? "শিক্ষাগত যোগ্যতা"
                   : "Educational Qualification"}
               </h2>
-              <div className="mt-2 ml-2 section space-y-3">
+              <div className="mt-2 ml-2 space-y-3 section">
                 {qualification?.map((q, i) => (
                   <div key={i} >
-                    <p className="flex  gap-2">
+                    <p className="flex gap-2">
                       <GrCatalogOption className="text-[16.5px] mt-[6px]"/>  <span className="w-11/12 text-lg">{q}</span>
                     </p>
                   </div>

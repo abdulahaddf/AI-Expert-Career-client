@@ -41,8 +41,14 @@ const Home = () => {
     <>
       <HeroAria />
       <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
-        {/* <HomeSearch /> */}
         <HomeAbout />
+      </div>
+      
+      {/* <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8"> */}
+      <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl lg:px-8">
+
+        {/* <HomeSearch /> */}
+        
         <HomeCourseSection />
         <Roadmap />
         <HomeConsultantSection />
