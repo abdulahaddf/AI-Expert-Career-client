@@ -37,6 +37,12 @@ email: user?.email,
 displayName: user?.displayName,
 },
 });
+
+const [showhide,setshowhide] = useState('');
+const handlebudget = (event) => {
+  const getoption = event.target.value;
+  setshowhide(getoption);
+}
 const location = useLocation();
 
 const onSubmit = async (data) => {
@@ -47,6 +53,7 @@ phone,
 appointDate,
 appointTime,
 problemType,
+budget,
 fileLink,
 caseSummary,
 urgent,
@@ -61,6 +68,7 @@ phone,
 appointDate,
 appointTime,
 problemType,
+budget,
 fileLink,
 caseSummary,
 urgent,
@@ -235,16 +243,176 @@ return (
         </div>
         <div>
           <label htmlFor="problemType" className="text-xl font-semibold">
-            Type of Problem*
+            Type of Consultancy*
           </label>
-          <select {...register("problemType", { required: true })}
-            className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
+          <select {...register("problemType", { required: true })} value={showhide}
+            className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80" onChange={handlebudget}>
             {workingWith?.map((d) => (
               <option value={d} key={d}>{d}</option>
             ))
             }
           </select>
         </div>
+        {showhide === 'Career Consultancy' && (<input type="hidden" {...register("budget")} value="free" />)}
+    
+        {showhide === 'Research (Thesis/Report/Patent)' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="1000 - 10000 Tk"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="10000 - 20000 Tk"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="21000 - 30000 Tk"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
+
+      {showhide === '1:1 Mentorship Program' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
+
+      {showhide === 'AI Project(Basic to Advanced)' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      } 
+      {showhide === 'Corporate Consultancy' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
         <div>
           <label htmlFor="fileLink" className="text-xl font-semibold">
             Insert a file link (optional)
@@ -319,16 +487,178 @@ return (
       </div>
       <div>
         <label htmlFor="problemType" className="text-xl font-semibold">
-          Type of Problem*
+          Type of consultancy*
         </label>
-        <select {...register("problemType", { required: true })}
-          className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80">
+        <select {...register("problemType", { required: true })} value={showhide} 
+          className="py-3 appearance-none px-4 block w-full mt-4 outline-none border border-[#ED1B24]/80"  onChange={handlebudget}>
+            <option value="select">select</option>
+            
           {workingWith?.map((d) => (
-              <option value={d} key={d}>{d}</option>
+            <option selected="select" value={d} key={d}>{d}</option>
             ))
           }
         </select>
       </div>
+      
+      {showhide === 'Career Consultancy' && (<input type="hidden" {...register("budget")} value="free" />)}
+      {showhide === 'Research (Thesis/Report/Patent)' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="1000 - 10000 Tk"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="10000 - 20000 Tk"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="21000 - 30000 Tk"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
+
+      {showhide === '1:1 Mentorship Program' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
+
+      {showhide === 'AI Project(Basic to Advanced)' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      } 
+      {showhide === 'Corporate Consultancy' &&
+        (
+        <div>
+         <label htmlFor="problemType" className="text-xl font-semibold ">
+          Your Budget*
+        </label>
+          <label className="flex items-center gap-2 mt-4 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            1000 - 10000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            10000 - 20000 Tk
+          </label>
+          <label className="flex items-center gap-2 text-lg ">
+            <input
+              type="radio"
+              {...register("budget")}
+              value="module"
+              className="radio"
+              required
+            />
+            21000 - 30000 Tk
+          </label>
+        </div>
+        )
+      }
       <div>
         <label htmlFor="fileLink" className="text-xl font-semibold">
           Insert a file link (optional)
