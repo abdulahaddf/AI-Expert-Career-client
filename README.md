@@ -41,7 +41,7 @@ AI Expert Career is a comprehensive platform designed for the AI community, prov
 - **Analytics**: React GA4 (Google Analytics)
 - **Additional Tools**: Axios, React Hook Form, SweetAlert2, React Toastify, Swiper, Framer Motion (Lottie).
 
----
+----
 
 ## 📁 Project Structure
 
